@@ -1,0 +1,155 @@
+[
+    {
+        "id": "3641d319e7e1d2e2",
+        "type": "tab",
+        "label": "SCHEDULER",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4d9b413bd616bf39",
+        "type": "junction",
+        "z": "3641d319e7e1d2e2",
+        "x": 340,
+        "y": 140,
+        "wires": [
+            [
+                "26d56cecc7acf575"
+            ]
+        ]
+    },
+    {
+        "id": "3034773b9e0e7f8c",
+        "type": "light-scheduler",
+        "z": "3641d319e7e1d2e2",
+        "settings": "6949c9e55f7caf53",
+        "events": "[{\"start\":{\"dow\":2,\"mod\":440},\"end\":{\"dow\":2,\"mod\":675}},{\"start\":{\"dow\":3,\"mod\":445},\"end\":{\"dow\":3,\"mod\":570}},{\"start\":{\"dow\":5,\"mod\":435},\"end\":{\"dow\":5,\"mod\":920}},{\"start\":{\"dow\":0,\"mod\":500},\"end\":{\"dow\":0,\"mod\":615}},{\"start\":{\"dow\":6,\"mod\":515},\"end\":{\"dow\":6,\"mod\":710}},{\"start\":{\"dow\":1,\"mod\":445},\"end\":{\"dow\":1,\"mod\":680}},{\"start\":{\"dow\":4,\"mod\":360},\"end\":{\"dow\":4,\"mod\":685}}]",
+        "topic": "",
+        "name": "Home Cinema lights",
+        "onPayload": "Lights on in the Home Cinema",
+        "onPayloadType": "str",
+        "offPayload": "Lights on in the Home Cinema",
+        "offPayloadType": "str",
+        "onlyWhenDark": false,
+        "scheduleRndMax": 0,
+        "sunElevationThreshold": 6,
+        "sunShowElevationInStatus": false,
+        "outputfreq": "output.statechange.startup",
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "4d9b413bd616bf39"
+            ]
+        ]
+    },
+    {
+        "id": "26d56cecc7acf575",
+        "type": "function",
+        "z": "3641d319e7e1d2e2",
+        "name": "Prepare",
+        "func": "let module = global.get(\"module\");\nvar payload = msg.payload;\nmsg.payload = {};\nmsg.payload.input = payload;\nmodule.settingsSetValue(\"isSuperScene\", true);\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 140,
+        "wires": [
+            [
+                "cd2c6f885e6f4cde"
+            ]
+        ]
+    },
+    {
+        "id": "cd2c6f885e6f4cde",
+        "type": "delay",
+        "z": "3641d319e7e1d2e2",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "2",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 545,
+        "y": 140,
+        "wires": [
+            [
+                "8d557369b82fba29",
+                "fe66b0b41779d614"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8d557369b82fba29",
+        "type": "link out",
+        "z": "3641d319e7e1d2e2",
+        "name": "NLU QUERY OUT",
+        "links": [
+            "8284a658.4810c8"
+        ],
+        "x": 605,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "fe66b0b41779d614",
+        "type": "debug",
+        "z": "3641d319e7e1d2e2",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 595,
+        "y": 100,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "eb227416b06f57b9",
+        "type": "light-scheduler",
+        "z": "3641d319e7e1d2e2",
+        "settings": "6949c9e55f7caf53",
+        "events": "[{\"start\":{\"dow\":2,\"mod\":440},\"end\":{\"dow\":2,\"mod\":935}},{\"start\":{\"dow\":3,\"mod\":445},\"end\":{\"dow\":3,\"mod\":675}},{\"start\":{\"dow\":5,\"mod\":435},\"end\":{\"dow\":5,\"mod\":920}},{\"start\":{\"dow\":0,\"mod\":500},\"end\":{\"dow\":0,\"mod\":615}},{\"start\":{\"dow\":6,\"mod\":515},\"end\":{\"dow\":6,\"mod\":710}},{\"start\":{\"dow\":1,\"mod\":445},\"end\":{\"dow\":1,\"mod\":930}},{\"start\":{\"dow\":4,\"mod\":360},\"end\":{\"dow\":4,\"mod\":685}},{\"start\":{\"dow\":3,\"mod\":935},\"end\":{\"dow\":3,\"mod\":1050}}]",
+        "topic": "",
+        "name": "Home Cinema temperature",
+        "onPayload": "Set the temperature to 22 degrees in the Home Cinema",
+        "onPayloadType": "str",
+        "offPayload": "Set the temperature to 18 degrees in the Home Cinema",
+        "offPayloadType": "str",
+        "onlyWhenDark": false,
+        "scheduleRndMax": 0,
+        "sunElevationThreshold": 6,
+        "sunShowElevationInStatus": false,
+        "outputfreq": "output.statechange.startup",
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "4d9b413bd616bf39"
+            ]
+        ]
+    },
+    {
+        "id": "6949c9e55f7caf53",
+        "type": "light-scheduler-settings",
+        "name": "my settings",
+        "latitude": "48.8131",
+        "longitude": "2.3641"
+    }
+]
