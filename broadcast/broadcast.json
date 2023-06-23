@@ -1,0 +1,117 @@
+[
+    {
+        "id": "587a7b66e9429cd9",
+        "type": "function",
+        "z": "2697c774.1458b8",
+        "name": "Broadcast msg",
+        "func": "let module = global.get(\"module\");\nlet arrAdapters = module.settingsGetValue(\"msgAdapter\");\nlet language = module.settingsGetValue(\"msgLang\");\n\nmsg.payload = [];\nif(arrAdapters !== undefined){\n    var len = arrAdapters.length;\n    for (var i = 0; i < len; i++) {\n        let payload = module.feedback(language, \"\", \"HELPCALL_Call_For_Help\");   \n        payload.siteId = arrAdapters[i].siteName;\n        msg.payload.push(payload);\n    }\n    return msg;\n}\n\n    ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 980,
+        "wires": [
+            [
+                "3565580ec54fc5c5",
+                "dfda291c660f6d03"
+            ]
+        ]
+    },
+    {
+        "id": "3565580ec54fc5c5",
+        "type": "split",
+        "z": "2697c774.1458b8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 825,
+        "y": 980,
+        "wires": [
+            [
+                "2f14637397ba957b",
+                "2304b459a54932f7"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "2f14637397ba957b",
+        "type": "link out",
+        "z": "2697c774.1458b8",
+        "name": "SPEAKER OUT",
+        "links": [
+            "3bd57099.afbdb8"
+        ],
+        "x": 885,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "32232534d2ea6b3e",
+        "type": "inject",
+        "z": "2697c774.1458b8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 565,
+        "y": 980,
+        "wires": [
+            [
+                "587a7b66e9429cd9"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "dfda291c660f6d03",
+        "type": "debug",
+        "z": "2697c774.1458b8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 815,
+        "y": 1020,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "2304b459a54932f7",
+        "type": "debug",
+        "z": "2697c774.1458b8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 895,
+        "y": 1020,
+        "wires": [],
+        "l": false
+    }
+]
