@@ -1,4 +1,4 @@
-# LogView - Atomatic logging and presentation of DataPoints
+# LogView - Automatic logging and presentation of DataPoints
 ![Dashboard](custom-dashboard.png)
 
 The LogView automatically log any datapoint tagged with '#l', and generates corresponding charts
