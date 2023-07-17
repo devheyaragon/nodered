@@ -1,5 +1,5 @@
 # Powerful and easy-to-use scheduling in Node-RED
-![Calendar](caledar.png)
+![Calendar](calendar.png)
 
 ## Explanation:
 -Mark ON time on the calendar, anything not marked in blue is OFF
