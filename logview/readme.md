@@ -1,6 +1,8 @@
 # LogView - Automatic logging and presentation of DataPoints
 ![Dashboard](custom-dashboard.png)
 
+**Note:** Requires minimum flow version '2023-07-17'
+
 The LogView automatically log any datapoint tagged with '#l', and generates corresponding charts
 This version of the LogView is a Proof-of-concept and only works with the proServ Gateway. 
 PM dev@proknx.com if you're interested in other gateways.
