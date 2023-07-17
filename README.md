@@ -4,3 +4,8 @@
 1. [Broadcast a spoken message](broadcast)
 2. [LogView - Automatic logging and presentation of DataPoints](logview)
 3. [Powerful and easy-to-use scheduling in Node-RED](scheduler)
+
+
+## Sample screenshots
+![Logview](logview/custom-dashboard.png)
+![Calendar](scheduler/calendar.png)
