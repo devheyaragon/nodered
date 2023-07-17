@@ -11,5 +11,5 @@ PM dev@proknx.com if you're interested in other gateways.
 - install Netdata from Node-RED
 - Wait a few minutes
 - Open dashboard, two views are available:
-   1.  [http://<IP>:19999/#menu_sensors](http://<IP>:19999//#menu_sensors) System & Sensors in Netdata dashboard
-   2.  [http://<IP>:19999/sensors.html](http://<IP>:19999/sensors.html) Sensors Netdata dashboard (sensors only)
+   1.  http://<IP-MASTER>:19999//#menu_sensors System & Sensors in Netdata dashboard
+   2.  http://<IP-MASTER>:19999/sensors.html Sensors Netdata dashboard (sensors only)
