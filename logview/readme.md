@@ -8,8 +8,10 @@ PM dev@proknx.com if you're interested in other gateways.
 ## Explanations:
 - in ETS, tag relevant datapoints with '#l' (that is add #l at the end of the name)
 - download and import the netdata.json flow (it will be added as NETDATA tab)
-- install Netdata from Node-RED
+- install Netdata from Node-RED (see the read square in the sreenshot of the flow)
 - Wait a few minutes
 - Open dashboard, two views are available:
    1.  <code>http://IP-MASTER:19999//#menu_sensors</code> System & Sensors in Netdata dashboard
    2.  <code>http://IP-MASTER:19999/sensors.html</code> Sensors Netdata dashboard (sensors only)
+
+![Screenshot Netdata flow](netdata-flow.png)
