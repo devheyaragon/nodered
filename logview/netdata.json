@@ -8,7 +8,7 @@
         "env": []
     },
     {
-        "id": "52d5f56b685dfc97",
+        "id": "d5c5fe291dcd0818",
         "type": "group",
         "z": "cd78f7435e7a5d0b",
         "name": "Netdata for proServ - data collection & presentation",
@@ -16,6 +16,8 @@
             "label": true
         },
         "nodes": [
+            "63c1b68e482bc235",
+            "e54dc1e59db1b4b3",
             "e7c8c69ab0e6f510",
             "9bf091299b963127",
             "49f8d7e64bbe3988",
@@ -56,7 +58,6 @@
             "a2467b91d154660c",
             "c5977858f7e54062",
             "2fc9725329178ef8",
-            "4466da8bf074fce5",
             "bf686198385b4eb3",
             "4e3e3be706265dc6",
             "1b8f3bb7d5413b4a",
@@ -72,8 +73,6 @@
             "36a8d799843cfabc",
             "c297f749427349a5",
             "e763d206114a50ec",
-            "32ed7f79000b1f52",
-            "cae1af915413d8a2",
             "30b3a705acf70aef",
             "bf8b06a677fae77b",
             "f864e430fe07f96a",
@@ -82,7 +81,8 @@
             "010ecd6a1b204e60",
             "41298dbe059da00e",
             "092aec551e034269",
-            "6453954d9100d081"
+            "6453954d9100d081",
+            "731da3a0b3be9123"
         ],
         "x": 114,
         "y": 39,
@@ -90,10 +90,144 @@
         "h": 1282
     },
     {
+        "id": "731da3a0b3be9123",
+        "type": "junction",
+        "z": "cd78f7435e7a5d0b",
+        "g": "d5c5fe291dcd0818",
+        "x": 260,
+        "y": 420,
+        "wires": [
+            [
+                "a753e3c35316e23b"
+            ]
+        ]
+    },
+    {
+        "id": "63c1b68e482bc235",
+        "type": "catch",
+        "z": "cd78f7435e7a5d0b",
+        "g": "d5c5fe291dcd0818",
+        "name": "",
+        "scope": [
+            "608934b501727c13",
+            "4450a2402235069c",
+            "e84db2e07556a222",
+            "b50402b5e2fa3da8",
+            "69fd5d1a1ff9f87a",
+            "59be3f8ab415856c",
+            "0487af959e78a0d9",
+            "3bbff85e6bc7b58b",
+            "b6c1ed35e62d8876",
+            "7471f77544da5980",
+            "afd9c3a18441023c"
+        ],
+        "uncaught": false,
+        "x": 680,
+        "y": 320,
+        "wires": [
+            [
+                "e54dc1e59db1b4b3"
+            ]
+        ]
+    },
+    {
+        "id": "e54dc1e59db1b4b3",
+        "type": "debug",
+        "z": "cd78f7435e7a5d0b",
+        "g": "d5c5fe291dcd0818",
+        "name": "Exception while creating Netdata files",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 795,
+        "y": 320,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "e7c8c69ab0e6f510",
+        "type": "inject",
+        "z": "cd78f7435e7a5d0b",
+        "g": "d5c5fe291dcd0818",
+        "name": "CAREFUL - ONCE only",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9bf091299b963127",
+        "type": "debug",
+        "z": "cd78f7435e7a5d0b",
+        "g": "d5c5fe291dcd0818",
+        "name": "restart netdata",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 695,
+        "y": 240,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "49f8d7e64bbe3988",
+        "type": "exec",
+        "z": "cd78f7435e7a5d0b",
+        "g": "d5c5fe291dcd0818",
+        "command": "wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh --uninstall --non-interactive",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Uninstall netdata",
+        "x": 510,
+        "y": 240,
+        "wires": [
+            [
+                "9bf091299b963127"
+            ],
+            [
+                "9bf091299b963127"
+            ],
+            [
+                "9bf091299b963127"
+            ]
+        ]
+    },
+    {
         "id": "3d49ac856d044cc4",
         "type": "http in",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "",
         "url": "/:zone/:object",
         "method": "get",
@@ -112,9 +246,9 @@
         "id": "bb73744ea4053519",
         "type": "function",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "get url",
-        "func": "let m = msg.req.params;\nlet data = flow.get(\"data\");\nlet module = global.get(\"module\");\nlet gatewayIP = module.settingsGetValue(\"msgProServIP\");\n//node.warn(\"gatewayIP: \"+gatewayIP);\n//node.warn(\"m.zone: \"+m.zone);\n//node.warn(\"m.object: \"+m.object);\n\n//m.zone = m.zone.replace(/[^a-zA-Z0-9 ]/g, ' ');\n//m.object = m.object.replace(/[^a-zA-Z0-9 ]/g, ' ');\nm.zone=m.zone.replace(/_/g,' ');\nm.object=m.object.replace(/_/g,' ');\n\nfor (let i = 0; i < data.length; ++i )\n{\n    if (data[i].zone.toLowerCase() === m.zone.toLowerCase() && data[i].object.toLowerCase() === m.object.toLowerCase()){\n        \n        if (data[i].data == null){\n        \n            msg.url = data[i].url;\n            flow.set(\"number\", i);\n            return [null, msg];\n            \n        }else{\n        \n            msg.payload = data[i].data;\n            return [msg, null];\n            \n        }\n        \n    }\n    \n}\nnode.warn(\"Couldn't find \"+m.object+ \" in \"+m.zone);\nmsg.payload = \"?\";\nreturn [msg, null];\n\n\n",
+        "func": "let m = msg.req.params;\nlet data = flow.get(\"data\");\nlet module = global.get(\"module\");\nlet gatewayIP = module.settingsGetValue(\"msgProServIP\");\n//node.warn(\"gatewayIP: \"+gatewayIP);\n//node.warn(\"m.zone: \"+m.zone);\n//node.warn(\"m.object: \"+m.object);\n\n//m.zone = m.zone.replace(/[^a-zA-Z0-9 ]/g, ' ');\n//m.object = m.object.replace(/[^a-zA-Z0-9 ]/g, ' ');\nm.zone=m.zone.toLowerCase().replaceAll(/[ /]/g, \"_\");\nm.object=m.object.toLowerCase().replaceAll(/[ /]/g, \"_\");\n\nfor (let i = 0; i < data.length; ++i )\n{\n    if (data[i].zone.toLowerCase().replaceAll(/[ /]/g, \"_\") === m.zone && data[i].object.toLowerCase().replaceAll(/[ /]/g, \"_\") === m.object){\n        if (data[i].data == null){\n            msg.url = data[i].url;\n            flow.set(\"number\", i);\n            return [null, msg];\n        } else {\n            msg.payload = data[i].data;\n            return [msg, null];\n        }\n    }\n}\nnode.warn(\"Couldn't find \"+m.object+ \" in \"+m.zone);\nmsg.payload = \"?\";\nreturn [msg, null];\n\n\n",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -137,13 +271,13 @@
         "id": "608934b501727c13",
         "type": "template",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "sensors.chart.py",
         "field": "payload",
         "fieldType": "msg",
         "format": "python",
         "syntax": "mustache",
-        "template": "# -*- coding: utf-8 -*-\n# Description: sensors netdata python.d plugin\n# Author: ahdabelle\n# SPDX-License-Identifier: GPL-3.0-or-later\n\nfrom bases.FrameworkServices.SimpleService import SimpleService\nimport requests\n\nORDER = []\n\nCHARTS = {}\n\nclass Service(SimpleService):\n    def __init__(self, configuration=None, name=None):\n        SimpleService.__init__(self, configuration=configuration, name=name)\n        self.definitions = CHARTS\n\n    @staticmethod\n    def check():\n        return True\n        \n    def verify_charts(self, name, dim, title, units, family, context, chart_type='line', algorithm='absolute', multiplier=1, divisor=1000):\n        \"\"\"Check if chart is defined, add it if not, then add each dimension as needed.\n        \"\"\"\n        config = {'options': [name, title, units, family, context, chart_type]}\n        if name not in self.charts:\n            params = [name] + config['options']\n            self.charts.add_chart(params=params)\n\n        if dim not in self.charts[name]:\n            self.charts[name].add_dimension([dim, dim, algorithm, multiplier, divisor])\n\n\n    def get_data(self):\n        data = dict()\n        \n        dataArray = requests.get(\"http://localhost:1880/allsensors\").json()\n        \n        for i in range (0, len(dataArray)):\n        \n            name_zone = dataArray[i].get('zone').lower().replace(\" \", \"_\")\n            name_object = dataArray[i].get('object').lower().replace(\" \", \"_\")\n            name_unit = dataArray[i].get('unit')\n            \n            dimension_id = name_zone + '_' + name_object\n        \n            self.verify_charts(\n                name = name_object,\n                dim = dimension_id,\n                title = name_object,\n                units = name_unit,\n                family = name_object,\n                context = 'sensors.' + name_object,\n                divisor = 1000\n            )\n            \n            data[dimension_id] = requests.get(\"http://localhost:1880/\" + name_zone + '/' + name_object).json().get('Data')[0].get('Value')*1000\n            \n        return data",
+        "template": "# -*- coding: utf-8 -*-\n# Description: sensors netdata python.d plugin\n# Author: ahdabelle\n# SPDX-License-Identifier: GPL-3.0-or-later\n\nfrom bases.FrameworkServices.SimpleService import SimpleService\nimport requests\n\nORDER = []\n\nCHARTS = {}\n\nclass Service(SimpleService):\n    def __init__(self, configuration=None, name=None):\n        SimpleService.__init__(self, configuration=configuration, name=name)\n        self.definitions = CHARTS\n\n    @staticmethod\n    def check():\n        return True\n        \n    def verify_charts(self, name, dim, title, units, family, context, chart_type='line', algorithm='absolute', multiplier=1, divisor=1000):\n        \"\"\"Check if chart is defined, add it if not, then add each dimension as needed.\n        \"\"\"\n        config = {'options': [name, title, units, family, context, chart_type]}\n        if name not in self.charts:\n            params = [name] + config['options']\n            self.charts.add_chart(params=params)\n\n        if dim not in self.charts[name]:\n            self.charts[name].add_dimension([dim, dim, algorithm, multiplier, divisor])\n\n\n    def get_data(self):\n        data = dict()\n        \n        dataArray = requests.get(\"http://localhost:1880/allsensors\").json()\n        \n        for i in range (0, len(dataArray)):\n        \n            name_zone = dataArray[i].get('zone').lower().replace(\" \", \"_\").replace(\"/\", \"_\")\n            name_object = dataArray[i].get('object').lower().replace(\" \", \"_\").replace(\"/\", \"_\")\n            name_unit = dataArray[i].get('unit')\n            \n            dimension_id = name_zone + '_' + name_object\n        \n            self.verify_charts(\n                name = name_object,\n                dim = dimension_id,\n                title = name_object,\n                units = name_unit,\n                family = name_object,\n                context = 'sensors.' + name_object,\n                divisor = 1000\n            )\n            \n            data[dimension_id] = requests.get(\"http://localhost:1880/\" + name_zone + '/' + name_object).json().get('Data')[0].get('Value')*1000\n            \n        return data",
         "output": "str",
         "x": 640,
         "y": 380,
@@ -157,7 +291,7 @@
         "id": "3a7396e572a0a4a2",
         "type": "debug",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "restart netdata",
         "active": false,
         "tosidebar": true,
@@ -176,7 +310,7 @@
         "id": "4450a2402235069c",
         "type": "file",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "sensors.html",
         "filename": "/tmp/sensors.html",
         "filenameType": "str",
@@ -196,7 +330,7 @@
         "id": "ed765ca750c6593b",
         "type": "function",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "allsensors",
         "func": "let data = flow.get('data');\n\nmsg.payload = data;\n\nreturn msg;",
         "outputs": 1,
@@ -216,7 +350,7 @@
         "id": "15b6586258937114",
         "type": "http in",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "",
         "url": "/allsensors",
         "method": "get",
@@ -234,7 +368,7 @@
         "id": "47d7d6f876a3192a",
         "type": "http response",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -246,7 +380,7 @@
         "id": "e84db2e07556a222",
         "type": "file",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "sensors.chart.py",
         "filename": "/tmp/sensors.chart.py",
         "filenameType": "str",
@@ -266,15 +400,15 @@
         "id": "b50402b5e2fa3da8",
         "type": "exec",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
-        "command": "sudo mv /tmp/sensors.chart.py /usr/libexec/netdata/python.d/sensors.chart.py && sudo chown root /usr/libexec/netdata/python.d/sensors.chart.py",
+        "g": "d5c5fe291dcd0818",
+        "command": "if [ -d \"/usr/libexec/netdata/python.d/\" ]; then sudo mv /tmp/sensors.chart.py /usr/libexec/netdata/python.d/ && sudo chown root /usr/libexec/netdata/python.d/sensors.chart.py; else sudo mv /tmp/sensors.chart.py /opt/netdata/usr/libexec/netdata/python.d/ && sudo chown root /opt/netdata/usr/libexec/netdata/python.d/sensors.chart.py; fi",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "",
+        "name": "Move sensors.chart.py",
         "x": 1075,
         "y": 380,
         "wires": [
@@ -294,7 +428,7 @@
         "id": "39c2e7231a5d10c5",
         "type": "debug",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "sensors.chart.py",
         "active": false,
         "tosidebar": true,
@@ -313,7 +447,7 @@
         "id": "69fd5d1a1ff9f87a",
         "type": "template",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "sensors.conf",
         "field": "payload",
         "fieldType": "msg",
@@ -333,15 +467,15 @@
         "id": "59be3f8ab415856c",
         "type": "exec",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
-        "command": "sudo mv /tmp/sensors.html /var/lib/netdata/www/sensors.html && sudo chown root /var/lib/netdata/www/sensors.html",
+        "g": "d5c5fe291dcd0818",
+        "command": "if [ -d \"/var/lib/netdata/www/\" ]; then sudo mv /tmp/sensors.html /var/lib/netdata/www/ && sudo chown root /var/lib/netdata/www/sensors.html; else sudo mv /tmp/sensors.html /opt/netdata/usr/share/netdata/web/ && sudo chown root /opt/netdata/usr/share/netdata/web/sensors.html; fi",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "",
+        "name": "Move sensors.html",
         "x": 1075,
         "y": 500,
         "wires": [
@@ -361,7 +495,7 @@
         "id": "d781ebbc8f17787a",
         "type": "debug",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "sensors.html",
         "active": false,
         "tosidebar": true,
@@ -380,7 +514,7 @@
         "id": "0487af959e78a0d9",
         "type": "file",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "sensors.conf",
         "filename": "/tmp/sensors.conf",
         "filenameType": "str",
@@ -400,15 +534,15 @@
         "id": "3bbff85e6bc7b58b",
         "type": "exec",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
-        "command": "sudo mv /tmp/sensors.conf /usr/lib/netdata/conf.d/python.d/sensors.conf && sudo chown root /usr/lib/netdata/conf.d/python.d/sensors.conf",
+        "g": "d5c5fe291dcd0818",
+        "command": "if [ -d \"/usr/lib/netdata/conf.d/python.d/\" ]; then sudo mv /tmp/sensors.conf /usr/lib/netdata/conf.d/python.d/ && sudo chown root /usr/lib/netdata/conf.d/python.d/sensors.conf; else sudo mv /tmp/sensors.conf /opt/netdata/usr/lib/netdata/conf.d/python.d/ && sudo chown root /opt/netdata/usr/lib/netdata/conf.d/python.d/sensors.conf; fi",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "",
+        "name": "Move sensors.conf",
         "x": 1075,
         "y": 440,
         "wires": [
@@ -428,8 +562,8 @@
         "id": "2a1cae05055b3528",
         "type": "debug",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
-        "name": "sensors.html",
+        "g": "d5c5fe291dcd0818",
+        "name": "sensors.conf",
         "active": false,
         "tosidebar": true,
         "console": false,
@@ -447,7 +581,7 @@
         "id": "afd9c3a18441023c",
         "type": "exec",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "command": "sudo systemctl restart netdata",
         "addpay": "",
         "append": "",
@@ -474,7 +608,7 @@
         "id": "c2843e8245f22ee7",
         "type": "delay",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "",
         "pauseType": "rate",
         "timeout": "30",
@@ -501,7 +635,7 @@
         "id": "b6c1ed35e62d8876",
         "type": "function",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "sensors.html",
         "func": "let body =  '<!DOCTYPE html>\\n' +\n            '<html lang=\"en\">\\n' +\n            '<head>\\n' +\n              '<title>Your dashboard</title>\\n' +\n            \n              '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\\n' +\n              '<meta charset=\"utf-8\">\\n' +\n              '<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\\n' +\n              '<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n' +\n              '<meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\\n' +\n              '<meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black-translucent\">\\n' +\n            \n            \n            '</head>\\n' +\n            \n            '<script>\\n' +\n           \n            'var netdataTheme = \"slate\";\\n' +\n\n            '</script>\\n' +\n            '<script type=\"text/javascript\" src=\"dashboard.js\"></script>\\n' +\n            '<!--script type=\"text/javascript\" src=\"dashboard.js?v20190902-0\"></script-->\\n' +\n            \n            '<script>\\n' +\n            \n            'NETDATA.options.current.destroy_on_hide = true;\\n' +\n            \n            'NETDATA.options.current.eliminate_zero_dimensions = true;\\n' +\n            \n            'NETDATA.options.current.concurrent_refreshes = false;\\n' +\n\n            'NETDATA.options.current.parallel_refresher = true;\\n' +\n            \n            'var RELOAD_EVERY = 15;\\n' +\n            'setTimeout(function(){\\n' +\n            '    location.reload();\\n' +\n            '}, RELOAD_EVERY * 60 * 1000);\\n' +\n            \n            '</script>\\n' +\n            \n            '<body>\\n' +\n            \n            '<br>\\n' +\n\t        '<br>\\n' +\n            \t\n        \t'<div style=\"width: 100%; height: 15px; text-align: center; display: inline-block;\">\\n' +\n            '<b>Sensors</b><br>\\n' +\n\t\t\t'Readings of the configured system sensors\\n' +\n            '</div>\\n' +\n            \n            '<br>\\n';\n            \nlet anomalies = '<br><br>\\n' +\n            '<div style=\"width: 100%; height: 15px; text-align: center; display: inline-block;\">\\n' +\n            '<b>Anomalies Anomalies</b><br>\\n' +\n\t\t\t'Anomaly scores relating to key system metrics. A high anomaly probability indicates strange behaviour and may trigger an anomaly prediction from the trained models\\n' +\n            '</div>\\n' +\n            \n            \t'<div data-netdata=\"anomalies_Anomalies.probability\"\\n' +\n            \t\t'data-title=\"Anomaly probability\"\\n' +\n            \t\t'data-chart-library=\"dygraph\"\\n' +\n            \t\t'data-height=\"100%\"\\n' +\n                    'data-after=\"-300\"\\n' +\n            \t'></div>\\n' +\n            \t\n        \t    '<br>\\n' +\n            \n            \t'<div data-netdata=\"anomalies_Anomalies.anomaly\"\\n' +\n            \t\t'data-title=\"Anomaly\"\\n' +\n            \t\t'data-chart-library=\"dygraph\"\\n' +\n            \t\t'data-height=\"100%\"\\n' +\n                    'data-after=\"-300\"\\n' +\n            \t'></div>\\n <br>\\n' ;\n            \t\n            \t\n\nlet sensor = msg.payload;            \n            \t\n            \t\t\t\nlet end =   '</body>\\n' +\n            '</html>\\n';\n            \nlet html = body + sensor + end;\n            \nmsg.payload = html;\n\nreturn msg;",
         "outputs": 1,
@@ -522,9 +656,9 @@
         "id": "7471f77544da5980",
         "type": "function",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "sensors.html",
-        "func": "let data = flow.get(\"data\");\nlet html = '';\nlet array = [];\n\nif(data !== undefined){\n    for (let i = 0; i < data.length; ++i )\n    {\n        if(array.includes(data[i].object)){\n            \n        }else{\n            \n            array.push(data[i].object);\n\n            if(data[i].unit===undefined){\n                data[i].unit = \"\";\n            }\n            data[i].unit = data[i].unit.replace('kilo watt per hour', 'kW/h');\n            data[i].unit = data[i].unit.replace('kilo watt par heure', 'kW/h');\n            data[i].unit = data[i].unit.replace('kilo watt', 'kW');\n            data[i].unit = data[i].unit.replace('watt', 'W');\n            data[i].unit = data[i].unit.replace('kilometer per hour', 'km/h');\n            data[i].unit = data[i].unit.replace('°C', 'Celcius');\n            \n            let unitHeader = ' [' + data[i].unit + ']';\n            if (data[i].unit.trim().length===0){\n                unitHeader = ' ';\n            }\n            let header = data[i].object + unitHeader + ' ('+data[i].zone+')';\n            if(data[i].object === data[i].zone){\n                header = data[i].object + ' ' + unitHeader;\n            }\n            let sensorID = data[i].object.toLowerCase().replace(/ /g,'_');\n            \n            html = html + '<div style=\"width: 100%; display: inline-block; padding: 10px;\"><b>' + header +'</b>' +\n                '<div data-netdata=\"sensors.'+ sensorID + '\"\\n' + \n                'data-title=\"\"\\n' + \n                'data-chart-library=\"dygraph\"\\n' + \n                'data-width=\"100%\"\\n' +\n                'data-height=\"150\"\\n' + \n                'data-after=\"-3600\"></div>' + '</div>\\n';\n        }\n    }\n    \n}\n\nmsg.payload = html;\n\nreturn msg;",
+        "func": "let data = flow.get(\"data\");\nlet html = '';\nlet array = [];\n\nif(data !== undefined){\n    for (let i = 0; i < data.length; ++i )\n    {\n        if(array.includes(data[i].object)){\n            \n        }else{\n            \n            array.push(data[i].object);\n\n            if(data[i].unit===undefined){\n                data[i].unit = \"\";\n            }\n            data[i].unit = data[i].unit.replace('kilo watt per hour', 'kW/h');\n            data[i].unit = data[i].unit.replace('kilo watt par heure', 'kW/h');\n            data[i].unit = data[i].unit.replace('kilo watt', 'kW');\n            data[i].unit = data[i].unit.replace('watt', 'W');\n            data[i].unit = data[i].unit.replace('kilometer per hour', 'km/h');\n            data[i].unit = data[i].unit.replace('°C', 'Celcius');\n            \n            let unitHeader = ' [' + data[i].unit + ']';\n            if (data[i].unit.trim().length===0){\n                unitHeader = ' ';\n            }\n            let header = data[i].object + unitHeader + ' ('+data[i].zone+')';\n            if(data[i].object === data[i].zone){\n                header = data[i].object + ' ' + unitHeader;\n            }\n            let sensorID = data[i].object.toLowerCase().replaceAll(/[ /]/g, \"_\");\n            \n            html = html + '<div style=\"width: 100%; display: inline-block; padding: 10px;\"><b>' + header +'</b>' +\n                '<div data-netdata=\"sensors.'+ sensorID + '\"\\n' + \n                'data-title=\"\"\\n' + \n                'data-chart-library=\"dygraph\"\\n' + \n                'data-width=\"100%\"\\n' +\n                'data-height=\"150\"\\n' + \n                'data-after=\"-3600\"></div>' + '</div>\\n';\n        }\n    }\n    \n}\n\nmsg.payload = html;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -542,7 +676,7 @@
         "id": "e884ecb15ecb8d66",
         "type": "debug",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "catch http request",
         "active": true,
         "tosidebar": true,
@@ -560,7 +694,7 @@
         "id": "c69c8e3a215fcef0",
         "type": "catch",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "catch http request",
         "scope": [
             "83f6178cb6523a73"
@@ -578,7 +712,7 @@
         "id": "3011baed31e6db14",
         "type": "debug",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "catch get url",
         "active": true,
         "tosidebar": true,
@@ -596,7 +730,7 @@
         "id": "8c716aadd3e64642",
         "type": "catch",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "catch get url",
         "scope": [
             "bb73744ea4053519",
@@ -615,7 +749,7 @@
         "id": "83f6178cb6523a73",
         "type": "http request",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "",
         "method": "GET",
         "ret": "txt",
@@ -640,7 +774,7 @@
         "id": "e452fdac5690b445",
         "type": "function",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "get url",
         "func": "let data = flow.get(\"data\");\nlet number = flow.get(\"number\");\n\nmsg.url = data[number].url;\n\nreturn msg;\n\n\n",
         "outputs": 1,
@@ -660,7 +794,7 @@
         "id": "dd1d238b993df510",
         "type": "http response",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -672,7 +806,7 @@
         "id": "b0386360cb7b5887",
         "type": "function",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "update data",
         "func": "let data = flow.get(\"data\");\nlet number = flow.get(\"number\");\n\ndata[number].data = msg.payload;\n\nreturn msg;",
         "outputs": 1,
@@ -692,7 +826,7 @@
         "id": "574951c0b3d21af5",
         "type": "function",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "random sensor",
         "func": "let data = flow.get(\"data\");\nif(data===undefined || data.length == undefined || data.length===0){\n    return null;\n}\nlet pre_number = flow.get(\"number\");\nlet number = Math.floor(Math.random()*data.length);\n\nflow.set(\"number\", number);\nnode.warn(\"New number: \"+number+\" (of \"+data.length +\") was:\"+pre_number);\nreturn msg;",
         "outputs": 1,
@@ -713,7 +847,7 @@
         "type": "inject",
         "z": "cd78f7435e7a5d0b",
         "d": true,
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "RANDOM EVERY 2sec",
         "props": [
             {
@@ -739,9 +873,9 @@
         "id": "a753e3c35316e23b",
         "type": "function",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "Build internal device list",
-        "func": "node.warn(\"Build internal device list\")\nlet module = global.get(\"module\");\nlet lang = module.settingsGetValue(\"msgLang\");\nlet gateway = module.settingsGetValue(\"msgGateway\");\nlet gatewayIP = module.settingsGetValue(\"msgProServIP\");\nlet deviceList = module.settingsGetValue(\"msgDeviceList\");\nlet rooms = module.settingsGetValue(\"rooms\");\n\nvar data = [];\n\nif(deviceList !== undefined){\n    for (let j = 0; j < deviceList.length; ++j )\n    {\n        let forceLog = false;\n        if(deviceList[j].unit!==undefined && deviceList[j].unit.toLowerCase().includes(\"watt\")){\n            forceLog = true;\n        }\n        if (deviceList[j].log === true && deviceList[j].type === \"heating\" ){\n            if (!('unit' in deviceList[j])) {\n              deviceList[j].unit = '°C';\n            }\n            \n        }\n\n        if (deviceList[j].log === true || forceLog){\n            let array = {};\n            array['object'] = deviceList[j].object;\n            array['type'] = deviceList[j].type;\n            array['unit'] = deviceList[j].unit;\n            array['url'] = gatewayIP + deviceList[j].currentState.getCurrentUrl;\n            array['zone'] = deviceList[j].zone;\n            data.push(array);\n        }\n    }\n}\n\n\nnode.warn(\"You have \"+data.length+\" datapoints for logging\");\nif(data.length>30 && data.length<60){\n    node.warn(\" > RECOMMENDATION: INCREASE THE DATA COLLECTION INTERVAL TO 2 MINUTES\");\n}\nelse if(data.length>60){\n    node.warn(\" > RECOMMENDATION: INCREASE THE DATA COLLECTION INTERVAL TO 3+ MINUTES\");\n}\n\nflow.set('data',data);\n\nif(msg.error!==undefined){\n    node.warn(\"Hard reset - recreate Netdata files\");\n    msg.payload = data;    \n    return [msg, null];\n} else {\n    node.warn(\"Soft reset - restart Netdata\");\n    return [null, msg];\n}",
+        "func": "node.warn(\"Build internal device list\")\nlet module = global.get(\"module\");\nlet lang = module.settingsGetValue(\"msgLang\");\nlet gateway = module.settingsGetValue(\"msgGateway\");\nlet gatewayIP = module.settingsGetValue(\"msgProServIP\");\nlet deviceList = module.settingsGetValue(\"msgDeviceList\");\nlet rooms = module.settingsGetValue(\"rooms\");\n\nvar data = [];\n\nif(deviceList !== undefined){\n    for (let j = 0; j < deviceList.length; ++j )\n    {\n        let forceLog = false;\n        if(deviceList[j].unit!==undefined && deviceList[j].unit.toLowerCase().includes(\"watt\")){\n            forceLog = true;\n        }\n        if (deviceList[j].log === true && deviceList[j].type === \"heating\" ){\n            if (!('unit' in deviceList[j])) {\n              deviceList[j].unit = '°C';\n            }\n            \n        }\n\n        if (deviceList[j].log === true || forceLog){\n            let array = {};\n            array['object'] = deviceList[j].object;\n            array['type'] = deviceList[j].type;\n            array['unit'] = deviceList[j].unit;\n            array['url'] = gatewayIP + deviceList[j].currentState.getCurrentUrl;\n            array['zone'] = deviceList[j].zone;\n            data.push(array);\n        }\n    }\n}\n\n\nnode.warn(\"You have \"+data.length+\" datapoints for logging\");\nif(data.length>30 && data.length<60){\n    node.warn(\" > RECOMMENDATION: INCREASE THE DATA COLLECTION INTERVAL TO 2 MINUTES\");\n}\nelse if(data.length>60){\n    node.warn(\" > RECOMMENDATION: INCREASE THE DATA COLLECTION INTERVAL TO 3+ MINUTES\");\n}\n\nflow.set('data',data);\n\nif(msg.hardreset!==undefined){\n    node.warn(\"Hard reset - recreate Netdata files\");\n    msg.payload = data;    \n    return [msg, null];\n} else {\n    node.warn(\"Soft reset - restart Netdata\");\n    return [null, msg];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -767,7 +901,7 @@
         "id": "71ec6682d06ac375",
         "type": "switch",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "check if data is not null",
         "property": "payload",
         "propertyType": "msg",
@@ -785,8 +919,8 @@
             [
                 "608934b501727c13",
                 "69fd5d1a1ff9f87a",
-                "7471f77544da5980",
-                "c2843e8245f22ee7"
+                "c2843e8245f22ee7",
+                "7471f77544da5980"
             ]
         ],
         "l": false
@@ -795,7 +929,7 @@
         "id": "9b4b4c83aaaa88e7",
         "type": "debug",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "get url",
         "active": false,
         "tosidebar": true,
@@ -814,7 +948,7 @@
         "id": "a2467b91d154660c",
         "type": "http request",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "",
         "method": "GET",
         "ret": "txt",
@@ -840,7 +974,7 @@
         "id": "c5977858f7e54062",
         "type": "function",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "update data",
         "func": "let data = flow.get(\"data\");\nlet number = flow.get(\"number\");\n\ndata[number].data = msg.payload;\n\nreturn msg;",
         "outputs": 1,
@@ -860,7 +994,7 @@
         "id": "2fc9725329178ef8",
         "type": "debug",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "get url",
         "active": false,
         "tosidebar": true,
@@ -876,41 +1010,29 @@
         "l": false
     },
     {
-        "id": "4466da8bf074fce5",
-        "type": "catch",
-        "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
-        "name": "",
-        "scope": [
-            "32ed7f79000b1f52"
-        ],
-        "uncaught": false,
-        "x": 265,
-        "y": 460,
-        "wires": [
-            [
-                "a753e3c35316e23b"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "bf686198385b4eb3",
         "type": "inject",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "HARD reset (recreat charts)",
-        "props": [],
+        "props": [
+            {
+                "p": "hardreset",
+                "v": "true",
+                "vt": "bool"
+            }
+        ],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": "120",
         "topic": "",
         "x": 185,
-        "y": 560,
+        "y": 520,
         "wires": [
             [
-                "1b8f3bb7d5413b4a"
+                "1b8f3bb7d5413b4a",
+                "731da3a0b3be9123"
             ]
         ],
         "l": false
@@ -919,60 +1041,19 @@
         "id": "4e3e3be706265dc6",
         "type": "comment",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "Netdata - readme",
-        "info": "Automatic logging and presentation of proServ sensors (#l data points) plus any energy-related datapoint\n\nStep 1: install Netdata from Node-RED\n\nStep 2: Wait a few minutes\n\nStep 3: Open dashboard\nTwo presentations available:\n 1.  [http://<IP>:19999/#menu_sensors](http://<IP>:19999//#menu_sensors) System & Sensors in Netdata dashboard\n 2.  [http://<IP>:19999/sensors.html](http://<IP>:19999/sensors.html) Sensors Netdata dashboard (sensors only)\n\nHistory:\n2023-07-15: Alpha /// Proof of concept\n\nHow data collection works:\nThe data collection (reading the datapoints from the gateway) is asynchronous. The values are read and stored internally in a flow variable. The values are collected once per minute (default) or randomly (you need to modify). In the case you have more than ~40 datapoints, you should increase the reading interval to two minutes.\nIndependent of the data collection, Netdata queries this flow for values (cached in flow variable).  \n(Tread safetty: In Javascript/Node-RED there are no threads, JavaScript is single threaded, it's impossible for two javascript statements to run at the same time.)\n\nDev notes:\nsensors.chart.py : create a dynamic collector with python.d plugin\n\nsensors.conf : the configuration file for sensors.chart.py\n\nsensors.html : a web interface to view graphs of all sensors, [http://lcoalhost:19999/sensors.html](http://lcoalhost:19999/sensors.html). The file is automatically generated in node-red from the list of existing sensors in the gateway\n\nTODO:\nanomalies.conf : anomalies.chart.py file already needs configure the charts for which to extract data,  replace **chart_regex : \"sensors.*\"** as the dynamic charts are called sensors.<sensor_name>. It will detect all anomalies from all sensor charts\n\n",
+        "info": "Automatic logging and presentation of proServ sensors (#l data points) plus any energy-related datapoint\n\nBefore: in ETS, tag relevant datapoints with '#l'\n\nStep 1: install Netdata from Node-RED -ready when { code: 0 } in debug window\n\nStep 2: Select HARD reset and Wait a few minutes\n\nStep 3: Open dashboard\nTwo presentations available:\n 1.  [http://<IP>:19999/#menu_sensors](http://<IP>:19999//#menu_sensors) System & Sensors in Netdata dashboard\n 2.  [http://<IP>:19999/sensors.html](http://<IP>:19999/sensors.html) Sensors Netdata dashboard (sensors only)\n\nHistory:\n2023-07-18: Added alternative Netdata installation folders\n2023-07-15: Alpha /// Proof of concept\n\nHow data collection works:\nThe data collection (reading the datapoints from the gateway) is asynchronous. The values are read and stored internally in a flow variable. The values are collected once per minute (default) or randomly (you need to modify). In the case you have more than ~40 datapoints, you should increase the reading interval to two minutes.\nIndependent of the data collection, Netdata queries this flow for values (cached in flow variable).  \n(Tread safetty: In Javascript/Node-RED there are no threads, JavaScript is single threaded, it's impossible for two javascript statements to run at the same time.)\n\nDev notes:\nsensors.chart.py : create a dynamic collector with python.d plugin\n\nsensors.conf : the configuration file for sensors.chart.py\n\nsensors.html : a web interface to view graphs of all sensors, [http://lcoalhost:19999/sensors.html](http://lcoalhost:19999/sensors.html). The file is automatically generated in node-red from the list of existing sensors in the gateway\n\nTODO:\nanomalies.conf : anomalies.chart.py file already needs configure the charts for which to extract data,  replace **chart_regex : \"sensors.*\"** as the dynamic charts are called sensors.<sensor_name>. It will detect all anomalies from all sensor charts\n\n",
         "x": 220,
         "y": 80,
         "wires": []
     },
     {
-        "id": "32ed7f79000b1f52",
-        "type": "file in",
-        "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
-        "name": "check if the file exists",
-        "filename": "/var/lib/netdata/www/sensors.html",
-        "filenameType": "str",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "encoding": "none",
-        "allProps": false,
-        "x": 325,
-        "y": 560,
-        "wires": [
-            []
-        ],
-        "l": false
-    },
-    {
-        "id": "cae1af915413d8a2",
-        "type": "inject",
-        "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
-        "name": "First time - auto create charts",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "10",
-        "topic": "",
-        "x": 245,
-        "y": 600,
-        "wires": [
-            [
-                "32ed7f79000b1f52"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "1b8f3bb7d5413b4a",
         "type": "exec",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
-        "command": "sudo rm -f /var/lib/netdata/www/sensors.html",
+        "g": "d5c5fe291dcd0818",
+        "command": "sudo rm -f /var/lib/netdata/www/sensors.html && sudo rm -f /opt/netdata/usr/share/netdata/web/sensors.html",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -981,11 +1062,9 @@
         "oldrc": false,
         "name": "",
         "x": 245,
-        "y": 560,
+        "y": 520,
         "wires": [
-            [
-                "32ed7f79000b1f52"
-            ],
+            [],
             [],
             []
         ],
@@ -995,7 +1074,7 @@
         "id": "fbfd7856500c2b2c",
         "type": "debug",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "debug 14",
         "active": false,
         "tosidebar": true,
@@ -1014,7 +1093,7 @@
         "id": "66bba194a41eecc6",
         "type": "debug",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "debug 15",
         "active": false,
         "tosidebar": true,
@@ -1033,7 +1112,7 @@
         "id": "45111822a1b3f69c",
         "type": "debug",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "debug 16",
         "active": false,
         "tosidebar": true,
@@ -1052,7 +1131,7 @@
         "id": "f0c28a4823adb4de",
         "type": "exec",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "command": "",
         "addpay": "payload",
         "append": "",
@@ -1079,7 +1158,7 @@
         "id": "bdcb8826881b372d",
         "type": "inject",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "STOP",
         "props": [
             {
@@ -1105,7 +1184,7 @@
         "id": "3350c206a3e6f573",
         "type": "inject",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "START",
         "props": [
             {
@@ -1131,7 +1210,7 @@
         "id": "9c5caaacd6fbd24f",
         "type": "inject",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "DATA COLLECTION INTERVAL",
         "props": [
             {
@@ -1157,7 +1236,7 @@
         "id": "0e5ab278ead6ca8f",
         "type": "split",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -1178,7 +1257,7 @@
         "id": "fa6c2ca1293e30e5",
         "type": "delay",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -1205,7 +1284,7 @@
         "id": "36a8d799843cfabc",
         "type": "function",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "all sensors",
         "func": "let data = flow.get(\"data\");\nif(data===undefined || data.length == undefined || data.length===0){\n    return null;\n}\nvar numberArray = [];\nfor (var i = 0; i < data.length; i++) {\nnumberArray.push(i);\n}\nmsg.payload = numberArray;\nreturn msg;",
         "outputs": 1,
@@ -1226,7 +1305,7 @@
         "id": "c297f749427349a5",
         "type": "function",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "all sensors",
         "func": "flow.set(\"number\", msg.payload);\n//node.warn(\"New number: \"+msg.payload);\nreturn msg;",
         "outputs": 1,
@@ -1247,7 +1326,7 @@
         "id": "e763d206114a50ec",
         "type": "inject",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "SOFT reset & Start-up",
         "props": [],
         "repeat": "",
@@ -1259,7 +1338,7 @@
         "y": 420,
         "wires": [
             [
-                "a753e3c35316e23b"
+                "731da3a0b3be9123"
             ]
         ],
         "l": false
@@ -1268,7 +1347,7 @@
         "id": "30b3a705acf70aef",
         "type": "comment",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "SOFT reset",
         "info": "Recreates internal data and Restarts Netdata ",
         "x": 210,
@@ -1279,18 +1358,18 @@
         "id": "bf8b06a677fae77b",
         "type": "comment",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "HARD reset",
         "info": "Recreates internal data, charts and Restarts Netdata ",
         "x": 210,
-        "y": 520,
+        "y": 480,
         "wires": []
     },
     {
         "id": "f864e430fe07f96a",
         "type": "comment",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "Data collection - every minute (default) or random (every 2 sec)",
         "info": "Enable the preferred data collection method.\n",
         "x": 390,
@@ -1301,7 +1380,7 @@
         "id": "f7ca4af255e6fe49",
         "type": "comment",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "Netdata query end-point",
         "info": "",
         "x": 260,
@@ -1309,10 +1388,57 @@
         "wires": []
     },
     {
+        "id": "a2471ce665c3a0a2",
+        "type": "inject",
+        "z": "cd78f7435e7a5d0b",
+        "g": "d5c5fe291dcd0818",
+        "name": "CAREFUL - ONCE only",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "010ecd6a1b204e60",
+        "type": "debug",
+        "z": "cd78f7435e7a5d0b",
+        "g": "d5c5fe291dcd0818",
+        "name": "restart netdata",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 695,
+        "y": 180,
+        "wires": [],
+        "l": false
+    },
+    {
         "id": "41298dbe059da00e",
         "type": "exec",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "command": "wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh --no-updates --stable-channel --disable-telemetry --non-interactive",
         "addpay": "",
         "append": "",
@@ -1336,131 +1462,10 @@
         ]
     },
     {
-        "id": "010ecd6a1b204e60",
-        "type": "debug",
-        "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
-        "name": "restart netdata",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 695,
-        "y": 180,
-        "wires": [],
-        "l": false
-    },
-    {
-        "id": "a2471ce665c3a0a2",
-        "type": "inject",
-        "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
-        "name": "CAREFUL - ONCE only",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 280,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "49f8d7e64bbe3988",
-        "type": "exec",
-        "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
-        "command": "wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh --uninstall --non-interactive",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "Uninstall netdata",
-        "x": 510,
-        "y": 240,
-        "wires": [
-            [
-                "9bf091299b963127"
-            ],
-            [
-                "9bf091299b963127"
-            ],
-            [
-                "9bf091299b963127"
-            ]
-        ]
-    },
-    {
-        "id": "9bf091299b963127",
-        "type": "debug",
-        "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
-        "name": "restart netdata",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 695,
-        "y": 240,
-        "wires": [],
-        "l": false
-    },
-    {
-        "id": "e7c8c69ab0e6f510",
-        "type": "inject",
-        "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
-        "name": "CAREFUL - ONCE only",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 280,
-        "y": 240,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "092aec551e034269",
         "type": "comment",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "Step 1: Wire and start installation, it will take a minute to complete. Should finish with { code: 0 } in debug window",
         "info": "",
         "x": 520,
@@ -1471,7 +1476,7 @@
         "id": "6453954d9100d081",
         "type": "debug",
         "z": "cd78f7435e7a5d0b",
-        "g": "52d5f56b685dfc97",
+        "g": "d5c5fe291dcd0818",
         "name": "restart netdata",
         "active": false,
         "tosidebar": true,
