@@ -82,7 +82,9 @@
             "41298dbe059da00e",
             "092aec551e034269",
             "6453954d9100d081",
-            "731da3a0b3be9123"
+            "731da3a0b3be9123",
+            "a93e8cad1bdf4014",
+            "e601a80c3e26adca"
         ],
         "x": 114,
         "y": 39,
@@ -229,11 +231,11 @@
         "z": "cd78f7435e7a5d0b",
         "g": "d5c5fe291dcd0818",
         "name": "",
-        "url": "/:zone/:object",
+        "url": "/netdata/:zone/:object",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 250,
+        "x": 270,
         "y": 1060,
         "wires": [
             [
@@ -263,7 +265,7 @@
             ],
             [
                 "45111822a1b3f69c",
-                "a2467b91d154660c"
+                "a93e8cad1bdf4014"
             ]
         ]
     },
@@ -277,7 +279,7 @@
         "fieldType": "msg",
         "format": "python",
         "syntax": "mustache",
-        "template": "# -*- coding: utf-8 -*-\n# Description: sensors netdata python.d plugin\n# Author: ahdabelle\n# SPDX-License-Identifier: GPL-3.0-or-later\n\nfrom bases.FrameworkServices.SimpleService import SimpleService\nimport requests\n\nORDER = []\n\nCHARTS = {}\n\nclass Service(SimpleService):\n    def __init__(self, configuration=None, name=None):\n        SimpleService.__init__(self, configuration=configuration, name=name)\n        self.definitions = CHARTS\n\n    @staticmethod\n    def check():\n        return True\n        \n    def verify_charts(self, name, dim, title, units, family, context, chart_type='line', algorithm='absolute', multiplier=1, divisor=1000):\n        \"\"\"Check if chart is defined, add it if not, then add each dimension as needed.\n        \"\"\"\n        config = {'options': [name, title, units, family, context, chart_type]}\n        if name not in self.charts:\n            params = [name] + config['options']\n            self.charts.add_chart(params=params)\n\n        if dim not in self.charts[name]:\n            self.charts[name].add_dimension([dim, dim, algorithm, multiplier, divisor])\n\n\n    def get_data(self):\n        data = dict()\n        \n        dataArray = requests.get(\"http://localhost:1880/allsensors\").json()\n        \n        for i in range (0, len(dataArray)):\n        \n            name_zone = dataArray[i].get('zone').lower().replace(\" \", \"_\").replace(\"/\", \"_\")\n            name_object = dataArray[i].get('object').lower().replace(\" \", \"_\").replace(\"/\", \"_\")\n            name_unit = dataArray[i].get('unit')\n            \n            dimension_id = name_zone + '_' + name_object\n        \n            self.verify_charts(\n                name = name_object,\n                dim = dimension_id,\n                title = name_object,\n                units = name_unit,\n                family = name_object,\n                context = 'sensors.' + name_object,\n                divisor = 1000\n            )\n            \n            data[dimension_id] = requests.get(\"http://localhost:1880/\" + name_zone + '/' + name_object).json().get('Data')[0].get('Value')*1000\n            \n        return data",
+        "template": "# -*- coding: utf-8 -*-\n# Description: sensors netdata python.d plugin\n# Author: ahdabelle\n# SPDX-License-Identifier: GPL-3.0-or-later\n\nfrom bases.FrameworkServices.SimpleService import SimpleService\nimport requests\n\nORDER = []\n\nCHARTS = {}\n\nclass Service(SimpleService):\n    def __init__(self, configuration=None, name=None):\n        SimpleService.__init__(self, configuration=configuration, name=name)\n        self.definitions = CHARTS\n\n    @staticmethod\n    def check():\n        return True\n        \n    def verify_charts(self, name, dim, title, units, family, context, chart_type='line', algorithm='absolute', multiplier=1, divisor=1000):\n        \"\"\"Check if chart is defined, add it if not, then add each dimension as needed.\n        \"\"\"\n        config = {'options': [name, title, units, family, context, chart_type]}\n        if name not in self.charts:\n            params = [name] + config['options']\n            self.charts.add_chart(params=params)\n\n        if dim not in self.charts[name]:\n            self.charts[name].add_dimension([dim, dim, algorithm, multiplier, divisor])\n\n\n    def get_data(self):\n        data = dict()\n        \n        dataArray = requests.get(\"http://localhost:1880/netdata/allsensors\").json()\n        \n        for i in range (0, len(dataArray)):\n        \n            name_zone = dataArray[i].get('zone').lower().replace(\" \", \"_\").replace(\"/\", \"_\")\n            name_object = dataArray[i].get('object').lower().replace(\" \", \"_\").replace(\"/\", \"_\")\n            name_unit = dataArray[i].get('unit')\n            \n            dimension_id = name_zone + '_' + name_object\n        \n            self.verify_charts(\n                name = name_object,\n                dim = dimension_id,\n                title = name_object,\n                units = name_unit,\n                family = name_object,\n                context = 'sensors.' + name_object,\n                divisor = 1000\n            )\n            \n            data[dimension_id] = requests.get(\"http://localhost:1880/netdata/\" + name_zone + '/' + name_object).json().get('Data')[0].get('Value')*1000\n            \n        return data",
         "output": "str",
         "x": 640,
         "y": 380,
@@ -352,11 +354,11 @@
         "z": "cd78f7435e7a5d0b",
         "g": "d5c5fe291dcd0818",
         "name": "",
-        "url": "/allsensors",
+        "url": "/netdata/allsensors",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 240,
+        "x": 260,
         "y": 875,
         "wires": [
             [
@@ -453,7 +455,7 @@
         "fieldType": "msg",
         "format": "yaml",
         "syntax": "mustache",
-        "template": "# netdata python.d.plugin configuration for sensors\n#\n# This file is in YaML format. Generally the format is:\n#\n# name: value\n#\n\n# ----------------------------------------------------------------------\n# Global Variables\n# These variables set the defaults for all JOBs, however each JOB\n# may define its own, overriding the defaults.\n\n# update_every sets the default data collection frequency.\n# If unset, the python.d.plugin default is used.\nupdate_every: 1\n\n# priority controls the order of charts at the netdata dashboard.\n# Lower numbers move the charts towards the top of the page.\n# If unset, the default for python.d.plugin is used.\n# priority: 60000\n\n# penalty indicates whether to apply penalty to update_every in case of failures.\n# Penalty will increase every 5 failed updates in a row. Maximum penalty is 10 minutes.\n# penalty: yes\n\n# autodetection_retry sets the job re-check interval in seconds.\n# The job is not deleted if check fails.\n# Attempts to start the job are made once every autodetection_retry.\n# This feature is disabled by default.\n# autodetection_retry: 0\n",
+        "template": "# netdata python.d.plugin configuration for sensors\n#\n# This file is in YaML format. Generally the format is:\n#\n# name: value\n#\n\n# ----------------------------------------------------------------------\n# Global Variables\n# These variables set the defaults for all JOBs, however each JOB\n# may define its own, overriding the defaults.\n\n# update_every sets the default data collection frequency.\n# If unset, the python.d.plugin default is used.\nupdate_every: 5\n\n# priority controls the order of charts at the netdata dashboard.\n# Lower numbers move the charts towards the top of the page.\n# If unset, the default for python.d.plugin is used.\n# priority: 60000\n\n# penalty indicates whether to apply penalty to update_every in case of failures.\n# Penalty will increase every 5 failed updates in a row. Maximum penalty is 10 minutes.\n# penalty: yes\n\n# autodetection_retry sets the job re-check interval in seconds.\n# The job is not deleted if check fails.\n# Attempts to start the job are made once every autodetection_retry.\n# This feature is disabled by default.\n# autodetection_retry: 0\n",
         "output": "str",
         "x": 630,
         "y": 440,
@@ -962,8 +964,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 660,
-        "y": 1085,
+        "x": 670,
+        "y": 1080,
         "wires": [
             [
                 "dd1d238b993df510",
@@ -1081,8 +1083,8 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
         "x": 425,
@@ -1115,11 +1117,11 @@
         "z": "cd78f7435e7a5d0b",
         "g": "d5c5fe291dcd0818",
         "name": "debug 16",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
+        "complete": "url",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
@@ -1479,7 +1481,7 @@
         "z": "cd78f7435e7a5d0b",
         "g": "d5c5fe291dcd0818",
         "name": "restart netdata",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1491,5 +1493,43 @@
         "y": 1260,
         "wires": [],
         "l": false
+    },
+    {
+        "id": "a93e8cad1bdf4014",
+        "type": "delay",
+        "z": "cd78f7435e7a5d0b",
+        "g": "d5c5fe291dcd0818",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 555,
+        "y": 1080,
+        "wires": [
+            [
+                "a2467b91d154660c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "e601a80c3e26adca",
+        "type": "comment",
+        "z": "cd78f7435e7a5d0b",
+        "g": "d5c5fe291dcd0818",
+        "name": "History",
+        "info": "2023-07-30: \n- Prefixed Netdata uery end-point and data colelction url with '/netdata/'\n- Reduced update frequency, interval set to 5sec (was:1 sec)\n\n2023-07-17: \n- First version",
+        "x": 390,
+        "y": 80,
+        "wires": []
     }
 ]
