@@ -1,0 +1,258 @@
+[
+    {
+        "id": "3641d319e7e1d2e2",
+        "type": "tab",
+        "label": "ASR_NLU_TEST",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4d9b413bd616bf39",
+        "type": "junction",
+        "z": "3641d319e7e1d2e2",
+        "x": 380,
+        "y": 140,
+        "wires": [
+            [
+                "26d56cecc7acf575"
+            ]
+        ]
+    },
+    {
+        "id": "26d56cecc7acf575",
+        "type": "function",
+        "z": "3641d319e7e1d2e2",
+        "name": "Prepare",
+        "func": "let module = global.get(\"module\");\nlet payload = msg.payload;\nmsg.payload = {};\nmsg.payload.input = payload;\nif(msg.siteId !== undefined){\n    msg.payload.siteId = msg.siteId;\n}\nmodule.settingsSetValue(\"isSuperScene\", true);\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 140,
+        "wires": [
+            [
+                "cd2c6f885e6f4cde"
+            ]
+        ]
+    },
+    {
+        "id": "cd2c6f885e6f4cde",
+        "type": "delay",
+        "z": "3641d319e7e1d2e2",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "2",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 625,
+        "y": 140,
+        "wires": [
+            [
+                "8d557369b82fba29",
+                "fe66b0b41779d614"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8d557369b82fba29",
+        "type": "link out",
+        "z": "3641d319e7e1d2e2",
+        "name": "NLU QUERY OUT",
+        "links": [
+            "8284a658.4810c8"
+        ],
+        "x": 685,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "fe66b0b41779d614",
+        "type": "debug",
+        "z": "3641d319e7e1d2e2",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 675,
+        "y": 100,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "e404c989cc4f5f2e",
+        "type": "inject",
+        "z": "3641d319e7e1d2e2",
+        "name": "Lights on in the Bedroom",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Lights on in the Bedroom",
+        "payloadType": "str",
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "4d9b413bd616bf39"
+            ]
+        ]
+    },
+    {
+        "id": "5ed2d74951149edf",
+        "type": "inject",
+        "z": "3641d319e7e1d2e2",
+        "name": "Lights off in the Bedroom",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Lights off in the Bedroom",
+        "payloadType": "str",
+        "x": 170,
+        "y": 160,
+        "wires": [
+            [
+                "4d9b413bd616bf39"
+            ]
+        ]
+    },
+    {
+        "id": "7fa22bd26273b699",
+        "type": "inject",
+        "z": "3641d319e7e1d2e2",
+        "name": "What is the state ?",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "siteId",
+                "v": "Living Room",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "What is the state of the lights in the Bedroom ",
+        "payloadType": "str",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "4d9b413bd616bf39"
+            ]
+        ]
+    },
+    {
+        "id": "b7f41a654943ccb2",
+        "type": "comment",
+        "z": "3641d319e7e1d2e2",
+        "name": "README Query & Media",
+        "info": "You need to specify the Satellite's msg.siteId where the response should be spoken!\n",
+        "x": 310,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "80326d05512a5b24",
+        "type": "inject",
+        "z": "3641d319e7e1d2e2",
+        "name": "Play softer",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "siteId",
+                "v": "Living Room",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Play softer",
+        "payloadType": "str",
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "4d9b413bd616bf39"
+            ]
+        ]
+    },
+    {
+        "id": "4ae04328829ae970",
+        "type": "inject",
+        "z": "3641d319e7e1d2e2",
+        "name": "Play louder",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "siteId",
+                "v": "Living Room",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Play louder",
+        "payloadType": "str",
+        "x": 120,
+        "y": 300,
+        "wires": [
+            [
+                "4d9b413bd616bf39"
+            ]
+        ]
+    },
+    {
+        "id": "9f08728f80a1a074",
+        "type": "comment",
+        "z": "3641d319e7e1d2e2",
+        "name": "README",
+        "info": "This flow showcases the process of injecting a voice command (in the form of a string) to be processed by the ASR and NLU components, and then executed.\n\nPlease note that the siteId must be set for the Query as well as for the media commands",
+        "x": 100,
+        "y": 40,
+        "wires": []
+    }
+]
