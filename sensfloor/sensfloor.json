@@ -1,0 +1,737 @@
+[
+    {
+        "id": "3641d319e7e1d2e2",
+        "type": "tab",
+        "label": "SENSFLOOR",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c0d02fc77b10b6ad",
+        "type": "group",
+        "z": "3641d319e7e1d2e2",
+        "name": "sensfloor",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "af7bf501.c78df8",
+            "e6c9a6a24558bd84",
+            "d22f2c02225ac6a0",
+            "686998219db0c584",
+            "fe9a91366f1a768d",
+            "fa486a04d96fb6aa",
+            "bd0ec345f211beb0",
+            "41dc41e2df138ad4",
+            "b35ccc3e32297682",
+            "7dafbe151ee70e9d",
+            "cc77ac802f4b6b20",
+            "98e6dbee0471868a",
+            "fd199e29b6045325",
+            "52f1c78f23d7856b",
+            "7ca3bc15fdac72ce",
+            "f1a24ba369f01977",
+            "87b2e6998d276414",
+            "7d22bb0c8ffcea57",
+            "53ef7f40cba1def7",
+            "036d1d9ff7e369c8",
+            "e0148c12806c28f4",
+            "457a60af8ec72020",
+            "d4e7a957dbcc604b",
+            "050b98f791f01eeb",
+            "14f46a9d6b3d3db0",
+            "c563c83acd2e8d41",
+            "3b01c1ff34084d76",
+            "8d168a94bbd89556"
+        ],
+        "x": 24,
+        "y": 19,
+        "w": 602,
+        "h": 502
+    },
+    {
+        "id": "db5c3b7cb461c371",
+        "type": "group",
+        "z": "3641d319e7e1d2e2",
+        "name": "automatic cmd ",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "26d56cecc7acf575",
+            "cd2c6f885e6f4cde",
+            "fe66b0b41779d614",
+            "93c1311cf5573227",
+            "302787a8e9054c66",
+            "3551f19fc1e44906"
+        ],
+        "x": 694,
+        "y": 19,
+        "w": 492,
+        "h": 142
+    },
+    {
+        "id": "26d56cecc7acf575",
+        "type": "function",
+        "z": "3641d319e7e1d2e2",
+        "g": "db5c3b7cb461c371",
+        "name": "Prepare",
+        "func": "let module = global.get(\"module\");\nlet payload = msg.payload;\nmsg.payload = {};\nmsg.payload.input = payload;\nif(msg.siteId !== undefined){\n    msg.payload.siteId = msg.siteId;\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 120,
+        "wires": [
+            [
+                "cd2c6f885e6f4cde"
+            ]
+        ]
+    },
+    {
+        "id": "cd2c6f885e6f4cde",
+        "type": "delay",
+        "z": "3641d319e7e1d2e2",
+        "g": "db5c3b7cb461c371",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "2",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 945,
+        "y": 120,
+        "wires": [
+            [
+                "fe66b0b41779d614",
+                "3551f19fc1e44906"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "fe66b0b41779d614",
+        "type": "debug",
+        "z": "3641d319e7e1d2e2",
+        "g": "db5c3b7cb461c371",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 995,
+        "y": 80,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "93c1311cf5573227",
+        "type": "link in",
+        "z": "3641d319e7e1d2e2",
+        "g": "db5c3b7cb461c371",
+        "name": "sensfloor cmd in",
+        "links": [
+            "e0148c12806c28f4"
+        ],
+        "x": 735,
+        "y": 120,
+        "wires": [
+            [
+                "26d56cecc7acf575"
+            ]
+        ]
+    },
+    {
+        "id": "302787a8e9054c66",
+        "type": "comment",
+        "z": "3641d319e7e1d2e2",
+        "g": "db5c3b7cb461c371",
+        "name": "README",
+        "info": "This flow receive the commands from the sensfloor group and send them to the Speech To Text\n",
+        "x": 780,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "af7bf501.c78df8",
+        "type": "comment",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "SenseFloor (here user and pw skyresponse stories)",
+        "info": "User1 Skyresponse: assistant de stories\npw: assistant\n\nUser2 Skyresponse: stories\npw: ...Asc..",
+        "x": 410,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e6c9a6a24558bd84",
+        "type": "function",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "Ask if user is OK",
+        "func": "let module = global.get(\"module\");\nlet language = module.settingsGetValue(\"msgLang\");\n//let siteId = \"Default\";\nlet siteId = \"Chambre\";\nif(msg.payload.siteId !== undefined){\n    siteId = msg.payload.siteId;\n}\n\nglobal.set(\"helpCallTrigger\",\"floor\");\nlet text = null;\ncustomData = \"{\\\"intent\\\":{\\\"intentName\\\":\\\"ProKNX:helpCall\\\",\\\"confidenceScore\\\":1}}\";\nif (language === \"de\") {\n    if(text===null){\n        text = \"Wichtige Nachricht! Es sieht so aus, als wären Sie gestürzt, ich solle um Hilfe rufen?\";\n    }    \n\tmsg.payload = {\n    \t\"siteId\": siteId ,\n    \t\"customData\": customData,\n    \t\"init\" : {\"type\":\"action\", \"text\": text, \"canBeEnqueued\": false,\"intentFilter\": [\"ProKNX:confirmAction\",\"ProKNX:cancelAction\"]}\n\t};\n} else if (language === \"fr\") {\n    if(text===null){\n        text = \"Message important! il semblerait que vous êtes tombé, dois-je appeler de l'aide ?\";\n    }    \n    msg.payload = {\n    \t\"siteId\": siteId,\n    \t\"customData\": customData,\n    \t\"init\" : {\"type\":\"action\", \"text\": text, \"canBeEnqueued\": false,\"intentFilter\": [\"ProKNX:confirmAction\",\"ProKNX:cancelAction\"]}\n\t};\n} else {\n    if(text===null){\n        text = \"Important message! it seems like you fell , shall I call for help?\";\n    }\n\tmsg.payload = {\n\t\t\"siteId\": siteId,\n    \t\"customData\": customData,\n    \t\"init\" : {\"type\":\"action\", \"text\": text, \"canBeEnqueued\": false,\"intentFilter\": [\"ProKNX:confirmAction\",\"ProKNX:cancelAction\"]}\n\t};\n}\nflow.set(\"waitingForReply\", true);\nreturn msg;\n    \n\n    \n \n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 160,
+        "wires": [
+            [
+                "fe9a91366f1a768d",
+                "d22f2c02225ac6a0",
+                "686998219db0c584"
+            ]
+        ]
+    },
+    {
+        "id": "d22f2c02225ac6a0",
+        "type": "mqtt out",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "startSession",
+        "topic": "hermes/dialogueManager/startSession",
+        "qos": "",
+        "retain": "",
+        "broker": "b7d2dbd0.c8ee4",
+        "x": 530,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "686998219db0c584",
+        "type": "debug",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 485,
+        "y": 120,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "fe9a91366f1a768d",
+        "type": "link out",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "SPEAK OUT",
+        "mode": "link",
+        "links": [
+            "a1b4e119.a687c8"
+        ],
+        "x": 485,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "fa486a04d96fb6aa",
+        "type": "http in",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "[get] fall",
+        "url": "/sensfloor/fall",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 160,
+        "wires": [
+            [
+                "e6c9a6a24558bd84",
+                "fd199e29b6045325"
+            ]
+        ]
+    },
+    {
+        "id": "bd0ec345f211beb0",
+        "type": "http in",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "[get] room_in",
+        "url": "/sensfloor/room_in",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 240,
+        "wires": [
+            [
+                "cc77ac802f4b6b20",
+                "87b2e6998d276414",
+                "53ef7f40cba1def7"
+            ]
+        ]
+    },
+    {
+        "id": "41dc41e2df138ad4",
+        "type": "http in",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "[get] room_out",
+        "url": "/sensfloor/room_out",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "52f1c78f23d7856b",
+                "457a60af8ec72020",
+                "d4e7a957dbcc604b"
+            ]
+        ]
+    },
+    {
+        "id": "b35ccc3e32297682",
+        "type": "http in",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "[get] bed_in",
+        "url": "/sensfloor/bed_in",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 480,
+        "wires": [
+            [
+                "f1a24ba369f01977",
+                "14f46a9d6b3d3db0",
+                "3b01c1ff34084d76"
+            ]
+        ]
+    },
+    {
+        "id": "7dafbe151ee70e9d",
+        "type": "http in",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "[get] bed_out",
+        "url": "/sensfloor/bed_out",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 400,
+        "wires": [
+            [
+                "7ca3bc15fdac72ce",
+                "050b98f791f01eeb",
+                "c563c83acd2e8d41"
+            ]
+        ]
+    },
+    {
+        "id": "cc77ac802f4b6b20",
+        "type": "http response",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 260,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "98e6dbee0471868a",
+        "type": "debug",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 465,
+        "y": 400,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "fd199e29b6045325",
+        "type": "http response",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 260,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "52f1c78f23d7856b",
+        "type": "http response",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 260,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "7ca3bc15fdac72ce",
+        "type": "http response",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 260,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "f1a24ba369f01977",
+        "type": "http response",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 260,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "87b2e6998d276414",
+        "type": "function",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "Bienvenue",
+        "func": "msg = {};\nlet module = global.get(\"module\");\nlet siteId = \"Chambre\";\nmsg.payload = module.feedback(module.settingsGetValue(\"msgLang\"), siteId, \"Hello\");\nmsg.payload.text = \"Bienvenue\"; // Optionally, replace text\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 365,
+        "y": 240,
+        "wires": [
+            [
+                "98e6dbee0471868a",
+                "7d22bb0c8ffcea57"
+            ]
+        ],
+        "outputLabels": [
+            "automatic cmd"
+        ],
+        "l": false
+    },
+    {
+        "id": "7d22bb0c8ffcea57",
+        "type": "link out",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "speaker out",
+        "mode": "link",
+        "links": [
+            "3bd57099.afbdb8"
+        ],
+        "x": 465,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "53ef7f40cba1def7",
+        "type": "function",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "Allume la chambre",
+        "func": "msg = {};\nmsg.payload = \"Allume la chambre\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 365,
+        "y": 200,
+        "wires": [
+            [
+                "e0148c12806c28f4",
+                "036d1d9ff7e369c8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "036d1d9ff7e369c8",
+        "type": "debug",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 465,
+        "y": 280,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "e0148c12806c28f4",
+        "type": "link out",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "sensfloor cmd out",
+        "mode": "link",
+        "links": [
+            "93c1311cf5573227"
+        ],
+        "x": 465,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "457a60af8ec72020",
+        "type": "function",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "vous quittez la chambre",
+        "func": "msg = {};\nlet module = global.get(\"module\");\nlet siteId = \"Chambre\";\nmsg.payload = module.feedback(module.settingsGetValue(\"msgLang\"), siteId, \"Hello\");\nmsg.payload.text = \"vous quittez la chambre\"; // Optionally, replace text\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 365,
+        "y": 320,
+        "wires": [
+            [
+                "7d22bb0c8ffcea57",
+                "98e6dbee0471868a"
+            ]
+        ],
+        "outputLabels": [
+            "automatic cmd"
+        ],
+        "l": false
+    },
+    {
+        "id": "d4e7a957dbcc604b",
+        "type": "function",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "éteins partout",
+        "func": "msg = {};\nmsg.payload = \"éteins partout\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 365,
+        "y": 280,
+        "wires": [
+            [
+                "e0148c12806c28f4",
+                "036d1d9ff7e369c8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "050b98f791f01eeb",
+        "type": "function",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "vous sortez du lit",
+        "func": "msg = {};\nlet module = global.get(\"module\");\nlet siteId = \"Chambre\";\nmsg.payload = module.feedback(module.settingsGetValue(\"msgLang\"), siteId, \"Hello\");\nmsg.payload.text = \"vous sortez du lit\"; // Optionally, replace text\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 365,
+        "y": 400,
+        "wires": [
+            [
+                "7d22bb0c8ffcea57",
+                "98e6dbee0471868a"
+            ]
+        ],
+        "outputLabels": [
+            "automatic cmd"
+        ],
+        "l": false
+    },
+    {
+        "id": "14f46a9d6b3d3db0",
+        "type": "function",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "vous êtes dans le lit",
+        "func": "msg = {};\nlet module = global.get(\"module\");\nlet siteId = \"Chambre\";\nmsg.payload = module.feedback(module.settingsGetValue(\"msgLang\"), siteId, \"Hello\");\nmsg.payload.text = \"vous êtes dans le lit\"; // Optionally, replace text\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 365,
+        "y": 480,
+        "wires": [
+            [
+                "7d22bb0c8ffcea57",
+                "98e6dbee0471868a"
+            ]
+        ],
+        "outputLabels": [
+            "automatic cmd"
+        ],
+        "l": false
+    },
+    {
+        "id": "c563c83acd2e8d41",
+        "type": "function",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "allume le toilette",
+        "func": "msg = {};\nmsg.payload = \"allume le toilette\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 365,
+        "y": 360,
+        "wires": [
+            [
+                "e0148c12806c28f4",
+                "036d1d9ff7e369c8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "3b01c1ff34084d76",
+        "type": "function",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "éteins partout",
+        "func": "msg = {};\nmsg.payload = \"éteins partout\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 365,
+        "y": 440,
+        "wires": [
+            [
+                "e0148c12806c28f4",
+                "036d1d9ff7e369c8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8d168a94bbd89556",
+        "type": "comment",
+        "z": "3641d319e7e1d2e2",
+        "g": "c0d02fc77b10b6ad",
+        "name": "README",
+        "info": "this group receive the data from the sensfloor gateway and, depending on it value, will do differents actions/ say differents sentences",
+        "x": 120,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "3551f19fc1e44906",
+        "type": "mqtt out",
+        "z": "3641d319e7e1d2e2",
+        "g": "db5c3b7cb461c371",
+        "name": "",
+        "topic": "hermes/nlu/query",
+        "qos": "",
+        "retain": "",
+        "broker": "f96ab142.d8bab8",
+        "x": 1070,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "b7d2dbd0.c8ee4",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "f96ab142.d8bab8",
+        "type": "mqtt-broker",
+        "z": "d4cd0d7524aba4bc",
+        "name": "-",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "3",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": "",
+        "info": "-"
+    }
+]

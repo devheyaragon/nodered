@@ -1,0 +1,1899 @@
+[
+    {
+        "id": "98a0e5dfc02d6b6b",
+        "type": "tab",
+        "label": "ENOCEAN SENSORS EXAMPLES",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b4bc98d0a89cf959",
+        "type": "group",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "2 rockers switch (msg.meta.payload value per switch :: 1:30, 3:10 ; 2:70, 4:50)",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "a6b65421ab00e285",
+            "3e77541683ec0c71",
+            "4d02ba83365400fb",
+            "7b3066a79b09c280",
+            "842ddcc097226b26",
+            "508ba8016e664599",
+            "983399b1a9ed225c",
+            "402ed39c971490d0",
+            "2b760d739a1f9e48"
+        ],
+        "x": 234,
+        "y": 1219,
+        "w": 552,
+        "h": 182
+    },
+    {
+        "id": "007b4054c1e7f9c6",
+        "type": "group",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "smoke sensor",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "3d4e5b94ae7de8d2",
+            "7ac54b4fbc548db4",
+            "4ab0264f4eb38f20",
+            "2c41ae0890637b39",
+            "53e4e10433dc5b1b",
+            "e2fdde53e716ec59",
+            "8c78e8a41985e330",
+            "014055c2e5b79578",
+            "e386a79e77819cb2"
+        ],
+        "x": 234,
+        "y": 999,
+        "w": 552,
+        "h": 182
+    },
+    {
+        "id": "487162a3ee6b9e01",
+        "type": "group",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "door handle FTKE",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "b7a90a366b3faa69",
+            "40056d78266cbf4e",
+            "2b762026a7af359d",
+            "f45eb9cf88f3e3a9",
+            "48ce119f8309a7f1",
+            "7619ab2b44456a29",
+            "32d07a163f41a368",
+            "584a1c7de371d558",
+            "7c91ac8aee97f878"
+        ],
+        "x": 234,
+        "y": 339,
+        "w": 552,
+        "h": 182
+    },
+    {
+        "id": "b69610684b138655",
+        "type": "group",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "pir motion sensor",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "6323a8c70330b981",
+            "b6e4e114404d2aa5",
+            "4384c0566149cb67",
+            "44606be6a09f0147",
+            "cfdbf354255eb0a9",
+            "841a3fba7a6bf274",
+            "bae9a108d0659023",
+            "d27ec18c6644e458",
+            "f76ef5abc4602bf3"
+        ],
+        "x": 234,
+        "y": 559,
+        "w": 552,
+        "h": 182
+    },
+    {
+        "id": "3e8a63db92fbbed4",
+        "type": "group",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "luminosity sensor",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "91793ef27a3d86dc",
+            "905b31b4f0643c74",
+            "5cd04cd534452709",
+            "961ce534abdeeb8a",
+            "606c44ef0367224d",
+            "4faeedb9354240e9",
+            "0d3ace00c9af386c",
+            "fca2933652f777a6",
+            "20667968fabdd1aa"
+        ],
+        "x": 234,
+        "y": 779,
+        "w": 552,
+        "h": 182
+    },
+    {
+        "id": "5d848158eb38890c",
+        "type": "group",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "door/window sensor",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "c1ab194cbe8a162c",
+            "7dcb124bce05f6de",
+            "1d85695eb19e8873",
+            "d37608522798d84b",
+            "f1ecb084724ead8f",
+            "4a0593c58bc3c887",
+            "8e2da35227c5c727",
+            "a14ae658392cbe64",
+            "f667c673bd972696"
+        ],
+        "x": 234,
+        "y": 1439,
+        "w": 552,
+        "h": 182
+    },
+    {
+        "id": "a5aff945636e434d",
+        "type": "group",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "temp sensor",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "3ab6e9e80487c161",
+            "d90bb73b64fe135e",
+            "2b77a8a43003974b",
+            "99da8af8c713330c",
+            "dd0dd23609586c3f",
+            "ea22e2d05465fa34",
+            "cfdff084b5623c15",
+            "7008e7c63f3d4ac5",
+            "1273b55bfc203627"
+        ],
+        "x": 234,
+        "y": 139,
+        "w": 552,
+        "h": 162
+    },
+    {
+        "id": "a6b65421ab00e285",
+        "type": "enocean-actor",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "b4bc98d0a89cf959",
+        "name": "",
+        "channel": "",
+        "adt": false,
+        "x": 570,
+        "y": 1320,
+        "wires": [
+            [
+                "402ed39c971490d0",
+                "2b760d739a1f9e48"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3e77541683ec0c71",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "b4bc98d0a89cf959",
+        "name": "LRN",
+        "props": [
+            {
+                "p": "payload",
+                "v": "{\"type\":\"LRN\",\"duration\":3}",
+                "vt": "json"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"LRN\",\"duration\":3}",
+        "payloadType": "json",
+        "x": 390,
+        "y": 1340,
+        "wires": [
+            [
+                "a6b65421ab00e285"
+            ]
+        ]
+    },
+    {
+        "id": "4d02ba83365400fb",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "b4bc98d0a89cf959",
+        "name": "DEL",
+        "props": [
+            {
+                "p": "payload",
+                "v": "{\"type\":\"DEL\",\"duration\":3}",
+                "vt": "json"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"DEL\",\"duration\":3}",
+        "payloadType": "json",
+        "x": 390,
+        "y": 1320,
+        "wires": [
+            [
+                "a6b65421ab00e285"
+            ]
+        ]
+    },
+    {
+        "id": "7b3066a79b09c280",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "b4bc98d0a89cf959",
+        "name": "manuell teach in",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"LRN\",\"senderId\":\"01946cf1\",\"eep\":\"a5-06-01\",\"name\":\"luminosity sensor\"}",
+        "payloadType": "json",
+        "x": 360,
+        "y": 1300,
+        "wires": [
+            [
+                "a6b65421ab00e285"
+            ]
+        ]
+    },
+    {
+        "id": "842ddcc097226b26",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "b4bc98d0a89cf959",
+        "name": "manuell delete",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"DEL\",\"senderId\":\"01946cf1\",\"eep\":\"a5-06-01\"}",
+        "payloadType": "json",
+        "x": 360,
+        "y": 1280,
+        "wires": [
+            [
+                "a6b65421ab00e285"
+            ]
+        ]
+    },
+    {
+        "id": "508ba8016e664599",
+        "type": "link in",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "b4bc98d0a89cf959",
+        "name": "in input encean",
+        "links": [
+            "3107ef0c67f14dcd"
+        ],
+        "x": 495,
+        "y": 1280,
+        "wires": [
+            [
+                "a6b65421ab00e285"
+            ]
+        ]
+    },
+    {
+        "id": "983399b1a9ed225c",
+        "type": "comment",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "b4bc98d0a89cf959",
+        "name": "readme",
+        "info": "device part number : FMH4S-al fromm Eltako\n\nhere we have learnt a 2 rockers switch and we are printing the value of each switch in the debug window.\n\nafter testing all the switch we know the value of the unique vamue of them. we can imagine a function node that associate a request for a switch if it value appears\n\nthe following schem show how was the switch (notice the EEP was f6-02-01):\n     _______________\n    | btn 1 | btn 2 |\\\n    |val  30|val  70| |\n    |       |       | |\n    |       |       | |\n    |       |       | |\n    | btn 3 | btn 4 | |\n    |val  10|val  50| |\n    |_______|_______| |\n    \\________\\_______\\|\n    ",
+        "x": 710,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "d2b774d16de045b6",
+        "type": "function",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "conditon action",
+        "func": "var value = msg.payload.EB.description;\n\nif (value === \"pressed\") {\n    msg.payload = \"alerte au feu\";\n} else {\n    return null;\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 1100,
+        "wires": [
+            [
+                "5160160a5a323e21",
+                "692e67fa3c9d41c6"
+            ]
+        ]
+    },
+    {
+        "id": "5160160a5a323e21",
+        "type": "debug",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "msg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 995,
+        "y": 1060,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "3d4e5b94ae7de8d2",
+        "type": "enocean-actor",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "007b4054c1e7f9c6",
+        "name": "",
+        "channel": "",
+        "adt": false,
+        "x": 570,
+        "y": 1100,
+        "wires": [
+            [
+                "014055c2e5b79578",
+                "e386a79e77819cb2"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "7ac54b4fbc548db4",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "007b4054c1e7f9c6",
+        "name": "LRN",
+        "props": [
+            {
+                "p": "payload",
+                "v": "{\"type\":\"LRN\",\"duration\":3}",
+                "vt": "json"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"LRN\",\"duration\":3}",
+        "payloadType": "json",
+        "x": 390,
+        "y": 1120,
+        "wires": [
+            [
+                "3d4e5b94ae7de8d2"
+            ]
+        ]
+    },
+    {
+        "id": "4ab0264f4eb38f20",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "007b4054c1e7f9c6",
+        "name": "DEL",
+        "props": [
+            {
+                "p": "payload",
+                "v": "{\"type\":\"DEL\",\"duration\":3}",
+                "vt": "json"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"DEL\",\"duration\":3}",
+        "payloadType": "json",
+        "x": 390,
+        "y": 1100,
+        "wires": [
+            [
+                "3d4e5b94ae7de8d2"
+            ]
+        ]
+    },
+    {
+        "id": "2c41ae0890637b39",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "007b4054c1e7f9c6",
+        "name": "manuell teach in",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"LRN\",\"senderId\":\"01946cf1\",\"eep\":\"a5-06-01\",\"name\":\"luminosity sensor\"}",
+        "payloadType": "json",
+        "x": 360,
+        "y": 1080,
+        "wires": [
+            [
+                "3d4e5b94ae7de8d2"
+            ]
+        ]
+    },
+    {
+        "id": "53e4e10433dc5b1b",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "007b4054c1e7f9c6",
+        "name": "manuell delete",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"DEL\",\"senderId\":\"01946cf1\",\"eep\":\"a5-06-01\"}",
+        "payloadType": "json",
+        "x": 360,
+        "y": 1060,
+        "wires": [
+            [
+                "3d4e5b94ae7de8d2"
+            ]
+        ]
+    },
+    {
+        "id": "e2fdde53e716ec59",
+        "type": "link in",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "007b4054c1e7f9c6",
+        "name": "in input encean",
+        "links": [
+            "3107ef0c67f14dcd"
+        ],
+        "x": 495,
+        "y": 1060,
+        "wires": [
+            [
+                "3d4e5b94ae7de8d2"
+            ]
+        ]
+    },
+    {
+        "id": "8c78e8a41985e330",
+        "type": "comment",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "007b4054c1e7f9c6",
+        "name": "readme",
+        "info": "device part number use here : FRW-WS from Eltako\nhere we have a smoke sensor, each time it detect smoke we receive a RF frame and send an alert message to the speaker on top of the device ringing an alarme itself.\n\nwe can also start an emergency scene with this as a trigger ",
+        "x": 710,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "b7a90a366b3faa69",
+        "type": "enocean-actor",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "487162a3ee6b9e01",
+        "name": "",
+        "channel": "",
+        "adt": false,
+        "x": 570,
+        "y": 440,
+        "wires": [
+            [
+                "584a1c7de371d558",
+                "7c91ac8aee97f878"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "40056d78266cbf4e",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "487162a3ee6b9e01",
+        "name": "LRN",
+        "props": [
+            {
+                "p": "payload",
+                "v": "{\"type\":\"LRN\",\"duration\":3}",
+                "vt": "json"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"LRN\",\"duration\":3}",
+        "payloadType": "json",
+        "x": 390,
+        "y": 460,
+        "wires": [
+            [
+                "b7a90a366b3faa69"
+            ]
+        ]
+    },
+    {
+        "id": "2b762026a7af359d",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "487162a3ee6b9e01",
+        "name": "DEL",
+        "props": [
+            {
+                "p": "payload",
+                "v": "{\"type\":\"DEL\",\"duration\":3}",
+                "vt": "json"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"DEL\",\"duration\":3}",
+        "payloadType": "json",
+        "x": 390,
+        "y": 440,
+        "wires": [
+            [
+                "b7a90a366b3faa69"
+            ]
+        ]
+    },
+    {
+        "id": "f45eb9cf88f3e3a9",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "487162a3ee6b9e01",
+        "name": "manuell teach in",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"LRN\",\"senderId\":\"fefb8d96\",\"eep\":\"f6-10-00\",\"name\":\"door_handle\"}",
+        "payloadType": "json",
+        "x": 360,
+        "y": 420,
+        "wires": [
+            [
+                "b7a90a366b3faa69"
+            ]
+        ]
+    },
+    {
+        "id": "48ce119f8309a7f1",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "487162a3ee6b9e01",
+        "name": "manuell delete",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"DEL\",\"senderId\":\"fefb8d96\",\"eep\":\"f6-10-00\"}",
+        "payloadType": "json",
+        "x": 360,
+        "y": 400,
+        "wires": [
+            [
+                "b7a90a366b3faa69"
+            ]
+        ]
+    },
+    {
+        "id": "7619ab2b44456a29",
+        "type": "link in",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "487162a3ee6b9e01",
+        "name": "in input encean",
+        "links": [
+            "3107ef0c67f14dcd"
+        ],
+        "x": 495,
+        "y": 400,
+        "wires": [
+            [
+                "b7a90a366b3faa69"
+            ]
+        ]
+    },
+    {
+        "id": "32d07a163f41a368",
+        "type": "comment",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "487162a3ee6b9e01",
+        "name": "readme",
+        "info": "device part number FKTE-rw from Eltako\n\nhere we have learnt a door handle sensor and we are printing it status in the debug window. we can imagine a function node that associate an action with the value like to turn on/off a light.\n\nyou will a example of this with the door/window sensor in this flow.\n",
+        "x": 710,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "584a1c7de371d558",
+        "type": "debug",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "487162a3ee6b9e01",
+        "name": "msg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 675,
+        "y": 480,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "6323a8c70330b981",
+        "type": "enocean-actor",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "b69610684b138655",
+        "name": "",
+        "channel": "",
+        "adt": false,
+        "x": 570,
+        "y": 660,
+        "wires": [
+            [
+                "d27ec18c6644e458",
+                "f76ef5abc4602bf3"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b6e4e114404d2aa5",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "b69610684b138655",
+        "name": "LRN",
+        "props": [
+            {
+                "p": "payload",
+                "v": "{\"type\":\"LRN\",\"duration\":3}",
+                "vt": "json"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"LRN\",\"duration\":3}",
+        "payloadType": "json",
+        "x": 390,
+        "y": 680,
+        "wires": [
+            [
+                "6323a8c70330b981"
+            ]
+        ]
+    },
+    {
+        "id": "4384c0566149cb67",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "b69610684b138655",
+        "name": "DEL",
+        "props": [
+            {
+                "p": "payload",
+                "v": "{\"type\":\"DEL\",\"duration\":3}",
+                "vt": "json"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"DEL\",\"duration\":3}",
+        "payloadType": "json",
+        "x": 390,
+        "y": 660,
+        "wires": [
+            [
+                "6323a8c70330b981"
+            ]
+        ]
+    },
+    {
+        "id": "44606be6a09f0147",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "b69610684b138655",
+        "name": "manuell teach in",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"LRN\",\"senderId\":\"05244883\",\"eep\":\"a5-07-03\",\"name\":\"motion sensor pir\"}",
+        "payloadType": "json",
+        "x": 360,
+        "y": 640,
+        "wires": [
+            [
+                "6323a8c70330b981"
+            ]
+        ]
+    },
+    {
+        "id": "cfdbf354255eb0a9",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "b69610684b138655",
+        "name": "manuell delete",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"DEL\",\"senderId\":\"05244883\",\"eep\":\"a5-07-03\"}",
+        "payloadType": "json",
+        "x": 360,
+        "y": 620,
+        "wires": [
+            [
+                "6323a8c70330b981"
+            ]
+        ]
+    },
+    {
+        "id": "841a3fba7a6bf274",
+        "type": "link in",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "b69610684b138655",
+        "name": "in input encean",
+        "links": [
+            "3107ef0c67f14dcd"
+        ],
+        "x": 495,
+        "y": 620,
+        "wires": [
+            [
+                "6323a8c70330b981"
+            ]
+        ]
+    },
+    {
+        "id": "bae9a108d0659023",
+        "type": "comment",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "b69610684b138655",
+        "name": "readme",
+        "info": "device part number : PIR-2-1-01 from NODON\n\nhere we return the value of a pir motion sensor in the debug window and depending on it we turn on or off the light of a room ",
+        "x": 710,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "409865ee4477ae7c",
+        "type": "debug",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "movement status",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.PIRS.description",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "d27ec18c6644e458",
+        "type": "rbe",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "b69610684b138655",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "payload",
+        "topi": "payload",
+        "x": 705,
+        "y": 660,
+        "wires": [
+            [
+                "409865ee4477ae7c",
+                "37d0ecba20343d9b"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "91793ef27a3d86dc",
+        "type": "enocean-actor",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "3e8a63db92fbbed4",
+        "name": "",
+        "channel": "",
+        "adt": false,
+        "x": 570,
+        "y": 880,
+        "wires": [
+            [
+                "fca2933652f777a6",
+                "20667968fabdd1aa"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "905b31b4f0643c74",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "3e8a63db92fbbed4",
+        "name": "LRN",
+        "props": [
+            {
+                "p": "payload",
+                "v": "{\"type\":\"LRN\",\"duration\":3}",
+                "vt": "json"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"LRN\",\"duration\":3}",
+        "payloadType": "json",
+        "x": 390,
+        "y": 900,
+        "wires": [
+            [
+                "91793ef27a3d86dc"
+            ]
+        ]
+    },
+    {
+        "id": "5cd04cd534452709",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "3e8a63db92fbbed4",
+        "name": "DEL",
+        "props": [
+            {
+                "p": "payload",
+                "v": "{\"type\":\"DEL\",\"duration\":3}",
+                "vt": "json"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"DEL\",\"duration\":3}",
+        "payloadType": "json",
+        "x": 390,
+        "y": 880,
+        "wires": [
+            [
+                "91793ef27a3d86dc"
+            ]
+        ]
+    },
+    {
+        "id": "961ce534abdeeb8a",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "3e8a63db92fbbed4",
+        "name": "manuell teach in",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"LRN\",\"senderId\":\"01946cf1\",\"eep\":\"a5-06-01\",\"name\":\"luminosity sensor\"}",
+        "payloadType": "json",
+        "x": 360,
+        "y": 860,
+        "wires": [
+            [
+                "91793ef27a3d86dc"
+            ]
+        ]
+    },
+    {
+        "id": "606c44ef0367224d",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "3e8a63db92fbbed4",
+        "name": "manuell delete",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"DEL\",\"senderId\":\"01946cf1\",\"eep\":\"a5-06-01\"}",
+        "payloadType": "json",
+        "x": 360,
+        "y": 840,
+        "wires": [
+            [
+                "91793ef27a3d86dc"
+            ]
+        ]
+    },
+    {
+        "id": "4faeedb9354240e9",
+        "type": "link in",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "3e8a63db92fbbed4",
+        "name": "in input encean",
+        "links": [
+            "3107ef0c67f14dcd"
+        ],
+        "x": 495,
+        "y": 840,
+        "wires": [
+            [
+                "91793ef27a3d86dc"
+            ]
+        ]
+    },
+    {
+        "id": "0d3ace00c9af386c",
+        "type": "comment",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "3e8a63db92fbbed4",
+        "name": "readme",
+        "info": "device part number use here: FAH60 from Eltako\nin this group we have set u^p a luminosty sensor and we print the luminostity mesuration in the debug window",
+        "x": 710,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "462e57e1873e35b2",
+        "type": "debug",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "temperature",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.TMP.value",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c1ab194cbe8a162c",
+        "type": "enocean-actor",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "5d848158eb38890c",
+        "name": "",
+        "channel": "",
+        "adt": false,
+        "x": 570,
+        "y": 1540,
+        "wires": [
+            [
+                "a14ae658392cbe64",
+                "f667c673bd972696"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "7dcb124bce05f6de",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "5d848158eb38890c",
+        "name": "LRN",
+        "props": [
+            {
+                "p": "payload",
+                "v": "{\"type\":\"LRN\",\"duration\":3}",
+                "vt": "json"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"LRN\",\"duration\":3}",
+        "payloadType": "json",
+        "x": 390,
+        "y": 1560,
+        "wires": [
+            [
+                "c1ab194cbe8a162c"
+            ]
+        ]
+    },
+    {
+        "id": "1d85695eb19e8873",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "5d848158eb38890c",
+        "name": "DEL",
+        "props": [
+            {
+                "p": "payload",
+                "v": "{\"type\":\"DEL\",\"duration\":3}",
+                "vt": "json"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"DEL\",\"duration\":3}",
+        "payloadType": "json",
+        "x": 390,
+        "y": 1540,
+        "wires": [
+            [
+                "c1ab194cbe8a162c"
+            ]
+        ]
+    },
+    {
+        "id": "d37608522798d84b",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "5d848158eb38890c",
+        "name": "manuell teach in",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"LRN\",\"senderId\":\"050538a8\",\"eep\":\"d5-00-01\",\"name\":\"door sensor\"}",
+        "payloadType": "json",
+        "x": 360,
+        "y": 1520,
+        "wires": [
+            [
+                "c1ab194cbe8a162c"
+            ]
+        ]
+    },
+    {
+        "id": "f1ecb084724ead8f",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "5d848158eb38890c",
+        "name": "manuell delete",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"DEL\",\"senderId\":\"050538a8\",\"eep\":\"d5-00-01\"}",
+        "payloadType": "json",
+        "x": 360,
+        "y": 1500,
+        "wires": [
+            [
+                "c1ab194cbe8a162c"
+            ]
+        ]
+    },
+    {
+        "id": "4a0593c58bc3c887",
+        "type": "link in",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "5d848158eb38890c",
+        "name": "in input encean",
+        "links": [
+            "3107ef0c67f14dcd"
+        ],
+        "x": 495,
+        "y": 1500,
+        "wires": [
+            [
+                "c1ab194cbe8a162c"
+            ]
+        ]
+    },
+    {
+        "id": "8e2da35227c5c727",
+        "type": "comment",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "5d848158eb38890c",
+        "name": "readme",
+        "info": "device part number :SDO-2-1-05 from NODON\n\nthis group is for a door/window sensor and here we return the state of it to know if a door/window is open or closed.\n\nnow let imagine we have installed it on a door and we want ot turn on a light we it opens and turn it off once it is closed.\nwe change the value of msg depending of the status of the sensor and we send it to \"enocean cmd in\"",
+        "x": 710,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "3ab6e9e80487c161",
+        "type": "enocean-actor",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "a5aff945636e434d",
+        "name": "",
+        "channel": "",
+        "adt": false,
+        "x": 570,
+        "y": 220,
+        "wires": [
+            [
+                "7008e7c63f3d4ac5",
+                "1273b55bfc203627"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d90bb73b64fe135e",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "a5aff945636e434d",
+        "name": "LRN",
+        "props": [
+            {
+                "p": "payload",
+                "v": "{\"type\":\"LRN\",\"duration\":3}",
+                "vt": "json"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"LRN\",\"duration\":3}",
+        "payloadType": "json",
+        "x": 390,
+        "y": 240,
+        "wires": [
+            [
+                "3ab6e9e80487c161"
+            ]
+        ]
+    },
+    {
+        "id": "2b77a8a43003974b",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "a5aff945636e434d",
+        "name": "DEL",
+        "props": [
+            {
+                "p": "payload",
+                "v": "{\"type\":\"DEL\",\"duration\":3}",
+                "vt": "json"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"DEL\",\"duration\":3}",
+        "payloadType": "json",
+        "x": 390,
+        "y": 220,
+        "wires": [
+            [
+                "3ab6e9e80487c161"
+            ]
+        ]
+    },
+    {
+        "id": "99da8af8c713330c",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "a5aff945636e434d",
+        "name": "manuell teach in",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"LRN\",\"senderId\":\"0001583c\",\"eep\":\"a5-02-05\",\"name\":\"tempSensor\"}",
+        "payloadType": "json",
+        "x": 360,
+        "y": 200,
+        "wires": [
+            [
+                "3ab6e9e80487c161"
+            ]
+        ]
+    },
+    {
+        "id": "dd0dd23609586c3f",
+        "type": "inject",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "a5aff945636e434d",
+        "name": "manuell delete",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"DEL\",\"senderId\":\"0001583c\",\"eep\":\"a5-02-05\"}",
+        "payloadType": "json",
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "3ab6e9e80487c161"
+            ]
+        ]
+    },
+    {
+        "id": "ea22e2d05465fa34",
+        "type": "link in",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "a5aff945636e434d",
+        "name": "in input encean",
+        "links": [
+            "3107ef0c67f14dcd"
+        ],
+        "x": 495,
+        "y": 180,
+        "wires": [
+            [
+                "3ab6e9e80487c161"
+            ]
+        ]
+    },
+    {
+        "id": "cfdff084b5623c15",
+        "type": "comment",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "a5aff945636e434d",
+        "name": "readme",
+        "info": "for this example, we have a temperature sensor with a senderId equals to \"0001583c\" and an eep equals to  \"a5-02-05\".\ndevice part number : SR04 from thermokon.\n\nwhat we do here is just a print of the temperature value in the debug window",
+        "x": 710,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "7008e7c63f3d4ac5",
+        "type": "debug",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "a5aff945636e434d",
+        "name": "msg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 675,
+        "y": 260,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "1273b55bfc203627",
+        "type": "rbe",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "a5aff945636e434d",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "payload",
+        "topi": "payload",
+        "x": 705,
+        "y": 220,
+        "wires": [
+            [
+                "462e57e1873e35b2"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "7c91ac8aee97f878",
+        "type": "rbe",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "487162a3ee6b9e01",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "payload",
+        "topi": "payload",
+        "x": 705,
+        "y": 440,
+        "wires": [
+            [
+                "40f81e1fba51919a"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "40f81e1fba51919a",
+        "type": "debug",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "status",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.WIN.description",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "f76ef5abc4602bf3",
+        "type": "debug",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "b69610684b138655",
+        "name": "msg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 675,
+        "y": 700,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "fca2933652f777a6",
+        "type": "debug",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "3e8a63db92fbbed4",
+        "name": "msg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 675,
+        "y": 920,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "20667968fabdd1aa",
+        "type": "rbe",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "3e8a63db92fbbed4",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "payload",
+        "topi": "payload",
+        "x": 705,
+        "y": 880,
+        "wires": [
+            [
+                "c9756bae1a06e349"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "014055c2e5b79578",
+        "type": "debug",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "007b4054c1e7f9c6",
+        "name": "msg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 675,
+        "y": 1140,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "e386a79e77819cb2",
+        "type": "rbe",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "007b4054c1e7f9c6",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "payload",
+        "topi": "payload",
+        "x": 705,
+        "y": 1100,
+        "wires": [
+            [
+                "d2b774d16de045b6"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "2b760d739a1f9e48",
+        "type": "debug",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "b4bc98d0a89cf959",
+        "name": "msg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 675,
+        "y": 1360,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "402ed39c971490d0",
+        "type": "rbe",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "b4bc98d0a89cf959",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "payload",
+        "topi": "payload",
+        "x": 705,
+        "y": 1320,
+        "wires": [
+            [
+                "037eb30c97967156"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "a14ae658392cbe64",
+        "type": "debug",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "5d848158eb38890c",
+        "name": "msg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 675,
+        "y": 1580,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "f667c673bd972696",
+        "type": "rbe",
+        "z": "98a0e5dfc02d6b6b",
+        "g": "5d848158eb38890c",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "payload",
+        "topi": "payload",
+        "x": 705,
+        "y": 1540,
+        "wires": [
+            [
+                "0d6eb38a763b609e",
+                "aa9bbc4ddd596aee"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "0d6eb38a763b609e",
+        "type": "debug",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "sensor status",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.CO.description",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "aa9bbc4ddd596aee",
+        "type": "function",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "turn ON/OFF light",
+        "func": "var descriptionValue = msg.payload.CO.description;\n\nmsg ={};\n\nif (descriptionValue === \"open\") {\n    msg.payload = \"allume le hall\";\n} else {\n    msg.payload = \"éteins le hall\";\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 1540,
+        "wires": [
+            [
+                "04917c1f0fb05463"
+            ]
+        ]
+    },
+    {
+        "id": "04917c1f0fb05463",
+        "type": "link out",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "enocean cmd out",
+        "mode": "link",
+        "links": [
+            "eae05f3289e9221e"
+        ],
+        "x": 1015,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "037eb30c97967156",
+        "type": "debug",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "switch value",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "meta.payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "c9756bae1a06e349",
+        "type": "debug",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "illumation value",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.ILL2.value",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "692e67fa3c9d41c6",
+        "type": "link out",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "SPEAK OUT",
+        "mode": "link",
+        "links": [
+            "a1b4e119.a687c8",
+            "d5d2a1c0.bb66d"
+        ],
+        "x": 995,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "c50d4543eb1e8e75",
+        "type": "comment",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "README",
+        "info": "In this flow, you will find some examples of the device we tested.\nIn each group you will find a readme wich contains some information of what it is done in the group and the part number of the device we use for the test.\ndo not forget to teach in your device before testing otherwise it wont work",
+        "x": 120,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "37d0ecba20343d9b",
+        "type": "function",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "turn ON/OFF light",
+        "func": "var descriptionValue = msg.payload.PIRS.description;\n// we take the value of the sensor\n\nmsg ={};\n// we clear msg\n\nif (descriptionValue === \"Motion detected\") {\n    msg.payload = \"allume le hall\";\n} else {\n    msg.payload = \"éteins le hall\";\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 660,
+        "wires": [
+            [
+                "3e1bae81f5c1082b"
+            ]
+        ]
+    },
+    {
+        "id": "3e1bae81f5c1082b",
+        "type": "link out",
+        "z": "98a0e5dfc02d6b6b",
+        "name": "enocean cmd out",
+        "mode": "link",
+        "links": [
+            "eae05f3289e9221e"
+        ],
+        "x": 1035,
+        "y": 660,
+        "wires": []
+    }
+]

@@ -1,0 +1,149 @@
+[
+    {
+        "id": "c43d7f775d74300a",
+        "type": "tab",
+        "label": "SHELLY BUTTON",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "97dabd00e9f6178a",
+        "type": "group",
+        "z": "c43d7f775d74300a",
+        "name": "help call through shelly button",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "7e65b6a12164fb78",
+            "eee45f19245a13e3",
+            "ccef8dd51678790f",
+            "b46507ac324570f1",
+            "ddae8b2c82decde9",
+            "9e34d6e67108b578",
+            "3565580ec54fc5c5"
+        ],
+        "x": 34,
+        "y": 39,
+        "w": 672,
+        "h": 202
+    },
+    {
+        "id": "7e65b6a12164fb78",
+        "type": "http in",
+        "z": "c43d7f775d74300a",
+        "g": "97dabd00e9f6178a",
+        "name": "Shelly HELP button pressed",
+        "url": "/help",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 140,
+        "wires": [
+            [
+                "eee45f19245a13e3",
+                "b46507ac324570f1"
+            ]
+        ]
+    },
+    {
+        "id": "eee45f19245a13e3",
+        "type": "http response",
+        "z": "c43d7f775d74300a",
+        "g": "97dabd00e9f6178a",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 390,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "ccef8dd51678790f",
+        "type": "comment",
+        "z": "c43d7f775d74300a",
+        "g": "97dabd00e9f6178a",
+        "name": "ShellyButton",
+        "info": "",
+        "x": 360,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "b46507ac324570f1",
+        "type": "function",
+        "z": "c43d7f775d74300a",
+        "g": "97dabd00e9f6178a",
+        "name": "will call help",
+        "func": "let module = global.get(\"module\");\nlet arrAdapters = module.settingsGetValue(\"msgAdapter\");\nlet language = module.settingsGetValue(\"msgLang\");\nglobal.set(\"helpCallTrigger\",\"button\");\nmsg.payload = [];\nif(arrAdapters !== undefined){\n    var len = arrAdapters.length;\n    for (var i = 0; i < len; i++) {\n        let payload = module.feedback(language, \"\", \"HELPCALL_Call_For_Help\");   \n        payload.siteId = arrAdapters[i].siteName;\n        msg.payload.push(payload);\n    }\n    return msg;\n}\n    \n\n    \n \n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 180,
+        "wires": [
+            [
+                "ddae8b2c82decde9",
+                "3565580ec54fc5c5"
+            ]
+        ]
+    },
+    {
+        "id": "ddae8b2c82decde9",
+        "type": "debug",
+        "z": "c43d7f775d74300a",
+        "g": "97dabd00e9f6178a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "9e34d6e67108b578",
+        "type": "link out",
+        "z": "c43d7f775d74300a",
+        "g": "97dabd00e9f6178a",
+        "name": "SPEAK OUT",
+        "mode": "link",
+        "links": [
+            "a1b4e119.a687c8",
+            "d5d2a1c0.bb66d"
+        ],
+        "x": 575,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "3565580ec54fc5c5",
+        "type": "split",
+        "z": "c43d7f775d74300a",
+        "g": "97dabd00e9f6178a",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 525,
+        "y": 160,
+        "wires": [
+            [
+                "9e34d6e67108b578"
+            ]
+        ],
+        "l": false
+    }
+]
