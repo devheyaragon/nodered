@@ -24,19 +24,19 @@
         "type": "light-scheduler",
         "z": "3641d319e7e1d2e2",
         "settings": "6949c9e55f7caf53",
-        "events": "[{\"start\":{\"dow\":2,\"mod\":440},\"end\":{\"dow\":2,\"mod\":675}},{\"start\":{\"dow\":3,\"mod\":445},\"end\":{\"dow\":3,\"mod\":570}},{\"start\":{\"dow\":5,\"mod\":435},\"end\":{\"dow\":5,\"mod\":920}},{\"start\":{\"dow\":0,\"mod\":500},\"end\":{\"dow\":0,\"mod\":615}},{\"start\":{\"dow\":6,\"mod\":515},\"end\":{\"dow\":6,\"mod\":710}},{\"start\":{\"dow\":1,\"mod\":445},\"end\":{\"dow\":1,\"mod\":680}},{\"start\":{\"dow\":4,\"mod\":360},\"end\":{\"dow\":4,\"mod\":685}}]",
+        "events": "[{\"start\":{\"dow\":3,\"mod\":425},\"end\":{\"dow\":3,\"mod\":565}},{\"start\":{\"dow\":5,\"mod\":435},\"end\":{\"dow\":5,\"mod\":565}},{\"start\":{\"dow\":0,\"mod\":515},\"end\":{\"dow\":0,\"mod\":710}},{\"start\":{\"dow\":6,\"mod\":515},\"end\":{\"dow\":6,\"mod\":710}},{\"start\":{\"dow\":4,\"mod\":360},\"end\":{\"dow\":4,\"mod\":515}},{\"start\":{\"dow\":1,\"mod\":425},\"end\":{\"dow\":1,\"mod\":570}},{\"start\":{\"dow\":2,\"mod\":425},\"end\":{\"dow\":2,\"mod\":565}},{\"start\":{\"dow\":1,\"mod\":1020},\"end\":{\"dow\":1,\"mod\":1205}},{\"start\":{\"dow\":2,\"mod\":1020},\"end\":{\"dow\":2,\"mod\":1205}},{\"start\":{\"dow\":3,\"mod\":1020},\"end\":{\"dow\":3,\"mod\":1205}},{\"start\":{\"dow\":4,\"mod\":1020},\"end\":{\"dow\":4,\"mod\":1205}},{\"start\":{\"dow\":5,\"mod\":1020},\"end\":{\"dow\":5,\"mod\":1205}},{\"start\":{\"dow\":6,\"mod\":1020},\"end\":{\"dow\":6,\"mod\":1265}},{\"start\":{\"dow\":0,\"mod\":1020},\"end\":{\"dow\":0,\"mod\":1265}}]",
         "topic": "",
-        "name": "Home Cinema lights",
-        "onPayload": "Lights on in the Home Cinema",
+        "name": "Kitchen lights",
+        "onPayload": "Lights on in the Kitchen",
         "onPayloadType": "str",
-        "offPayload": "Lights on in the Home Cinema",
+        "offPayload": "Lights off in the Kitchen",
         "offPayloadType": "str",
         "onlyWhenDark": false,
         "scheduleRndMax": 0,
         "sunElevationThreshold": 6,
         "sunShowElevationInStatus": false,
         "outputfreq": "output.statechange.startup",
-        "x": 160,
+        "x": 130,
         "y": 120,
         "wires": [
             [
@@ -49,7 +49,7 @@
         "type": "function",
         "z": "3641d319e7e1d2e2",
         "name": "Prepare",
-        "func": "let module = global.get(\"module\");\nvar payload = msg.payload;\nmsg.payload = {};\nmsg.payload.input = payload;\nmodule.settingsSetValue(\"isSuperScene\", true);\nreturn msg;\n\n",
+        "func": "let module = global.get(\"module\");\nlet payload = msg.payload;\nmsg.payload = {};\nmsg.payload.input = payload;\nif(msg.siteId !== undefined){\n    msg.payload.siteId = msg.siteId;\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -84,30 +84,18 @@
         "y": 140,
         "wires": [
             [
-                "8d557369b82fba29",
-                "fe66b0b41779d614"
+                "fe66b0b41779d614",
+                "051ef374c6c45bcb"
             ]
         ],
         "l": false
-    },
-    {
-        "id": "8d557369b82fba29",
-        "type": "link out",
-        "z": "3641d319e7e1d2e2",
-        "name": "NLU QUERY OUT",
-        "links": [
-            "8284a658.4810c8"
-        ],
-        "x": 605,
-        "y": 140,
-        "wires": []
     },
     {
         "id": "fe66b0b41779d614",
         "type": "debug",
         "z": "3641d319e7e1d2e2",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -125,9 +113,9 @@
         "type": "light-scheduler",
         "z": "3641d319e7e1d2e2",
         "settings": "6949c9e55f7caf53",
-        "events": "[{\"start\":{\"dow\":2,\"mod\":440},\"end\":{\"dow\":2,\"mod\":935}},{\"start\":{\"dow\":3,\"mod\":445},\"end\":{\"dow\":3,\"mod\":675}},{\"start\":{\"dow\":5,\"mod\":435},\"end\":{\"dow\":5,\"mod\":920}},{\"start\":{\"dow\":0,\"mod\":500},\"end\":{\"dow\":0,\"mod\":615}},{\"start\":{\"dow\":6,\"mod\":515},\"end\":{\"dow\":6,\"mod\":710}},{\"start\":{\"dow\":1,\"mod\":445},\"end\":{\"dow\":1,\"mod\":930}},{\"start\":{\"dow\":4,\"mod\":360},\"end\":{\"dow\":4,\"mod\":685}},{\"start\":{\"dow\":3,\"mod\":935},\"end\":{\"dow\":3,\"mod\":1050}}]",
+        "events": "[{\"start\":{\"dow\":2,\"mod\":840},\"end\":{\"dow\":2,\"mod\":1335}},{\"start\":{\"dow\":5,\"mod\":840},\"end\":{\"dow\":5,\"mod\":1325}},{\"start\":{\"dow\":0,\"mod\":840},\"end\":{\"dow\":0,\"mod\":1320}},{\"start\":{\"dow\":6,\"mod\":840},\"end\":{\"dow\":6,\"mod\":1320}}]",
         "topic": "",
-        "name": "Home Cinema temperature",
+        "name": "Home Cinema temp",
         "onPayload": "Set the temperature to 22 degrees in the Home Cinema",
         "onPayloadType": "str",
         "offPayload": "Set the temperature to 18 degrees in the Home Cinema",
@@ -137,7 +125,7 @@
         "sunElevationThreshold": 6,
         "sunShowElevationInStatus": false,
         "outputfreq": "output.statechange.startup",
-        "x": 180,
+        "x": 160,
         "y": 180,
         "wires": [
             [
@@ -146,10 +134,62 @@
         ]
     },
     {
+        "id": "051ef374c6c45bcb",
+        "type": "mqtt out",
+        "z": "3641d319e7e1d2e2",
+        "name": "",
+        "topic": "hermes/nlu/query",
+        "qos": "",
+        "retain": "",
+        "broker": "f96ab142.d8bab8",
+        "x": 690,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "60dd7538e46c61b0",
+        "type": "comment",
+        "z": "3641d319e7e1d2e2",
+        "name": "README",
+        "info": "This flow demonstrates the process of injecting a voice command (in the form of a string) at a predetermined time or based on the position of the sun.\n\n-Mark the 'ON' time in the calendar, anything not marked in blue is 'OFF'\n-Type a command in the 'ON'  text box (use a command that you already know works by voice) Example \"Turn on the Living room lights\"\n-Type a command in the 'OFF' text box, for example \"Set the temperature of the Living room to 18 degrees\"\n",
+        "x": 120,
+        "y": 40,
+        "wires": []
+    },
+    {
         "id": "6949c9e55f7caf53",
         "type": "light-scheduler-settings",
-        "name": "my settings",
+        "name": "my location",
         "latitude": "48.8131",
         "longitude": "2.3641"
+    },
+    {
+        "id": "f96ab142.d8bab8",
+        "type": "mqtt-broker",
+        "z": "3a2ef7ad9b08d63d",
+        "name": "-",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "3",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": "",
+        "info": "-"
     }
 ]
