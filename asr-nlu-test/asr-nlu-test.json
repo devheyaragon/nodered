@@ -24,13 +24,13 @@
         "type": "function",
         "z": "3641d319e7e1d2e2",
         "name": "Prepare",
-        "func": "let module = global.get(\"module\");\nlet payload = msg.payload;\nmsg.payload = {};\nmsg.payload.input = payload;\nif(msg.siteId !== undefined){\n    msg.payload.siteId = msg.siteId;\n}\nmodule.settingsSetValue(\"isSuperScene\", true);\nreturn msg;\n\n",
+        "func": "let module = global.get(\"module\");\nlet payload = msg.payload;\nmsg.payload = {};\nmsg.payload.input = payload;\nif(msg.siteId !== undefined){\n    msg.payload.siteId = msg.siteId;\n}\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 520,
+        "x": 480,
         "y": 140,
         "wires": [
             [
@@ -55,27 +55,15 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 625,
+        "x": 585,
         "y": 140,
         "wires": [
             [
-                "8d557369b82fba29",
-                "fe66b0b41779d614"
+                "fe66b0b41779d614",
+                "fc161b48df752ddc"
             ]
         ],
         "l": false
-    },
-    {
-        "id": "8d557369b82fba29",
-        "type": "link out",
-        "z": "3641d319e7e1d2e2",
-        "name": "NLU QUERY OUT",
-        "links": [
-            "8284a658.4810c8"
-        ],
-        "x": 685,
-        "y": 140,
-        "wires": []
     },
     {
         "id": "fe66b0b41779d614",
@@ -90,7 +78,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 675,
+        "x": 635,
         "y": 100,
         "wires": [],
         "l": false
@@ -254,5 +242,45 @@
         "x": 100,
         "y": 40,
         "wires": []
+    },
+    {
+        "id": "fc161b48df752ddc",
+        "type": "mqtt out",
+        "z": "3641d319e7e1d2e2",
+        "name": "",
+        "topic": "hermes/nlu/query",
+        "qos": "",
+        "retain": "",
+        "broker": "f96ab142.d8bab8",
+        "x": 730,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "f96ab142.d8bab8",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "3",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
     }
 ]
