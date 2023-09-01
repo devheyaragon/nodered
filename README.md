@@ -5,7 +5,7 @@
 1. [LogView - Automatic logging and presentation of DataPoints](logview)
 1. [Powerful and easy-to-use scheduling in Node-RED](scheduler)
 1. [ASR NLU Test - useful for debugging](asr-nlu-test)
-1. [EnOcean AAL - retrofit, Assisted Living](enocean-aal)
+1. [EnOcean Devices - control EnOcean lights](enocean-devices)
 1. [EnOcean sensors samples](enocean-sensors-samples)
 1. [FutureShape sensfloor AAL](sensfloor)
 1. [Shelly WiFi button](shelly-button)
