@@ -18,9 +18,6 @@
         "nodes": [
             "63c1b68e482bc235",
             "e54dc1e59db1b4b3",
-            "e7c8c69ab0e6f510",
-            "9bf091299b963127",
-            "49f8d7e64bbe3988",
             "3d49ac856d044cc4",
             "bb73744ea4053519",
             "608934b501727c13",
@@ -77,10 +74,6 @@
             "bf8b06a677fae77b",
             "f864e430fe07f96a",
             "f7ca4af255e6fe49",
-            "a2471ce665c3a0a2",
-            "010ecd6a1b204e60",
-            "41298dbe059da00e",
-            "092aec551e034269",
             "6453954d9100d081",
             "731da3a0b3be9123",
             "a93e8cad1bdf4014",
@@ -89,7 +82,7 @@
         "x": 114,
         "y": 39,
         "w": 1102,
-        "h": 1282
+        "h": 962
     },
     {
         "id": "731da3a0b3be9123",
@@ -97,7 +90,7 @@
         "z": "cd78f7435e7a5d0b",
         "g": "d5c5fe291dcd0818",
         "x": 260,
-        "y": 420,
+        "y": 240,
         "wires": [
             [
                 "a753e3c35316e23b"
@@ -125,7 +118,7 @@
         ],
         "uncaught": false,
         "x": 680,
-        "y": 320,
+        "y": 140,
         "wires": [
             [
                 "e54dc1e59db1b4b3"
@@ -147,83 +140,9 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 795,
-        "y": 320,
+        "y": 140,
         "wires": [],
         "l": false
-    },
-    {
-        "id": "e7c8c69ab0e6f510",
-        "type": "inject",
-        "z": "cd78f7435e7a5d0b",
-        "g": "d5c5fe291dcd0818",
-        "name": "CAREFUL - ONCE only",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 280,
-        "y": 240,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "9bf091299b963127",
-        "type": "debug",
-        "z": "cd78f7435e7a5d0b",
-        "g": "d5c5fe291dcd0818",
-        "name": "restart netdata",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 695,
-        "y": 240,
-        "wires": [],
-        "l": false
-    },
-    {
-        "id": "49f8d7e64bbe3988",
-        "type": "exec",
-        "z": "cd78f7435e7a5d0b",
-        "g": "d5c5fe291dcd0818",
-        "command": "wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh --uninstall --non-interactive",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "Uninstall netdata",
-        "x": 510,
-        "y": 240,
-        "wires": [
-            [
-                "9bf091299b963127"
-            ],
-            [
-                "9bf091299b963127"
-            ],
-            [
-                "9bf091299b963127"
-            ]
-        ]
     },
     {
         "id": "3d49ac856d044cc4",
@@ -236,7 +155,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 270,
-        "y": 1060,
+        "y": 740,
         "wires": [
             [
                 "bb73744ea4053519",
@@ -257,7 +176,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 1060,
+        "y": 740,
         "wires": [
             [
                 "dd1d238b993df510",
@@ -282,7 +201,7 @@
         "template": "# -*- coding: utf-8 -*-\n# Description: sensors netdata python.d plugin\n# Author: ahdabelle\n# SPDX-License-Identifier: GPL-3.0-or-later\n\nfrom bases.FrameworkServices.SimpleService import SimpleService\nimport requests\n\nORDER = []\n\nCHARTS = {}\n\nclass Service(SimpleService):\n    def __init__(self, configuration=None, name=None):\n        SimpleService.__init__(self, configuration=configuration, name=name)\n        self.definitions = CHARTS\n\n    @staticmethod\n    def check():\n        return True\n        \n    def verify_charts(self, name, dim, title, units, family, context, chart_type='line', algorithm='absolute', multiplier=1, divisor=1000):\n        \"\"\"Check if chart is defined, add it if not, then add each dimension as needed.\n        \"\"\"\n        config = {'options': [name, title, units, family, context, chart_type]}\n        if name not in self.charts:\n            params = [name] + config['options']\n            self.charts.add_chart(params=params)\n\n        if dim not in self.charts[name]:\n            self.charts[name].add_dimension([dim, dim, algorithm, multiplier, divisor])\n\n\n    def get_data(self):\n        data = dict()\n        \n        dataArray = requests.get(\"http://localhost:1880/netdata/allsensors\").json()\n        \n        for i in range (0, len(dataArray)):\n        \n            name_zone = dataArray[i].get('zone').lower().replace(\" \", \"_\").replace(\"/\", \"_\")\n            name_object = dataArray[i].get('object').lower().replace(\" \", \"_\").replace(\"/\", \"_\")\n            name_unit = dataArray[i].get('unit')\n            \n            dimension_id = name_zone + '_' + name_object\n        \n            self.verify_charts(\n                name = name_object,\n                dim = dimension_id,\n                title = name_object,\n                units = name_unit,\n                family = name_object,\n                context = 'sensors.' + name_object,\n                divisor = 1000\n            )\n            \n            data[dimension_id] = requests.get(\"http://localhost:1880/netdata/\" + name_zone + '/' + name_object).json().get('Data')[0].get('Value')*1000\n            \n        return data",
         "output": "str",
         "x": 640,
-        "y": 380,
+        "y": 200,
         "wires": [
             [
                 "e84db2e07556a222"
@@ -304,7 +223,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 875,
-        "y": 560,
+        "y": 380,
         "wires": [],
         "l": false
     },
@@ -321,7 +240,7 @@
         "overwriteFile": "true",
         "encoding": "none",
         "x": 890,
-        "y": 500,
+        "y": 320,
         "wires": [
             [
                 "59be3f8ab415856c"
@@ -341,7 +260,7 @@
         "finalize": "",
         "libs": [],
         "x": 450,
-        "y": 875,
+        "y": 615,
         "wires": [
             [
                 "47d7d6f876a3192a"
@@ -359,7 +278,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 260,
-        "y": 875,
+        "y": 615,
         "wires": [
             [
                 "ed765ca750c6593b"
@@ -375,7 +294,7 @@
         "statusCode": "",
         "headers": {},
         "x": 625,
-        "y": 875,
+        "y": 615,
         "wires": []
     },
     {
@@ -391,7 +310,7 @@
         "overwriteFile": "true",
         "encoding": "none",
         "x": 880,
-        "y": 380,
+        "y": 200,
         "wires": [
             [
                 "b50402b5e2fa3da8"
@@ -412,7 +331,7 @@
         "oldrc": false,
         "name": "Move sensors.chart.py",
         "x": 1075,
-        "y": 380,
+        "y": 200,
         "wires": [
             [
                 "39c2e7231a5d10c5"
@@ -441,7 +360,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1155,
-        "y": 380,
+        "y": 200,
         "wires": [],
         "l": false
     },
@@ -458,7 +377,7 @@
         "template": "# netdata python.d.plugin configuration for sensors\n#\n# This file is in YaML format. Generally the format is:\n#\n# name: value\n#\n\n# ----------------------------------------------------------------------\n# Global Variables\n# These variables set the defaults for all JOBs, however each JOB\n# may define its own, overriding the defaults.\n\n# update_every sets the default data collection frequency.\n# If unset, the python.d.plugin default is used.\nupdate_every: 5\n\n# priority controls the order of charts at the netdata dashboard.\n# Lower numbers move the charts towards the top of the page.\n# If unset, the default for python.d.plugin is used.\n# priority: 60000\n\n# penalty indicates whether to apply penalty to update_every in case of failures.\n# Penalty will increase every 5 failed updates in a row. Maximum penalty is 10 minutes.\n# penalty: yes\n\n# autodetection_retry sets the job re-check interval in seconds.\n# The job is not deleted if check fails.\n# Attempts to start the job are made once every autodetection_retry.\n# This feature is disabled by default.\n# autodetection_retry: 0\n",
         "output": "str",
         "x": 630,
-        "y": 440,
+        "y": 260,
         "wires": [
             [
                 "0487af959e78a0d9"
@@ -479,7 +398,7 @@
         "oldrc": false,
         "name": "Move sensors.html",
         "x": 1075,
-        "y": 500,
+        "y": 320,
         "wires": [
             [
                 "d781ebbc8f17787a"
@@ -508,7 +427,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1155,
-        "y": 500,
+        "y": 320,
         "wires": [],
         "l": false
     },
@@ -525,7 +444,7 @@
         "overwriteFile": "false",
         "encoding": "none",
         "x": 890,
-        "y": 440,
+        "y": 260,
         "wires": [
             [
                 "3bbff85e6bc7b58b"
@@ -546,7 +465,7 @@
         "oldrc": false,
         "name": "Move sensors.conf",
         "x": 1075,
-        "y": 440,
+        "y": 260,
         "wires": [
             [
                 "2a1cae05055b3528"
@@ -575,7 +494,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1155,
-        "y": 440,
+        "y": 260,
         "wires": [],
         "l": false
     },
@@ -593,7 +512,7 @@
         "oldrc": false,
         "name": "restart netdata",
         "x": 720,
-        "y": 560,
+        "y": 380,
         "wires": [
             [
                 "3a7396e572a0a4a2"
@@ -625,7 +544,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 575,
-        "y": 560,
+        "y": 380,
         "wires": [
             [
                 "afd9c3a18441023c"
@@ -646,7 +565,7 @@
         "finalize": "",
         "libs": [],
         "x": 755,
-        "y": 500,
+        "y": 320,
         "wires": [
             [
                 "4450a2402235069c"
@@ -667,7 +586,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 500,
+        "y": 320,
         "wires": [
             [
                 "b6c1ed35e62d8876"
@@ -689,7 +608,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 850,
-        "y": 1180,
+        "y": 860,
         "wires": []
     },
     {
@@ -704,7 +623,7 @@
         ],
         "uncaught": false,
         "x": 610,
-        "y": 1180,
+        "y": 860,
         "wires": [
             [
                 "e884ecb15ecb8d66"
@@ -726,7 +645,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 390,
-        "y": 1185,
+        "y": 865,
         "wires": []
     },
     {
@@ -741,7 +660,7 @@
         ],
         "uncaught": false,
         "x": 220,
-        "y": 1185,
+        "y": 865,
         "wires": [
             [
                 "3011baed31e6db14"
@@ -766,7 +685,7 @@
         "senderr": false,
         "headers": [],
         "x": 690,
-        "y": 800,
+        "y": 540,
         "wires": [
             [
                 "b0386360cb7b5887"
@@ -786,7 +705,7 @@
         "finalize": "",
         "libs": [],
         "x": 550,
-        "y": 800,
+        "y": 540,
         "wires": [
             [
                 "83f6178cb6523a73"
@@ -802,7 +721,7 @@
         "statusCode": "",
         "headers": {},
         "x": 870,
-        "y": 1050,
+        "y": 730,
         "wires": []
     },
     {
@@ -818,7 +737,7 @@
         "finalize": "",
         "libs": [],
         "x": 870,
-        "y": 800,
+        "y": 540,
         "wires": [
             [
                 "9b4b4c83aaaa88e7"
@@ -838,7 +757,7 @@
         "finalize": "",
         "libs": [],
         "x": 320,
-        "y": 760,
+        "y": 500,
         "wires": [
             [
                 "e452fdac5690b445"
@@ -864,7 +783,7 @@
         "onceDelay": "140",
         "topic": "",
         "x": 205,
-        "y": 760,
+        "y": 500,
         "wires": [
             [
                 "574951c0b3d21af5"
@@ -885,7 +804,7 @@
         "finalize": "",
         "libs": [],
         "x": 315,
-        "y": 420,
+        "y": 240,
         "wires": [
             [
                 "71ec6682d06ac375"
@@ -917,7 +836,7 @@
         "repair": false,
         "outputs": 1,
         "x": 485,
-        "y": 380,
+        "y": 200,
         "wires": [
             [
                 "608934b501727c13",
@@ -943,7 +862,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 985,
-        "y": 800,
+        "y": 540,
         "wires": [],
         "l": false
     },
@@ -965,7 +884,7 @@
         "senderr": false,
         "headers": [],
         "x": 670,
-        "y": 1080,
+        "y": 760,
         "wires": [
             [
                 "dd1d238b993df510",
@@ -986,7 +905,7 @@
         "finalize": "",
         "libs": [],
         "x": 855,
-        "y": 1095,
+        "y": 775,
         "wires": [
             [
                 "2fc9725329178ef8"
@@ -1008,7 +927,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 970,
-        "y": 1095,
+        "y": 775,
         "wires": [],
         "l": false
     },
@@ -1031,7 +950,7 @@
         "onceDelay": "120",
         "topic": "",
         "x": 185,
-        "y": 520,
+        "y": 340,
         "wires": [
             [
                 "1b8f3bb7d5413b4a",
@@ -1046,7 +965,7 @@
         "z": "cd78f7435e7a5d0b",
         "g": "d5c5fe291dcd0818",
         "name": "Netdata - readme",
-        "info": "Automatic logging and presentation of proServ sensors (#l data points) plus any energy-related datapoint\n\nBefore: in ETS, tag relevant datapoints with '#l'\n\nStep 1: install Netdata from Node-RED -ready when { code: 0 } in debug window\n\nStep 2: Select HARD reset and Wait a few minutes\n\nStep 3: Open dashboard\nTwo presentations available:\n 1.  [http://<IP>:19999/#menu_sensors](http://<IP>:19999//#menu_sensors) System & Sensors in Netdata dashboard\n 2.  [http://<IP>:19999/sensors.html](http://<IP>:19999/sensors.html) Sensors Netdata dashboard (sensors only)\n\nHistory:\n2023-07-18: Added alternative Netdata installation folders\n2023-07-15: Alpha /// Proof of concept\n\nHow data collection works:\nThe data collection (reading the datapoints from the gateway) is asynchronous. The values are read and stored internally in a flow variable. The values are collected once per minute (default) or randomly (you need to modify). In the case you have more than ~40 datapoints, you should increase the reading interval to two minutes.\nIndependent of the data collection, Netdata queries this flow for values (cached in flow variable).  \n(Tread safetty: In Javascript/Node-RED there are no threads, JavaScript is single threaded, it's impossible for two javascript statements to run at the same time.)\n\nDev notes:\nsensors.chart.py : create a dynamic collector with python.d plugin\n\nsensors.conf : the configuration file for sensors.chart.py\n\nsensors.html : a web interface to view graphs of all sensors, [http://lcoalhost:19999/sensors.html](http://lcoalhost:19999/sensors.html). The file is automatically generated in node-red from the list of existing sensors in the gateway\n\nTODO:\nanomalies.conf : anomalies.chart.py file already needs configure the charts for which to extract data,  replace **chart_regex : \"sensors.*\"** as the dynamic charts are called sensors.<sensor_name>. It will detect all anomalies from all sensor charts\n\n",
+        "info": "Automatic logging and presentation of proServ sensors (#l data points) plus any energy-related datapoint\n\nBefore: in ETS, tag relevant datapoints with '#l'\n\nStep 1: Select the 'HARD reset' to recreat charts, wait a bit \n\nStep 2: and Reboot\n\nStep 3: Open dashboards from Aragon menu 'Extras'\nTwo presentations available:\n 1.  [http://<IP>:19999/#menu_sensors](http://<IP>:19999//#menu_sensors) System & Sensors in Netdata dashboard\n 2.  [http://<IP>:19999/sensors.html](http://<IP>:19999/sensors.html) Sensors Netdata dashboard (sensors only)\n\n\nHow data collection works:\nThe data collection (reading the datapoints from the gateway) is asynchronous. The values are read and stored internally in a flow variable. The values are collected once per minute (default) or randomly (you need to modify). In the case you have more than ~40 datapoints, you should increase the reading interval to two minutes.\nIndependent of the data collection, Netdata queries this flow for values (cached in flow variable).  \n(Tread safetty: In Javascript/Node-RED there are no threads, JavaScript is single threaded, it's impossible for two javascript statements to run at the same time.)\n\nDev notes:\nsensors.chart.py : create a dynamic collector with python.d plugin\n\nsensors.conf : the configuration file for sensors.chart.py\n\nsensors.html : a web interface to view graphs of all sensors, [http://lcoalhost:19999/sensors.html](http://lcoalhost:19999/sensors.html). The file is automatically generated in node-red from the list of existing sensors in the gateway\n\nTODO:\nanomalies.conf : anomalies.chart.py file already needs configure the charts for which to extract data,  replace **chart_regex : \"sensors.*\"** as the dynamic charts are called sensors.<sensor_name>. It will detect all anomalies from all sensor charts\n\n",
         "x": 220,
         "y": 80,
         "wires": []
@@ -1065,7 +984,7 @@
         "oldrc": false,
         "name": "",
         "x": 245,
-        "y": 520,
+        "y": 340,
         "wires": [
             [],
             [],
@@ -1088,7 +1007,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 425,
-        "y": 1020,
+        "y": 700,
         "wires": [],
         "l": false
     },
@@ -1107,7 +1026,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 545,
-        "y": 1020,
+        "y": 700,
         "wires": [],
         "l": false
     },
@@ -1126,7 +1045,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 545,
-        "y": 1120,
+        "y": 800,
         "wires": [],
         "l": false
     },
@@ -1144,7 +1063,7 @@
         "oldrc": false,
         "name": "stop/start netdata",
         "x": 390,
-        "y": 1260,
+        "y": 940,
         "wires": [
             [
                 "6453954d9100d081"
@@ -1176,7 +1095,7 @@
         "payload": "sudo systemctl stop netdata",
         "payloadType": "str",
         "x": 220,
-        "y": 1240,
+        "y": 920,
         "wires": [
             [
                 "f0c28a4823adb4de"
@@ -1202,7 +1121,7 @@
         "payload": "sudo systemctl start netdata",
         "payloadType": "str",
         "x": 220,
-        "y": 1280,
+        "y": 960,
         "wires": [
             [
                 "f0c28a4823adb4de"
@@ -1227,7 +1146,7 @@
         "onceDelay": "140",
         "topic": "",
         "x": 205,
-        "y": 820,
+        "y": 560,
         "wires": [
             [
                 "36a8d799843cfabc"
@@ -1248,7 +1167,7 @@
         "stream": false,
         "addname": "",
         "x": 305,
-        "y": 820,
+        "y": 560,
         "wires": [
             [
                 "fa6c2ca1293e30e5"
@@ -1275,7 +1194,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 355,
-        "y": 820,
+        "y": 560,
         "wires": [
             [
                 "c297f749427349a5"
@@ -1296,7 +1215,7 @@
         "finalize": "",
         "libs": [],
         "x": 255,
-        "y": 820,
+        "y": 560,
         "wires": [
             [
                 "0e5ab278ead6ca8f"
@@ -1317,7 +1236,7 @@
         "finalize": "",
         "libs": [],
         "x": 405,
-        "y": 820,
+        "y": 560,
         "wires": [
             [
                 "e452fdac5690b445"
@@ -1338,7 +1257,7 @@
         "onceDelay": "20",
         "topic": "",
         "x": 185,
-        "y": 420,
+        "y": 240,
         "wires": [
             [
                 "731da3a0b3be9123"
@@ -1354,7 +1273,7 @@
         "name": "SOFT reset",
         "info": "Recreates internal data and Restarts Netdata ",
         "x": 210,
-        "y": 380,
+        "y": 200,
         "wires": []
     },
     {
@@ -1365,7 +1284,7 @@
         "name": "HARD reset",
         "info": "Recreates internal data, charts and Restarts Netdata ",
         "x": 210,
-        "y": 480,
+        "y": 300,
         "wires": []
     },
     {
@@ -1376,7 +1295,7 @@
         "name": "Data collection - every minute (default) or random (every 2 sec)",
         "info": "Enable the preferred data collection method.\n",
         "x": 390,
-        "y": 720,
+        "y": 460,
         "wires": []
     },
     {
@@ -1387,92 +1306,7 @@
         "name": "Netdata query end-point",
         "info": "",
         "x": 260,
-        "y": 1020,
-        "wires": []
-    },
-    {
-        "id": "a2471ce665c3a0a2",
-        "type": "inject",
-        "z": "cd78f7435e7a5d0b",
-        "g": "d5c5fe291dcd0818",
-        "name": "CAREFUL - ONCE only",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 280,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "010ecd6a1b204e60",
-        "type": "debug",
-        "z": "cd78f7435e7a5d0b",
-        "g": "d5c5fe291dcd0818",
-        "name": "restart netdata",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 695,
-        "y": 180,
-        "wires": [],
-        "l": false
-    },
-    {
-        "id": "41298dbe059da00e",
-        "type": "exec",
-        "z": "cd78f7435e7a5d0b",
-        "g": "d5c5fe291dcd0818",
-        "command": "wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh --no-updates --stable-channel --disable-telemetry --non-interactive",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "Install netdata",
-        "x": 500,
-        "y": 180,
-        "wires": [
-            [
-                "010ecd6a1b204e60"
-            ],
-            [
-                "010ecd6a1b204e60"
-            ],
-            [
-                "010ecd6a1b204e60"
-            ]
-        ]
-    },
-    {
-        "id": "092aec551e034269",
-        "type": "comment",
-        "z": "cd78f7435e7a5d0b",
-        "g": "d5c5fe291dcd0818",
-        "name": "Step 1: Wire and start installation, it will take a minute to complete. Should finish with { code: 0 } in debug window",
-        "info": "",
-        "x": 520,
-        "y": 140,
+        "y": 700,
         "wires": []
     },
     {
@@ -1490,7 +1324,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 545,
-        "y": 1260,
+        "y": 940,
         "wires": [],
         "l": false
     },
@@ -1513,7 +1347,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 555,
-        "y": 1080,
+        "y": 760,
         "wires": [
             [
                 "a2467b91d154660c"
@@ -1527,7 +1361,7 @@
         "z": "cd78f7435e7a5d0b",
         "g": "d5c5fe291dcd0818",
         "name": "History",
-        "info": "2023-07-30: \n- Prefixed Netdata uery end-point and data colelction url with '/netdata/'\n- Reduced update frequency, interval set to 5sec (was:1 sec)\n\n2023-07-17: \n- First version",
+        "info": "2023-09-04:\n - Netdata is preinstalled in image file 22 -> removed install nodes from NR flow\n - Netdata menu items added to Aragon main UI under 'Extras'\n\n2023-07-30: \n- Prefixed Netdata uery end-point and data colelction url with '/netdata/'\n- Reduced update frequency, interval set to 5sec (was:1 sec)\n\n2023-07-17: \n- First version",
         "x": 390,
         "y": 80,
         "wires": []
