@@ -1,6 +1,6 @@
 [
     {
-        "id": "235276ecb41ab11f",
+        "id": "9ad225d8ce8ccbfa",
         "type": "tab",
         "label": "SENSFLOOR",
         "disabled": false,
@@ -8,20 +8,20 @@
         "env": []
     },
     {
-        "id": "6a59c133c379574e",
+        "id": "8d57139283332a5e",
         "type": "group",
-        "z": "235276ecb41ab11f",
+        "z": "9ad225d8ce8ccbfa",
         "name": "automatic cmd ",
         "style": {
             "label": true
         },
         "nodes": [
-            "bebbd260a30a3f1a",
-            "bb4db939cf406b5c",
-            "618bbbb968ed0711",
-            "e01aa7e37688afd6",
-            "9f5d21d49ccddb38",
-            "7bb623dbc8f67f84"
+            "dd4f48e673dcd9b3",
+            "7098406cb5c6988d",
+            "3f86355dec5de750",
+            "15fa846d417d1af3",
+            "92fe8faa00d2bd1d",
+            "5d5730ce0bc10697"
         ],
         "x": 754,
         "y": 19,
@@ -29,53 +29,53 @@
         "h": 142
     },
     {
-        "id": "b7e8cdd650aa9af7",
+        "id": "e2b99a3726f69497",
         "type": "group",
-        "z": "235276ecb41ab11f",
+        "z": "9ad225d8ce8ccbfa",
         "name": "sensfloor receiving event and setup action&speech",
         "style": {
             "label": true
         },
         "nodes": [
-            "ac5158f80d7a535f",
-            "55f775e644f0c88a",
-            "2550e646334ccd16",
-            "460a0b1460675acc",
-            "f62299486c8d32a2",
-            "4e40dc24eb2840e4",
-            "f773b8eefcf0bb45",
-            "d12aed0a29f951eb",
-            "f5ee6b0301ec0b2b",
-            "4357a570d96f4cdf",
-            "22956b35f23d69bd",
-            "8764ab681159fb4f",
-            "ae6d10ceab293f44",
-            "1b5fdbab9264cbfc",
-            "69ca2a84ce2a01f4",
-            "257ddca67ace0d7a",
-            "9d422d5bc8319019",
-            "c34c39577c1384c1",
-            "7433d71d5a2e2fa8",
-            "0bce61397b909df3",
-            "8ad3dec0ce6c7d4d",
-            "ca391518c5dfd833",
-            "f5ed2959197c8526",
-            "675c8a74acc57c92",
-            "a1c95a36eeffca66",
-            "c9df3b7eb7737370",
-            "6272e2fd70a85b44",
-            "f1d9beb6451edb07",
-            "edeb21444848f4aa",
-            "23ba0bfd214b8064",
-            "80c72c4b8b6e8cf4",
-            "558661034b65d8b8",
-            "f458721efd86b8a1",
-            "e32b4097ed7177b2",
-            "acfb99096a8cdc21",
-            "62e8cc84d0a088ab",
-            "69a5c2c70bdfcceb",
-            "da97be1af75d265c",
-            "3d0befd187bd376e"
+            "baabc7536a222eb8",
+            "9cfaca8152770a6b",
+            "50499892926bc311",
+            "fac3b7b352250af2",
+            "6e46967f87418cf9",
+            "98c06f137f0fdeb0",
+            "58ff6f6b494c58a4",
+            "57d7afaf2b8c7807",
+            "4a3b1b83230f38dd",
+            "b2af5291322cbade",
+            "42e8ef76e35aa2a6",
+            "82ca88053594233f",
+            "e4850c9c3547d1e0",
+            "0d1449975b0ac847",
+            "c6d8bffc6e03a2d7",
+            "3b6c8ef6f494027b",
+            "ee5d6eba07d1fb91",
+            "95096e56f1402760",
+            "ec1f1f46425062a9",
+            "80c6d089d5e5889f",
+            "6147be29e7612593",
+            "db5d27e7b078e6dc",
+            "8b5bb90f6fb19130",
+            "201d4d9903867d76",
+            "01205e13307e2ca4",
+            "f9f47f6fc86914e6",
+            "5c3d6f52a917118b",
+            "75a39a550ef261ac",
+            "ea6185d3dd346dd2",
+            "aa8905ad2655b954",
+            "76b10f909b74442d",
+            "50475c4b2fc84ce6",
+            "7977406e1bef3459",
+            "08256c1fda9875bc",
+            "352fdfb049ef3aa4",
+            "a997939a1eb3272a",
+            "3d40e74a3a766a49",
+            "05d2b42de0bb55d4",
+            "9378088538ea7ff3"
         ],
         "x": 34,
         "y": 19,
@@ -83,107 +83,107 @@
         "h": 562
     },
     {
-        "id": "f458721efd86b8a1",
+        "id": "7977406e1bef3459",
         "type": "junction",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "x": 500,
         "y": 260,
         "wires": [
             [
-                "0bce61397b909df3",
-                "ca391518c5dfd833"
+                "80c6d089d5e5889f",
+                "db5d27e7b078e6dc"
             ]
         ]
     },
     {
-        "id": "e32b4097ed7177b2",
+        "id": "08256c1fda9875bc",
         "type": "junction",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "x": 420,
         "y": 540,
         "wires": [
             [
-                "3d0befd187bd376e"
+                "9378088538ea7ff3"
             ]
         ]
     },
     {
-        "id": "acfb99096a8cdc21",
+        "id": "352fdfb049ef3aa4",
         "type": "junction",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "x": 280,
         "y": 300,
         "wires": [
             [
-                "8764ab681159fb4f",
-                "ae6d10ceab293f44"
+                "82ca88053594233f",
+                "e4850c9c3547d1e0"
             ]
         ]
     },
     {
-        "id": "62e8cc84d0a088ab",
+        "id": "a997939a1eb3272a",
         "type": "junction",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "x": 280,
         "y": 380,
         "wires": [
             [
-                "1b5fdbab9264cbfc",
-                "f5ed2959197c8526"
+                "0d1449975b0ac847",
+                "8b5bb90f6fb19130"
             ]
         ]
     },
     {
-        "id": "69a5c2c70bdfcceb",
+        "id": "3d40e74a3a766a49",
         "type": "junction",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "x": 280,
         "y": 540,
         "wires": [
             [
-                "69ca2a84ce2a01f4",
-                "a1c95a36eeffca66"
+                "c6d8bffc6e03a2d7",
+                "01205e13307e2ca4"
             ]
         ]
     },
     {
-        "id": "da97be1af75d265c",
+        "id": "05d2b42de0bb55d4",
         "type": "junction",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "x": 280,
         "y": 460,
         "wires": [
             [
-                "257ddca67ace0d7a",
-                "6272e2fd70a85b44"
+                "3b6c8ef6f494027b",
+                "5c3d6f52a917118b"
             ]
         ]
     },
     {
-        "id": "3d0befd187bd376e",
+        "id": "9378088538ea7ff3",
         "type": "junction",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "x": 500,
         "y": 540,
         "wires": [
             [
-                "7433d71d5a2e2fa8",
-                "8ad3dec0ce6c7d4d"
+                "ec1f1f46425062a9",
+                "6147be29e7612593"
             ]
         ]
     },
     {
-        "id": "bebbd260a30a3f1a",
+        "id": "dd4f48e673dcd9b3",
         "type": "function",
-        "z": "235276ecb41ab11f",
-        "g": "6a59c133c379574e",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "8d57139283332a5e",
         "name": "Prepare",
         "func": "let module = global.get(\"module\");\nlet payload = msg.payload;\nmsg.payload = {};\nmsg.payload.input = payload;\nif(msg.siteId !== undefined){\n    msg.payload.siteId = msg.siteId;\n}\nreturn msg;\n\n",
         "outputs": 1,
@@ -195,15 +195,15 @@
         "y": 120,
         "wires": [
             [
-                "bb4db939cf406b5c"
+                "7098406cb5c6988d"
             ]
         ]
     },
     {
-        "id": "bb4db939cf406b5c",
+        "id": "7098406cb5c6988d",
         "type": "delay",
-        "z": "235276ecb41ab11f",
-        "g": "6a59c133c379574e",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "8d57139283332a5e",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -221,17 +221,17 @@
         "y": 120,
         "wires": [
             [
-                "618bbbb968ed0711",
-                "7bb623dbc8f67f84"
+                "3f86355dec5de750",
+                "5d5730ce0bc10697"
             ]
         ],
         "l": false
     },
     {
-        "id": "618bbbb968ed0711",
+        "id": "3f86355dec5de750",
         "type": "debug",
-        "z": "235276ecb41ab11f",
-        "g": "6a59c133c379574e",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "8d57139283332a5e",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -247,27 +247,27 @@
         "l": false
     },
     {
-        "id": "e01aa7e37688afd6",
+        "id": "15fa846d417d1af3",
         "type": "link in",
-        "z": "235276ecb41ab11f",
-        "g": "6a59c133c379574e",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "8d57139283332a5e",
         "name": "sensfloor cmd in",
         "links": [
-            "0bce61397b909df3"
+            "80c6d089d5e5889f"
         ],
         "x": 795,
         "y": 120,
         "wires": [
             [
-                "bebbd260a30a3f1a"
+                "dd4f48e673dcd9b3"
             ]
         ]
     },
     {
-        "id": "9f5d21d49ccddb38",
+        "id": "92fe8faa00d2bd1d",
         "type": "comment",
-        "z": "235276ecb41ab11f",
-        "g": "6a59c133c379574e",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "8d57139283332a5e",
         "name": "README",
         "info": "This flow receive the commands from the sensfloor group and send them to the Speech To Text\n",
         "x": 840,
@@ -275,10 +275,10 @@
         "wires": []
     },
     {
-        "id": "7bb623dbc8f67f84",
+        "id": "5d5730ce0bc10697",
         "type": "mqtt out",
-        "z": "235276ecb41ab11f",
-        "g": "6a59c133c379574e",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "8d57139283332a5e",
         "name": "",
         "topic": "hermes/nlu/query",
         "qos": "",
@@ -289,35 +289,10 @@
         "wires": []
     },
     {
-        "id": "9897ff97d456aab2",
-        "type": "inject",
-        "z": "235276ecb41ab11f",
-        "name": "ON WC",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "allume les toilettes",
-        "payloadType": "str",
-        "x": 770,
-        "y": 180,
-        "wires": [
-            [
-                "bebbd260a30a3f1a"
-            ]
-        ]
-    },
-    {
-        "id": "ac5158f80d7a535f",
+        "id": "baabc7536a222eb8",
         "type": "comment",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "SenseFloor (here user and pw skyresponse stories)",
         "info": "User1 Skyresponse: assistant de stories\npw: assistant\n\nUser2 Skyresponse: stories\npw: ...Asc..",
         "x": 410,
@@ -325,10 +300,10 @@
         "wires": []
     },
     {
-        "id": "55f775e644f0c88a",
+        "id": "9cfaca8152770a6b",
         "type": "http in",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "[get] fall",
         "url": "/sensfloor/fall",
         "method": "get",
@@ -338,16 +313,16 @@
         "y": 220,
         "wires": [
             [
-                "d12aed0a29f951eb",
-                "edeb21444848f4aa"
+                "57d7afaf2b8c7807",
+                "ea6185d3dd346dd2"
             ]
         ]
     },
     {
-        "id": "2550e646334ccd16",
+        "id": "50499892926bc311",
         "type": "http in",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "[get] room_in",
         "url": "/sensfloor/room_in",
         "method": "get",
@@ -357,16 +332,16 @@
         "y": 300,
         "wires": [
             [
-                "f773b8eefcf0bb45",
-                "acfb99096a8cdc21"
+                "58ff6f6b494c58a4",
+                "352fdfb049ef3aa4"
             ]
         ]
     },
     {
-        "id": "460a0b1460675acc",
+        "id": "fac3b7b352250af2",
         "type": "http in",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "[get] room_out",
         "url": "/sensfloor/room_out",
         "method": "get",
@@ -376,16 +351,16 @@
         "y": 380,
         "wires": [
             [
-                "f5ee6b0301ec0b2b",
-                "62e8cc84d0a088ab"
+                "4a3b1b83230f38dd",
+                "a997939a1eb3272a"
             ]
         ]
     },
     {
-        "id": "f62299486c8d32a2",
+        "id": "6e46967f87418cf9",
         "type": "http in",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "[get] bed_in",
         "url": "/sensfloor/bed_in",
         "method": "get",
@@ -395,16 +370,16 @@
         "y": 460,
         "wires": [
             [
-                "22956b35f23d69bd",
-                "da97be1af75d265c"
+                "42e8ef76e35aa2a6",
+                "05d2b42de0bb55d4"
             ]
         ]
     },
     {
-        "id": "4e40dc24eb2840e4",
+        "id": "98c06f137f0fdeb0",
         "type": "http in",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "[get] bed_out",
         "url": "/sensfloor/bed_out",
         "method": "get",
@@ -414,16 +389,16 @@
         "y": 540,
         "wires": [
             [
-                "4357a570d96f4cdf",
-                "69a5c2c70bdfcceb"
+                "b2af5291322cbade",
+                "3d40e74a3a766a49"
             ]
         ]
     },
     {
-        "id": "f773b8eefcf0bb45",
+        "id": "58ff6f6b494c58a4",
         "type": "http response",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -432,10 +407,10 @@
         "wires": []
     },
     {
-        "id": "d12aed0a29f951eb",
+        "id": "57d7afaf2b8c7807",
         "type": "http response",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -444,10 +419,10 @@
         "wires": []
     },
     {
-        "id": "f5ee6b0301ec0b2b",
+        "id": "4a3b1b83230f38dd",
         "type": "http response",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -456,10 +431,10 @@
         "wires": []
     },
     {
-        "id": "4357a570d96f4cdf",
+        "id": "b2af5291322cbade",
         "type": "http response",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -468,10 +443,10 @@
         "wires": []
     },
     {
-        "id": "22956b35f23d69bd",
+        "id": "42e8ef76e35aa2a6",
         "type": "http response",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -480,10 +455,10 @@
         "wires": []
     },
     {
-        "id": "8764ab681159fb4f",
+        "id": "82ca88053594233f",
         "type": "function",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "room_in_speech",
         "func": "let module = global.get(\"module\");\nlet siteId = msg.payload.siteId;\nmsg = {};\nmsg.payload = module.feedback(module.settingsGetValue(\"msgLang\"), siteId, \"Hello\");\nmsg.payload.text = flow.get(\"room_in_speech\");\nreturn msg;",
         "outputs": 1,
@@ -495,7 +470,7 @@
         "y": 300,
         "wires": [
             [
-                "e32b4097ed7177b2"
+                "08256c1fda9875bc"
             ]
         ],
         "outputLabels": [
@@ -505,10 +480,10 @@
         "l": false
     },
     {
-        "id": "ae6d10ceab293f44",
+        "id": "e4850c9c3547d1e0",
         "type": "function",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "room_in_action",
         "func": "msg = {};\nmsg.payload = flow.get(\"room_in_action\");\nreturn msg;",
         "outputs": 1,
@@ -520,16 +495,16 @@
         "y": 260,
         "wires": [
             [
-                "c34c39577c1384c1"
+                "95096e56f1402760"
             ]
         ],
         "l": false
     },
     {
-        "id": "1b5fdbab9264cbfc",
+        "id": "0d1449975b0ac847",
         "type": "function",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "room_out_speech",
         "func": "let module = global.get(\"module\");\nlet siteId = msg.payload.siteId;\nmsg = {};\nmsg.payload = module.feedback(module.settingsGetValue(\"msgLang\"), siteId, \"Hello\");\nmsg.payload.text = flow.get(\"room_out_speech\");\nreturn msg;",
         "outputs": 1,
@@ -541,7 +516,7 @@
         "y": 380,
         "wires": [
             [
-                "e32b4097ed7177b2"
+                "08256c1fda9875bc"
             ]
         ],
         "outputLabels": [
@@ -551,10 +526,10 @@
         "l": false
     },
     {
-        "id": "69ca2a84ce2a01f4",
+        "id": "c6d8bffc6e03a2d7",
         "type": "function",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "bed_out_speech",
         "func": "let module = global.get(\"module\");\nlet siteId = msg.payload.siteId;\nmsg = {};\nmsg.payload = module.feedback(module.settingsGetValue(\"msgLang\"), siteId, \"Hello\");\nmsg.payload.text = flow.get(\"bed_out_speech\");\nreturn msg;\n",
         "outputs": 1,
@@ -566,7 +541,7 @@
         "y": 540,
         "wires": [
             [
-                "e32b4097ed7177b2"
+                "08256c1fda9875bc"
             ]
         ],
         "outputLabels": [
@@ -576,10 +551,10 @@
         "l": false
     },
     {
-        "id": "257ddca67ace0d7a",
+        "id": "3b6c8ef6f494027b",
         "type": "function",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "bed_in_speech",
         "func": "let module = global.get(\"module\");\nlet siteId = msg.payload.siteId;\nmsg = {};\nmsg.payload = module.feedback(module.settingsGetValue(\"msgLang\"), siteId, \"Hello\");\nmsg.payload.text = flow.get(\"bed_in_speech\");\nreturn msg;\n",
         "outputs": 1,
@@ -591,7 +566,7 @@
         "y": 460,
         "wires": [
             [
-                "e32b4097ed7177b2"
+                "08256c1fda9875bc"
             ]
         ],
         "outputLabels": [
@@ -601,10 +576,10 @@
         "l": false
     },
     {
-        "id": "9d422d5bc8319019",
+        "id": "ee5d6eba07d1fb91",
         "type": "comment",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "README",
         "info": "This group receive data of any event registered in sensfloor from the their gateway and,\ndepending of the action received, will do differents things/ say differents sentences.\n\nThe node that require our attention is named DEFINE ACTIONS & SPEECH and contains the fllowing struture, one for each event :\n\n/***********************************/\n\n    /*****ROOM IN ACTION*****/\n\nlet room_in_action = [];\nroom_in_action.push(\"action1\");\nflow.set(\"room_in_action\", room_in_action);\n\n    /*****ROOM IN SPEECH*****/\n\nflow.set(\"room_in_speech\",\"speech\");\n\n/***********************************/\n\nFor example, the structure above sets the actions and the speech for the event room_in.\n\n\n/****HOW TO PERSONALISE YOUR ACTIONS****/\n\nTo set-up your actions you need to edit this code line :\nroom_in_action.push(\"action1\");\n\nThere are three possibilities, you want only one action,you want more or you want none.\n\nIf you want one action, the line will look like this :\nroom_in_action.push(\"action1\");\nwhere action1 need to be replace by the action you want Aragon to do.\nDO NOT forget to put your action in double quotes and the semicolon at the end of the line.\n\nIf you want two or more there is not big change to do, you simply need to write your actions separated by a comma, like this :\nroom_in_action.push(\"action1\",\"action2\");\nDO NOT forget to put your action in double quotes and the semicolon at the end of the line.\n\nIf you dont want any action to be done just leave the bracket empty.\nDO NOT forget the semi colon at the end of the line\n\n\n/****HOW TO PERSONALISE YOUR SENTENCE****/\n\nTo edit the speech you will to modifie this line :\nflow.set(\"room_in_speech\",\"speech\");\n\nif you want to say something replace the word speech by the sentence you want to hear in double quotes,\nand if you dont want to hear anything, leave the double quotes empty (like that \"\")\n\nYou do not have to touch anything else\n\n\n\n\n\n\n\n\n\n",
         "x": 120,
@@ -612,10 +587,10 @@
         "wires": []
     },
     {
-        "id": "c34c39577c1384c1",
+        "id": "95096e56f1402760",
         "type": "split",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -627,16 +602,16 @@
         "y": 260,
         "wires": [
             [
-                "f458721efd86b8a1"
+                "7977406e1bef3459"
             ]
         ],
         "l": false
     },
     {
-        "id": "7433d71d5a2e2fa8",
+        "id": "ec1f1f46425062a9",
         "type": "link out",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "speaker out",
         "mode": "link",
         "links": [
@@ -647,24 +622,24 @@
         "wires": []
     },
     {
-        "id": "0bce61397b909df3",
+        "id": "80c6d089d5e5889f",
         "type": "link out",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "sensfloor cmd out",
         "mode": "link",
         "links": [
-            "e01aa7e37688afd6"
+            "15fa846d417d1af3"
         ],
         "x": 555,
         "y": 260,
         "wires": []
     },
     {
-        "id": "8ad3dec0ce6c7d4d",
+        "id": "6147be29e7612593",
         "type": "debug",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -680,10 +655,10 @@
         "l": false
     },
     {
-        "id": "ca391518c5dfd833",
+        "id": "db5d27e7b078e6dc",
         "type": "debug",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -699,10 +674,10 @@
         "l": false
     },
     {
-        "id": "f5ed2959197c8526",
+        "id": "8b5bb90f6fb19130",
         "type": "function",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "room_out_action",
         "func": "msg = {};\nmsg.payload = flow.get(\"room_out_action\");\nreturn msg;",
         "outputs": 1,
@@ -714,16 +689,16 @@
         "y": 340,
         "wires": [
             [
-                "675c8a74acc57c92"
+                "201d4d9903867d76"
             ]
         ],
         "l": false
     },
     {
-        "id": "675c8a74acc57c92",
+        "id": "201d4d9903867d76",
         "type": "split",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -735,16 +710,16 @@
         "y": 340,
         "wires": [
             [
-                "f458721efd86b8a1"
+                "7977406e1bef3459"
             ]
         ],
         "l": false
     },
     {
-        "id": "a1c95a36eeffca66",
+        "id": "01205e13307e2ca4",
         "type": "function",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "bed_out_action",
         "func": "msg = {};\nmsg.payload = flow.get(\"bed_out_action\");\nreturn msg;",
         "outputs": 1,
@@ -756,16 +731,16 @@
         "y": 500,
         "wires": [
             [
-                "c9df3b7eb7737370"
+                "f9f47f6fc86914e6"
             ]
         ],
         "l": false
     },
     {
-        "id": "c9df3b7eb7737370",
+        "id": "f9f47f6fc86914e6",
         "type": "split",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -777,16 +752,16 @@
         "y": 500,
         "wires": [
             [
-                "f458721efd86b8a1"
+                "7977406e1bef3459"
             ]
         ],
         "l": false
     },
     {
-        "id": "6272e2fd70a85b44",
+        "id": "5c3d6f52a917118b",
         "type": "function",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "bed_in_action",
         "func": "msg = {};\nmsg.payload = flow.get(\"bed_in_action\");\nreturn msg;",
         "outputs": 1,
@@ -798,16 +773,16 @@
         "y": 420,
         "wires": [
             [
-                "f1d9beb6451edb07"
+                "75a39a550ef261ac"
             ]
         ],
         "l": false
     },
     {
-        "id": "f1d9beb6451edb07",
+        "id": "75a39a550ef261ac",
         "type": "split",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -819,16 +794,16 @@
         "y": 420,
         "wires": [
             [
-                "f458721efd86b8a1"
+                "7977406e1bef3459"
             ]
         ],
         "l": false
     },
     {
-        "id": "edeb21444848f4aa",
+        "id": "ea6185d3dd346dd2",
         "type": "function",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "Prepare to ask if user is OK",
         "func": "let module = global.get(\"module\");\nlet language = module.settingsGetValue(\"msgLang\");\n\nlet siteId;\nglobal.set(\"helpCallTrigger\",\"floor\");\n\nif (language === \"de\") {\n    msg.payload.text = \"Wichtige Nachricht! Es sieht so aus, als wären Sie gestürzt, ich solle um Hilfe rufen?\";\n    siteId = \"Schlafzimmer\";\n} else if (language === \"fr\") {\n    msg.payload.text = \"Message important! il semblerait que vous soyez tombé, dois-je appeler de l'aide ?\";\n    siteId = \"Chambre\";\n} else {\n    msg.payload.text = \"Important message! it seems like you have fallen , shall I call for help?\";\n    siteId = \"Bedroom\";\n}\n\nif(msg.payload.siteId === undefined){\n    msg.payload.siteId = siteId;\n    node.warn(\"The siteId should come from sensflooer, now hardcoded to: \"+msg.payload.siteId);\n}\nmsg.payload = JSON.stringify(msg.payload);\nreturn msg;\n    \n\n    \n \n\n",
         "outputs": 1,
@@ -840,17 +815,17 @@
         "y": 220,
         "wires": [
             [
-                "23ba0bfd214b8064"
+                "aa8905ad2655b954"
             ]
         ],
         "icon": "node-red/alert.svg",
         "l": false
     },
     {
-        "id": "23ba0bfd214b8064",
+        "id": "aa8905ad2655b954",
         "type": "mqtt out",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "proknx/aal/queryuser",
         "topic": "proknx/aal/queryuser",
         "qos": "",
@@ -866,10 +841,10 @@
         "wires": []
     },
     {
-        "id": "80c72c4b8b6e8cf4",
+        "id": "76b10f909b74442d",
         "type": "inject",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "",
         "props": [
             {
@@ -887,18 +862,18 @@
         "y": 120,
         "wires": [
             [
-                "558661034b65d8b8"
+                "50475c4b2fc84ce6"
             ]
         ],
         "l": false
     },
     {
-        "id": "558661034b65d8b8",
+        "id": "50475c4b2fc84ce6",
         "type": "function",
-        "z": "235276ecb41ab11f",
-        "g": "b7e8cdd650aa9af7",
+        "z": "9ad225d8ce8ccbfa",
+        "g": "e2b99a3726f69497",
         "name": "DEFINE ACTIONS & SPEECH",
-        "func": "/***********************************/\n\n    /*****ROOM IN ACTION*****/\n\nlet room_in_action = [];\nroom_in_action.push(\"turn on the bedroom\",\"turn on the bathroom\");\n//room_in_action.push(\"allume la chambre\",\"allume les toilettes\");\n\nflow.set(\"room_in_action\", room_in_action);\n\n    /*****ROOM IN SPEECH*****/\n\nflow.set(\"room_in_speech\",\"welcome\");\n//flow.set(\"room_in_speech\",\"bienvenue\");\n\n/***********************************/\n\n    /*****ROOM OUT ACTION*****/\n\nlet room_out_action = [];\nroom_out_action.push(\"turn off light everywhere\");\n//room_out_action.push(\"éteins partout\");\nflow.set(\"room_out_action\", room_out_action);\n\n    /*****ROOM OUT SPEECH*****/\n\nflow.set(\"room_out_speech\",\"you are leaving the room\");\n//flow.set(\"room_out_speech\",\"vous quittez la pièce\");\n\n/***********************************/\n\n    /*****BED IN ACTION*****/\n\nlet bed_in_action = [];\nbed_in_action.push(\"turn off light everywhere\");\n//bed_in_action.push(\"éteins partout\");\nflow.set(\"bed_in_action\", bed_in_action);\n\n    /*****BED IN SPEECH*****/\n\nflow.set(\"bed_in_speech\",\"you are in the bed\");\n//flow.set(\"bed_in_speech\",\"vous êtes dans le lit\");\n\n/***********************************/\n\n    /*****BED OUT ACTION*****/\n\nlet bed_out_action = [];\nbed_out_action.push(\"turn on the bathroom\");\n//bed_out_action.push(\"allume les toilettes\");\nflow.set(\"bed_out_action\", bed_out_action);\n\n\n    /*****BED OUT SPEECH*****/\n\nflow.set(\"bed_out_speech\",\"you are out of the bed\");\n//flow.set(\"bed_out_speech\",\"vous sortez du lit\");\n\n/***********************************/\n",
+        "func": "/***********************************/\n\n    /*****ROOM IN ACTION*****/\n\nlet room_in_action = [];\n//room_in_action.push(\"turn on the bedroom\",\"turn on the bathroom\");\nroom_in_action.push(\"allume la chambre\",\"allume les toilettes\");\nflow.set(\"room_in_action\", room_in_action);\n\n    /*****ROOM IN SPEECH*****/\n\n//flow.set(\"room_in_speech\",\"welcome\");\nflow.set(\"room_in_speech\",\"bienvenue\");\n\n/***********************************/\n\n    /*****ROOM OUT ACTION*****/\n\nlet room_out_action = [];\n//room_out_action.push(\"turn off light everywhere\");\nroom_out_action.push(\"éteins partout\",\"allume la terrasse\");\nflow.set(\"room_out_action\", room_out_action);\n\n    /*****ROOM OUT SPEECH*****/\n\n//flow.set(\"room_out_speech\",\"you are leaving the room\");\nflow.set(\"room_out_speech\",\"vous quittez la pièce\");\n\n/***********************************/\n\n    /*****BED IN ACTION*****/\n\nlet bed_in_action = [];\n//bed_in_action.push(\"turn off light everywhere\");\nbed_in_action.push(\"éteins partout\");\nflow.set(\"bed_in_action\", bed_in_action);\n\n    /*****BED IN SPEECH*****/\n\n//flow.set(\"bed_in_speech\",\"you are in the bed\");\nflow.set(\"bed_in_speech\",\"vous êtes dans le lit\");\n\n/***********************************/\n\n    /*****BED OUT ACTION*****/\n\nlet bed_out_action = [];\n//bed_out_action.push(\"turn on the bathroom\");\nbed_out_action.push(\"allume les toilettes\");\nflow.set(\"bed_out_action\", bed_out_action);\n\n\n    /*****BED OUT SPEECH*****/\n\n//flow.set(\"bed_out_speech\",\"you are out of the bed\");\nflow.set(\"bed_out_speech\",\"vous sortez du lit\");\n\n/***********************************/\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -913,7 +888,7 @@
     {
         "id": "f96ab142.d8bab8",
         "type": "mqtt-broker",
-        "z": "71472a4aca9b1454",
+        "z": "8f34800c1dc3f144",
         "name": "-",
         "broker": "localhost",
         "port": "1883",
