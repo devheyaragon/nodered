@@ -21,7 +21,7 @@
             "b862a2b04fb9c83f"
         ],
         "x": 14,
-        "y": 39,
+        "y": 159,
         "w": 232,
         "h": 122
     },
@@ -71,8 +71,6 @@
             "0a288b39e028efd4",
             "3c9d0a2cc0494e21",
             "1ce15fe10bdd74bd",
-            "20945fd3e9469b2e",
-            "ac3e27bc37fe233c",
             "f37c3fe9deeeb1bf",
             "3cb3aad30d0a733d",
             "04c51508ff442c47",
@@ -97,13 +95,13 @@
         "x": 914,
         "y": 39,
         "w": 712,
-        "h": 522
+        "h": 462
     },
     {
         "id": "5b2a8d22374d4cf0",
         "type": "group",
         "z": "a6d29d13.3c30c",
-        "name": "actuator",
+        "name": "learning the sensor",
         "style": {
             "label": true
         },
@@ -139,58 +137,10 @@
             "221f2a01cfcd32b1",
             "6526a9c4cd7277d9"
         ],
-        "x": 1714,
-        "y": 519,
+        "x": 2514,
+        "y": 239,
         "w": 512,
         "h": 142
-    },
-    {
-        "id": "2b089b24fb045233",
-        "type": "group",
-        "z": "a6d29d13.3c30c",
-        "name": "switch for table de nuit",
-        "style": {
-            "label": true
-        },
-        "nodes": [
-            "b8da7324.ac706",
-            "336f88c5.932b18",
-            "d5957ef5.439f",
-            "e529c437.4c4f18",
-            "75dd71b9.5c90a",
-            "ce7a95a6b864fe0d",
-            "c12358771fd2f1a0",
-            "824858af3288be7b",
-            "b2a7a955.ec75d8"
-        ],
-        "x": 14,
-        "y": 319,
-        "w": 542,
-        "h": 162
-    },
-    {
-        "id": "912961db93b0575f",
-        "type": "group",
-        "z": "a6d29d13.3c30c",
-        "name": "tirette",
-        "style": {
-            "label": true
-        },
-        "nodes": [
-            "c03f0d4c4356c1d5",
-            "644943328dedfac7",
-            "1fe112699a7d51f7",
-            "78e13798195ec231",
-            "bcbc7929ce2b7894",
-            "90a1c48adfe8b7b2",
-            "026ca30720f20827",
-            "096175b4309a68bb",
-            "591ac6ddb54a4e94"
-        ],
-        "x": 14,
-        "y": 539,
-        "w": 542,
-        "h": 162
     },
     {
         "id": "8ecfb866bf62c3f2",
@@ -259,24 +209,12 @@
         ]
     },
     {
-        "id": "6fbae4184721e3b6",
-        "type": "junction",
-        "z": "a6d29d13.3c30c",
-        "x": 1700,
-        "y": 200,
-        "wires": [
-            [
-                "94e228ec8f9e551c"
-            ]
-        ]
-    },
-    {
         "id": "47f14eb81cf17618",
         "type": "junction",
         "z": "a6d29d13.3c30c",
         "g": "e2f01704a7c095f7",
         "x": 1500,
-        "y": 500,
+        "y": 440,
         "wires": [
             [
                 "f31e3118ad1bc274",
@@ -290,7 +228,7 @@
         "z": "a6d29d13.3c30c",
         "g": "e2f01704a7c095f7",
         "x": 1500,
-        "y": 480,
+        "y": 420,
         "wires": [
             [
                 "e0449b56f2c97d16",
@@ -304,7 +242,7 @@
         "z": "a6d29d13.3c30c",
         "g": "e2f01704a7c095f7",
         "x": 1500,
-        "y": 440,
+        "y": 380,
         "wires": [
             [
                 "0cdb83c78087cab6",
@@ -318,7 +256,7 @@
         "z": "a6d29d13.3c30c",
         "g": "e2f01704a7c095f7",
         "x": 1500,
-        "y": 420,
+        "y": 360,
         "wires": [
             [
                 "dd74359dd9825ac5",
@@ -376,7 +314,7 @@
         "serialport": "cfcf4fbc.4250e",
         "name": "",
         "x": 90,
-        "y": 120,
+        "y": 240,
         "wires": [
             [
                 "f0aa41fc4609326b",
@@ -400,7 +338,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 185,
-        "y": 80,
+        "y": 200,
         "wires": [],
         "l": false
     },
@@ -424,10 +362,11 @@
             "a4a71d6e133dbb35",
             "508ba8016e664599",
             "4a0593c58bc3c887",
-            "706f5c1cd027638a"
+            "706f5c1cd027638a",
+            "93adeb08f4e1bff5"
         ],
         "x": 185,
-        "y": 120,
+        "y": 240,
         "wires": []
     },
     {
@@ -732,7 +671,7 @@
         "name": "README",
         "info": "This group accepts all the enocean frames it finds from the usb gateway, you need to set the correct serial port for this to work.\nPlease note that if the device is the first and only connected to the master, the serial port should be /dev/ttyUSB0",
         "x": 100,
-        "y": 80,
+        "y": 200,
         "wires": []
     },
     {
@@ -831,7 +770,7 @@
         "z": "a6d29d13.3c30c",
         "g": "69976a2f01278857",
         "name": "README",
-        "info": "This group simulates a 2 Rocker Switch (8 Buttons: 0, 1, 2, 3, 4, 5, 6, 7) that can be \"click\"ed or \"down\"ed.\n     \"click\" means the button is immediately released after beeing pressed. When \"down\"ed you have to release the button yourself.\n     When a receiver is in LRN mode, send either `button: 0` or `button: 1` to teach in Rocker 1, send `button: 2` or `button: 3` to teach in Rocker 2 etc..\n     With one USB you can send on up to 128 (0-127) channels. so you can simulate 256 Rocker switches.\n     \n     \n     Button set-up :\n        can be 0, 1, 2, 3, 4, 5, 6, 7 . The button to click on the simulated rocker.\n        \n     Channel set-up :\n        can be 0-127. The channel to send on. It's an offset off the baseId of your USB 300.\n        \n     Event set-up :\n        can be one of \"click\",\"down\",\"release\". Defines the event to send\n\nthe text you send must have the same shape as this example:\n{\n    \"button\": 0,\n    \"channel\": 4,\n    \"event\": \"click\"\n}\n\n/!\\ do not forget to modify the values !\nin the actual state, the group simulate one rocker (because we have 1 ON and 1 OFF)\nwe highly recommand you to save one as a template and copy paste this group to have one per device you want to control.\nbe carefull to not duplicate any buttons !",
+        "info": "This group simulates a 2 Rocker Switch (8 Buttons: 0, 1, 2, 3, 4, 5, 6, 7) that can be \"click\"ed or \"down\"ed.\n     \"click\" means the button is immediately released after beeing pressed. When \"down\"ed you have to release the button yourself.\n     When a receiver is in LRN mode, send either `button: 0` or `button: 1` to teach in Rocker 1, send `button: 2` or `button: 3` to teach in Rocker 2 etc..\n     With one USB you can send on up to 128 (0-127) channels. so you can simulate 256 Rocker switches.\n     \n     \n     Button set-up :\n        can be 0, 1, 2, 3, 4, 5, 6, 7 . The button to click on the simulated rocker.\n        \n     Channel set-up :\n        can be 0-127. The channel to send on. It's an offset off the baseId of your USB 300.\n        \n     Event set-up :\n        can be one of \"click\",\"down\",\"release\". Defines the event to send.\n        (we do not need event for custom devices)\n\nthe text you send must have the same shape as this example:\n{\n    \"button\": 0,\n    \"channel\": 4,\n    \"event\": \"click\"\n}\n\n/!\\ do not forget to modify the values !\nin the actual state, the group simulate one rocker (because we have 1 ON and 1 OFF)\nwe highly recommand you to save one as a template and copy paste this group to have one per device you want to control.\nbe carefull to not duplicate any buttons !",
         "x": 2600,
         "y": 80,
         "wires": []
@@ -972,7 +911,7 @@
         "once": true,
         "onceDelay": "3",
         "topic": "",
-        "payload": "[{\"custom\":true,\"name\":\"plafond toilette\",\"zone\":\"toilettes\",\"object\":\"plafond\",\"type\":\"lights\",\"setOn\":{\"name\":\"On\",\"button\":0,\"channel\":1,\"event\":\"click\",\"eep\":\"f6-02-01\",\"value\":100},\"setOff\":{\"name\":\"Off\",\"button\":1,\"channel\":1,\"event\":\"click\",\"eep\":\"f6-02-01\",\"value\":0}}]",
+        "payload": "[{\"custom\":true,\"name\":\"plafond toilette\",\"zone\":\"toilettes\",\"object\":\"plafond\",\"type\":\"lights\",\"setOn\":{\"name\":\"On\",\"button\":0,\"channel\":1,\"event\":\"click\",\"eep\":\"f6-02-01\",\"value\":100},\"setOff\":{\"name\":\"Off\",\"button\":1,\"channel\":1,\"event\":\"click\",\"eep\":\"f6-02-01\",\"value\":0}},{\"custom\":true,\"name\":\"terrasse extérieure\",\"zone\":\"terrasse\",\"object\":\"extérieur\",\"type\":\"lights\",\"setOn\":{\"name\":\"On\",\"url\":\"http://192.168.69.108/light/0?turn=on\",\"value\":100},\"setOff\":{\"name\":\"Off\",\"url\":\"http://192.168.69.108/light/0?turn=off\",\"value\":0},\"currentState\":{\"name\":\"CurrentState\",\"url\":\"http://192.168.69.108/status\",\"parser\":\"shelly\",\"id\":0}}]",
         "payloadType": "json",
         "x": 1080,
         "y": 300,
@@ -1064,7 +1003,7 @@
         "rap": false,
         "inputs": 0,
         "x": 1030,
-        "y": 480,
+        "y": 440,
         "wires": [
             [
                 "2cdcafbee62d4c8b",
@@ -1082,7 +1021,7 @@
         "action": "",
         "pretty": false,
         "x": 1005,
-        "y": 400,
+        "y": 380,
         "wires": [
             [
                 "1ce15fe10bdd74bd"
@@ -1096,7 +1035,7 @@
         "z": "a6d29d13.3c30c",
         "g": "e2f01704a7c095f7",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1105,7 +1044,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1375,
-        "y": 500,
+        "y": 440,
         "wires": [],
         "l": false
     },
@@ -1122,7 +1061,7 @@
         "finalize": "",
         "libs": [],
         "x": 1235,
-        "y": 440,
+        "y": 380,
         "wires": [
             [
                 "3c9d0a2cc0494e21",
@@ -1160,7 +1099,7 @@
         "repair": false,
         "outputs": 3,
         "x": 1130,
-        "y": 400,
+        "y": 380,
         "wires": [
             [
                 "f92dfcc4d3bcab54"
@@ -1186,7 +1125,7 @@
         "stream": false,
         "addname": "",
         "x": 1295,
-        "y": 460,
+        "y": 400,
         "wires": [
             [
                 "113f91b4a169febf",
@@ -1223,7 +1162,7 @@
         "to": "",
         "reg": false,
         "x": 1055,
-        "y": 400,
+        "y": 380,
         "wires": [
             [
                 "0a288b39e028efd4"
@@ -1232,49 +1171,12 @@
         "l": false
     },
     {
-        "id": "20945fd3e9469b2e",
-        "type": "function",
-        "z": "a6d29d13.3c30c",
-        "g": "e2f01704a7c095f7",
-        "name": "Prepare request",
-        "func": "function precisionRound(number, precision) {\n   var factor = Math.pow(10, precision);\n   return Math.round(number * factor) / factor;\n}\ndelete msg.type;\ndelete msg.headers;\ndelete msg.certificate;\nmsg.device = [];\nmsg.current = msg.payload;\nmsg.newVal = [];\nif (msg.cmd.type === \"lights\" && msg.cmd.cmd === \"increase\") {\n   cptok = 0;\n   for (var i = 0; i < msg.items.length; i++) {\n      if (msg.items[i].type === \"dimmers\") {\n         if (msg.cmd.value !== undefined) {\n            var val = msg.cmd.value / 100 * msg.items[i].setBrightness.valueMax;\n            val = precisionRound(val, 1);\n            var newVal = parseInt(msg.current[i].Data[0].Value) + val;\n            if (newVal > msg.items[i].setBrightness.valueMax) {\n               newVal = msg.items[i].setBrightness.valueMax;\n            }\n            newVal = precisionRound(newVal, 1);\n            msg.device[cptok] = msg.items[i].setBrightness;\n            msg.device[cptok].value = newVal;\n            cptok++;\n         } else {\n            var newVal = parseInt(msg.current[i].Data[0].Value) + (0.2 * msg.items[i].setBrightness.valueMax);\n            if (newVal > msg.items[i].setBrightness.valueMax) {\n               newVal = msg.items[i].setBrightness.valueMax;\n            }\n            msg.device[cptok] = msg.items[i].setBrightness;\n            msg.device[cptok].value = newVal;\n            cptok++;\n         }\n      }\n   }\n} else if (msg.cmd.type === \"lights\" && msg.cmd.cmd === \"decrease\") {\n   cptok = 0;\n   for (var i = 0; i < msg.items.length; i++) {\n      if (msg.items[i].type === \"dimmers\") {\n         if (msg.cmd.value !== undefined) {\n            var val = msg.cmd.value / 100 * msg.items[i].setBrightness.valueMax;\n            val = precisionRound(val, 1);\n            var newVal = parseInt(msg.current[i].Data[0].Value) - val;\n            if (newVal < msg.items[i].setBrightness.valueMin) {\n               newVal = msg.items[i].setBrightness.valueMin;\n            }\n            newVal = precisionRound(newVal, 1);\n            msg.device[cptok] = msg.items[i].setBrightness;\n            msg.device[cptok].value = newVal;\n            cptok++;\n         } else {\n            var newVal = parseInt(msg.current[i].Data[0].Value) - (0.2 * msg.items[i].setBrightness.valueMax);\n            if (newVal < msg.items[i].setBrightness.valueMin) {\n               newVal = msg.items[i].setBrightness.valueMin;\n            }\n            newVal = precisionRound(newVal, 1);\n            msg.device[cptok] = msg.items[i].setBrightness;\n            msg.device[cptok].value = newVal;\n            cptok++;\n         }\n      }\n   }\n}\n\nmsg.payload = msg.device;\ndelete msg.url;\n\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 1235,
-        "y": 480,
-        "wires": [
-            [
-                "3c9d0a2cc0494e21"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "ac3e27bc37fe233c",
-        "type": "link in",
-        "z": "a6d29d13.3c30c",
-        "g": "e2f01704a7c095f7",
-        "name": "CONTINUE COMMAND IN",
-        "links": [
-            "29f02ad0eccc5bf4"
-        ],
-        "x": 1185,
-        "y": 480,
-        "wires": [
-            [
-                "20945fd3e9469b2e"
-            ]
-        ]
-    },
-    {
         "id": "f37c3fe9deeeb1bf",
         "type": "comment",
         "z": "a6d29d13.3c30c",
         "g": "e2f01704a7c095f7",
         "name": "INFO / README",
-        "info": "- This group, CUSTOM DEVICES, enables voice control of custom devices, i.e. apart from the devices of the main Gateway you can add-on here.\n- \n- Any device that can be controlled via HTTP can be  integrataded here.\n- \n- This sample demonstrates how to declare (publish) your custom devices, in this case Shelly Dimmer and Shelly Relays. \n",
+        "info": "- This group, CUSTOM DEVICES, enables voice control of custom devices, i.e. apart from the devices of the main Gateway you can add-on here.\n- \n- Any device that can be controlled via Enocean can be integrataded here.\n-\n- Put your custom devices in the inject node following the sample in it.\n- Do not forget to have a unique button for each device, you will find more information in the manual send group (on the right)\n- When you a have finished, click Deploy.\n-\n- If you want to learn Aragon to your custom device's actuator, set it in learn mode, then ask Aragon to turn on/off, activate or whatever you want to do with your device so the actuator will learn it.\n- \n-\n-/!\\ If you have Enocean and non Enocean custom devices, write them all in the same inject node, otherwise they will be overwrited",
         "x": 1020,
         "y": 80,
         "wires": []
@@ -1363,7 +1265,7 @@
         "repair": false,
         "outputs": 4,
         "x": 1430,
-        "y": 460,
+        "y": 400,
         "wires": [
             [
                 "632232839326d34b"
@@ -1390,7 +1292,7 @@
             "44c83bde680851cb"
         ],
         "x": 1545,
-        "y": 420,
+        "y": 360,
         "wires": []
     },
     {
@@ -1404,7 +1306,7 @@
             "544e621fbffe453c"
         ],
         "x": 1545,
-        "y": 440,
+        "y": 380,
         "wires": []
     },
     {
@@ -1418,7 +1320,7 @@
             "4162af41c53dd4f8"
         ],
         "x": 1545,
-        "y": 480,
+        "y": 420,
         "wires": []
     },
     {
@@ -1432,7 +1334,7 @@
             "a83de89197fac280"
         ],
         "x": 1545,
-        "y": 500,
+        "y": 440,
         "wires": []
     },
     {
@@ -1449,8 +1351,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1375,
-        "y": 400,
+        "x": 1295,
+        "y": 360,
         "wires": [],
         "l": false
     },
@@ -1473,7 +1375,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 1345,
-        "y": 460,
+        "y": 400,
         "wires": [
             [
                 "237c0b2324d565c3"
@@ -1496,7 +1398,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1565,
-        "y": 420,
+        "y": 360,
         "wires": [],
         "l": false
     },
@@ -1515,7 +1417,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1565,
-        "y": 440,
+        "y": 380,
         "wires": [],
         "l": false
     },
@@ -1534,7 +1436,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1565,
-        "y": 480,
+        "y": 420,
         "wires": [],
         "l": false
     },
@@ -1553,7 +1455,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1565,
-        "y": 500,
+        "y": 440,
         "wires": [],
         "l": false
     },
@@ -1572,7 +1474,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1175,
-        "y": 520,
+        "y": 460,
         "wires": [],
         "l": false
     },
@@ -1778,8 +1680,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1860,
-        "y": 620,
+        "x": 2660,
+        "y": 340,
         "wires": [
             [
                 "4927eaa8747d5f8d"
@@ -1804,8 +1706,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1965,
-        "y": 620,
+        "x": 2765,
+        "y": 340,
         "wires": [
             [
                 "502aed4b4eb3aecf",
@@ -1828,8 +1730,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2015,
-        "y": 580,
+        "x": 2815,
+        "y": 300,
         "wires": [],
         "l": false
     },
@@ -1842,10 +1744,11 @@
         "links": [
             "3799786b12ce5f1c",
             "04917c1f0fb05463",
-            "3e1bae81f5c1082b"
+            "3e1bae81f5c1082b",
+            "e67014b4b91a8978"
         ],
-        "x": 1755,
-        "y": 620,
+        "x": 2555,
+        "y": 340,
         "wires": [
             [
                 "a97526f901c41f9d"
@@ -1859,593 +1762,9 @@
         "g": "c35c250e1c6e5def",
         "name": "README",
         "info": "This flow receive the commands from a sensor of an actuator group and send them to the Speech To Text\n",
-        "x": 1800,
-        "y": 560,
+        "x": 2600,
+        "y": 280,
         "wires": []
-    },
-    {
-        "id": "8afef149a91db47b",
-        "type": "debug",
-        "z": "a6d29d13.3c30c",
-        "name": "msg.payload",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 635,
-        "y": 420,
-        "wires": [],
-        "l": false
-    },
-    {
-        "id": "3799786b12ce5f1c",
-        "type": "link out",
-        "z": "a6d29d13.3c30c",
-        "name": "enocean cmd out",
-        "mode": "link",
-        "links": [
-            "eae05f3289e9221e"
-        ],
-        "x": 635,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "663a1179883938d3",
-        "type": "function",
-        "z": "a6d29d13.3c30c",
-        "name": "conditon action",
-        "func": "// Convert the hexadecimal value (msg.meta.payload) to decimal using parseInt with radix 16\nvar valueHex = msg.meta.payload;\nvar valueDec = parseInt(valueHex, 16);\n\nmsg = {};\n// Compare the decimal value and set the appropriate value for msg.payload\nif (valueDec === 0x70) {\n    msg.payload = \"allume table de nuit\";\n} else if (valueDec === 0x50) {\n    msg.payload = \"éteins table de nuit\";\n} else {\n    // If the value is not 70 or 50, do nothing (keep the original payload)\n    return null;\n}\n\n// Send the modified message to the output\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 585,
-        "y": 420,
-        "wires": [
-            [
-                "3799786b12ce5f1c",
-                "8afef149a91db47b"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "c97016fa2f060f2a",
-        "type": "debug",
-        "z": "a6d29d13.3c30c",
-        "name": "debug 5",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.EB.description",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 635,
-        "y": 600,
-        "wires": [],
-        "l": false
-    },
-    {
-        "id": "d8014265083a89d3",
-        "type": "switch",
-        "z": "a6d29d13.3c30c",
-        "name": "",
-        "property": "payload.EB.description",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "pressed",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 585,
-        "y": 640,
-        "wires": [
-            [
-                "c97016fa2f060f2a",
-                "d89fca694d05123c"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "d89fca694d05123c",
-        "type": "function",
-        "z": "a6d29d13.3c30c",
-        "name": "will call help",
-        "func": "let module = global.get(\"module\");\nlet arrAdapters = module.settingsGetValue(\"msgAdapter\");\nlet language = module.settingsGetValue(\"msgLang\");\nglobal.set(\"helpCallTrigger\",\"button\");\nmsg.payload = [];\nif(arrAdapters !== undefined){\n    var len = arrAdapters.length;\n    for (var i = 0; i < len; i++) {\n        let payload = module.feedback(language, \"\", \"HELPCALL_Call_For_Help\");   \n        payload.siteId = arrAdapters[i].siteName;\n        msg.payload.push(payload);\n    }\n    return msg;\n}\n    \n\n    \n \n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 645,
-        "y": 640,
-        "wires": [
-            [
-                "ca2b42ed3e05c8d7",
-                "a97d669a2060cba0"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "ca2b42ed3e05c8d7",
-        "type": "debug",
-        "z": "a6d29d13.3c30c",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 715,
-        "y": 660,
-        "wires": [],
-        "l": false
-    },
-    {
-        "id": "04213f96ac859010",
-        "type": "link out",
-        "z": "a6d29d13.3c30c",
-        "name": "SPEAK OUT",
-        "mode": "link",
-        "links": [
-            "a1b4e119.a687c8",
-            "d5d2a1c0.bb66d"
-        ],
-        "x": 765,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "a97d669a2060cba0",
-        "type": "split",
-        "z": "a6d29d13.3c30c",
-        "name": "",
-        "splt": "\\n",
-        "spltType": "str",
-        "arraySplt": 1,
-        "arraySpltType": "len",
-        "stream": false,
-        "addname": "",
-        "x": 715,
-        "y": 620,
-        "wires": [
-            [
-                "04213f96ac859010"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "b8da7324.ac706",
-        "type": "inject",
-        "z": "a6d29d13.3c30c",
-        "g": "2b089b24fb045233",
-        "name": "LRN",
-        "props": [
-            {
-                "p": "payload",
-                "v": "{\"type\":\"LRN\",\"duration\":3}",
-                "vt": "json"
-            },
-            {
-                "p": "topic",
-                "v": "",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"type\":\"LRN\",\"duration\":3}",
-        "payloadType": "json",
-        "x": 170,
-        "y": 440,
-        "wires": [
-            [
-                "75dd71b9.5c90a"
-            ]
-        ]
-    },
-    {
-        "id": "336f88c5.932b18",
-        "type": "inject",
-        "z": "a6d29d13.3c30c",
-        "g": "2b089b24fb045233",
-        "name": "DEL",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"type\":\"DEL\",\"duration\":3}",
-        "payloadType": "json",
-        "x": 170,
-        "y": 420,
-        "wires": [
-            [
-                "75dd71b9.5c90a"
-            ]
-        ]
-    },
-    {
-        "id": "d5957ef5.439f",
-        "type": "inject",
-        "z": "a6d29d13.3c30c",
-        "g": "2b089b24fb045233",
-        "name": "manual teach in",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"type\":\"LRN\",\"senderId\":\"001f0984\",\"eep\":\"f6-02-01\",\"name\":\"switch light\"}",
-        "payloadType": "json",
-        "x": 140,
-        "y": 400,
-        "wires": [
-            [
-                "75dd71b9.5c90a"
-            ]
-        ]
-    },
-    {
-        "id": "e529c437.4c4f18",
-        "type": "inject",
-        "z": "a6d29d13.3c30c",
-        "g": "2b089b24fb045233",
-        "name": "manual delete",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"type\":\"DEL\",\"senderId\":\"001f0984\",\"eep\":\"f6-02-01\"}",
-        "payloadType": "json",
-        "x": 150,
-        "y": 380,
-        "wires": [
-            [
-                "75dd71b9.5c90a"
-            ]
-        ]
-    },
-    {
-        "id": "75dd71b9.5c90a",
-        "type": "enocean-actor",
-        "z": "a6d29d13.3c30c",
-        "g": "2b089b24fb045233",
-        "name": "",
-        "channel": "",
-        "adt": false,
-        "x": 340,
-        "y": 420,
-        "wires": [
-            [
-                "824858af3288be7b"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "ce7a95a6b864fe0d",
-        "type": "link in",
-        "z": "a6d29d13.3c30c",
-        "g": "2b089b24fb045233",
-        "name": "in input encean",
-        "links": [
-            "3107ef0c67f14dcd"
-        ],
-        "x": 265,
-        "y": 380,
-        "wires": [
-            [
-                "75dd71b9.5c90a"
-            ]
-        ]
-    },
-    {
-        "id": "c12358771fd2f1a0",
-        "type": "comment",
-        "z": "a6d29d13.3c30c",
-        "g": "2b089b24fb045233",
-        "name": "readme",
-        "info": "for manuell delete and teach in,\nyou need to put the correct senderId in the inject data,\notherwise they simply wont work.\n\nthey are not very important nodes as LRN and DEL allows you to start a teach in or a delete for 3 sec. within these 3 sec you need to push on button on the enocean device, it will send a RF frame and the senderId of the device will be learned in the actor node.",
-        "x": 480,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "824858af3288be7b",
-        "type": "rbe",
-        "z": "a6d29d13.3c30c",
-        "g": "2b089b24fb045233",
-        "name": "",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": false,
-        "property": "payload",
-        "topi": "payload",
-        "x": 425,
-        "y": 420,
-        "wires": [
-            [
-                "663a1179883938d3",
-                "b2a7a955.ec75d8"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "b2a7a955.ec75d8",
-        "type": "debug",
-        "z": "a6d29d13.3c30c",
-        "g": "2b089b24fb045233",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 475,
-        "y": 400,
-        "wires": [],
-        "l": false
-    },
-    {
-        "id": "c03f0d4c4356c1d5",
-        "type": "enocean-actor",
-        "z": "a6d29d13.3c30c",
-        "g": "912961db93b0575f",
-        "name": "",
-        "channel": "",
-        "adt": false,
-        "x": 340,
-        "y": 640,
-        "wires": [
-            [
-                "591ac6ddb54a4e94"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "644943328dedfac7",
-        "type": "inject",
-        "z": "a6d29d13.3c30c",
-        "g": "912961db93b0575f",
-        "name": "LRN",
-        "props": [
-            {
-                "p": "payload",
-                "v": "{\"type\":\"LRN\",\"duration\":3}",
-                "vt": "json"
-            },
-            {
-                "p": "topic",
-                "v": "",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"type\":\"LRN\",\"duration\":3}",
-        "payloadType": "json",
-        "x": 170,
-        "y": 660,
-        "wires": [
-            [
-                "c03f0d4c4356c1d5"
-            ]
-        ]
-    },
-    {
-        "id": "1fe112699a7d51f7",
-        "type": "inject",
-        "z": "a6d29d13.3c30c",
-        "g": "912961db93b0575f",
-        "name": "DEL",
-        "props": [
-            {
-                "p": "payload",
-                "v": "{\"type\":\"DEL\",\"duration\":3}",
-                "vt": "json"
-            },
-            {
-                "p": "topic",
-                "v": "",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"type\":\"DEL\",\"duration\":3}",
-        "payloadType": "json",
-        "x": 170,
-        "y": 640,
-        "wires": [
-            [
-                "c03f0d4c4356c1d5"
-            ]
-        ]
-    },
-    {
-        "id": "78e13798195ec231",
-        "type": "inject",
-        "z": "a6d29d13.3c30c",
-        "g": "912961db93b0575f",
-        "name": "manual teach in",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"type\":\"LRN\",\"senderId\":\"fefc15f8\",\"eep\":\"f6-02-01\",\"name\":\"tirette\"}",
-        "payloadType": "json",
-        "x": 140,
-        "y": 620,
-        "wires": [
-            [
-                "c03f0d4c4356c1d5"
-            ]
-        ]
-    },
-    {
-        "id": "bcbc7929ce2b7894",
-        "type": "inject",
-        "z": "a6d29d13.3c30c",
-        "g": "912961db93b0575f",
-        "name": "manual delete",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"type\":\"DEL\",\"senderId\":\"fefc15f8\",\"eep\":\"f6-02-01\"}",
-        "payloadType": "json",
-        "x": 150,
-        "y": 600,
-        "wires": [
-            [
-                "c03f0d4c4356c1d5"
-            ]
-        ]
-    },
-    {
-        "id": "90a1c48adfe8b7b2",
-        "type": "link in",
-        "z": "a6d29d13.3c30c",
-        "g": "912961db93b0575f",
-        "name": "in input encean",
-        "links": [
-            "3107ef0c67f14dcd"
-        ],
-        "x": 265,
-        "y": 600,
-        "wires": [
-            [
-                "c03f0d4c4356c1d5"
-            ]
-        ]
-    },
-    {
-        "id": "026ca30720f20827",
-        "type": "comment",
-        "z": "a6d29d13.3c30c",
-        "g": "912961db93b0575f",
-        "name": "readme",
-        "info": "for manuell delete and teach in,\nyou need to put the correct senderId in the inject data,\notherwise they simply wont work.\n\nthey are not very important nodes as LRN and DEL allows you to start a teach in or a delete for 3 sec. within these 3 sec you need to push on button on the enocean device, it will send a RF frame and the senderId of the device will be learned in the actor node.",
-        "x": 480,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "096175b4309a68bb",
-        "type": "debug",
-        "z": "a6d29d13.3c30c",
-        "g": "912961db93b0575f",
-        "name": "msg",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.EB.description",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 475,
-        "y": 620,
-        "wires": [],
-        "l": false
-    },
-    {
-        "id": "591ac6ddb54a4e94",
-        "type": "rbe",
-        "z": "a6d29d13.3c30c",
-        "g": "912961db93b0575f",
-        "name": "",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": false,
-        "property": "payload",
-        "topi": "payload",
-        "x": 425,
-        "y": 640,
-        "wires": [
-            [
-                "096175b4309a68bb",
-                "d8014265083a89d3"
-            ]
-        ],
-        "l": false
     },
     {
         "id": "6526a9c4cd7277d9",
@@ -2462,8 +1781,8 @@
         "correl": "",
         "expiry": "",
         "broker": "b7d2dbd0.c8ee4",
-        "x": 2110,
-        "y": 620,
+        "x": 2910,
+        "y": 340,
         "wires": []
     },
     {
@@ -2625,58 +1944,6 @@
         "wires": [
             [
                 "0568c3ef39500ce6"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "667c0be631cde3ab",
-        "type": "inject",
-        "z": "a6d29d13.3c30c",
-        "name": "allume les toilettes",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"name\":\"On\",\"button\":0,\"channel\":1,\"event\":\"click\",\"eep\":\"f6-02-01\",\"value\":100}",
-        "payloadType": "json",
-        "x": 1675,
-        "y": 180,
-        "wires": [
-            [
-                "6fbae4184721e3b6"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "e8940b46cc097465",
-        "type": "inject",
-        "z": "a6d29d13.3c30c",
-        "name": "éteins les toilettes",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"name\":\"Off\",\"button\":1,\"channel\":1,\"event\":\"click\",\"eep\":\"f6-02-01\",\"value\":0}",
-        "payloadType": "json",
-        "x": 1675,
-        "y": 220,
-        "wires": [
-            [
-                "6fbae4184721e3b6"
             ]
         ],
         "l": false
@@ -2884,6 +2151,16 @@
             ]
         ],
         "l": false
+    },
+    {
+        "id": "40a19ab5be8c4478",
+        "type": "comment",
+        "z": "a6d29d13.3c30c",
+        "name": "PRESENTATION",
+        "info": "This flow allows you to control Enocean device, receive Enocean rf frame from sensor you have taught in here and simulate few switch to activate devices such as light.",
+        "x": 100,
+        "y": 60,
+        "wires": []
     },
     {
         "id": "cfcf4fbc.4250e",
