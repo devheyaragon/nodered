@@ -1,0 +1,177 @@
+[
+    {
+        "id": "0daacd5653d49e0e",
+        "type": "tab",
+        "label": "FUNCTION-GPT",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "41f4db35c159a9f7",
+        "type": "function-gpt",
+        "z": "0daacd5653d49e0e",
+        "name": "Generate a random number between 1 and 100",
+        "config": "f4503aa58dafce7a",
+        "func": "//$PROMPT: Generate a random number between 1 and 100, and return it in msg.payload as a string\n\n// Generate a random number between 1 and 100\nconst randomNumber = Math.floor(Math.random() * 100) + 1;\n\n// Convert the random number to a string\nconst randomString = randomNumber.toString();\n\n// Set the random number string as the payload of the output message\nmsg.payload = randomString;\n\n// Return the output message\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 140,
+        "wires": [
+            [
+                "75374d81ad4d00ac"
+            ]
+        ]
+    },
+    {
+        "id": "b40327138c4ab51b",
+        "type": "inject",
+        "z": "0daacd5653d49e0e",
+        "name": "inject",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "41f4db35c159a9f7"
+            ]
+        ]
+    },
+    {
+        "id": "75374d81ad4d00ac",
+        "type": "debug",
+        "z": "0daacd5653d49e0e",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 675,
+        "y": 140,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "9a69731056acf6a2",
+        "type": "function-gpt",
+        "z": "0daacd5653d49e0e",
+        "name": "Action depends on value type",
+        "config": "f4503aa58dafce7a",
+        "func": "//$PROMPT: if input msg.payload is a string, write \"This is a string\" followed by the value of msg.payload in the debug window. If the msg.payload is an object, write the 'value' in the debug window. Finally, msg.payload is any other type, generate a warning on the debug window\n\n// Check the type of msg.payload\nif (typeof msg.payload === 'string') {\n    // If string, log \"This is a string\" followed by the value of msg.payload\n    node.warn(\"This is a string \" + msg.payload);\n} else if (typeof msg.payload === 'object') {\n    // If object, log the value of 'value' property\n    if (msg.payload.hasOwnProperty('value')) {\n        node.warn(msg.payload.value);\n    } else {\n        // If 'value' property does not exist, log a warning\n        node.warn(\"Object does not have a 'value' property\");\n    }\n} else {\n    // If any other type, generate a warning\n    node.warn(\"Unknown payload type: \" + (typeof msg.payload));\n}\n\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e5cf05183b8bc1d1",
+        "type": "inject",
+        "z": "0daacd5653d49e0e",
+        "name": "Object",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"value\":12}",
+        "payloadType": "json",
+        "x": 150,
+        "y": 260,
+        "wires": [
+            [
+                "9a69731056acf6a2"
+            ]
+        ]
+    },
+    {
+        "id": "08c1f1bc76898b59",
+        "type": "inject",
+        "z": "0daacd5653d49e0e",
+        "name": "String",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hello world",
+        "payloadType": "str",
+        "x": 150,
+        "y": 320,
+        "wires": [
+            [
+                "9a69731056acf6a2"
+            ]
+        ]
+    },
+    {
+        "id": "54f9b1769a04c511",
+        "type": "comment",
+        "z": "0daacd5653d49e0e",
+        "name": "README - AI help coding",
+        "info": "This flow demonstrates how you can have Artificial Intelligence to assist you in writing code.\n\nThe @flowforge/node-red-function-gpt is a variation of the standard Node-RED function node.\nIt includes an interface to ChatGPT for writing into the function content.\n\nRequirements\n1. Upgrade Node-RED to version 3.1, see Aragon Master 'About | Show/Hide System Update'\n2. Aragon Master version: 1.4.24 or better\n3. Having 'Set the Node-RED password' after upgrade 1.4.24. \n    (-> this setp enables the new 'Monaco' code editor which is a requirement)\n4. Install @flowforge/node-red-function-gpt from the Palette\n5. Follow instructions https://flows.nodered.org/node/@flowforge/node-red-function-gpt\n\nAt the time of writing, one step is missing: You can find the OpenAI 'Organization ID' \nunder OpenAI Manage Account | Organization | settings (the API key is under User | Settings)\n",
+        "x": 190,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "02c17146a94deecd",
+        "type": "comment",
+        "z": "0daacd5653d49e0e",
+        "name": "Copy of the Ask ChatGPT prompt",
+        "info": "if input msg.payload is a string, write \"This is a string\" followed by the value of msg.payload in the debug window. If the msg.payload is an object, write the 'value' in the debug window. Finally, msg.payload is any other type, generate a warning on the debug window",
+        "x": 390,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "94201bbb5eb192c1",
+        "type": "comment",
+        "z": "0daacd5653d49e0e",
+        "name": "Copy of the Ask ChatGPT prompt",
+        "info": "Generate a random number between 1 and 100, and return it in msg.payload as a string",
+        "x": 390,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "f4503aa58dafce7a",
+        "type": "chatgpt-config",
+        "name": "GPT Config",
+        "model": "gpt-3.5-turbo"
+    }
+]
