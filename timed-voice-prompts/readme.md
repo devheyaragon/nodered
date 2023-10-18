@@ -1,4 +1,4 @@
-# timed-voice-prompts
+# Medication Reminder with Aragon Voice Dialog
 ![timed-voice-prompts](timed-voice-prompts.png)
 
 This flow demonstrates how to Aragon Voice Dialog to create an Medication Reminder

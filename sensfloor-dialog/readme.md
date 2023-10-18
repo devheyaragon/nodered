@@ -1,4 +1,4 @@
-# sensfloor-dialog
+# Futurshape's SensFloor technology with Aragon Voice Dialog
 ![sensfloor-dialog](sensfloor-dialog.png)
 
 This flow demonstrates how to integrate Futurshape's SensFloor technology with Aragon Voice Dialog.
