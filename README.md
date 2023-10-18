@@ -7,10 +7,11 @@
 1. [ASR NLU Test - useful for debugging](asr-nlu-test)
 1. [EnOcean Devices - control EnOcean lights](enocean-devices)
 1. [EnOcean sensors samples](enocean-sensors-samples)
-1. [FutureShape sensfloor AAL](sensfloor)
+1. [FutureShape sensfloor with Voice Dialog](sensfloor-dialog)
 1. [Shelly WiFi button](shelly-button)
 1. [Skyresponse Alarm management AAL](skyresponse)
 1. [Function-GPT](function-gpt)
+1. [Timed Voice Prompt - Medication Reminder](timed-voice-prompts)
 
 
 ## Sample screenshots
