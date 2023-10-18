@@ -1,0 +1,940 @@
+[
+    {
+        "id": "c257c0bf5a85f245",
+        "type": "tab",
+        "label": "SENSFLOOR DIALOG",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "93304a869c72aeb8",
+        "type": "group",
+        "z": "c257c0bf5a85f245",
+        "name": "VOICE DIALOG INPUT -> SEND TO NLU",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "4340dbcc09b67949",
+            "677b8bb69fe7f0dd",
+            "49f708ace1d50ca0",
+            "dada337aab7ae0ac",
+            "1628ad4fb0c4fd87",
+            "e1f41a33baecfe0d",
+            "266dacd62f9fd466",
+            "45eb020a4d645086",
+            "34a282ad7b1cea79",
+            "56f978992a9fa84f"
+        ],
+        "x": 694,
+        "y": 239,
+        "w": 582,
+        "h": 202
+    },
+    {
+        "id": "aa8fad8a7416b475",
+        "type": "group",
+        "z": "c257c0bf5a85f245",
+        "name": "SENSFLOOR EVENTS -> HELP CALL | VOICE DIALOG | SAY",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "80e5b497a494bb24",
+            "28eed3150bff4975",
+            "b20734fb7e837d1f",
+            "640925068e40b9af",
+            "fef537805b90833c",
+            "f49c063abd6df66b",
+            "6ef490091db0a841",
+            "e026ed5623cc959f",
+            "e7ed9600cf2477ee",
+            "84adc4de06bc73cb",
+            "c1fb423adb444c96",
+            "cf72c2fc8f02adc3",
+            "887cb9247078d19e",
+            "3fe2d92351709d90",
+            "f72e852d9e949696",
+            "25541ac0087ae0ce",
+            "08aaf4b74d3d227e",
+            "825ca606cf00c7e9",
+            "ea9f37c3e38e15fb",
+            "1c0f1f28ae43c7cb",
+            "6881979325b0d395",
+            "5ad4b4ed148a1ae7",
+            "cdfc28de0a5ca1be",
+            "f583fc0e8a141adb",
+            "c4ec2c5087932d2f",
+            "ab43e29e9b595ab1",
+            "6fdf0a3d77cca3b8",
+            "8edfe99bdf32ecd5",
+            "0aa181d491a7e44b"
+        ],
+        "x": 54,
+        "y": 239,
+        "w": 582,
+        "h": 742
+    },
+    {
+        "id": "1e1a713e25665640",
+        "type": "group",
+        "z": "c257c0bf5a85f245",
+        "name": "CONFIGURE DIALOGS & ACTIONS",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "b702a758272a7ac9",
+            "06727b8409e88370",
+            "bc1c3fe8221c5d3d"
+        ],
+        "x": 54,
+        "y": 39,
+        "w": 472,
+        "h": 142
+    },
+    {
+        "id": "e7ed9600cf2477ee",
+        "type": "junction",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "x": 500,
+        "y": 940,
+        "wires": [
+            [
+                "fef537805b90833c",
+                "f49c063abd6df66b"
+            ]
+        ]
+    },
+    {
+        "id": "c4ec2c5087932d2f",
+        "type": "junction",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "x": 520,
+        "y": 433,
+        "wires": [
+            [
+                "887cb9247078d19e",
+                "ab43e29e9b595ab1"
+            ]
+        ]
+    },
+    {
+        "id": "4340dbcc09b67949",
+        "type": "function",
+        "z": "c257c0bf5a85f245",
+        "g": "93304a869c72aeb8",
+        "name": "Prepare",
+        "func": "let payload = msg.payload;\nmsg.payload = {};\nmsg.payload.input = payload;\nif(msg.siteId !== undefined){\n    msg.payload.siteId = msg.siteId;\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 340,
+        "wires": [
+            [
+                "677b8bb69fe7f0dd"
+            ]
+        ]
+    },
+    {
+        "id": "677b8bb69fe7f0dd",
+        "type": "delay",
+        "z": "c257c0bf5a85f245",
+        "g": "93304a869c72aeb8",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "4",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1115,
+        "y": 340,
+        "wires": [
+            [
+                "49f708ace1d50ca0",
+                "1628ad4fb0c4fd87"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "49f708ace1d50ca0",
+        "type": "debug",
+        "z": "c257c0bf5a85f245",
+        "g": "93304a869c72aeb8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1215,
+        "y": 400,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "dada337aab7ae0ac",
+        "type": "comment",
+        "z": "c257c0bf5a85f245",
+        "g": "93304a869c72aeb8",
+        "name": "README",
+        "info": "Forward the commands (=action strings) to the NLU\n",
+        "x": 780,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "1628ad4fb0c4fd87",
+        "type": "mqtt out",
+        "z": "c257c0bf5a85f245",
+        "g": "93304a869c72aeb8",
+        "name": "",
+        "topic": "hermes/nlu/query",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "53d0bc2c820f9d77",
+        "x": 1215,
+        "y": 340,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "80e5b497a494bb24",
+        "type": "http in",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "fall",
+        "url": "/sensfloor/fall",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 320,
+        "wires": [
+            [
+                "b20734fb7e837d1f",
+                "6ef490091db0a841"
+            ]
+        ]
+    },
+    {
+        "id": "28eed3150bff4975",
+        "type": "http in",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "bed_out",
+        "url": "/sensfloor/bed_out",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 900,
+        "wires": [
+            [
+                "640925068e40b9af",
+                "f583fc0e8a141adb"
+            ]
+        ]
+    },
+    {
+        "id": "b20734fb7e837d1f",
+        "type": "http response",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 235,
+        "y": 280,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "640925068e40b9af",
+        "type": "http response",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 235,
+        "y": 860,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "b702a758272a7ac9",
+        "type": "comment",
+        "z": "c257c0bf5a85f245",
+        "g": "1e1a713e25665640",
+        "name": "README",
+        "info": "# User Documentation for Configuration of Voice Dialog and Actions with SensFloor\nThis documentation explains how to configure voice dialog with the SensFloor and its corresponding actions.\n\n# Overview\nThe code snippet provided is written in JavaScript and is used to configure voice dialog and actions for different events from the SensFloor. The code uses the flow object to set the actions, dialog, and say messages for each room.\n\n# Configuration\nTo configure the voice dialog and actions, follow these steps:\n 1. Open the \"DEFINE ACTIONS & DIALOGS\" node and\n 1. Set the flow siteId variable to the name of the room you want to configure.\n 1. set the `ID`_action variable to an array of actions to be performed when someone enters the room.\n 1. Set the `ID`_dialog variable to null if you want the system to say something without starting a voice dialog when someone enters the room. Otherwise, set it to an object containing the following properties:\n    - siteId: The name of the room.\n    - textQuery: The text to be spoken to ask the user a question.\n    - textConfirm: The text to be spoken when the user confirms the action.\n    - textCancel: The text to be spoken when the user cancels the action.\n    - defaultAction: The default action to be taken if the user does not respond, either 'cancel, 'confirm' or empty.\n    - id: A unique identifier for the dialog.\n1. If the dialog is not configured in the previous step, Set the `ID`_say variable to the message you want the system to say when someone enters the room.\n1. Repeat the steps for each event `ID` and for both entering and leaving the room/bed.\n\n# Example\nHere is an example of how to configure the voice dialog and actions for a room:\nIn the first example the `ID` equals room_in. It is configured to launch say message (i.e. no dialog).\nIn the second example the `ID` equals room_out. It is configured to for a dialog (i.e. no say)\n\n`var siteId = \"Living Room 1\";`\n\n`/************** ROOM IN *********************/`\n`flow.set(\"room_in_action\", [\"turn on the bedroom lights\",\"turn on the bathroom lights\"]);`\n`flow.set(\"room_in_dialog\", null); // Say something, don't start a voice dialog`\n`flow.set(\"room_in_say\", \"welcome\");`\n\n\n`/************* ROOM OUT **********************/`\n`flow.set(\"room_out_action\", [\"turn off the lights in the \" + siteId]);`\n`flow.set(\"room_out_dialog\", {`\n`    \"siteId\": siteId,`\n`    \"textQuery\": \"Would you like me to turn off the lights?\",`\n`    \"textConfirm\": \"OK, turning off the lights!\",`\n`    \"textCancel\": \"I won't change the lights.\",`\n`    \"defaultAction\": \"Cancel\",`\n`    \"id\": \"room_out\"`\n`});`\n`flow.set(\"room_out_say\", null);`\n\nIn this example, the code sets the `siteId` variable to \"Living Room 1\". It then sets the actions, dialog, and say messages for when someone enters and leaves the room. When someone enters the room, the system will turn on the bedroom and bathroom lights and say \"welcome\". When someone leaves the room, the system will turn off the lights in the living room and ask the user if they want to turn off the lights. If the user confirms, the system will turn off the lights and say \"OK, turning off the lights!\". If the user cancels, the system will say \"I won't change the lights.\".\n\n# Conclusion\nThis documentation has explained how to configure voice dialog and actions using the provided code snippet. By following the steps outlined in this documentation, you can easily configure voice dialog and actions for different rooms.",
+        "x": 140,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "fef537805b90833c",
+        "type": "link out",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "speaker out",
+        "mode": "link",
+        "links": [
+            "3bd57099.afbdb8"
+        ],
+        "x": 575,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "f49c063abd6df66b",
+        "type": "debug",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 575,
+        "y": 900,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "6ef490091db0a841",
+        "type": "function",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "Prepare to ask if user is OK",
+        "func": "global.set(\"helpCallTrigger\",\"floor\");\n\nmsg.payload = msg.payload || {};\n\nmsg.payload.text = msg.payload.text || flow.get(\"fall_query\");\n\nif (!msg.payload.siteId) {\n    msg.payload.siteId = flow.get(\"sensfloor_siteId\");\n    node.warn(\"The siteId should come from sensfloor, now hardcoded to: \" + msg.payload.siteId);\n}\n\nmsg.payload = JSON.stringify(msg.payload);\nreturn msg;\n    \n\n    \n \n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 395,
+        "y": 320,
+        "wires": [
+            [
+                "e026ed5623cc959f",
+                "8edfe99bdf32ecd5"
+            ]
+        ],
+        "icon": "node-red/alert.svg",
+        "l": false
+    },
+    {
+        "id": "e026ed5623cc959f",
+        "type": "mqtt out",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "proknx/aal/queryuser",
+        "topic": "proknx/aal/queryuser",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "53d0bc2c820f9d77",
+        "x": 575,
+        "y": 320,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "06727b8409e88370",
+        "type": "inject",
+        "z": "c257c0bf5a85f245",
+        "g": "1e1a713e25665640",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 125,
+        "y": 140,
+        "wires": [
+            [
+                "bc1c3fe8221c5d3d"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "bc1c3fe8221c5d3d",
+        "type": "function",
+        "z": "c257c0bf5a85f245",
+        "g": "1e1a713e25665640",
+        "name": "DEFINE ACTIONS & DIALOGS",
+        "func": "// Temporary solution: use this siteId until it is provided by the SensFloor (in msg.payalod.siteId)\nlet siteId = \"Bedroom\";\n\nflow.set(\"sensfloor_siteId\", siteId);\nvar module = global.get(\"module\");\nlet language = module.settingsGetValue(\"msgLang\");\n\n\n/************** FALL DETECTION ****************/\nswitch (language) {\n    case \"de\":\n        flow.set(\"fall_query\", \"Wichtige Nachricht! Es sieht so aus, als wären Sie gestürzt, ich solle um Hilfe rufen?\");\n        break;\n    case \"fr\":\n        flow.set(\"fall_query\", \"Message important! il semblerait que vous soyez tombé, dois-je appeler de l'aide ?\");\n        break;\n    default:\n        flow.set(\"fall_query\", \"Important message! it seems like you have fallen, shall I call for help?\");\n}\n\n\n/************** ROOM IN ***********************/\nflow.set(\"room_in_dialog\", null); // Say something, don't start a voice dialog\nswitch (language) {\n    case \"de\":\n        flow.set(\"room_in_action\", [\"das Licht im Schlafzimmer einschalten\",\"das Licht im Badezimmer einschalten\"]);\n        flow.set(\"room_in_say\", \"Willkommen\");\n        break;\n    case \"fr\":\n        flow.set(\"room_in_action\", [\"allumer les lumières de la chambre\", \"allumer les lumières de la salle de bain\"]);\n        flow.set(\"room_in_say\", \"bienvenue\");\n        break;\n    default:\n        flow.set(\"room_in_action\", [\"turn on the bedroom lights\",\"turn on the bathroom lights\"]);\n        flow.set(\"room_in_say\", \"welcome\");\n}\n\n\n/************* ROOM OUT ***********************/\nswitch (language) {\n    case \"de\":\n        flow.set(\"room_out_action\", [\"schalte das licht im \" + siteId + \" aus\"]);\n        flow.set(\"room_out_dialog\", {\n            \"siteId\": siteId,\n            \"textQuery\": \"Möchten Sie, dass ich das Licht ausschalte?\",\n            \"textConfirm\": \"OK, ich schalte das Licht aus!\",\n            \"textCancel\": \"Ich werde das Licht nicht ändern.\",\n            \"defaultAction\": \"Cancel\",\n            \"id\": \"room_out\"\n        });    \n        break;\n    case \"fr\":\n        flow.set(\"room_out_action\", [\"éteindre les lumières de \" + siteId]);\n        flow.set(\"room_out_dialog\", {\n            \"siteId\": siteId,\n            \"textQuery\": \"Voulez-vous que j'éteigne les lumières?\",\n            \"textConfirm\": \"OK, j'éteins les lumières!\",\n            \"textCancel\": \"Je ne changerai pas les lumières.\",\n            \"defaultAction\": \"Cancel\",\n            \"id\": \"room_out\"\n        });    \n        break;\n    default:\n        flow.set(\"room_out_action\", [\"turn off the lights in the \" + siteId]);\n        flow.set(\"room_out_dialog\", {\n            \"siteId\": siteId,\n            \"textQuery\": \"Would you like me to turn off the lights?\",\n            \"textConfirm\": \"OK, turning off the lights!\",\n            \"textCancel\": \"I won't change the lights.\",\n            \"defaultAction\": \"Cancel\",\n            \"id\": \"room_out\"\n        });    \n}\nflow.set(\"room_out_say\", null);\n\n\n/************* BED IN ************************/\nswitch (language) {\n    case \"de\":\n        flow.set(\"bed_in_action\", [\"Überall das Licht ausschalten\"]);\n        flow.set(\"bed_in_dialog\", {\n            \"siteId\": siteId,\n            \"textQuery\": \"Möchten Sie, dass ich das Licht ausschalte?\",\n            \"textConfirm\": \"OK, ich schalte das Licht aus!\",\n            \"textCancel\": \"Ich werde das Licht nicht ändern.\",\n            \"defaultAction\": \"Confirm\",\n            \"id\": \"bed_in\"\n        });\n        break;\n    case \"fr\":\n        flow.set(\"bed_in_action\", [\"éteindre les lumières partout\"]);\n        flow.set(\"bed_in_dialog\", {\n            \"siteId\": siteId,\n            \"textQuery\": \"Voulez-vous que j'éteigne les lumières?\",\n            \"textConfirm\": \"OK, j'éteins les lumières!\",\n            \"textCancel\": \"Je ne changerai pas les lumières.\",\n            \"defaultAction\": \"Confirm\",\n            \"id\": \"bed_in\"\n        });\n        break;\n    default:\n        flow.set(\"bed_in_action\", [\"turn off the lights everywhere\"]);\n        flow.set(\"bed_in_dialog\", {\n            \"siteId\": siteId,\n            \"textQuery\": \"Would you like me to turn off the lights?\",\n            \"textConfirm\": \"OK, turning off the lights!\",\n            \"textCancel\": \"I won't change the lights.\",\n            \"defaultAction\": \"Confirm\",\n            \"id\": \"bed_in\"\n        });\n}\nflow.set(\"bed_in_say\", null);\n\n\n/************* BED OUT ************************/\nswitch (language) {\n    case \"de\":\n        flow.set(\"bed_out_action\", [\"Licht im Schlafzimmer einschalten\", \"Licht im Flur einschalten\"]);\n        flow.set(\"bed_out_dialog\", {\n            \"siteId\": siteId,\n            \"textQuery\": \"Möchten Sie, dass ich das Licht einschalte?\",\n            \"textConfirm\": \"OK, ich schalte das Licht ein!\",\n            \"textCancel\": \"Ich werde das Licht nicht ändern.\",\n            \"defaultAction\": \"Confirm\",\n            \"id\": \"bed_out\"\n        });\n        break;\n    case \"fr\":\n        flow.set(\"bed_out_action\", [\"allumer les lumières de la salle de bain\", \"allumer les lumières du couloir\"]);\n        flow.set(\"bed_out_dialog\", {\n            \"siteId\": siteId,\n            \"textQuery\": \"Voulez-vous que j'allume les lumières?\",\n            \"textConfirm\": \"OK, j'allume les lumières!\",\n            \"textCancel\": \"Je ne changerai pas les lumières.\",\n            \"defaultAction\": \"Confirm\",\n            \"id\": \"bed_out\"\n        });\n        break;\n    default:\n        flow.set(\"bed_out_action\", [\"turn on the bathroom lights\", \"turn on the hallway lights\"]);\n        flow.set(\"bed_out_dialog\", {\n            \"siteId\": siteId,\n            \"textQuery\": \"Would you like me to turn on the lights?\",\n            \"textConfirm\": \"OK, turning on the lights!\",\n            \"textCancel\": \"I won't change the lights.\",\n            \"defaultAction\": \"Confirm\",\n            \"id\": \"bed_out\"\n        });\n}\nflow.set(\"bed_out_say\",null);\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e1f41a33baecfe0d",
+        "type": "split",
+        "z": "c257c0bf5a85f245",
+        "g": "93304a869c72aeb8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 875,
+        "y": 340,
+        "wires": [
+            [
+                "266dacd62f9fd466",
+                "4340dbcc09b67949"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "266dacd62f9fd466",
+        "type": "debug",
+        "z": "c257c0bf5a85f245",
+        "g": "93304a869c72aeb8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 955,
+        "y": 400,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "45eb020a4d645086",
+        "type": "link in",
+        "z": "c257c0bf5a85f245",
+        "g": "93304a869c72aeb8",
+        "name": "DIALOG FINAL IN HANDLER",
+        "links": [
+            "ee92c7917be74525"
+        ],
+        "x": 735,
+        "y": 340,
+        "wires": [
+            [
+                "34a282ad7b1cea79",
+                "56f978992a9fa84f"
+            ]
+        ]
+    },
+    {
+        "id": "34a282ad7b1cea79",
+        "type": "debug",
+        "z": "c257c0bf5a85f245",
+        "g": "93304a869c72aeb8",
+        "name": "DIALOG RESULT",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 805,
+        "y": 400,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "56f978992a9fa84f",
+        "type": "function",
+        "z": "c257c0bf5a85f245",
+        "g": "93304a869c72aeb8",
+        "name": "FIND THE ACTION STRINGS FOR ID",
+        "func": "if (msg.payload.action !== undefined && msg.payload.id !== undefined) {\n    if(msg.payload.action === \"confirm\" && msg.payload.id.length > 0){\n        let id_action = flow.get(msg.payload.id + \"_action\");\n        if (id_action !== undefined && id_action.length > 0){\n            msg = {};\n            msg.payload = id_action;\n            return msg;\n        }\n    }\n}\n\n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 805,
+        "y": 340,
+        "wires": [
+            [
+                "e1f41a33baecfe0d"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "84adc4de06bc73cb",
+        "type": "http in",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "bed_in",
+        "url": "/sensfloor/bed_in",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 760,
+        "wires": [
+            [
+                "c1fb423adb444c96",
+                "5ad4b4ed148a1ae7"
+            ]
+        ]
+    },
+    {
+        "id": "c1fb423adb444c96",
+        "type": "http response",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 235,
+        "y": 720,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "cf72c2fc8f02adc3",
+        "type": "inject",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "(Turn off, defaultAction: Confirm)",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "5",
+        "topic": "",
+        "x": 235,
+        "y": 800,
+        "wires": [
+            [
+                "5ad4b4ed148a1ae7"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "887cb9247078d19e",
+        "type": "link out",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "DIALOG QUERY USER OUT ",
+        "mode": "link",
+        "links": [
+            "88e0a0f67bb18da4"
+        ],
+        "x": 575,
+        "y": 433,
+        "wires": []
+    },
+    {
+        "id": "3fe2d92351709d90",
+        "type": "http in",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "room_in",
+        "url": "/sensfloor/room_in",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 440,
+        "wires": [
+            [
+                "f72e852d9e949696",
+                "25541ac0087ae0ce"
+            ]
+        ]
+    },
+    {
+        "id": "f72e852d9e949696",
+        "type": "http response",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 245,
+        "y": 400,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "25541ac0087ae0ce",
+        "type": "function",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "room_in_dialog",
+        "func": "msg.payload = msg.payload || {};\n\nif (!msg.payload.siteId) {\n    msg.payload.siteId = flow.get(\"sensfloor_siteId\");\n    node.warn(\"The siteId should come from sensfloor, now hardcoded to: \" + msg.payload.siteId);\n}\n\nlet dialog = flow.get(\"room_in_dialog\");\nif(dialog !== null){\n    msg = {};\n    msg.payload = dialog;\n    return [msg, null];\n}\n\nlet say = flow.get(\"room_in_say\");\nif(say !== null){\n    var module = global.get(\"module\");\n    let siteId = msg.payload.siteId;\n    msg = {};\n    msg.payload = module.feedback(module.settingsGetValue(\"msgLang\"), siteId, \"Hello\");\n    msg.payload.text = say;\n    return [null, msg];\n}",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 395,
+        "y": 440,
+        "wires": [
+            [
+                "c4ec2c5087932d2f"
+            ],
+            [
+                "e7ed9600cf2477ee"
+            ]
+        ],
+        "outputLabels": [
+            "dialog",
+            "say"
+        ],
+        "l": false
+    },
+    {
+        "id": "08aaf4b74d3d227e",
+        "type": "inject",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "(Say)",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "5",
+        "topic": "",
+        "x": 245,
+        "y": 480,
+        "wires": [
+            [
+                "25541ac0087ae0ce"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "825ca606cf00c7e9",
+        "type": "http in",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "room_out",
+        "url": "/sensfloor/room_out",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 600,
+        "wires": [
+            [
+                "ea9f37c3e38e15fb",
+                "6881979325b0d395"
+            ]
+        ]
+    },
+    {
+        "id": "ea9f37c3e38e15fb",
+        "type": "http response",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 245,
+        "y": 560,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "1c0f1f28ae43c7cb",
+        "type": "inject",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "(Turn off, defaultAction: Cancel)",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "5",
+        "topic": "",
+        "x": 245,
+        "y": 640,
+        "wires": [
+            [
+                "6881979325b0d395"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "6881979325b0d395",
+        "type": "function",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "room_out_dialog",
+        "func": "msg.payload = msg.payload || {};\n\nif (!msg.payload.siteId) {\n    msg.payload.siteId = flow.get(\"sensfloor_siteId\");\n    node.warn(\"The siteId should come from sensfloor, now hardcoded to: \" + msg.payload.siteId);\n}\n\nlet dialog = flow.get(\"room_out_dialog\");\nif(dialog !== null){\n    msg = {};\n    msg.payload = dialog;\n    return [msg, null];\n}\n\nlet say = flow.get(\"room_out_say\");\nif(say !== null){\n    var module = global.get(\"module\");\n    let siteId = msg.payload.siteId;\n    msg = {};\n    msg.payload = module.feedback(module.settingsGetValue(\"msgLang\"), siteId, \"Hello\");\n    msg.payload.text = say;\n    return [null, msg];\n}",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 395,
+        "y": 600,
+        "wires": [
+            [
+                "c4ec2c5087932d2f"
+            ],
+            [
+                "e7ed9600cf2477ee"
+            ]
+        ],
+        "outputLabels": [
+            "dialog",
+            "say"
+        ],
+        "l": false
+    },
+    {
+        "id": "5ad4b4ed148a1ae7",
+        "type": "function",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "bed_in_dialog",
+        "func": "msg.payload = msg.payload || {};\n\nif (!msg.payload.siteId) {\n    msg.payload.siteId = flow.get(\"sensfloor_siteId\");\n    node.warn(\"The siteId should come from sensfloor, now hardcoded to: \" + msg.payload.siteId);\n}\n\nlet dialog = flow.get(\"bed_in_dialog\");\nif(dialog !== null){\n    msg = {};\n    msg.payload = dialog;\n    return [msg, null];\n}\n\nlet say = flow.get(\"bed_in_say\");\nif(say !== null){\n    var module = global.get(\"module\");\n    let siteId = msg.payload.siteId;\n    msg = {};\n    msg.payload = module.feedback(module.settingsGetValue(\"msgLang\"), siteId, \"Hello\");\n    msg.payload.text = say;\n    return [null, msg];\n}",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 395,
+        "y": 760,
+        "wires": [
+            [
+                "c4ec2c5087932d2f"
+            ],
+            [
+                "e7ed9600cf2477ee"
+            ]
+        ],
+        "outputLabels": [
+            "dialog",
+            "say"
+        ],
+        "l": false
+    },
+    {
+        "id": "cdfc28de0a5ca1be",
+        "type": "inject",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "(Turn on, defaultAction: Confirm)",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "5",
+        "topic": "",
+        "x": 235,
+        "y": 940,
+        "wires": [
+            [
+                "f583fc0e8a141adb"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "f583fc0e8a141adb",
+        "type": "function",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "bed_out_dialog",
+        "func": "msg.payload = msg.payload || {};\n\nif (!msg.payload.siteId) {\n    msg.payload.siteId = flow.get(\"sensfloor_siteId\");\n    node.warn(\"The siteId should come from sensfloor, now hardcoded to: \" + msg.payload.siteId);\n}\n\nlet dialog = flow.get(\"bed_out_dialog\");\nif(dialog !== null){\n    msg = {};\n    msg.payload = dialog;\n    return [msg, null];\n}\n\nlet say = flow.get(\"bed_out_say\");\nif(say !== null){\n    var module = global.get(\"module\");\n    let siteId = msg.payload.siteId;\n    msg = {};\n    msg.payload = module.feedback(module.settingsGetValue(\"msgLang\"), siteId, \"Hello\");\n    msg.payload.text = say;\n    return [null, msg];\n}",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 395,
+        "y": 900,
+        "wires": [
+            [
+                "c4ec2c5087932d2f"
+            ],
+            [
+                "e7ed9600cf2477ee"
+            ]
+        ],
+        "outputLabels": [
+            "dialog",
+            "say"
+        ],
+        "l": false
+    },
+    {
+        "id": "ab43e29e9b595ab1",
+        "type": "debug",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 575,
+        "y": 473,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "6fdf0a3d77cca3b8",
+        "type": "inject",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.textX",
+                "v": "Ouch! Do you need help?",
+                "vt": "str"
+            },
+            {
+                "p": "payload.siteId",
+                "v": "Living Room 1",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "5",
+        "topic": "",
+        "x": 245,
+        "y": 360,
+        "wires": [
+            [
+                "6ef490091db0a841"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8edfe99bdf32ecd5",
+        "type": "debug",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 445,
+        "y": 360,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "0aa181d491a7e44b",
+        "type": "comment",
+        "z": "c257c0bf5a85f245",
+        "g": "aa8fad8a7416b475",
+        "name": "README",
+        "info": "Sample SensFloor siteId in request\nhttp://192.168.1.11:1880/sensfloor/room_in?siteId=Living%20Room%201",
+        "x": 480,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "53d0bc2c820f9d77",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]

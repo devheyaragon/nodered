@@ -1,0 +1,292 @@
+[
+    {
+        "id": "568f64126c1b17b7",
+        "type": "tab",
+        "label": "TIMED VOICE PROMPTS",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6850c52db593fce0",
+        "type": "group",
+        "z": "568f64126c1b17b7",
+        "name": "Morning Medicine Reminder",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "17731a0f2cbdb52f",
+            "ebb55d812afb7b77",
+            "d7dfa0a03a0c3f6d",
+            "b737f40d623af341",
+            "c5d635045c5bac99",
+            "59fb2883a19801cd",
+            "13014cabcb08cff4",
+            "477c62d23de04fae",
+            "52ee57fe7f1e685a",
+            "3c0791592e464036",
+            "b62facc5c3811e3d",
+            "05d4a29548029266"
+        ],
+        "x": 54,
+        "y": 39,
+        "w": 692,
+        "h": 262
+    },
+    {
+        "id": "17731a0f2cbdb52f",
+        "type": "timerswitch",
+        "z": "568f64126c1b17b7",
+        "g": "6850c52db593fce0",
+        "name": "Timer",
+        "ontopic": "",
+        "offtopic": "",
+        "onpayload": "on",
+        "offpayload": "off",
+        "disabled": false,
+        "schedules": [
+            {
+                "on_h": "09",
+                "on_m": "00",
+                "on_s": "00",
+                "off_h": "09",
+                "off_m": "00",
+                "off_s": "05",
+                "valid": true
+            }
+        ],
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "59fb2883a19801cd"
+            ]
+        ]
+    },
+    {
+        "id": "ebb55d812afb7b77",
+        "type": "debug",
+        "z": "568f64126c1b17b7",
+        "g": "6850c52db593fce0",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 685,
+        "y": 80,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "d7dfa0a03a0c3f6d",
+        "type": "link out",
+        "z": "568f64126c1b17b7",
+        "g": "6850c52db593fce0",
+        "name": "DIALOG QUERY USER OUT ",
+        "mode": "link",
+        "links": [
+            "88e0a0f67bb18da4"
+        ],
+        "x": 685,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "b737f40d623af341",
+        "type": "link in",
+        "z": "568f64126c1b17b7",
+        "g": "6850c52db593fce0",
+        "name": "DIALOG FINAL IN HANDLER",
+        "links": [
+            "ee92c7917be74525"
+        ],
+        "x": 155,
+        "y": 220,
+        "wires": [
+            [
+                "13014cabcb08cff4",
+                "c5d635045c5bac99"
+            ]
+        ]
+    },
+    {
+        "id": "c5d635045c5bac99",
+        "type": "debug",
+        "z": "568f64126c1b17b7",
+        "g": "6850c52db593fce0",
+        "name": "DIALOG RESULT",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 235,
+        "y": 260,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "59fb2883a19801cd",
+        "type": "function",
+        "z": "568f64126c1b17b7",
+        "g": "6850c52db593fce0",
+        "name": "Set messageID & Prepare",
+        "func": "let messageID = 'morning_medicine';\nflow.set(\"messageID\", messageID);\n\nlet siteId = \"Bedroom\";\n\nvar module = global.get(\"module\");\nlet language = module.settingsGetValue(\"msgLang\");\n\nif (typeof msg.payload === 'string' && msg.payload === 'on') {\n    switch (language) {\n        case \"de\":\n            msg.payload = {\n                \"siteId\": siteId,\n                \"textQuery\": \"Hast du heute Morgen deine Medizin genommen?\",\n                \"textConfirm\": \"OK, gut!\",\n                \"textCancel\": \"Bitte nimm jetzt deine Morgenpillen!\",\n                \"defaultAction\": \"cancel\",\n                \"id\": messageID\n            }\n            break;\n        case \"fr\":\n            msg.payload = {\n                \"siteId\": siteId,\n                \"textQuery\": \"Avez-vous pris votre médicament ce matin ?\",\n                \"textConfirm\": \"OK, bien !\",\n                \"textCancel\": \"Veuillez prendre vos pilules du matin maintenant !\",\n                \"defaultAction\": \"cancel\",\n                \"id\": messageID\n            }\n            break;\n        default:\n            msg.payload = {\n                \"siteId\": siteId,\n                \"textQuery\": \"Did you take your medicine this morning?\",\n                \"textConfirm\": \"OK, good!\",\n                \"textCancel\": \"Please take your morning pills now!\",\n                \"defaultAction\": \"cancel\",\n                \"id\": messageID\n            }\n    }\n    flow.set(msg.payload.id+\"_confirmed\", false);    \n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 120,
+        "wires": [
+            [
+                "ebb55d812afb7b77",
+                "d7dfa0a03a0c3f6d"
+            ]
+        ]
+    },
+    {
+        "id": "13014cabcb08cff4",
+        "type": "function",
+        "z": "568f64126c1b17b7",
+        "g": "6850c52db593fce0",
+        "name": "Handle user response",
+        "func": "let messageID = flow.get(\"messageID\");\n\nif (typeof msg.payload !== 'object' || msg.payload === null){\n    node.warn(\"Handle user response, bad payload\");\n    return null; // Not for us\n}\n\nif (msg.payload.id === undefined || msg.payload.id == null || typeof msg.payload.id !== 'string' ||  msg.payload.id.length === 0){\n    node.warn(\"Handle user response, id not set\");\n    return null; // Not for us\n}\nif (msg.payload.id !== messageID){\n    node.warn(\"Handle user response not for us \" + msg.payload.id);\n    return null; // Not for us\n}\n\nif(msg.payload.action !== undefined && msg.payload.action === \"confirm\"){\n    flow.set(msg.payload.id+\"_confirmed\", true);\n    flow.set(msg.payload.id+\"_count\", 0);\n    return null;\n}\n\nlet count = flow.get(msg.payload.id+\"_count\");\nif(typeof count === 'undefined' || Number.isNaN(count)){\n    count = 0;\n}\n\nif(count<2){\n    flow.set(msg.payload.id+\"_count\", ++count);  \n    msg.payload = 'on'; // Ask again\n    return msg;\n}\n\n// Give up..\nflow.set(msg.payload.id+\"_confirmed\", null);\nflow.set(msg.payload.id+\"_count\", 0);\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 220,
+        "wires": [
+            [
+                "52ee57fe7f1e685a",
+                "3c0791592e464036"
+            ]
+        ]
+    },
+    {
+        "id": "477c62d23de04fae",
+        "type": "inject",
+        "z": "568f64126c1b17b7",
+        "g": "6850c52db593fce0",
+        "name": "Manual trigger",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 115,
+        "y": 120,
+        "wires": [
+            [
+                "b62facc5c3811e3d"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "52ee57fe7f1e685a",
+        "type": "delay",
+        "z": "568f64126c1b17b7",
+        "g": "6850c52db593fce0",
+        "name": "Repeat delay",
+        "pauseType": "delay",
+        "timeout": "120",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 475,
+        "y": 220,
+        "wires": [
+            [
+                "59fb2883a19801cd"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "3c0791592e464036",
+        "type": "debug",
+        "z": "568f64126c1b17b7",
+        "g": "6850c52db593fce0",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 415,
+        "y": 260,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "b62facc5c3811e3d",
+        "type": "trigger",
+        "z": "568f64126c1b17b7",
+        "g": "6850c52db593fce0",
+        "name": "",
+        "op1": "on",
+        "op2": "off",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 165,
+        "y": 120,
+        "wires": [
+            [
+                "17731a0f2cbdb52f"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "05d4a29548029266",
+        "type": "comment",
+        "z": "568f64126c1b17b7",
+        "g": "6850c52db593fce0",
+        "name": "README",
+        "info": "# Summary\nThe Morning Medecine reminder applications demonstrates how to configure a timed voice prompt.\nWhen the timer event is triggered, the user is asked \"Did you take your medicine this morning?\"\nIf the user replies 'yes', the system responds \"OK, good!\".\nIf the user replies 'no' or nothing, the system responds \"Please take your morning pills now!\",\n\n# Configuration\n 1. Set the siteId and the messageId in the 'Set messageID & Prepare' node. Note that the messageId must be unique.\n 1. Set the timer: set the ON timer, the OFF timer shall be set to ON +5 sec\n",
+        "x": 140,
+        "y": 80,
+        "wires": []
+    }
+]
