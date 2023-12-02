@@ -8,3 +8,5 @@ This flow showcases the process of injecting a voice command (in the form of a s
 - Adapt the payload in the "Lights on in the Bedroom" to your installation, save and select the inject button.
 - Expected result: the command will be parsed and executed
 - Hint: Follow the execution in the Watch window
+
+[Download code](https://github.com/devheyaragon/nodered/tree/main/asr-nlu-test)
