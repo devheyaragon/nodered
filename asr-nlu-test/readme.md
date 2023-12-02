@@ -1,5 +1,5 @@
 # ASR & NLU Test
-![ASR & NLU Test](https://github.com/devheyaragon/nodered/blob/main/asr-nlu-test/asr-nlu-test.png)
+![ASR & NLU Test](/_images/asr-nlu-test.png)
 
 This flow showcases the process of injecting a voice command (in the form of a string) to be processed by the ASR and NLU components, and then executed.
 
@@ -9,5 +9,4 @@ This flow showcases the process of injecting a voice command (in the form of a s
 - Expected result: the command will be parsed and executed
 - Hint: Follow the execution in the Watch window
 
-[Download code MD](https://github.com/devheyaragon/nodered/tree/main/asr-nlu-test)
-<a href="https://github.com/devheyaragon/nodered/tree/main/asr-nlu-test" target="_blank">Download code HTML</a>
+<a href="https://github.com/devheyaragon/nodered/tree/main/asr-nlu-test" target="_blank">Download code from GitHub</a>
