@@ -1,6 +1,7 @@
 # ASR & NLU Test
 ![ASR & NLU Test](asr-nlu-test.png)
-<img src="asr-nlu-test.png" onerror="this.onerror=null; this.src='../_images/asr-nlu-test.png';">
+[ASR & NLU Test on GitHub](https://github.com/devheyaragon/nodered/tree/main/asr-nlu-test)
+
 
 This flow showcases the process of injecting a voice command (in the form of a string) to be processed by the ASR and NLU components, and then executed.
 
@@ -10,4 +11,3 @@ This flow showcases the process of injecting a voice command (in the form of a s
 - Expected result: the command will be parsed and executed
 - Hint: Follow the execution in the Watch window
 
-[ASR & NLU Test GitHub](https://github.com/devheyaragon/nodered/tree/main/asr-nlu-test)
