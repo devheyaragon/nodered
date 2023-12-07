@@ -1,4 +1,4 @@
-# Futurshape's SensFloor technology with Aragon Voice Dialog
+# Future-Shape's SensFloor technology with Aragon Voice Dialog
 ![sensfloor-dialog](sensfloor-dialog.png)
 
 This flow demonstrates how to integrate Futurshape's SensFloor technology with Aragon Voice Dialog.
@@ -46,7 +46,7 @@ In the second example the `ID` equals room_out. It is configured to for a dialog
 `});`
 `flow.set("room_out_say", null);`
 
-In this example, the code sets the `siteId` variable to "Living Room 1". It then sets the actions, dialog, and say messages for when someone enters and leaves the room. When someone enters the room, the system will turn on the bedroom and bathroom lights and say "welcome". When someone leaves the room, the system will turn off the lights in the living room and ask the user if they want to turn off the lights. If the user confirms, the system will turn off the lights and say "OK, turning off the lights!". If the user cancels, the system will say "I won't change the lights.".
+In this example, the code sets the `siteId` variable to "Living Room 1". It then sets the actions, dialog, and say messages for when someone enters and leaves the room. When someone enters the room, the system will turn on the bedroom and bathroom lights and say "welcome". When someone leaves the room, the system will ask the user if they want to turn off the lights. If the user confirms, the system will turn off the lights and say "OK, turning off the lights!". If the user cancels, the system will say "I won't change the lights.".
 
 # Conclusion
 This documentation has explained how to configure voice dialog and actions using the provided code snippet. By following the steps outlined in this documentation, you can easily configure voice dialog and actions for different rooms.
