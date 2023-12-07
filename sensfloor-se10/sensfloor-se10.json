@@ -1,0 +1,423 @@
+[
+    {
+        "id": "d58a165164f25425",
+        "type": "tab",
+        "label": "ARAGON",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "84110615.cd66f8",
+        "type": "group",
+        "z": "d58a165164f25425",
+        "name": "VERSION INFO",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "ec2a1a01.9becc8",
+            "952d5ca0.8eff1",
+            "d83c3b65.083c98",
+            "542d269f.b4b2b"
+        ],
+        "x": 74,
+        "y": 59,
+        "w": 552,
+        "h": 122
+    },
+    {
+        "id": "261d6b1480783cdd",
+        "type": "group",
+        "z": "d58a165164f25425",
+        "name": "SENSFLOOR SOCKET.IO > ARAGAON HTTP GET ",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "920a29765b6bfbf1",
+            "4f3883d1979aba82",
+            "475d6cced9b86807",
+            "52ac38406a57b5ab",
+            "21d9d795f049dab6",
+            "9d938f9fa98d69ed",
+            "2e41fd2dd205c4b2",
+            "5e00083f5ddcaa98",
+            "96644a456a0b91ed",
+            "1457d828ceb04be3",
+            "ce16ccc10fdba914",
+            "413223bf56776221",
+            "3630618e3dd3b4e2",
+            "a7453cc46ece7f30"
+        ],
+        "x": 74,
+        "y": 219,
+        "w": 712,
+        "h": 242
+    },
+    {
+        "id": "920a29765b6bfbf1",
+        "type": "debug",
+        "z": "d58a165164f25425",
+        "g": "261d6b1480783cdd",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 295,
+        "y": 300,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "4f3883d1979aba82",
+        "type": "switch",
+        "z": "d58a165164f25425",
+        "g": "261d6b1480783cdd",
+        "name": "filter alarms-changed",
+        "property": "eventName",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "alarms-changed",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 315,
+        "y": 340,
+        "wires": [
+            [
+                "475d6cced9b86807",
+                "52ac38406a57b5ab"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "475d6cced9b86807",
+        "type": "debug",
+        "z": "d58a165164f25425",
+        "g": "261d6b1480783cdd",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 365,
+        "y": 300,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "52ac38406a57b5ab",
+        "type": "split",
+        "z": "d58a165164f25425",
+        "g": "261d6b1480783cdd",
+        "name": "split alarms array",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 405,
+        "y": 340,
+        "wires": [
+            [
+                "21d9d795f049dab6",
+                "1457d828ceb04be3"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "21d9d795f049dab6",
+        "type": "debug",
+        "z": "d58a165164f25425",
+        "g": "261d6b1480783cdd",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 445,
+        "y": 300,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "9d938f9fa98d69ed",
+        "type": "socketio-client",
+        "z": "d58a165164f25425",
+        "g": "261d6b1480783cdd",
+        "server": "479946ef7cf08918",
+        "name": "",
+        "x": 180,
+        "y": 340,
+        "wires": [
+            [
+                "920a29765b6bfbf1",
+                "4f3883d1979aba82"
+            ]
+        ]
+    },
+    {
+        "id": "2e41fd2dd205c4b2",
+        "type": "inject",
+        "z": "d58a165164f25425",
+        "g": "261d6b1480783cdd",
+        "name": "test ",
+        "props": [
+            {
+                "p": "payload.state",
+                "v": "true",
+                "vt": "bool"
+            },
+            {
+                "p": "payload.type",
+                "v": "fall",
+                "vt": "str"
+            },
+            {
+                "p": "payload.alarmNumber",
+                "v": "2",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 330,
+        "y": 420,
+        "wires": [
+            [
+                "1457d828ceb04be3"
+            ]
+        ]
+    },
+    {
+        "id": "5e00083f5ddcaa98",
+        "type": "http request",
+        "z": "d58a165164f25425",
+        "g": "261d6b1480783cdd",
+        "name": "to Aragon",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 610,
+        "y": 340,
+        "wires": [
+            [
+                "ce16ccc10fdba914"
+            ]
+        ]
+    },
+    {
+        "id": "96644a456a0b91ed",
+        "type": "debug",
+        "z": "d58a165164f25425",
+        "g": "261d6b1480783cdd",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 545,
+        "y": 300,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "1457d828ceb04be3",
+        "type": "function",
+        "z": "d58a165164f25425",
+        "g": "261d6b1480783cdd",
+        "name": "Prepare request to Aragon",
+        "func": "if (msg.payload === undefined) {\n    return;\n}\n\nif (msg.payload.state!==undefined && msg.payload.state!==true){\n    return;\n}\n\nlet type = 'unknown';\nlet id = 'unknown';\nlet time = 'unknown';\nlet location = {};\nlet custom = {};\n\nif (msg.payload.type !==undefined)\n    type = msg.payload.type;\nif (msg.payload.alarmNumber !== undefined)\n    id = msg.payload.alarmNumber;\nif (msg.payload.time !== undefined)\n    time = msg.payload.time;\nif (msg.payload.location !== undefined)\n    location = msg.payload.location;\nif (msg.payload.custom !== undefined)\n    custom = msg.payload.custom;\n\nflow.set(\"aragon_ip\", \"192.168.1.141\");\n\n// Get the IP address from the flow variable\nvar ip = flow.get('aragon_ip');\n\n// Regular expression to check if the IP address is valid local IP\nvar ipRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;\n\nif (!ip || !ipRegex.test(ip)) {\n    // Throw an error and write a message to debug if the IP address is invalid\n    node.error(\"Invalid IP address of Aragon Master\");\n    return;\n} else {\n    msg.url = \"http://\" + ip + \":1880/sensfloor\";\n}\n\nmsg.requestTimeout = 5000;\nmsg.url += \n    \"?type=\" + encodeURIComponent(type) + \n    \"&id=\" + encodeURIComponent(id) +\n    \"&time=\" + encodeURIComponent(time) +\n    \"&location=\" + encodeURIComponent(JSON.stringify(location)) +\n    \"&custom=\" + encodeURIComponent(JSON.stringify(custom));\nmsg.method = \"GET\";\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 485,
+        "y": 340,
+        "wires": [
+            [
+                "5e00083f5ddcaa98",
+                "96644a456a0b91ed"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "ce16ccc10fdba914",
+        "type": "debug",
+        "z": "d58a165164f25425",
+        "g": "261d6b1480783cdd",
+        "name": "debug 5",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 715,
+        "y": 300,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "413223bf56776221",
+        "type": "catch",
+        "z": "d58a165164f25425",
+        "g": "261d6b1480783cdd",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 610,
+        "y": 420,
+        "wires": [
+            [
+                "3630618e3dd3b4e2"
+            ]
+        ]
+    },
+    {
+        "id": "3630618e3dd3b4e2",
+        "type": "debug",
+        "z": "d58a165164f25425",
+        "g": "261d6b1480783cdd",
+        "name": "Error sending to Aragon",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 725,
+        "y": 420,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "ec2a1a01.9becc8",
+        "type": "http in",
+        "z": "d58a165164f25425",
+        "g": "84110615.cd66f8",
+        "name": "/sensfloor/version",
+        "url": "/sensfloor/version",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 140,
+        "wires": [
+            [
+                "d83c3b65.083c98"
+            ]
+        ]
+    },
+    {
+        "id": "952d5ca0.8eff1",
+        "type": "http response",
+        "z": "d58a165164f25425",
+        "g": "84110615.cd66f8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 550,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "d83c3b65.083c98",
+        "type": "change",
+        "z": "d58a165164f25425",
+        "g": "84110615.cd66f8",
+        "name": "2023-12-07",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "2023-12-07",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 140,
+        "wires": [
+            [
+                "952d5ca0.8eff1"
+            ]
+        ]
+    },
+    {
+        "id": "542d269f.b4b2b",
+        "type": "comment",
+        "z": "d58a165164f25425",
+        "g": "84110615.cd66f8",
+        "name": "Version info in here",
+        "info": "2023-12-07: Changed to include ID and other data to Aragon Master. \nRequires SENSFLOOR DIALOG version 2023-12-07",
+        "x": 510,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "a7453cc46ece7f30",
+        "type": "comment",
+        "z": "d58a165164f25425",
+        "g": "261d6b1480783cdd",
+        "name": "INFO: TODO",
+        "info": "",
+        "x": 170,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "479946ef7cf08918",
+        "type": "socketio-config",
+        "uri": "http://192.168.1.195:8000",
+        "options": "{ \"forceNew\": true}"
+    }
+]
