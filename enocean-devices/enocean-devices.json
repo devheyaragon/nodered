@@ -61,7 +61,6 @@
             "8aeb4a8e241b8242",
             "42960ad7bff16185",
             "d1c5d02e64755d60",
-            "2e5b57051b5b4533",
             "d25c44f4f7b7ca84",
             "1bcfb2869a3e8b1f",
             "6c6e8b6015b393f2",
@@ -90,12 +89,20 @@
             "47f14eb81cf17618",
             "68a34e1fb4326a15",
             "632232839326d34b",
-            "0eac5cfc6533a2c8"
+            "0eac5cfc6533a2c8",
+            "730ba41578379547",
+            "d94a3a7163f57509",
+            "8457b088f0d27ea3",
+            "0767173b8a13d261",
+            "d90c65999a45b018",
+            "2960f17b4606150e",
+            "a2e15159437ed61b",
+            "6f0efc8ecfe15194"
         ],
         "x": 914,
         "y": 39,
         "w": 712,
-        "h": 462
+        "h": 522
     },
     {
         "id": "5b2a8d22374d4cf0",
@@ -214,7 +221,7 @@
         "z": "a6d29d13.3c30c",
         "g": "e2f01704a7c095f7",
         "x": 1500,
-        "y": 440,
+        "y": 500,
         "wires": [
             [
                 "f31e3118ad1bc274",
@@ -228,7 +235,7 @@
         "z": "a6d29d13.3c30c",
         "g": "e2f01704a7c095f7",
         "x": 1500,
-        "y": 420,
+        "y": 480,
         "wires": [
             [
                 "e0449b56f2c97d16",
@@ -242,7 +249,7 @@
         "z": "a6d29d13.3c30c",
         "g": "e2f01704a7c095f7",
         "x": 1500,
-        "y": 380,
+        "y": 440,
         "wires": [
             [
                 "0cdb83c78087cab6",
@@ -256,7 +263,7 @@
         "z": "a6d29d13.3c30c",
         "g": "e2f01704a7c095f7",
         "x": 1500,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "dd74359dd9825ac5",
@@ -816,7 +823,7 @@
         "rap": false,
         "inputs": 0,
         "x": 1040,
-        "y": 220,
+        "y": 180,
         "wires": [
             [
                 "6d7bd6e165b56669"
@@ -829,14 +836,15 @@
         "z": "a6d29d13.3c30c",
         "g": "e2f01704a7c095f7",
         "name": "Merge in the custom rooms with the main gateway rooms",
-        "func": "let module = global.get(\"module\");\n\nvar rooms = module.settingsGetValue(\"allRooms\");\nvar customRooms = global.get(\"customRooms\");\nif(rooms !== undefined && customRooms !== undefined){\n    rooms = [...rooms, ...customRooms];\n    rooms = rooms.filter((item,index)=>{\n        return (rooms.indexOf(item) == index)\n    })\n    module.settingsSetValue(\"allRooms\",rooms);\n    msg.payload = rooms;\n    return msg;\n}",
+        "func": "var module = global.get(\"module\");\n\nvar rooms = module.settingsGetValue(\"allRooms\");\nvar customRooms = global.get(\"customRooms\");\nif(rooms !== undefined && customRooms !== undefined){\n    rooms = [...rooms, ...customRooms];\n    rooms = rooms.filter((item,index)=>{\n        return (rooms.indexOf(item) == index)\n    })\n    module.settingsSetValue(\"allRooms\",rooms);\n    msg.payload = rooms;\n    return msg;\n}",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 1205,
-        "y": 220,
+        "y": 180,
         "wires": [
             [
                 "5ad86459cbd8f8b3"
@@ -858,8 +866,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1255,
-        "y": 220,
+        "x": 1265,
+        "y": 180,
         "wires": [],
         "l": false
     },
@@ -877,10 +885,11 @@
         "rap": false,
         "inputs": 0,
         "x": 1050,
-        "y": 160,
+        "y": 240,
         "wires": [
             [
-                "d25c44f4f7b7ca84"
+                "d25c44f4f7b7ca84",
+                "d94a3a7163f57509"
             ]
         ]
     },
@@ -889,10 +898,10 @@
         "type": "comment",
         "z": "a6d29d13.3c30c",
         "g": "e2f01704a7c095f7",
-        "name": "↓ Custom devices - define your devices here and connect the nodes ↓",
+        "name": "↓ Custom devices - define your EnOcean devices here↓",
         "info": "",
-        "x": 1210,
-        "y": 260,
+        "x": 1140,
+        "y": 340,
         "wires": []
     },
     {
@@ -911,38 +920,10 @@
         "once": true,
         "onceDelay": "3",
         "topic": "",
-        "payload": "[{\"custom\":true,\"name\":\"plafond toilette\",\"zone\":\"toilettes\",\"object\":\"plafond\",\"type\":\"lights\",\"setOn\":{\"name\":\"On\",\"button\":0,\"channel\":1,\"event\":\"click\",\"eep\":\"f6-02-01\",\"value\":100},\"setOff\":{\"name\":\"Off\",\"button\":1,\"channel\":1,\"event\":\"click\",\"eep\":\"f6-02-01\",\"value\":0}},{\"custom\":true,\"name\":\"terrasse extérieure\",\"zone\":\"terrasse\",\"object\":\"extérieur\",\"type\":\"lights\",\"setOn\":{\"name\":\"On\",\"url\":\"http://192.168.69.108/light/0?turn=on\",\"value\":100},\"setOff\":{\"name\":\"Off\",\"url\":\"http://192.168.69.108/light/0?turn=off\",\"value\":0},\"currentState\":{\"name\":\"CurrentState\",\"url\":\"http://192.168.69.108/status\",\"parser\":\"shelly\",\"id\":0}}]",
+        "payload": "[{\"custom\":true,\"name\":\"plafond toilette\",\"zone\":\"toilettes\",\"object\":\"plafond\",\"type\":\"lights\",\"setOn\":{\"name\":\"On\",\"button\":0,\"channel\":1,\"event\":\"click\",\"eep\":\"f6-02-01\",\"value\":100},\"setOff\":{\"name\":\"Off\",\"button\":1,\"channel\":1,\"event\":\"click\",\"eep\":\"f6-02-01\",\"value\":0}}]",
         "payloadType": "json",
-        "x": 1080,
-        "y": 300,
-        "wires": [
-            [
-                "2e5b57051b5b4533"
-            ]
-        ]
-    },
-    {
-        "id": "2e5b57051b5b4533",
-        "type": "change",
-        "z": "a6d29d13.3c30c",
-        "g": "e2f01704a7c095f7",
-        "name": "Save",
-        "rules": [
-            {
-                "t": "set",
-                "p": "customDeviceList",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1280,
-        "y": 300,
+        "x": 1060,
+        "y": 380,
         "wires": [
             [
                 "569f8fec8981559f"
@@ -955,14 +936,15 @@
         "z": "a6d29d13.3c30c",
         "g": "e2f01704a7c095f7",
         "name": "Merge in the custom devices with the main gateway devices",
-        "func": "let module = global.get(\"module\");\nvar devices = module.settingsGetValue(\"msgDeviceList\");\nvar customDevices = global.get(\"customDeviceList\");\nif(devices !== undefined && customDevices !== undefined){\n    devices = devices.concat(customDevices);\n    module.settingsSetValue(\"msgDeviceList\", devices);\n    msg.payload = devices;\n    return msg;\n}",
+        "func": "var module = global.get(\"module\");\nvar devices = module.settingsGetValue(\"msgDeviceList\");\nvar customDevices = global.get(\"customDeviceList\");\nif(devices !== undefined && customDevices !== undefined){\n    devices = devices.concat(customDevices);\n    module.settingsSetValue(\"msgDeviceList\", devices);\n    msg.payload = devices;\n    return msg;\n}",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 1205,
-        "y": 160,
+        "y": 240,
         "wires": [
             [
                 "1bcfb2869a3e8b1f"
@@ -984,8 +966,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1255,
-        "y": 160,
+        "x": 1265,
+        "y": 240,
         "wires": [],
         "l": false
     },
@@ -1003,7 +985,7 @@
         "rap": false,
         "inputs": 0,
         "x": 1030,
-        "y": 440,
+        "y": 500,
         "wires": [
             [
                 "2cdcafbee62d4c8b",
@@ -1021,7 +1003,7 @@
         "action": "",
         "pretty": false,
         "x": 1005,
-        "y": 380,
+        "y": 440,
         "wires": [
             [
                 "1ce15fe10bdd74bd"
@@ -1035,7 +1017,7 @@
         "z": "a6d29d13.3c30c",
         "g": "e2f01704a7c095f7",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1044,7 +1026,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1375,
-        "y": 440,
+        "y": 500,
         "wires": [],
         "l": false
     },
@@ -1061,7 +1043,7 @@
         "finalize": "",
         "libs": [],
         "x": 1235,
-        "y": 380,
+        "y": 440,
         "wires": [
             [
                 "3c9d0a2cc0494e21",
@@ -1099,7 +1081,7 @@
         "repair": false,
         "outputs": 3,
         "x": 1130,
-        "y": 380,
+        "y": 440,
         "wires": [
             [
                 "f92dfcc4d3bcab54"
@@ -1125,7 +1107,7 @@
         "stream": false,
         "addname": "",
         "x": 1295,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "113f91b4a169febf",
@@ -1162,7 +1144,7 @@
         "to": "",
         "reg": false,
         "x": 1055,
-        "y": 380,
+        "y": 440,
         "wires": [
             [
                 "0a288b39e028efd4"
@@ -1189,7 +1171,7 @@
         "name": "↓ This is called when Gateway devices has been updated ↓",
         "info": "",
         "x": 1150,
-        "y": 120,
+        "y": 140,
         "wires": []
     },
     {
@@ -1206,8 +1188,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1410,
-        "y": 300,
+        "x": 1305,
+        "y": 380,
         "wires": [],
         "l": false
     },
@@ -1216,17 +1198,20 @@
         "type": "function",
         "z": "a6d29d13.3c30c",
         "g": "e2f01704a7c095f7",
-        "name": "Save cutomrooms",
-        "func": "var customRooms = [];\nfor(var i = 0; i < msg.payload.length ; i++){\n    customRooms[i] = msg.payload[i].zone;\n}\nglobal.set(\"customRooms\", customRooms);\nreturn msg;",
+        "name": "Save custom Devices and Rooms",
+        "func": "global.set(\"customDeviceList\", msg.payload);\nvar customRooms = [];\nfor(var i = 0; i < msg.payload.length ; i++){\n    customRooms[i] = msg.payload[i].zone;\n}\nglobal.set(\"customRooms\", customRooms);\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1360,
-        "y": 300,
+        "libs": [],
+        "x": 1215,
+        "y": 380,
         "wires": [
             [
-                "04c51508ff442c47"
+                "04c51508ff442c47",
+                "730ba41578379547"
             ]
         ],
         "l": false
@@ -1265,7 +1250,7 @@
         "repair": false,
         "outputs": 4,
         "x": 1430,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "632232839326d34b"
@@ -1292,7 +1277,7 @@
             "44c83bde680851cb"
         ],
         "x": 1545,
-        "y": 360,
+        "y": 420,
         "wires": []
     },
     {
@@ -1306,7 +1291,7 @@
             "544e621fbffe453c"
         ],
         "x": 1545,
-        "y": 380,
+        "y": 440,
         "wires": []
     },
     {
@@ -1320,7 +1305,7 @@
             "4162af41c53dd4f8"
         ],
         "x": 1545,
-        "y": 420,
+        "y": 480,
         "wires": []
     },
     {
@@ -1334,7 +1319,7 @@
             "a83de89197fac280"
         ],
         "x": 1545,
-        "y": 440,
+        "y": 500,
         "wires": []
     },
     {
@@ -1352,7 +1337,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1295,
-        "y": 360,
+        "y": 420,
         "wires": [],
         "l": false
     },
@@ -1375,7 +1360,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 1345,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "237c0b2324d565c3"
@@ -1398,7 +1383,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1565,
-        "y": 360,
+        "y": 420,
         "wires": [],
         "l": false
     },
@@ -1417,7 +1402,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1565,
-        "y": 380,
+        "y": 440,
         "wires": [],
         "l": false
     },
@@ -1436,7 +1421,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1565,
-        "y": 420,
+        "y": 480,
         "wires": [],
         "l": false
     },
@@ -1455,7 +1440,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1565,
-        "y": 440,
+        "y": 500,
         "wires": [],
         "l": false
     },
@@ -1474,7 +1459,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1175,
-        "y": 460,
+        "y": 520,
         "wires": [],
         "l": false
     },
@@ -2156,10 +2141,201 @@
         "id": "40a19ab5be8c4478",
         "type": "comment",
         "z": "a6d29d13.3c30c",
-        "name": "PRESENTATION",
-        "info": "This flow allows you to control Enocean device, receive Enocean rf frame from sensor you have taught in here and simulate few switch to activate devices such as light.",
-        "x": 100,
+        "name": "OVERVIEW",
+        "info": "This flow enables control over EnOcean devices, \nallows for the reception of EnOcean RF frames from trained sensors, \nand simulates switches to activate devices like lights.",
+        "x": 90,
         "y": 60,
+        "wires": []
+    },
+    {
+        "id": "730ba41578379547",
+        "type": "trigger",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "Pending overwrite of msgDeviceList; Wait max 30sec for main Gateway devices before merge in",
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "pay",
+        "duration": "30",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1375,
+        "y": 320,
+        "wires": [
+            [
+                "8457b088f0d27ea3"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "d94a3a7163f57509",
+        "type": "change",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "Main gateway devices are used, skip pending overwrite from custom devices",
+        "rules": [
+            {
+                "t": "set",
+                "p": "reset",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1205,
+        "y": 280,
+        "wires": [
+            [
+                "730ba41578379547"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8457b088f0d27ea3",
+        "type": "function",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "Merge in the custom devices with the main gateway devices",
+        "func": "var module = global.get(\"module\");\nvar devices = module.settingsGetValue(\"msgDeviceList\");\n\n// remove old custom devices\ndevices = devices.filter(function(device) {\n    return device.custom !== true;\n});\n\nvar customDevices = global.get(\"customDeviceList\");\nif(devices !== undefined && customDevices !== undefined){\n    devices = devices.concat(customDevices);\n    module.settingsSetValue(\"msgDeviceList\", devices);\n    msg.payload = devices;\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1435,
+        "y": 320,
+        "wires": [
+            [
+                "0767173b8a13d261"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "0767173b8a13d261",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "msgDevicesList after merge",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1495,
+        "y": 320,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "d90c65999a45b018",
+        "type": "inject",
+        "z": "a6d29d13.3c30c",
+        "d": true,
+        "g": "e2f01704a7c095f7",
+        "name": "Simulate main gateway device read",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "3",
+        "topic": "",
+        "payload": "[{\"name\":\"Bedroom   Ceiling\",\"object\":\"Ceiling\",\"zone\":\"Bedroom\",\"type\":\"lights\",\"setOn\":{\"name\":\"On\",\"deviceId\":151,\"value\":true,\"type\":\"lights\"},\"setOff\":{\"name\":\"Off\",\"deviceId\":151,\"value\":false,\"type\":\"lights\"},\"currentState\":{\"name\":\"CurrentState\",\"deviceId\":151,\"valueMin\":false,\"valueMax\":true,\"type\":\"lights\"}},{\"name\":\"Bedroom   Shutter\",\"object\":\"Shutter\",\"zone\":\"Bedroom\",\"type\":\"blinds\",\"setOn\":{\"name\":\"On\",\"deviceId\":163,\"value\":0,\"type\":\"blinds\"},\"setOff\":{\"name\":\"Off\",\"deviceId\":163,\"value\":255,\"type\":\"blinds\"},\"setPosition\":{\"name\":\"Position\",\"deviceId\":163,\"valueMin\":0,\"valueMax\":255,\"type\":\"blinds\"},\"currentState\":{\"name\":\"CurrentPosition\",\"deviceId\":163,\"valueMin\":0,\"valueMax\":255,\"type\":\"blinds\"}},{\"name\":\"Bedroom   Wall lamp\",\"object\":\"Wall lamp\",\"zone\":\"Bedroom\",\"type\":\"dimmers\",\"setOn\":{\"name\":\"On\",\"deviceId\":153,\"value\":true,\"type\":\"dimmers\"},\"setOff\":{\"name\":\"Off\",\"deviceId\":153,\"value\":false,\"type\":\"dimmers\"},\"setBrightness\":{\"name\":\"Brightness\",\"deviceId\":155,\"valueMin\":0,\"valueMax\":255,\"type\":\"dimmers\"},\"currentState\":{\"name\":\"CurrentBrightness\",\"deviceId\":157,\"valueMin\":0,\"valueMax\":255,\"type\":\"dimmers\"}}]",
+        "payloadType": "json",
+        "x": 1435,
+        "y": 80,
+        "wires": [
+            [
+                "2960f17b4606150e"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "2960f17b4606150e",
+        "type": "function",
+        "z": "a6d29d13.3c30c",
+        "d": true,
+        "g": "e2f01704a7c095f7",
+        "name": "",
+        "func": "var module = global.get(\"module\");\nmodule.settingsSetValue(\"msgDeviceList\",msg.payload);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1495,
+        "y": 80,
+        "wires": [
+            [
+                "a2e15159437ed61b"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "a2e15159437ed61b",
+        "type": "mqtt out",
+        "z": "a6d29d13.3c30c",
+        "d": true,
+        "g": "e2f01704a7c095f7",
+        "name": "",
+        "topic": "proknx/devicelist/updated",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f96ab142.d8bab8",
+        "x": 1555,
+        "y": 80,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "6f0efc8ecfe15194",
+        "type": "comment",
+        "z": "a6d29d13.3c30c",
+        "d": true,
+        "g": "e2f01704a7c095f7",
+        "name": "TEST CODE",
+        "info": "",
+        "x": 1490,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "346b8d9384ce7733",
+        "type": "comment",
+        "z": "a6d29d13.3c30c",
+        "name": "HISTORY",
+        "info": "2023-12-14: Fixed: If no active main gateway, the custom devices were not merged in to the main variable msgDeviceList.",
+        "x": 80,
+        "y": 100,
         "wires": []
     },
     {
@@ -2179,6 +2355,34 @@
         "protocolVersion": "4",
         "keepalive": "60",
         "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f96ab142.d8bab8",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "3",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
         "birthTopic": "",
         "birthQos": "0",
         "birthPayload": "",
