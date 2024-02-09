@@ -1,6 +1,6 @@
 [
     {
-        "id": "26ae44e5b7c93490",
+        "id": "130449074b48304d",
         "type": "tab",
         "label": "HOMEBRIDGE",
         "disabled": false,
@@ -8,25 +8,25 @@
         "env": []
     },
     {
-        "id": "2c9ace3317720eb5",
+        "id": "6a67a2505084e5c2",
         "type": "group",
-        "z": "26ae44e5b7c93490",
+        "z": "130449074b48304d",
         "name": "ADD DEVICES TO HOMEBRIDGE",
         "style": {
             "label": true
         },
         "nodes": [
-            "bd5fb140f1df1469",
-            "1884c5bdfc24fc42",
-            "aac1fc1a2ab90063",
-            "09df32bee7a3f35e",
-            "ba4c8cead7776662",
-            "8be165ddae34b0bb",
-            "36b5bc44888c7bc9",
-            "52a84909e444f420",
-            "d0be896fdde1bd1f",
-            "e207718cbd0f60ed",
-            "6b64fe5451b0b6c4"
+            "be37e905ae49c730",
+            "3068a662080c49b9",
+            "214816dd4e8c81de",
+            "fde635acc916c29d",
+            "1e274b630b15aaf1",
+            "4b23a60daf7279a6",
+            "c89579bdecdeb541",
+            "2de2bd0697e59dd5",
+            "dbec2700e7e1b6e1",
+            "b4a0c100a137956e",
+            "eadb562db18aadfd"
         ],
         "x": 94,
         "y": 171.5,
@@ -34,23 +34,23 @@
         "h": 129.5
     },
     {
-        "id": "6807bfe666d01630",
+        "id": "5a64ea449d4e8f99",
         "type": "group",
-        "z": "26ae44e5b7c93490",
+        "z": "130449074b48304d",
         "name": "HANDLE SET REQUESTS",
         "style": {
             "label": true
         },
         "nodes": [
-            "e1e13a24a59ed36b",
-            "23969a067bcf4fe0",
-            "c9133e258da4f402",
-            "55e7dd8a0307733d",
-            "d7fb72fdaf32ced6",
-            "579eaeccae04addb",
-            "6aa52b1d3cc4654f",
-            "70caf96fccf2e3e5",
-            "771b6d8b2199bbbf"
+            "453ce0ff1921fe60",
+            "eaaffa166d0bc6d5",
+            "ba045f487fd90fbd",
+            "95060f94044bd771",
+            "8e05609c55c5d85e",
+            "578e678dc68fc39d",
+            "0ad07063a930ecf4",
+            "831fa63d6c65e417",
+            "a8d508adfa455da9"
         ],
         "x": 94,
         "y": 319,
@@ -58,16 +58,16 @@
         "h": 182
     },
     {
-        "id": "713a3b946477d176",
+        "id": "f36e6a1ff4690ff8",
         "type": "group",
-        "z": "26ae44e5b7c93490",
+        "z": "130449074b48304d",
         "name": "OPTIONAL SETTINGS",
         "style": {
             "label": true
         },
         "nodes": [
-            "84adcc70aa2bd2e0",
-            "78b24175d17ab027"
+            "c58a871dc3584e24",
+            "1cefa92a99f01877"
         ],
         "x": 94,
         "y": 79,
@@ -75,10 +75,10 @@
         "h": 82
     },
     {
-        "id": "1884c5bdfc24fc42",
+        "id": "3068a662080c49b9",
         "type": "file in",
-        "z": "26ae44e5b7c93490",
-        "g": "2c9ace3317720eb5",
+        "z": "130449074b48304d",
+        "g": "6a67a2505084e5c2",
         "name": "get config",
         "filename": "/var/lib/homebridge/config.json",
         "filenameType": "str",
@@ -91,15 +91,15 @@
         "y": 220,
         "wires": [
             [
-                "aac1fc1a2ab90063"
+                "214816dd4e8c81de"
             ]
         ]
     },
     {
-        "id": "aac1fc1a2ab90063",
+        "id": "214816dd4e8c81de",
         "type": "json",
-        "z": "26ae44e5b7c93490",
-        "g": "2c9ace3317720eb5",
+        "z": "130449074b48304d",
+        "g": "6a67a2505084e5c2",
         "name": "",
         "property": "payload",
         "action": "",
@@ -108,19 +108,19 @@
         "y": 220,
         "wires": [
             [
-                "6b64fe5451b0b6c4",
-                "bd5fb140f1df1469"
+                "eadb562db18aadfd",
+                "be37e905ae49c730"
             ]
         ],
         "l": false
     },
     {
-        "id": "bd5fb140f1df1469",
+        "id": "be37e905ae49c730",
         "type": "function",
-        "z": "26ae44e5b7c93490",
-        "g": "2c9ace3317720eb5",
+        "z": "130449074b48304d",
+        "g": "6a67a2505084e5c2",
         "name": "Add devices",
-        "func": "var replaceAragonOnly = flow.get(\"replaceAragonOnly\"); // See optional settings\nif (replaceAragonOnly === undefined) {\n    replaceAragonOnly = false;\n}\nvar addLeadingNumbers = flow.get(\"addLeadingNumbers\"); // See optional settings\nif (addLeadingNumbers === undefined) {\n    addLeadingNumbers = true;\n}\nnode.warn(\"addLeadingNumbers: \"+addLeadingNumbers);\n\nvar module = global.get(\"module\");\nvar devices = module.settingsGetValue(\"msgActiveDeviceList\");\nif (devices === undefined) {\n    devices = module.settingsGetValue(\"msgDeviceList\");\n    node.warn(\"Using unfiltered msgDeviceList\");\n}\n\n// Ensure there's an accessories array\nif (!msg.payload.accessories) {\n    msg.payload.accessories = [];\n}\n\nnode.warn(\"Number of Homebridge accessories before: \" + msg.payload.accessories.length);\n\nif(replaceAragonOnly){\n    msg.payload.accessories = msg.payload.accessories.filter(item => !(item.aragon));\n} else {\n    msg.payload.accessories = msg.payload.accessories.filter(item => !(item.accessory = \"mqttthing\"));\n}\n\nvar zoneNumbers = {};\nvar currentNumber = 1;\n\n// Enumerate devices and create accessories for dimmers\ndevices.forEach(function(device) {\n // If the zone is not in zoneNumbers, add it and initialize its number to 1\n    if (!zoneNumbers.hasOwnProperty(device.zone)) {\n        zoneNumbers[device.zone] = currentNumber++;\n    }\n\n    // Get the unique number for the zone and increment it for the next device in the same zone\n    var zoneNumber = zoneNumbers[device.zone];\n    \n    // Pad the zoneNumber with a leading zero if it's less than 10\n    var paddedZoneNumber = \"\";\n    if(addLeadingNumbers){\n        paddedZoneNumber = zoneNumber.toString().padStart(2, '0') + \" \";\n    }\n\n    // Add the paddedZoneNumber at the beginning of the id string\n    var id = paddedZoneNumber + device.zone + \" - \" + device.object;\n    \n    var data = { \n        \"aragon\": { \n            \"type\": device.type,\n            \"object\": device.object,\n            \"zone\": device.zone\n        }\n    };\n\n    if (device.type === \"dimmers\") {\n        let newAccessory = {\n            \"type\": \"lightbulb-Dimmable\",\n            \"name\": id,\n            \"debounceRecvms\": 2000,\n            \"optimizePublishing\": true,\n            \"topics\": {\n                //\"getOnline\": \"aragon/getOnline\",\n                \"getOn\": \"aragon/getOn/\" + JSON.stringify(data),\n                \"setOn\": \"aragon/setOn/\" + JSON.stringify(data),\n                \"getBrightness\": \"aragon/getBrightness/\" + JSON.stringify(data),\n                \"setBrightness\": \"aragon/setBrightness/\" + JSON.stringify(data)\n            },\n            \"aragon\": {\n               \"type\": device.type,\n               \"object\": device.object,\n               \"zone\": device.zone\n            },\n            \"integerValue\": false,\n            \"onValue\": \"on\",\n            \"offValue\": \"off\",            \n            \"manufacturer\": \"Aragon\",\n            \"accessory\": \"mqttthing\"\n        };\n        // Add the new accessory to the payload\n        msg.payload.accessories.push(newAccessory);\n    }\n    else if (device.type === \"lights\") {\n        let newAccessory = {\n            \"type\": \"lightbulb\",\n            \"name\": id,\n            \"debounceRecvms\": 2000,\n            \"optimizePublishing\": true,\n            \"topics\": {\n                //\"getOnline\": \"aragon/getOnline\",\n                \"getOn\": \"aragon/getOn/\" + JSON.stringify(data),\n                \"setOn\": \"aragon/setOn/\" + JSON.stringify(data)\n            },\n            \"aragon\": {\n                \"type\": device.type,\n                \"object\": device.object,\n                \"zone\": device.zone\n            },\n            \"integerValue\": false,\n            \"onValue\": \"on\",\n            \"offValue\": \"off\",            \n            \"manufacturer\": \"Aragon\",\n            \"accessory\": \"mqttthing\"\n        };\n        // Add the new accessory to the payload\n        msg.payload.accessories.push(newAccessory);\n    } else if (device.type === \"blinds\") {\n        let newAccessory = {\n            \"type\": \"windowCovering\",\n            \"name\": id,\n            \"debounceRecvms\": 2000,\n            \"optimizePublishing\": true,\n            \"topics\": {\n                \"setTargetPosition\": \"aragon/setTargetPosition/\" + JSON.stringify(data),\n                \"getCurrentPosition\": \"aragon/getCurrentPosition/\" + JSON.stringify(data)\n            },\n            \"aragon\": {\n                \"type\": device.type,\n                \"object\": device.object,\n                \"zone\": device.zone\n            },\n            \"integerValue\": false,\n            \"manufacturer\": \"Aragon\",\n            \"accessory\": \"mqttthing\"\n        };\n        // Add the new accessory to the payload\n        msg.payload.accessories.push(newAccessory);\n    } else if (device.type === \"scenes\") {\n        let newAccessory = {\n            \"type\": \"switch\",\n            \"name\": id,\n            \"debounceRecvms\": 2000,\n            \"optimizePublishing\": true,\n            \"topics\": {\n                //\"getOnline\": \"aragon/getOnline\",\n                //\"getOn\": \"aragon/getOn/\" + JSON.stringify(data),\n                \"setOn\": \"aragon/setOn/\" + JSON.stringify(data)\n            },\n            \"aragon\": {\n                \"type\": device.type,\n                \"object\": device.object,\n                \"zone\": device.zone\n            },\n            \"turnOffAfterms\": 1000,\n            \"integerValue\": false,\n            \"onValue\": \"on\",\n            \"offValue\": \"off\",              \n            \"manufacturer\": \"Aragon\",\n            \"accessory\": \"mqttthing\"\n        };\n        // Add the new accessory to the payload\n        msg.payload.accessories.push(newAccessory);\n    }\n});\n\nnode.warn(\"Number of Homebridge accessories after: \" + msg.payload.accessories.length);\n\nreturn msg;",
+        "func": "var replaceAragonOnly = flow.get(\"replaceAragonOnly\"); // See optional settings\nif (replaceAragonOnly === undefined) {\n    replaceAragonOnly = false;\n}\nvar addLeadingNumbers = flow.get(\"addLeadingNumbers\"); // See optional settings\nif (addLeadingNumbers === undefined) {\n    addLeadingNumbers = true;\n}\nnode.warn(\"addLeadingNumbers: \"+addLeadingNumbers);\n\nvar module = global.get(\"module\");\nvar devices = module.settingsGetValue(\"msgActiveDeviceList\");\nif (devices === undefined) {\n    devices = module.settingsGetValue(\"msgDeviceList\");\n    node.warn(\"Using unfiltered msgDeviceList\");\n}\n\n// Ensure there's an accessories array\nif (!msg.payload.accessories) {\n    msg.payload.accessories = [];\n}\n\nnode.warn(\"Number of Homebridge accessories before: \" + msg.payload.accessories.length);\n\nif(replaceAragonOnly){\n    msg.payload.accessories = msg.payload.accessories.filter(item => !(item.aragon));\n} else {\n    msg.payload.accessories = msg.payload.accessories.filter(item => !(item.accessory = \"mqttthing\"));\n}\n\nvar zoneNumbers = {};\nvar currentNumber = 1;\n\n// Enumerate devices and create accessories for dimmers\ndevices.forEach(function(device) {\n // If the zone is not in zoneNumbers, add it and initialize its number to 1\n    if (!zoneNumbers.hasOwnProperty(device.zone)) {\n        zoneNumbers[device.zone] = currentNumber++;\n    }\n\n    // Get the unique number for the zone and increment it for the next device in the same zone\n    var zoneNumber = zoneNumbers[device.zone];\n    \n    // Pad the zoneNumber with a leading zero if it's less than 10\n    var paddedZoneNumber = \"\";\n    if(addLeadingNumbers){\n        paddedZoneNumber = zoneNumber.toString().padStart(2, '0') + \" \";\n    }\n\n    // Add the paddedZoneNumber at the beginning of the id string\n    var id = paddedZoneNumber + device.object + \" - \" + device.zone;\n    \n    var data = { \n        \"aragon\": { \n            \"type\": device.type,\n            \"object\": device.object,\n            \"zone\": device.zone\n        }\n    };\n\n    if (device.type === \"dimmers\") {\n        let newAccessory = {\n            \"type\": \"lightbulb-Dimmable\",\n            \"name\": id,\n            \"debounceRecvms\": 2000,\n            \"optimizePublishing\": true,\n            \"topics\": {\n                \"getOnline\": \"aragon/getOnline\",\n                \"getOn\": \"aragon/getOn/\" + JSON.stringify(data),\n                \"setOn\": \"aragon/setOn/\" + JSON.stringify(data),\n                \"getBrightness\": \"aragon/getBrightness/\" + JSON.stringify(data),\n                \"setBrightness\": \"aragon/setBrightness/\" + JSON.stringify(data)\n            },\n            \"aragon\": {\n               \"type\": device.type,\n               \"object\": device.object,\n               \"zone\": device.zone\n            },\n            \"integerValue\": false,\n            \"onValue\": \"on\",\n            \"offValue\": \"off\",            \n            \"manufacturer\": \"Aragon\",\n            \"accessory\": \"mqttthing\"\n        };\n        // Add the new accessory to the payload\n        msg.payload.accessories.push(newAccessory);\n    }\n    else if (device.type === \"lights\") {\n        let newAccessory = {\n            \"type\": \"lightbulb\",\n            \"name\": id,\n            \"debounceRecvms\": 2000,\n            \"optimizePublishing\": true,\n            \"topics\": {\n                \"getOnline\": \"aragon/getOnline\",\n                \"getOn\": \"aragon/getOn/\" + JSON.stringify(data),\n                \"setOn\": \"aragon/setOn/\" + JSON.stringify(data)\n            },\n            \"aragon\": {\n                \"type\": device.type,\n                \"object\": device.object,\n                \"zone\": device.zone\n            },\n            \"integerValue\": false,\n            \"onValue\": \"on\",\n            \"offValue\": \"off\",            \n            \"manufacturer\": \"Aragon\",\n            \"accessory\": \"mqttthing\"\n        };\n        // Add the new accessory to the payload\n        msg.payload.accessories.push(newAccessory);\n    } else if (device.type === \"blinds\") {\n        let newAccessory = {\n            \"type\": \"windowCovering\",\n            \"name\": id,\n            \"debounceRecvms\": 2000,\n            \"optimizePublishing\": true,\n            \"topics\": {\n                \"getOnline\": \"aragon/getOnline\",                \n                \"setTargetPosition\": \"aragon/setTargetPosition/\" + JSON.stringify(data),\n                \"getCurrentPosition\": \"aragon/getCurrentPosition/\" + JSON.stringify(data)\n            },\n            \"aragon\": {\n                \"type\": device.type,\n                \"object\": device.object,\n                \"zone\": device.zone\n            },\n            \"integerValue\": false,\n            \"manufacturer\": \"Aragon\",\n            \"accessory\": \"mqttthing\"\n        };\n        // Add the new accessory to the payload\n        msg.payload.accessories.push(newAccessory);\n    } else if (device.type === \"scenes\") {\n        let newAccessory = {\n            \"type\": \"switch\",\n            \"name\": id,\n            \"debounceRecvms\": 2000,\n            \"optimizePublishing\": true,\n            \"topics\": {\n                \"getOnline\": \"aragon/getOnline\",\n                \"setOn\": \"aragon/setOn/\" + JSON.stringify(data)\n            },\n            \"aragon\": {\n                \"type\": device.type,\n                \"object\": device.object,\n                \"zone\": device.zone\n            },\n            \"turnOffAfterms\": 1000,\n            \"integerValue\": false,\n            \"onValue\": \"on\",\n            \"offValue\": \"off\",              \n            \"manufacturer\": \"Aragon\",\n            \"accessory\": \"mqttthing\"\n        };\n        // Add the new accessory to the payload\n        msg.payload.accessories.push(newAccessory);\n    }\n});\n\nnode.warn(\"Number of Homebridge accessories after: \" + msg.payload.accessories.length);\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -131,15 +131,15 @@
         "y": 220,
         "wires": [
             [
-                "09df32bee7a3f35e"
+                "fde635acc916c29d"
             ]
         ]
     },
     {
-        "id": "09df32bee7a3f35e",
+        "id": "fde635acc916c29d",
         "type": "json",
-        "z": "26ae44e5b7c93490",
-        "g": "2c9ace3317720eb5",
+        "z": "130449074b48304d",
+        "g": "6a67a2505084e5c2",
         "name": "",
         "property": "payload",
         "action": "str",
@@ -148,16 +148,16 @@
         "y": 220,
         "wires": [
             [
-                "ba4c8cead7776662"
+                "1e274b630b15aaf1"
             ]
         ],
         "l": false
     },
     {
-        "id": "ba4c8cead7776662",
+        "id": "1e274b630b15aaf1",
         "type": "file",
-        "z": "26ae44e5b7c93490",
-        "g": "2c9ace3317720eb5",
+        "z": "130449074b48304d",
+        "g": "6a67a2505084e5c2",
         "name": "save",
         "filename": "/var/lib/homebridge/config.json",
         "filenameType": "str",
@@ -169,15 +169,15 @@
         "y": 220,
         "wires": [
             [
-                "52a84909e444f420"
+                "2de2bd0697e59dd5"
             ]
         ]
     },
     {
-        "id": "8be165ddae34b0bb",
+        "id": "4b23a60daf7279a6",
         "type": "inject",
-        "z": "26ae44e5b7c93490",
-        "g": "2c9ace3317720eb5",
+        "z": "130449074b48304d",
+        "g": "6a67a2505084e5c2",
         "name": "Inject devices",
         "props": [
             {
@@ -195,16 +195,16 @@
         "y": 220,
         "wires": [
             [
-                "d0be896fdde1bd1f"
+                "dbec2700e7e1b6e1"
             ]
         ],
         "l": false
     },
     {
-        "id": "36b5bc44888c7bc9",
+        "id": "c89579bdecdeb541",
         "type": "exec",
-        "z": "26ae44e5b7c93490",
-        "g": "2c9ace3317720eb5",
+        "z": "130449074b48304d",
+        "g": "6a67a2505084e5c2",
         "command": "sudo chmod 666 /var/lib/homebridge/config.json",
         "addpay": "",
         "append": "",
@@ -217,7 +217,7 @@
         "y": 220,
         "wires": [
             [
-                "1884c5bdfc24fc42"
+                "3068a662080c49b9"
             ],
             [],
             []
@@ -225,10 +225,10 @@
         "l": false
     },
     {
-        "id": "52a84909e444f420",
+        "id": "2de2bd0697e59dd5",
         "type": "exec",
-        "z": "26ae44e5b7c93490",
-        "g": "2c9ace3317720eb5",
+        "z": "130449074b48304d",
+        "g": "6a67a2505084e5c2",
         "command": "sudo systemctl restart  homebridge.service",
         "addpay": "",
         "append": "",
@@ -247,10 +247,10 @@
         "l": false
     },
     {
-        "id": "d0be896fdde1bd1f",
+        "id": "dbec2700e7e1b6e1",
         "type": "delay",
-        "z": "26ae44e5b7c93490",
-        "g": "2c9ace3317720eb5",
+        "z": "130449074b48304d",
+        "g": "6a67a2505084e5c2",
         "name": "",
         "pauseType": "rate",
         "timeout": "5",
@@ -268,19 +268,19 @@
         "y": 220,
         "wires": [
             [
-                "36b5bc44888c7bc9"
+                "c89579bdecdeb541"
             ],
             [
-                "e207718cbd0f60ed"
+                "b4a0c100a137956e"
             ]
         ],
         "l": false
     },
     {
-        "id": "e207718cbd0f60ed",
+        "id": "b4a0c100a137956e",
         "type": "debug",
-        "z": "26ae44e5b7c93490",
-        "g": "2c9ace3317720eb5",
+        "z": "130449074b48304d",
+        "g": "6a67a2505084e5c2",
         "name": "Skipped (rate limit 30 sec)",
         "active": false,
         "tosidebar": true,
@@ -296,10 +296,10 @@
         "l": false
     },
     {
-        "id": "6b64fe5451b0b6c4",
+        "id": "eadb562db18aadfd",
         "type": "debug",
-        "z": "26ae44e5b7c93490",
-        "g": "2c9ace3317720eb5",
+        "z": "130449074b48304d",
+        "g": "6a67a2505084e5c2",
         "name": "debug 32",
         "active": false,
         "tosidebar": true,
@@ -315,10 +315,10 @@
         "l": false
     },
     {
-        "id": "e1e13a24a59ed36b",
+        "id": "453ce0ff1921fe60",
         "type": "mqtt in",
-        "z": "26ae44e5b7c93490",
-        "g": "6807bfe666d01630",
+        "z": "130449074b48304d",
+        "g": "5a64ea449d4e8f99",
         "name": "",
         "topic": "aragon/+/+",
         "qos": "2",
@@ -332,16 +332,16 @@
         "y": 400,
         "wires": [
             [
-                "23969a067bcf4fe0",
-                "c9133e258da4f402"
+                "eaaffa166d0bc6d5",
+                "ba045f487fd90fbd"
             ]
         ]
     },
     {
-        "id": "23969a067bcf4fe0",
+        "id": "eaaffa166d0bc6d5",
         "type": "debug",
-        "z": "26ae44e5b7c93490",
-        "g": "6807bfe666d01630",
+        "z": "130449074b48304d",
+        "g": "5a64ea449d4e8f99",
         "name": "nlu-requests",
         "active": false,
         "tosidebar": true,
@@ -357,10 +357,10 @@
         "l": false
     },
     {
-        "id": "c9133e258da4f402",
+        "id": "ba045f487fd90fbd",
         "type": "delay",
-        "z": "26ae44e5b7c93490",
-        "g": "6807bfe666d01630",
+        "z": "130449074b48304d",
+        "g": "5a64ea449d4e8f99",
         "name": "",
         "pauseType": "rate",
         "timeout": "2",
@@ -378,18 +378,18 @@
         "y": 400,
         "wires": [
             [
-                "55e7dd8a0307733d"
+                "95060f94044bd771"
             ]
         ],
         "l": false
     },
     {
-        "id": "55e7dd8a0307733d",
+        "id": "95060f94044bd771",
         "type": "function",
-        "z": "26ae44e5b7c93490",
-        "g": "6807bfe666d01630",
+        "z": "130449074b48304d",
+        "g": "5a64ea449d4e8f99",
         "name": "Prepare",
-        "func": "var module = global.get(\"module\");\nvar allRooms = module.settingsGetValue(\"allRooms\");\nvar language = module.settingsGetValue(\"msgLang\");\n\nvar topicParts = msg.topic.split(\"/\");\nvar subTopic = topicParts[1]; // This will be 'setOn', 'setBrightness' etc\nvar dataString = topicParts.slice(2).join(\"/\"); // Reconstruct the data part of the topic\nvar data = JSON.parse(dataString); // Parse the JSON string to an object\n\n// Now 'data' contains the object with the 'aragon' property\nvar type = data.aragon.type;\nvar object = data.aragon.object;\nvar zone = data.aragon.zone;\nvar text = \"\";\nvar value = msg.payload;\nvar msgHB = null;\n\n// Function to check if zone exists in allRooms, and assign first siteName to zone if not\nfunction checkAndAssignSiteName(allRooms, zone) {\n  // Check if any object in allRooms has a siteName equal to zone\n  const siteExists = allRooms.find(adapter => adapter.siteName === zone);\n\n  // If zone doesn't exist in allRooms, assign zone to Default\n  if (!siteExists) {\n    zone = 'Default';\n  }\n  return zone;\n}\n\nfunction limitPercentValue(val){\n    let intValue = parseInt(val, 10);\n    if (isNaN(intValue) || intValue < 1 || intValue > 100) {\n        intValue = 1;\n    }\n    else if (intValue > 100) {\n        intValue = 100;\n    }\n    return intValue.toString();\n}\n\n//node.warn(\"type: \" + type + \" subTopic: \" + subTopic + \" value: \" + value + \" object: \" + object + \" zone: \" + zone );\n\nswitch(type){\n    case \"dimmers\":\n        switch(subTopic){\n            case \"setBrightness\": \n                if (language === \"fr\"){\n                    text = \"Règle la luminosité de \" + object + \" dans la \" + zone + \" sur \" + limitPercentValue(value) + \" pourcents\";\n                } else if (language === \"de\"){\n                    text = zone + \" \" + object + \" die helligkeit auf \" + limitPercentValue(value) + \" prozent einstellen\";\n                } else{\n                    text = \"Set the \" + zone + \" \" + object + \" brightness to \" + limitPercentValue(value) + \" percent\";\n                }                \n                break;\n            case \"setOn\":\n                if (language === \"fr\") {\n                    const translate = word => word === 'on' ? 'allume la ' : word === 'off' ? 'éteins la ' : word;\n                    text = translate(value) + object + \" dans la \" + zone;\n                } else if (language === \"de\") {\n                    const translate = word => word === 'on' ? 'ein' : word === 'off' ? 'aus' : word;\n                    text = zone + \" \" + object + \" \" + translate(value);\n                } else {\n                    text = zone + \" \" + object + \" \" + value;\n                }\n                break;\n            default:\n                node.warn(\"Unhandled action in 'dimmers'\");\n                node.warn(\"type: \" + type + \" subTopic: \" + subTopic + \" value: \" + value + \" object: \" + object + \" zone: \" + zone );\n                break;\n        }\n        break;\n    case \"lights\":\n        switch(subTopic){\n            case \"setOn\":\n                if (language === \"fr\") {\n                    const translate = word => word === 'on' ? 'allume la ' : word === 'off' ? 'éteins la ' : word;\n                    text = translate(value) + object + \" dans la \" + zone;\n                } else if (language === \"de\") {\n                    const translate = word => word === 'on' ? 'ein' : word === 'off' ? 'aus' : word;\n                    text = zone + \" \" + object + \" \" + translate(value);\n                } else {\n                    text = zone + \" \" + object + \" \" + value;\n                }\n                break;\n            default:\n                node.warn(\"Unhandled action in 'lights' \" + subTopic);\n                break;\n        }\n        break;\n    case \"blinds\":\n        switch(subTopic){\n            case \"setTargetPosition\": \n                if (language === \"fr\") {\n                    text = \"Ouvre la \" + object + \" dans la \" + zone + \" sur \" + limitPercentValue(value) + \" pourcents\";\n                } else if (language === \"de\") {\n                    text = \"Set the \" + zone + \" \" + object + \" to \" + limitPercentValue(value) + \" percent\";\n                } else {\n                    text = \"Set the \" + zone + \" \" + object + \" to \" + limitPercentValue(value) + \" percent\";\n                }            \n\n                // Prepare fake notification:\n                msgHB = {};\n                msgHB.topic = msg.topic.replace(\"setTargetPosition\", \"getCurrentPosition\");\n                msgHB.payload = msg.payload;\n                break;\n            case \"getCurrentPosition\":\n                ; // fake reply in setTargetPosition\n                break;\n            default:\n                node.warn(\"Unhandled action in 'blinds' \" + subTopic);\n                break;\n        }\n        break;\n    case \"scenes\":\n        switch(subTopic){\n            case \"setOn\":\n                if(value.toLowerCase() === 'on'){\n                    if (language === \"fr\") {\n                        text = \"Active \" + object + \" dans la \" + zone;\n                    } else if (language === \"de\") {\n                        text = \"Aktiviren \" + object + \" im \" + zone;\n                    } else {\n                        text = \"Activate \" + zone + \" \" + object;\n                    }\n                }\n                break;\n            default:\n                node.warn(\"Unhandled action in 'scenes' \" + subTopic);\n                break;\n        }\n        break;\n}\nif(text===''){\n    return;\n}\n\n//node.warn(\"To NLU: \"+text);\nvar msgNLU = {};\nmsgNLU.payload = {};\nmsgNLU.payload.input = text;\nmsgNLU.payload.siteId = checkAndAssignSiteName(allRooms, zone);\n\nreturn [msgNLU, msgHB];\n\n",
+        "func": "var module = global.get(\"module\");\nvar allRooms = module.settingsGetValue(\"allRooms\");\nvar language = module.settingsGetValue(\"msgLang\");\n\nvar topicParts = msg.topic.split(\"/\");\nvar subTopic = topicParts[1]; // This will be 'setOn', 'setBrightness' etc\nvar dataString = topicParts.slice(2).join(\"/\"); // Reconstruct the data part of the topic\nvar data = JSON.parse(dataString); // Parse the JSON string to an object\n\n// Now 'data' contains the object with the 'aragon' property\nvar type = data.aragon.type;\nvar object = data.aragon.object;\nvar zone = data.aragon.zone;\nvar text = \"\";\nvar value = msg.payload;\nvar msgHB = null;\n\n// Function to check if zone exists in allRooms, and assign first siteName to zone if not\nfunction checkAndAssignSiteName(allRooms, zone) {\n  // Check if any object in allRooms has a siteName equal to zone\n  const siteExists = allRooms.find(adapter => adapter.siteName === zone);\n\n  // If zone doesn't exist in allRooms, assign zone to Default\n  if (!siteExists) {\n    zone = 'Default';\n  }\n  return zone;\n}\n\nfunction limitPercentValue(val){\n    let intValue = parseInt(val, 10);\n    if (isNaN(intValue) || intValue < 1 || intValue > 100) {\n        intValue = 1;\n    }\n    else if (intValue > 100) {\n        intValue = 100;\n    }\n    return intValue.toString();\n}\n\n//node.warn(\"type: \" + type + \" subTopic: \" + subTopic + \" value: \" + value + \" object: \" + object + \" zone: \" + zone );\n\nswitch(type){\n    case \"dimmers\":\n        switch(subTopic){\n            case \"setBrightness\": \n                if (language === \"fr\"){\n                    text = \"Règle la luminosité de la \" + object + \" dans la \" + zone + \" sur \" + limitPercentValue(value) + \" pourcents\";\n                } else if (language === \"de\"){\n                    text = \"Stelle die helligkeit \" + zone + \" \" + object + \" auf \" + limitPercentValue(value) + \" prozent\";\n                } else{\n                    text = \"Set the \" + zone + \" \" + object + \" brightness to \" + limitPercentValue(value) + \" percent\";\n                }                \n                break;\n            case \"setOn\":\n                if (language === \"fr\") {\n                    const translate = word => word === 'on' ? 'allume la ' : word === 'off' ? 'éteins la ' : word;\n                    text = translate(value) + object + \" dans la \" + zone;\n                } else if (language === \"de\") {\n                    const translate = word => word === 'on' ? 'einschalten' : word === 'off' ? 'ausschalten' : word;\n                    text = zone + \" \" + object + \" \" + translate(value);\n                } else {\n                    text = zone + \" \" + object + \" \" + value;\n                }\n                break;\n            default:\n                node.warn(\"Unhandled action in 'dimmers'\");\n                node.warn(\"type: \" + type + \" subTopic: \" + subTopic + \" value: \" + value + \" object: \" + object + \" zone: \" + zone );\n                break;\n        }\n        break;\n    case \"lights\":\n        switch(subTopic){\n            case \"setOn\":\n                if (language === \"fr\") {\n                    const translate = word => word === 'on' ? 'allume la ' : word === 'off' ? 'éteins la ' : word;\n                    text = translate(value) + object + \" dans la \" + zone;\n                } else if (language === \"de\") {\n                    const translate = word => word === 'on' ? 'einschalten' : word === 'off' ? 'ausschalten' : word;\n                    text = zone + \" \" + object + \" \" + translate(value);\n                } else {\n                    text = zone + \" \" + object + \" \" + value;\n                }\n                break;\n            default:\n                node.warn(\"Unhandled action in 'lights' \" + subTopic);\n                break;\n        }\n        break;\n    case \"blinds\":\n        switch(subTopic){\n            case \"setTargetPosition\": \n                if (language === \"fr\") {\n                    text = \"Ouvre la \" + object + \" dans la \" + zone + \" sur \" + limitPercentValue(value) + \" pourcents\";\n                } else if (language === \"de\") {\n                    text = \"Fahre \" + zone + \" \" + object + \" auf \" + limitPercentValue(value) + \" prozent\";\n                } else {\n                    text = \"Set the \" + zone + \" \" + object + \" to \" + limitPercentValue(value) + \" percent\";\n                }            \n\n                // Prepare fake notification:\n                msgHB = {};\n                msgHB.topic = msg.topic.replace(\"setTargetPosition\", \"getCurrentPosition\");\n                msgHB.payload = msg.payload;\n                break;\n            case \"getCurrentPosition\":\n                ; // fake reply in setTargetPosition\n                break;\n            default:\n                node.warn(\"Unhandled action in 'blinds' \" + subTopic);\n                break;\n        }\n        break;\n    case \"scenes\":\n        switch(subTopic){\n            case \"setOn\":\n                if(value.toLowerCase() === 'on'){\n                    if (language === \"fr\") {\n                        text = \"Active \" + object + \" dans la \" + zone;\n                    } else if (language === \"de\") {\n                        text = \"Aktiviere \" + object + \" im \" + zone;\n                    } else {\n                        text = \"Activate \" + zone + \" \" + object;\n                    }\n                }\n                break;\n            default:\n                node.warn(\"Unhandled action in 'scenes' \" + subTopic);\n                break;\n        }\n        break;\n}\nif(text===''){\n    return;\n}\n\n//node.warn(\"To NLU: \"+text);\nvar msgNLU = {};\nmsgNLU.payload = {};\nmsgNLU.payload.input = text;\nmsgNLU.payload.siteId = checkAndAssignSiteName(allRooms, zone);\n\nreturn [msgNLU, msgHB];\n\n",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
@@ -400,12 +400,12 @@
         "y": 400,
         "wires": [
             [
-                "579eaeccae04addb",
-                "d7fb72fdaf32ced6"
+                "578e678dc68fc39d",
+                "8e05609c55c5d85e"
             ],
             [
-                "6aa52b1d3cc4654f",
-                "771b6d8b2199bbbf"
+                "0ad07063a930ecf4",
+                "a8d508adfa455da9"
             ]
         ],
         "outputLabels": [
@@ -414,10 +414,10 @@
         ]
     },
     {
-        "id": "d7fb72fdaf32ced6",
+        "id": "8e05609c55c5d85e",
         "type": "mqtt out",
-        "z": "26ae44e5b7c93490",
-        "g": "6807bfe666d01630",
+        "z": "130449074b48304d",
+        "g": "5a64ea449d4e8f99",
         "name": "",
         "topic": "hermes/nlu/query",
         "qos": "",
@@ -427,17 +427,17 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "e97e3cfe399ca3f9",
+        "broker": "c94dbfba966871d0",
         "x": 635,
         "y": 380,
         "wires": [],
         "l": false
     },
     {
-        "id": "579eaeccae04addb",
+        "id": "578e678dc68fc39d",
         "type": "debug",
-        "z": "26ae44e5b7c93490",
-        "g": "6807bfe666d01630",
+        "z": "130449074b48304d",
+        "g": "5a64ea449d4e8f99",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -453,9 +453,9 @@
         "l": false
     },
     {
-        "id": "b265dfa1ac0fd8cf",
+        "id": "3460a95f28063a6f",
         "type": "comment",
-        "z": "26ae44e5b7c93490",
+        "z": "130449074b48304d",
         "name": "README",
         "info": "This flow adds the Aragon devices to the Homebridge and enables control from HomeKit and Siri.\nAdditionally, Homebridge comes with a web based dashboard that can be used from any browser.\n\nDo this:\n1. Install the Homebridge plugin `Homebridge Mqttthing`\n1. Import and Deploy this flow in Node-RED\n1. Press the `Inject devices` button, wait 15 seconds\n1. Open Homebridge Accessories and vrify that the device can be controlled.",
         "x": 160,
@@ -463,12 +463,12 @@
         "wires": []
     },
     {
-        "id": "84adcc70aa2bd2e0",
+        "id": "c58a871dc3584e24",
         "type": "function",
-        "z": "26ae44e5b7c93490",
-        "g": "713a3b946477d176",
+        "z": "130449074b48304d",
+        "g": "f36e6a1ff4690ff8",
         "name": "Options",
-        "func": "// If you add or edit Mqttthing devices from the Homebridge plugin, they will loose their Aragon settings. When you add Aragon\n// all mqttthings will be replaced. To replace only Aragon devices, set replaceAragonOnly to true, save and add devices\n// Default: false \nflow.set(\"replaceAragonOnly\", false); \n\n// When the accesories have a leading number in their name, they can be automatically sorted into rooms by the realKNX iOS application\n// With the added leading number comes the risk off mane truncation in the Homebridge Dashboard\n// Default: true \nflow.set(\"addLeadingNumbers\", false); ",
+        "func": "// If you add or edit Mqttthing devices from the Homebridge plugin, they will loose their Aragon settings. When you add Aragon\n// all mqttthings will be replaced. To replace only Aragon devices, set replaceAragonOnly to true, save and add devices\n// Default: false \nflow.set(\"replaceAragonOnly\", false); \n\n// When the accesories have a leading number in their name, they can be automatically sorted into rooms by the realKNX iOS application\n// With the added leading number comes the risk off mane truncation in the Homebridge Dashboard\n// Default: true \nflow.set(\"addLeadingNumbers\", true); ",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -482,10 +482,10 @@
         ]
     },
     {
-        "id": "78b24175d17ab027",
+        "id": "1cefa92a99f01877",
         "type": "inject",
-        "z": "26ae44e5b7c93490",
-        "g": "713a3b946477d176",
+        "z": "130449074b48304d",
+        "g": "f36e6a1ff4690ff8",
         "name": "",
         "props": [
             {
@@ -503,16 +503,16 @@
         "y": 120,
         "wires": [
             [
-                "84adcc70aa2bd2e0"
+                "c58a871dc3584e24"
             ]
         ],
         "l": false
     },
     {
-        "id": "6aa52b1d3cc4654f",
+        "id": "0ad07063a930ecf4",
         "type": "delay",
-        "z": "26ae44e5b7c93490",
-        "g": "6807bfe666d01630",
+        "z": "130449074b48304d",
+        "g": "5a64ea449d4e8f99",
         "name": "",
         "pauseType": "delay",
         "timeout": "1",
@@ -530,16 +530,16 @@
         "y": 420,
         "wires": [
             [
-                "70caf96fccf2e3e5"
+                "831fa63d6c65e417"
             ]
         ],
         "l": false
     },
     {
-        "id": "70caf96fccf2e3e5",
+        "id": "831fa63d6c65e417",
         "type": "mqtt out",
-        "z": "26ae44e5b7c93490",
-        "g": "6807bfe666d01630",
+        "z": "130449074b48304d",
+        "g": "5a64ea449d4e8f99",
         "name": "",
         "topic": "",
         "qos": "",
@@ -549,17 +549,17 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "e97e3cfe399ca3f9",
+        "broker": "c94dbfba966871d0",
         "x": 635,
         "y": 420,
         "wires": [],
         "l": false
     },
     {
-        "id": "771b6d8b2199bbbf",
+        "id": "a8d508adfa455da9",
         "type": "debug",
-        "z": "26ae44e5b7c93490",
-        "g": "6807bfe666d01630",
+        "z": "130449074b48304d",
+        "g": "5a64ea449d4e8f99",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -603,7 +603,7 @@
         "sessionExpiry": ""
     },
     {
-        "id": "e97e3cfe399ca3f9",
+        "id": "c94dbfba966871d0",
         "type": "mqtt-broker",
         "name": "",
         "broker": "localhost",
