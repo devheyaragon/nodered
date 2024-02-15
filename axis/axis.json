@@ -1,0 +1,261 @@
+[
+    {
+        "id": "27cd292f8e753a9e",
+        "type": "tab",
+        "label": "AXIS",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a7cf3e29f83931da",
+        "type": "debug",
+        "z": "27cd292f8e753a9e",
+        "name": "debug 32",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 655,
+        "y": 220,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "8d23eed9a94fa780",
+        "type": "function",
+        "z": "27cd292f8e753a9e",
+        "name": "Upload and play AXIS",
+        "func": "// Create a user account http://<IP>/audio/index.html#/system/accounts\nvar username = \"user\";\nvar password = \"mypassword\";\n\n// Set the IP (and protocol)\nvar ip = \"192.168.1.14\";\nvar protocol = \"http://\";\n\nvar pathToFile = \"/tmp/aragon.wav\";\nmsg.payload = ' -X POST -u ' + username + ':' + password + ' --digest -F \"file=@' + pathToFile + ';type=audio/basic\" \"' + protocol + ip + '/axis-cgi/mediaclip.cgi?action=upload&media=audio&name=aragon&location=aragon.wav\"  && curl \"' + protocol + ip + '/axis-cgi/playclip.cgi?location=aragon.wav&repeat=0&volume=100&audiodeviceid=0&audiooutputid=0\"';\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 140,
+        "wires": [
+            [
+                "8c80c08c6b53167c",
+                "cb5df90b47b126db"
+            ]
+        ]
+    },
+    {
+        "id": "8c80c08c6b53167c",
+        "type": "exec",
+        "z": "27cd292f8e753a9e",
+        "command": "curl",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 750,
+        "y": 140,
+        "wires": [
+            [
+                "1f0a779b93be3c0a"
+            ],
+            [
+                "26b893e1d8e7dff2"
+            ],
+            [
+                "6efb994691f04c27"
+            ]
+        ]
+    },
+    {
+        "id": "1f0a779b93be3c0a",
+        "type": "debug",
+        "z": "27cd292f8e753a9e",
+        "name": "debug 34",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 865,
+        "y": 100,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "26b893e1d8e7dff2",
+        "type": "debug",
+        "z": "27cd292f8e753a9e",
+        "name": "debug 35",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 865,
+        "y": 140,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "6efb994691f04c27",
+        "type": "debug",
+        "z": "27cd292f8e753a9e",
+        "name": "debug 36",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 865,
+        "y": 180,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "8178e59575643e8e",
+        "type": "catch",
+        "z": "27cd292f8e753a9e",
+        "name": "",
+        "scope": [
+            "8d23eed9a94fa780",
+            "8c80c08c6b53167c"
+        ],
+        "uncaught": false,
+        "x": 550,
+        "y": 220,
+        "wires": [
+            [
+                "a7cf3e29f83931da"
+            ]
+        ]
+    },
+    {
+        "id": "91729c555aa73278",
+        "type": "mqtt in",
+        "z": "27cd292f8e753a9e",
+        "name": "hermes/sayfile",
+        "topic": "hermes/audioServer/+/playBytes/+",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f96ab142.d8bab8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 170,
+        "y": 140,
+        "wires": [
+            [
+                "26d25bd0300285f2",
+                "c9fd8147c8013e3e"
+            ]
+        ]
+    },
+    {
+        "id": "26d25bd0300285f2",
+        "type": "file",
+        "z": "27cd292f8e753a9e",
+        "name": "Save to file",
+        "filename": "/tmp/aragon.wav",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 350,
+        "y": 140,
+        "wires": [
+            [
+                "8d23eed9a94fa780"
+            ]
+        ]
+    },
+    {
+        "id": "c9fd8147c8013e3e",
+        "type": "debug",
+        "z": "27cd292f8e753a9e",
+        "name": "debug 37",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 295,
+        "y": 100,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "cb5df90b47b126db",
+        "type": "debug",
+        "z": "27cd292f8e753a9e",
+        "name": "debug 38",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 715,
+        "y": 100,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "3bcc4a2e8b261608",
+        "type": "comment",
+        "z": "27cd292f8e753a9e",
+        "name": "README",
+        "info": "This flow will send a copy of all audio messages of the Aragon to the Axis speaker.\nConfiguration in the \"Upload and play AXIS\" node:\n- IP of Axis speaker\n- Username and passwword",
+        "x": 160,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "f96ab142.d8bab8",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "3",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
