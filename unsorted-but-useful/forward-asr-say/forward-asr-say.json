@@ -1,0 +1,206 @@
+[
+    {
+        "id": "727f02091cae0420",
+        "type": "tab",
+        "label": "FORWARD ASR & SAY",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "66e6e63457078e6c",
+        "type": "mqtt in",
+        "z": "727f02091cae0420",
+        "name": "",
+        "topic": "hermes/asr/textCaptured",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f96ab142.d8bab8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 140,
+        "wires": [
+            [
+                "186053243200bbfc"
+            ]
+        ]
+    },
+    {
+        "id": "1f119454034581b2",
+        "type": "http request",
+        "z": "727f02091cae0420",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 550,
+        "y": 140,
+        "wires": [
+            [
+                "9778c411752ff4ea"
+            ]
+        ]
+    },
+    {
+        "id": "9778c411752ff4ea",
+        "type": "debug",
+        "z": "727f02091cae0420",
+        "name": "debug 27",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "186053243200bbfc",
+        "type": "function",
+        "z": "727f02091cae0420",
+        "name": "Prepare",
+        "func": "var msgHttp = {};\nmsgHttp.url = \"192.168.1.11:1880/api/mirror?text=\" + msg.payload.text;\nreturn msgHttp;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 140,
+        "wires": [
+            [
+                "1f119454034581b2"
+            ]
+        ]
+    },
+    {
+        "id": "66c5e9535dd42d07",
+        "type": "comment",
+        "z": "727f02091cae0420",
+        "name": "README",
+        "info": "Configure IP  in the 'Prepare' node",
+        "x": 120,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "b425efe69a653b1b",
+        "type": "http in",
+        "z": "727f02091cae0420",
+        "name": "",
+        "url": "/api/mirror",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 320,
+        "wires": [
+            [
+                "9867196006fcd0e2",
+                "7ab5fa3945af23c3"
+            ]
+        ]
+    },
+    {
+        "id": "9867196006fcd0e2",
+        "type": "debug",
+        "z": "727f02091cae0420",
+        "name": "debug 28",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "7ab5fa3945af23c3",
+        "type": "http response",
+        "z": "727f02091cae0420",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 310,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "8372353e6bba38ef",
+        "type": "mqtt in",
+        "z": "727f02091cae0420",
+        "name": "",
+        "topic": "hermes/tts/say",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f96ab142.d8bab8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "186053243200bbfc"
+            ]
+        ]
+    },
+    {
+        "id": "cb801af377a396fa",
+        "type": "comment",
+        "z": "727f02091cae0420",
+        "name": "Test end-point",
+        "info": "",
+        "x": 130,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f96ab142.d8bab8",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "3",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
