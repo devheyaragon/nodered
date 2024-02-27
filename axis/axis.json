@@ -1,6 +1,6 @@
 [
     {
-        "id": "27cd292f8e753a9e",
+        "id": "cf6d20874c28dad9",
         "type": "tab",
         "label": "AXIS",
         "disabled": false,
@@ -8,9 +8,9 @@
         "env": []
     },
     {
-        "id": "a7cf3e29f83931da",
+        "id": "f0d05c51afc9314f",
         "type": "debug",
-        "z": "27cd292f8e753a9e",
+        "z": "cf6d20874c28dad9",
         "name": "debug 32",
         "active": true,
         "tosidebar": true,
@@ -26,31 +26,31 @@
         "l": false
     },
     {
-        "id": "8d23eed9a94fa780",
+        "id": "eacce9f4048b3dea",
         "type": "function",
-        "z": "27cd292f8e753a9e",
-        "name": "Upload and play AXIS",
-        "func": "// Create a user account http://<IP>/audio/index.html#/system/accounts\nvar username = \"user\";\nvar password = \"mypassword\";\n\n// Set the IP (and protocol)\nvar ip = \"192.168.1.14\";\nvar protocol = \"http://\";\n\nvar pathToFile = \"/tmp/aragon.wav\";\nmsg.payload = ' -X POST -u ' + username + ':' + password + ' --digest -F \"file=@' + pathToFile + ';type=audio/basic\" \"' + protocol + ip + '/axis-cgi/mediaclip.cgi?action=upload&media=audio&name=aragon&location=aragon.wav\"  && curl \"' + protocol + ip + '/axis-cgi/playclip.cgi?location=aragon.wav&repeat=0&volume=100&audiodeviceid=0&audiooutputid=0\"';\n\nreturn msg;",
+        "z": "cf6d20874c28dad9",
+        "name": "Prepare command to upload and play ",
+        "func": "// Create a user account http://<IP>/audio/index.html#/system/accounts\nvar username = \"user\";\nvar password = \"mypassword\";\n\n// Set the IP (and protocol)\nvar ip = \"192.168.1.14\";\nvar protocol = \"http://\";\n\nvar pathToFile = \"/tmp/aragon.wav\";\nvar removeCmd = 'curl -X POST -u ' + username + ':' + password + ' --digest \"' + protocol + ip + '/axis-cgi/mediaclip.cgi?action=remove&clip=0&media=audio&name=aragon&location=aragon.wav\" ';\nvar uploadCmd = 'curl -X POST -u ' + username + ':' + password + ' --digest -F \"file=@' + pathToFile + ';type=audio/basic\" \"' + protocol + ip + '/axis-cgi/mediaclip.cgi?action=upload&media=audio&name=aragon&location=aragon.wav\" '; \nvar playCmd = 'curl  -X GET -u ' + username + ':' + password + ' --digest \"' + protocol + ip + '/axis-cgi/playclip.cgi?location=aragon.wav&repeat=0&volume=100&audiodeviceid=0&audiooutputid=0\"';\n\nmsg.payload = removeCmd + ' ; ' + uploadCmd + ' ; ' + playCmd;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
+        "x": 490,
         "y": 140,
         "wires": [
             [
-                "8c80c08c6b53167c",
-                "cb5df90b47b126db"
+                "5e6f0ddce4196706",
+                "cf1f56f68b9cd83c"
             ]
         ]
     },
     {
-        "id": "8c80c08c6b53167c",
+        "id": "cf1f56f68b9cd83c",
         "type": "exec",
-        "z": "27cd292f8e753a9e",
-        "command": "curl",
+        "z": "cf6d20874c28dad9",
+        "command": "",
         "addpay": "payload",
         "append": "",
         "useSpawn": "false",
@@ -62,20 +62,20 @@
         "y": 140,
         "wires": [
             [
-                "1f0a779b93be3c0a"
+                "8ebd11172931409e"
             ],
             [
-                "26b893e1d8e7dff2"
+                "b4499f7c6bb8804f"
             ],
             [
-                "6efb994691f04c27"
+                "7cdf8d741c28a8b9"
             ]
         ]
     },
     {
-        "id": "1f0a779b93be3c0a",
+        "id": "8ebd11172931409e",
         "type": "debug",
-        "z": "27cd292f8e753a9e",
+        "z": "cf6d20874c28dad9",
         "name": "debug 34",
         "active": false,
         "tosidebar": true,
@@ -91,9 +91,9 @@
         "l": false
     },
     {
-        "id": "26b893e1d8e7dff2",
+        "id": "b4499f7c6bb8804f",
         "type": "debug",
-        "z": "27cd292f8e753a9e",
+        "z": "cf6d20874c28dad9",
         "name": "debug 35",
         "active": false,
         "tosidebar": true,
@@ -109,9 +109,9 @@
         "l": false
     },
     {
-        "id": "6efb994691f04c27",
+        "id": "7cdf8d741c28a8b9",
         "type": "debug",
-        "z": "27cd292f8e753a9e",
+        "z": "cf6d20874c28dad9",
         "name": "debug 36",
         "active": false,
         "tosidebar": true,
@@ -127,27 +127,27 @@
         "l": false
     },
     {
-        "id": "8178e59575643e8e",
+        "id": "1e5a5fb07e7def46",
         "type": "catch",
-        "z": "27cd292f8e753a9e",
+        "z": "cf6d20874c28dad9",
         "name": "",
         "scope": [
-            "8d23eed9a94fa780",
-            "8c80c08c6b53167c"
+            "eacce9f4048b3dea",
+            "cf1f56f68b9cd83c"
         ],
         "uncaught": false,
         "x": 550,
         "y": 220,
         "wires": [
             [
-                "a7cf3e29f83931da"
+                "f0d05c51afc9314f"
             ]
         ]
     },
     {
-        "id": "91729c555aa73278",
+        "id": "239b0bd46087e7c6",
         "type": "mqtt in",
-        "z": "27cd292f8e753a9e",
+        "z": "cf6d20874c28dad9",
         "name": "hermes/sayfile",
         "topic": "hermes/audioServer/+/playBytes/+",
         "qos": "2",
@@ -160,34 +160,35 @@
         "y": 140,
         "wires": [
             [
-                "26d25bd0300285f2",
-                "c9fd8147c8013e3e"
+                "15965b1e71031694",
+                "e99af9e19c489d9e"
             ]
         ]
     },
     {
-        "id": "26d25bd0300285f2",
+        "id": "15965b1e71031694",
         "type": "file",
-        "z": "27cd292f8e753a9e",
-        "name": "Save to file",
+        "z": "cf6d20874c28dad9",
+        "name": "Save to temporary file",
         "filename": "/tmp/aragon.wav",
         "filenameType": "str",
         "appendNewline": false,
         "createDir": false,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 350,
+        "x": 295,
         "y": 140,
         "wires": [
             [
-                "8d23eed9a94fa780"
+                "eacce9f4048b3dea"
             ]
-        ]
+        ],
+        "l": false
     },
     {
-        "id": "c9fd8147c8013e3e",
+        "id": "e99af9e19c489d9e",
         "type": "debug",
-        "z": "27cd292f8e753a9e",
+        "z": "cf6d20874c28dad9",
         "name": "debug 37",
         "active": false,
         "tosidebar": true,
@@ -203,9 +204,9 @@
         "l": false
     },
     {
-        "id": "cb5df90b47b126db",
+        "id": "5e6f0ddce4196706",
         "type": "debug",
-        "z": "27cd292f8e753a9e",
+        "z": "cf6d20874c28dad9",
         "name": "debug 38",
         "active": false,
         "tosidebar": true,
@@ -221,11 +222,11 @@
         "l": false
     },
     {
-        "id": "3bcc4a2e8b261608",
+        "id": "d2aff328453381ef",
         "type": "comment",
-        "z": "27cd292f8e753a9e",
+        "z": "cf6d20874c28dad9",
         "name": "README",
-        "info": "This flow will send a copy of all audio messages of the Aragon to the Axis speaker.\nConfiguration in the \"Upload and play AXIS\" node:\n- IP of Axis speaker\n- Username and passwword",
+        "info": "## Copy all audio to AXIS speaker\nThis flow will send a copy of audio messages (any Aragon siteId) to the Axis speaker.\nIf you want to play only a specific siteId, see below.\n**Configuration** is required: open the \"Prepare command to upload and play\" and set:\n- IP of Axis speaker\n- Username and passwword\n\n## AXIS resources and links (change to your IP)\n1. [Media-clip API](https://www.axis.com/vapix-library/subjects/t10100065/section/t10036045/display)\n1. [Media clips](http://192.168.1.14/audio/index.html#/audio/clips)\n1. [Accounts](http://192.168.1.14/audio/index.html#/system/accounts)\n1. [Volume](http://192.168.1.14/audio/index.html#/audio/device-settings/device-0)\n\n## Code to play only a specific siteId \n// Example msg.topic: \"hermes/audioServer/Kitchen/playBytes/70c9fad9-ac73-408b-a092-8fee9b1bf3ee\"\n// 1. Split the topic by '/' and get the third parameter\nvar topicParts = msg.topic.split('/');\nvar thirdParam = topicParts[2]; // Assuming the topic has at least three parts\n\n// Check if the third parameter is 'kitchen', case insensitive\nif (thirdParam.toLowerCase() !== 'kitchen') {\n    // If it's not 'kitchen', log an error and stop processing\n    node.error(\"Topic does not contain 'kitchen'\", msg);\n    return null; // Stop the execution and return nothing\n}\n\n// If it is 'kitchen', continue processing\nreturn msg; // Pass the message to the next node",
         "x": 160,
         "y": 60,
         "wires": []
