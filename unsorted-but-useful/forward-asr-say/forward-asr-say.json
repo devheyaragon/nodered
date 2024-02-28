@@ -1,6 +1,6 @@
 [
     {
-        "id": "727f02091cae0420",
+        "id": "25081358994cb033",
         "type": "tab",
         "label": "FORWARD ASR & SAY",
         "disabled": false,
@@ -8,9 +8,9 @@
         "env": []
     },
     {
-        "id": "66e6e63457078e6c",
+        "id": "79c642872e02ce6e",
         "type": "mqtt in",
-        "z": "727f02091cae0420",
+        "z": "25081358994cb033",
         "name": "",
         "topic": "hermes/asr/textCaptured",
         "qos": "2",
@@ -24,14 +24,14 @@
         "y": 140,
         "wires": [
             [
-                "186053243200bbfc"
+                "b5e857b0669913df"
             ]
         ]
     },
     {
-        "id": "1f119454034581b2",
+        "id": "e2c988f8316e1940",
         "type": "http request",
-        "z": "727f02091cae0420",
+        "z": "25081358994cb033",
         "name": "",
         "method": "GET",
         "ret": "txt",
@@ -48,32 +48,34 @@
         "y": 140,
         "wires": [
             [
-                "9778c411752ff4ea"
+                "9f1297a23a67c709"
             ]
         ]
     },
     {
-        "id": "9778c411752ff4ea",
+        "id": "9f1297a23a67c709",
         "type": "debug",
-        "z": "727f02091cae0420",
-        "name": "debug 27",
+        "z": "25081358994cb033",
+        "name": "debug request",
         "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 720,
+        "x": 675,
         "y": 140,
-        "wires": []
+        "wires": [],
+        "l": false
     },
     {
-        "id": "186053243200bbfc",
+        "id": "b5e857b0669913df",
         "type": "function",
-        "z": "727f02091cae0420",
+        "z": "25081358994cb033",
         "name": "Prepare",
-        "func": "var msgHttp = {};\nmsgHttp.url = \"192.168.1.11:1880/api/mirror?text=\" + msg.payload.text;\nreturn msgHttp;",
+        "func": "var msgHttp = {};\nmsgHttp.url = \"192.168.1.11:1880/api/mirror?text=\" + encodeURIComponent(msg.payload.text);\nreturn msgHttp;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -84,24 +86,24 @@
         "y": 140,
         "wires": [
             [
-                "1f119454034581b2"
+                "e2c988f8316e1940"
             ]
         ]
     },
     {
-        "id": "66c5e9535dd42d07",
+        "id": "0c27d9b97596266e",
         "type": "comment",
-        "z": "727f02091cae0420",
+        "z": "25081358994cb033",
         "name": "README",
-        "info": "Configure IP  in the 'Prepare' node",
+        "info": "Configure IP and the path in the 'Prepare' node.",
         "x": 120,
         "y": 100,
         "wires": []
     },
     {
-        "id": "b425efe69a653b1b",
+        "id": "f56c7908dd5037d9",
         "type": "http in",
-        "z": "727f02091cae0420",
+        "z": "25081358994cb033",
         "name": "",
         "url": "/api/mirror",
         "method": "get",
@@ -111,16 +113,16 @@
         "y": 320,
         "wires": [
             [
-                "9867196006fcd0e2",
-                "7ab5fa3945af23c3"
+                "1eccf8bd170c2454",
+                "8605c16e044bd2eb"
             ]
         ]
     },
     {
-        "id": "9867196006fcd0e2",
+        "id": "1eccf8bd170c2454",
         "type": "debug",
-        "z": "727f02091cae0420",
-        "name": "debug 28",
+        "z": "25081358994cb033",
+        "name": "debug end-point",
         "active": false,
         "tosidebar": true,
         "console": false,
@@ -129,25 +131,26 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 320,
+        "x": 295,
         "y": 360,
-        "wires": []
+        "wires": [],
+        "l": false
     },
     {
-        "id": "7ab5fa3945af23c3",
+        "id": "8605c16e044bd2eb",
         "type": "http response",
-        "z": "727f02091cae0420",
+        "z": "25081358994cb033",
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 310,
+        "x": 330,
         "y": 320,
         "wires": []
     },
     {
-        "id": "8372353e6bba38ef",
+        "id": "0e3c07cf86ae8081",
         "type": "mqtt in",
-        "z": "727f02091cae0420",
+        "z": "25081358994cb033",
         "name": "",
         "topic": "hermes/tts/say",
         "qos": "2",
@@ -161,14 +164,14 @@
         "y": 200,
         "wires": [
             [
-                "186053243200bbfc"
+                "b5e857b0669913df"
             ]
         ]
     },
     {
-        "id": "cb801af377a396fa",
+        "id": "fb273890d6b15173",
         "type": "comment",
-        "z": "727f02091cae0420",
+        "z": "25081358994cb033",
         "name": "Test end-point",
         "info": "",
         "x": 130,
