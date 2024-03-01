@@ -1,6 +1,6 @@
 [
     {
-        "id": "25081358994cb033",
+        "id": "4b8813f7bc5c3dae",
         "type": "tab",
         "label": "FORWARD ASR & SAY",
         "disabled": false,
@@ -8,9 +8,9 @@
         "env": []
     },
     {
-        "id": "79c642872e02ce6e",
+        "id": "bfc2b2cf2559472f",
         "type": "mqtt in",
-        "z": "25081358994cb033",
+        "z": "4b8813f7bc5c3dae",
         "name": "",
         "topic": "hermes/asr/textCaptured",
         "qos": "2",
@@ -24,14 +24,15 @@
         "y": 140,
         "wires": [
             [
-                "b5e857b0669913df"
+                "60f31c137a37980f",
+                "8ebc0cd4d6f821f9"
             ]
         ]
     },
     {
-        "id": "e2c988f8316e1940",
+        "id": "488ed46677fe10e8",
         "type": "http request",
-        "z": "25081358994cb033",
+        "z": "4b8813f7bc5c3dae",
         "name": "",
         "method": "GET",
         "ret": "txt",
@@ -45,17 +46,17 @@
         "senderr": false,
         "headers": [],
         "x": 550,
-        "y": 140,
+        "y": 180,
         "wires": [
             [
-                "9f1297a23a67c709"
+                "31dfa695b40b8432"
             ]
         ]
     },
     {
-        "id": "9f1297a23a67c709",
+        "id": "31dfa695b40b8432",
         "type": "debug",
-        "z": "25081358994cb033",
+        "z": "4b8813f7bc5c3dae",
         "name": "debug request",
         "active": false,
         "tosidebar": true,
@@ -66,63 +67,70 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 675,
-        "y": 140,
+        "y": 180,
         "wires": [],
         "l": false
     },
     {
-        "id": "b5e857b0669913df",
+        "id": "60f31c137a37980f",
         "type": "function",
-        "z": "25081358994cb033",
+        "z": "4b8813f7bc5c3dae",
         "name": "Prepare",
-        "func": "var msgHttp = {};\nmsgHttp.url = \"192.168.1.11:1880/api/mirror?text=\" + encodeURIComponent(msg.payload.text);\nreturn msgHttp;",
-        "outputs": 1,
+        "func": "const serverAddress = \"192.168.1.11:1880\";\nconst hintQuestion = \"Explain, how to use this?\";\nconst hintReply = \"Ask AI a question: e.g. say  'OK Aragon ... What's the weather forecast for today? \";\n\nif(!msg.payload.showhint){\n    if(!msg.payload || !msg.payload.text || msg.payload.text.length===0 || !msg.topic) {\n        node.warn(\"FORWARD ASR & SAY: Invalid input\")\n        return;\n    }\n}\n\nvar msgQuestion = {};\nvar msgReply = {};\nif(msg.topic=== \"hermes/asr/textCaptured\"){\n    msgQuestion.url = serverAddress + \"/aragon/question\" + \"?text=\" + encodeURIComponent(msg.payload.text);\n    msgReply.url = serverAddress + \"/aragon/reply\" + \"?text=\";\n}\nelse if(msg.topic=== \"hermes/tts/say\"){\n    msgQuestion = null;\n    msgReply.url = serverAddress + \"/aragon/reply\" + \"?text=\" + encodeURIComponent(msg.payload.text);\n\n} else {\n    msgQuestion.url = serverAddress + \"/aragon/question\" + \"?text=\" + encodeURIComponent(hintQuestion);\n    msgReply.url = serverAddress + \"/aragon/reply\" + \"?text=\" + encodeURIComponent(hintReply);\n}\n\nreturn [msgQuestion, msgReply];",
+        "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 140,
+        "y": 180,
         "wires": [
             [
-                "e2c988f8316e1940"
+                "488ed46677fe10e8"
+            ],
+            [
+                "488ed46677fe10e8"
             ]
+        ],
+        "outputLabels": [
+            "Question",
+            "Reply"
         ]
     },
     {
-        "id": "0c27d9b97596266e",
+        "id": "5c68c7cf47d29495",
         "type": "comment",
-        "z": "25081358994cb033",
+        "z": "4b8813f7bc5c3dae",
         "name": "README",
-        "info": "Configure IP and the path in the 'Prepare' node.",
+        "info": "- Configure the 'serverAddress' in the 'Prepare' node.\n- Modify the Hint message  in the 'Prepare' node.\n- Disable the Hint message by turning off the 'inject once' in the 'Show hint'\n",
         "x": 120,
         "y": 100,
         "wires": []
     },
     {
-        "id": "f56c7908dd5037d9",
+        "id": "4a59741ea540fa86",
         "type": "http in",
-        "z": "25081358994cb033",
+        "z": "4b8813f7bc5c3dae",
         "name": "",
-        "url": "/api/mirror",
+        "url": "/aragon/question",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 140,
+        "x": 160,
         "y": 320,
         "wires": [
             [
-                "1eccf8bd170c2454",
-                "8605c16e044bd2eb"
+                "3acf12d0bb9da0bb",
+                "36fbe39bc38daa06"
             ]
         ]
     },
     {
-        "id": "1eccf8bd170c2454",
+        "id": "7d71f6e940c4a336",
         "type": "debug",
-        "z": "25081358994cb033",
-        "name": "debug end-point",
+        "z": "4b8813f7bc5c3dae",
+        "name": "debug reply end-point (test)",
         "active": false,
         "tosidebar": true,
         "console": false,
@@ -131,26 +139,26 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 295,
-        "y": 360,
+        "x": 315,
+        "y": 400,
         "wires": [],
         "l": false
     },
     {
-        "id": "8605c16e044bd2eb",
+        "id": "3acf12d0bb9da0bb",
         "type": "http response",
-        "z": "25081358994cb033",
+        "z": "4b8813f7bc5c3dae",
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 330,
-        "y": 320,
+        "x": 350,
+        "y": 360,
         "wires": []
     },
     {
-        "id": "0e3c07cf86ae8081",
+        "id": "9cbb6c7ef898bac9",
         "type": "mqtt in",
-        "z": "25081358994cb033",
+        "z": "4b8813f7bc5c3dae",
         "name": "",
         "topic": "hermes/tts/say",
         "qos": "2",
@@ -161,22 +169,121 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 200,
+        "y": 220,
         "wires": [
             [
-                "b5e857b0669913df"
+                "60f31c137a37980f",
+                "364ac9383940131f"
             ]
         ]
     },
     {
-        "id": "fb273890d6b15173",
+        "id": "84fff16b5d21538b",
         "type": "comment",
-        "z": "25081358994cb033",
-        "name": "Test end-point",
+        "z": "4b8813f7bc5c3dae",
+        "name": "Test end-points",
         "info": "",
-        "x": 130,
+        "x": 140,
         "y": 280,
         "wires": []
+    },
+    {
+        "id": "8ebc0cd4d6f821f9",
+        "type": "debug",
+        "z": "4b8813f7bc5c3dae",
+        "name": "debug request",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 335,
+        "y": 140,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "364ac9383940131f",
+        "type": "debug",
+        "z": "4b8813f7bc5c3dae",
+        "name": "debug request",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 335,
+        "y": 240,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "3fb8a0c1bc661048",
+        "type": "http in",
+        "z": "4b8813f7bc5c3dae",
+        "name": "",
+        "url": "/aragon/reply",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 380,
+        "wires": [
+            [
+                "7d71f6e940c4a336",
+                "3acf12d0bb9da0bb"
+            ]
+        ]
+    },
+    {
+        "id": "36fbe39bc38daa06",
+        "type": "debug",
+        "z": "4b8813f7bc5c3dae",
+        "name": "debug question end-point (test)",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 315,
+        "y": 320,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "2b0b6e8a892fb416",
+        "type": "inject",
+        "z": "4b8813f7bc5c3dae",
+        "name": "Show hint",
+        "props": [
+            {
+                "p": "payload.showhint",
+                "v": "true",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 205,
+        "y": 180,
+        "wires": [
+            [
+                "60f31c137a37980f"
+            ]
+        ],
+        "l": false
     },
     {
         "id": "f96ab142.d8bab8",
