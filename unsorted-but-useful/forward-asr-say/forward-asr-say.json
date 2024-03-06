@@ -1,6 +1,6 @@
 [
     {
-        "id": "4b8813f7bc5c3dae",
+        "id": "7decbbbacf14f537",
         "type": "tab",
         "label": "FORWARD ASR & SAY",
         "disabled": false,
@@ -8,9 +8,9 @@
         "env": []
     },
     {
-        "id": "bfc2b2cf2559472f",
+        "id": "dc7b9dbc11786202",
         "type": "mqtt in",
-        "z": "4b8813f7bc5c3dae",
+        "z": "7decbbbacf14f537",
         "name": "",
         "topic": "hermes/asr/textCaptured",
         "qos": "2",
@@ -24,15 +24,15 @@
         "y": 140,
         "wires": [
             [
-                "60f31c137a37980f",
-                "8ebc0cd4d6f821f9"
+                "ef8f6ea35c11a205",
+                "429fb75ec1bf595b"
             ]
         ]
     },
     {
-        "id": "488ed46677fe10e8",
+        "id": "fa6642017495e4a8",
         "type": "http request",
-        "z": "4b8813f7bc5c3dae",
+        "z": "7decbbbacf14f537",
         "name": "",
         "method": "GET",
         "ret": "txt",
@@ -49,14 +49,14 @@
         "y": 180,
         "wires": [
             [
-                "31dfa695b40b8432"
+                "ae98c28312700d49"
             ]
         ]
     },
     {
-        "id": "31dfa695b40b8432",
+        "id": "ae98c28312700d49",
         "type": "debug",
-        "z": "4b8813f7bc5c3dae",
+        "z": "7decbbbacf14f537",
         "name": "debug request",
         "active": false,
         "tosidebar": true,
@@ -72,11 +72,11 @@
         "l": false
     },
     {
-        "id": "60f31c137a37980f",
+        "id": "ef8f6ea35c11a205",
         "type": "function",
-        "z": "4b8813f7bc5c3dae",
+        "z": "7decbbbacf14f537",
         "name": "Prepare",
-        "func": "const serverAddress = \"192.168.1.11:1880\";\nconst hintQuestion = \"Explain, how to use this?\";\nconst hintReply = \"Ask AI a question: e.g. say  'OK Aragon ... What's the weather forecast for today? \";\n\nif(!msg.payload.showhint){\n    if(!msg.payload || !msg.payload.text || msg.payload.text.length===0 || !msg.topic) {\n        node.warn(\"FORWARD ASR & SAY: Invalid input\")\n        return;\n    }\n}\n\nvar msgQuestion = {};\nvar msgReply = {};\nif(msg.topic=== \"hermes/asr/textCaptured\"){\n    msgQuestion.url = serverAddress + \"/aragon/question\" + \"?text=\" + encodeURIComponent(msg.payload.text);\n    msgReply.url = serverAddress + \"/aragon/reply\" + \"?text=\";\n}\nelse if(msg.topic=== \"hermes/tts/say\"){\n    msgQuestion = null;\n    msgReply.url = serverAddress + \"/aragon/reply\" + \"?text=\" + encodeURIComponent(msg.payload.text);\n\n} else {\n    msgQuestion.url = serverAddress + \"/aragon/question\" + \"?text=\" + encodeURIComponent(hintQuestion);\n    msgReply.url = serverAddress + \"/aragon/reply\" + \"?text=\" + encodeURIComponent(hintReply);\n}\n\nreturn [msgQuestion, msgReply];",
+        "func": "const serverAddress = \"192.168.20.204:3777\";\nconst hintQuestion = \"Erläutern Sie, wie man das benutzt?\";\nconst hintReply = \"Stellen Sie der KI eine Frage: Sagen Sie zum Beispiel 'OK Aragon ... Wie ist die Wettervorhersage für heute?'\";\n\nif(!msg.payload.showhint){\n    if(!msg.payload || !msg.payload.text || msg.payload.text.length===0 || !msg.topic) {\n        node.warn(\"FORWARD ASR & SAY: Invalid input\")\n        return;\n    }\n}\n\nvar msgQuestion = {};\nvar msgReply = {};\nif(msg.topic=== \"hermes/asr/textCaptured\"){\n    if (msg.payload.text.length<10){\n        node.warn(\"FORWARD ASR & SAY: Skipping short text from ASR, probably false wake-up\")\n        return;\n    } else {       \n        msgQuestion.url = serverAddress + \"/hook/snipsfrage\" + \"?Message=\" + encodeURIComponent(msg.payload.text);\n        msgReply.url = serverAddress + \"/hook/snipsantwort\" + \"?Message=\";\n    }\n}\nelse if(msg.topic=== \"hermes/tts/say\"){\n    msgQuestion = null;\n    msgReply.url = serverAddress + \"/hook/snipsantwort\" + \"?Message=\" + encodeURIComponent(msg.payload.text);\n\n} else {\n    msgQuestion.url = serverAddress + \"/hook/snipsfrage\" + \"?Message=\" + encodeURIComponent(hintQuestion);\n    msgReply.url = serverAddress + \"/hook/snipsantwort\" + \"?Message=\" + encodeURIComponent(hintReply);\n}\n\nreturn [msgQuestion, msgReply];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -87,10 +87,10 @@
         "y": 180,
         "wires": [
             [
-                "488ed46677fe10e8"
+                "fa6642017495e4a8"
             ],
             [
-                "488ed46677fe10e8"
+                "fa6642017495e4a8"
             ]
         ],
         "outputLabels": [
@@ -99,9 +99,9 @@
         ]
     },
     {
-        "id": "5c68c7cf47d29495",
+        "id": "076bf0f57a36f815",
         "type": "comment",
-        "z": "4b8813f7bc5c3dae",
+        "z": "7decbbbacf14f537",
         "name": "README",
         "info": "- Configure the 'serverAddress' in the 'Prepare' node.\n- Modify the Hint message  in the 'Prepare' node.\n- Disable the Hint message by turning off the 'inject once' in the 'Show hint'\n",
         "x": 120,
@@ -109,11 +109,11 @@
         "wires": []
     },
     {
-        "id": "4a59741ea540fa86",
+        "id": "103e4c163074cf71",
         "type": "http in",
-        "z": "4b8813f7bc5c3dae",
+        "z": "7decbbbacf14f537",
         "name": "",
-        "url": "/aragon/question",
+        "url": "/hook/snipsfrage",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
@@ -121,15 +121,15 @@
         "y": 320,
         "wires": [
             [
-                "3acf12d0bb9da0bb",
-                "36fbe39bc38daa06"
+                "2dacc245b6e85da5",
+                "fc91cf619462ef6d"
             ]
         ]
     },
     {
-        "id": "7d71f6e940c4a336",
+        "id": "4b9b7d296cfccaa0",
         "type": "debug",
-        "z": "4b8813f7bc5c3dae",
+        "z": "7decbbbacf14f537",
         "name": "debug reply end-point (test)",
         "active": false,
         "tosidebar": true,
@@ -145,9 +145,9 @@
         "l": false
     },
     {
-        "id": "3acf12d0bb9da0bb",
+        "id": "2dacc245b6e85da5",
         "type": "http response",
-        "z": "4b8813f7bc5c3dae",
+        "z": "7decbbbacf14f537",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -156,9 +156,9 @@
         "wires": []
     },
     {
-        "id": "9cbb6c7ef898bac9",
+        "id": "55b22b0144c4435c",
         "type": "mqtt in",
-        "z": "4b8813f7bc5c3dae",
+        "z": "7decbbbacf14f537",
         "name": "",
         "topic": "hermes/tts/say",
         "qos": "2",
@@ -172,15 +172,15 @@
         "y": 220,
         "wires": [
             [
-                "60f31c137a37980f",
-                "364ac9383940131f"
+                "ef8f6ea35c11a205",
+                "6595a2e74fbf4fb4"
             ]
         ]
     },
     {
-        "id": "84fff16b5d21538b",
+        "id": "8ea54372a13abf7f",
         "type": "comment",
-        "z": "4b8813f7bc5c3dae",
+        "z": "7decbbbacf14f537",
         "name": "Test end-points",
         "info": "",
         "x": 140,
@@ -188,9 +188,9 @@
         "wires": []
     },
     {
-        "id": "8ebc0cd4d6f821f9",
+        "id": "429fb75ec1bf595b",
         "type": "debug",
-        "z": "4b8813f7bc5c3dae",
+        "z": "7decbbbacf14f537",
         "name": "debug request",
         "active": false,
         "tosidebar": true,
@@ -206,9 +206,9 @@
         "l": false
     },
     {
-        "id": "364ac9383940131f",
+        "id": "6595a2e74fbf4fb4",
         "type": "debug",
-        "z": "4b8813f7bc5c3dae",
+        "z": "7decbbbacf14f537",
         "name": "debug request",
         "active": false,
         "tosidebar": true,
@@ -224,27 +224,27 @@
         "l": false
     },
     {
-        "id": "3fb8a0c1bc661048",
+        "id": "be659c7bdee4d904",
         "type": "http in",
-        "z": "4b8813f7bc5c3dae",
+        "z": "7decbbbacf14f537",
         "name": "",
-        "url": "/aragon/reply",
+        "url": "/hook/snipsantwort",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 150,
+        "x": 160,
         "y": 380,
         "wires": [
             [
-                "7d71f6e940c4a336",
-                "3acf12d0bb9da0bb"
+                "4b9b7d296cfccaa0",
+                "2dacc245b6e85da5"
             ]
         ]
     },
     {
-        "id": "36fbe39bc38daa06",
+        "id": "fc91cf619462ef6d",
         "type": "debug",
-        "z": "4b8813f7bc5c3dae",
+        "z": "7decbbbacf14f537",
         "name": "debug question end-point (test)",
         "active": false,
         "tosidebar": true,
@@ -260,9 +260,9 @@
         "l": false
     },
     {
-        "id": "2b0b6e8a892fb416",
+        "id": "aa2b7172ce6a248e",
         "type": "inject",
-        "z": "4b8813f7bc5c3dae",
+        "z": "7decbbbacf14f537",
         "name": "Show hint",
         "props": [
             {
@@ -280,15 +280,164 @@
         "y": 180,
         "wires": [
             [
-                "60f31c137a37980f"
+                "ef8f6ea35c11a205"
             ]
         ],
         "l": false
     },
     {
+        "id": "a03b9adc018902ea",
+        "type": "http request",
+        "z": "7decbbbacf14f537",
+        "name": "GET /online/state",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://localhost/online/state",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 250,
+        "y": 500,
+        "wires": [
+            [
+                "1a1c17243f967a50"
+            ]
+        ]
+    },
+    {
+        "id": "1a1c17243f967a50",
+        "type": "switch",
+        "z": "7decbbbacf14f537",
+        "name": "isOnline ?",
+        "property": "payload.isOnline",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 440,
+        "y": 500,
+        "wires": [
+            [
+                "f7026f775abe630c",
+                "f7979aaf3e5aa322"
+            ],
+            [
+                "f8d769ea1f82a200"
+            ]
+        ]
+    },
+    {
+        "id": "f7979aaf3e5aa322",
+        "type": "http request",
+        "z": "7decbbbacf14f537",
+        "name": "POST online=true",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost/online/state?online=true",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": true,
+        "headers": [],
+        "x": 630,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0bc309080bae7cdc",
+        "type": "inject",
+        "z": "7decbbbacf14f537",
+        "name": "Show hint",
+        "props": [
+            {
+                "p": "payload.showhint",
+                "v": "true",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "60",
+        "topic": "",
+        "x": 95,
+        "y": 500,
+        "wires": [
+            [
+                "a03b9adc018902ea"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "f8d769ea1f82a200",
+        "type": "debug",
+        "z": "7decbbbacf14f537",
+        "name": "isOnline (nothing todo)",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 555,
+        "y": 520,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "f7026f775abe630c",
+        "type": "debug",
+        "z": "7decbbbacf14f537",
+        "name": "isOffline",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 555,
+        "y": 440,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "706b1987f241bdcf",
+        "type": "comment",
+        "z": "7decbbbacf14f537",
+        "name": "Set state online, if offline",
+        "info": "",
+        "x": 170,
+        "y": 460,
+        "wires": []
+    },
+    {
         "id": "f96ab142.d8bab8",
         "type": "mqtt-broker",
-        "name": "",
+        "z": "71b206887feac1a3",
+        "name": "-",
         "broker": "localhost",
         "port": "1883",
         "clientid": "",
@@ -311,6 +460,7 @@
         "willPayload": "",
         "willMsg": {},
         "userProps": "",
-        "sessionExpiry": ""
+        "sessionExpiry": "",
+        "info": "-"
     }
 ]
