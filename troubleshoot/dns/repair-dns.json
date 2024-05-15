@@ -1,0 +1,344 @@
+[
+    {
+        "id": "257d4e2a7a106925",
+        "type": "tab",
+        "label": "DNS REPAIR",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d36ffe228877536b",
+        "type": "inject",
+        "z": "257d4e2a7a106925",
+        "name": "←  Press to start",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 80,
+        "wires": [
+            [
+                "cd70c7f911dbba7e"
+            ]
+        ]
+    },
+    {
+        "id": "24b853e34f29b0d0",
+        "type": "exec",
+        "z": "257d4e2a7a106925",
+        "command": "sudo [ -f /etc/resolv.pre-tailscale-backup.conf ] && echo \"backup file exists\" || echo \"backup doesn't exist\"",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Test if the '/etc/resolv.pre-tailscale-backup.conf' file exists:",
+        "x": 215,
+        "y": 240,
+        "wires": [
+            [
+                "9267d8e8ecd5a2cc",
+                "c179666ea9c6b7c7"
+            ],
+            [
+                "16837a54352524ed"
+            ],
+            [
+                "7c8ff20bcac2ee22"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "cd70c7f911dbba7e",
+        "type": "delay",
+        "z": "257d4e2a7a106925",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 210,
+        "y": 140,
+        "wires": [
+            [
+                "24b853e34f29b0d0"
+            ]
+        ]
+    },
+    {
+        "id": "9267d8e8ecd5a2cc",
+        "type": "debug",
+        "z": "257d4e2a7a106925",
+        "name": "stdout Test if the '/etc/resolv.pre-tailscale-backup.conf' file exists:",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 285,
+        "y": 200,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "16837a54352524ed",
+        "type": "debug",
+        "z": "257d4e2a7a106925",
+        "name": "stderr",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 285,
+        "y": 240,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "7c8ff20bcac2ee22",
+        "type": "debug",
+        "z": "257d4e2a7a106925",
+        "name": "return code",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 285,
+        "y": 280,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "c179666ea9c6b7c7",
+        "type": "exec",
+        "z": "257d4e2a7a106925",
+        "command": "sudo grep -q 'nameserver 100.100.100.100' /etc/resolv.conf && { echo \"nameserver is 100.100.100.100\" >&2; exit 1; } || { echo \"nameserver OK\"; exit 0; }",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Check if the file 'etc/resolv.conf' contains the text 'nameserver 100.100.100.100':",
+        "x": 215,
+        "y": 380,
+        "wires": [
+            [
+                "668b98f136a1c371"
+            ],
+            [
+                "6f4b4165c10c92f2"
+            ],
+            [
+                "5650902d5087b866",
+                "079f57d5f5ca68ba"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "668b98f136a1c371",
+        "type": "debug",
+        "z": "257d4e2a7a106925",
+        "name": "stdout Check if the file 'etc/resolv.conf' contains the text 'nameserver 100.100.100.100':",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 285,
+        "y": 340,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "6f4b4165c10c92f2",
+        "type": "debug",
+        "z": "257d4e2a7a106925",
+        "name": "stderr",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 285,
+        "y": 380,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "5650902d5087b866",
+        "type": "debug",
+        "z": "257d4e2a7a106925",
+        "name": "return code",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 285,
+        "y": 420,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "66dbbccfb7406e1f",
+        "type": "exec",
+        "z": "257d4e2a7a106925",
+        "command": "sudo grep -q \"nameserver 100.100.100.100\" /etc/resolv.conf && [ -f /etc/resolv.pre-tailscale-backup.conf ] && sudo cp -f /etc/resolv.pre-tailscale-backup.conf /etc/resolv.conf",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Check if the file 'etc/resolv.conf' contains the text 'nameserver 100.100.100.100':",
+        "x": 445,
+        "y": 460,
+        "wires": [
+            [
+                "7fcdc0ea1bfd5bf8"
+            ],
+            [
+                "913f87002b10d68c"
+            ],
+            [
+                "03b2f46d9811c31b"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "7fcdc0ea1bfd5bf8",
+        "type": "debug",
+        "z": "257d4e2a7a106925",
+        "name": "stdout Check if the file 'etc/resolv.conf' contains the text 'nameserver 100.100.100.100':",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 515,
+        "y": 420,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "913f87002b10d68c",
+        "type": "debug",
+        "z": "257d4e2a7a106925",
+        "name": "stderr",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 515,
+        "y": 460,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "03b2f46d9811c31b",
+        "type": "debug",
+        "z": "257d4e2a7a106925",
+        "name": "return code",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 515,
+        "y": 500,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "079f57d5f5ca68ba",
+        "type": "switch",
+        "z": "257d4e2a7a106925",
+        "name": "Continue if code != 0",
+        "property": "payload.code",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 260,
+        "y": 460,
+        "wires": [
+            [
+                "66dbbccfb7406e1f"
+            ]
+        ]
+    },
+    {
+        "id": "31fc114077eff545",
+        "type": "comment",
+        "z": "257d4e2a7a106925",
+        "name": "README",
+        "info": "# Use this flow to 'Repair DNS (Tailscale DNS)'.\n\n## The problem/symptoms:\n- Aragon Master cannot be updated. \n- The Aragon Master 'About' dialog \"The Connection State:\", shows red text 'not functioning properly due to a lack of DNS connectivity.'\n\n## Procedure\n- Open the \"Debug messages\" (ctrl-g d)\n- Press the blue button \"← Press to start\"\n- Observe the \"Debug messages\"\n\nIf the first debug line shows \"backup file exists\" and the second debug line shows \"nameserver is 100.100.100.100\", then your DNS in a incorrect state.\nThere will be a red dot error indicating that the repair procedure will be executed (the last output)\n\nReboot Aragon from the Aragon Menu \"More | Restart Aragon\"\n**Do not disconnect the power cable, settings might be lost.**\n\nAfter restart, the About dialog should show green text \"OK, connected\".\nTo avoid the same problem re-occurs, Tailscale needs to be updated\nExecute the \"6. System update\" which is visible after \"Show/Hide System update\" is clicked.",
+        "x": 120,
+        "y": 40,
+        "wires": []
+    }
+]
