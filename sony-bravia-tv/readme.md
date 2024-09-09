@@ -1,4 +1,4 @@
-#Sony Bravia TV
+# Sony Bravia TV
 
 This flow demonstrates how to integrate a Smart TV Sony Bravia and control it by offline voice.
 
@@ -10,17 +10,17 @@ These steps show how to integrate  Smart TV Sony Bravia with Aragon.
 - pause/play
 - change/choose channels
 
-##Step 1 : Install Bravia node
+## Step 1 : Install Bravia node
 
 At the top right menu, go to manage palette and install node-red-contrib-bravia nodes.
 
 
-##Step 2 : Download the flow via URL below
+## Step 2 : Download the flow via URL below
 
 Download the flow (sony-bravia-tv.json) and import it.
 
 
-##Step 3 : Assign the IP address and the Pre-Shared Key (PSK)
+## Step 3 : Assign the IP address and the Pre-Shared Key (PSK)
 
 At the top right menu, go to configuration nodes and select Sony Bravia TV.
 
