@@ -1,5 +1,5 @@
-# Function-GPT
-![Function-GPT](customVoiceCommand.png)
+# Custom-Voice-Command
+![Custom-Voice-Command](customVoiceCommand.png)
 
 This flow demonstrates how ....
 
