@@ -12,4 +12,4 @@ When recognising a fall: ‘Should I call for help?’
 
 ## Explanations:
 
-.....
+The configuration in the example shows how Aragon may ask whether the door should be opened when the doorbell rings.
