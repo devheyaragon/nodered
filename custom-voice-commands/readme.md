@@ -6,6 +6,6 @@ In principle, this is also possible with KNX scenes. With scenes, however, the e
 
 ## Explanations:
 
-1. define the keyword in the ‘Routing’ node under ‘// CUSTOM KEYWORDS (all languages)’.
+1. define the keyword in the ‘ROUTING’ node under ‘// CUSTOM KEYWORDS (all languages)’.
 1. edit the ‘custom?...’ node to determine whether the keyword exists
 1. specify the command to be executed in the ‘execute’ node. If it is a command that ARAGON understands and executes, it can be entered here in this wording. Please note that the room name where the command is to be executed must also be specified for command execution.
