@@ -1,5 +1,5 @@
 # Custom-Voice-Command
-![Custom-Voice-Command](customVoiceCommand.PNG)
+![Custom-Voice-Command](customVoiceCommand.png)
 
 This flow demonstrates how ....
 
