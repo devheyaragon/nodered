@@ -8,7 +8,7 @@
 1. [EnOcean Devices - control EnOcean lights](enocean-devices)
 1. [EnOcean sensors samples](enocean-sensors-samples)
 1. [FutureShape sensfloor with Voice Dialog](sensfloor-dialog)
-2. [Trigger Voice Dialog with any events](Trigger-Voice-Dialog)
+2. [Trigger Voice Dialog with any events](trigger-voice-dialog)
 1. [Shelly WiFi button](shelly-button)
 1. [Skyresponse Alarm management AAL](skyresponse)
 1. [Function-GPT](function-gpt)
