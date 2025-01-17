@@ -8,8 +8,13 @@ In principle, this is also possible with KNX scenes. With scenes, however, the e
 
 1. define the keyword in the ‘ROUTING’ node under ‘// CUSTOM KEYWORDS (all languages)’.
 1. edit the ‘custom?...’ node to determine whether the keyword exists and specify the command to be executed or spoken.
+   
    txt: spoken Text
+   
    cmd: command as it can be understood by ARAGON
+   
    siteId: Roomname where txt should be spoken
+   
    lang: language
+   
    Please note that the room name where the command is to be executed must also be specified in the cmd wording.
