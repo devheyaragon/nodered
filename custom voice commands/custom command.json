@@ -1,0 +1,672 @@
+[
+    {
+        "id": "53c2c3056065f13f",
+        "type": "tab",
+        "label": "Custom command",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d6d8a446df2eb491",
+        "type": "group",
+        "z": "53c2c3056065f13f",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "a91ab4fd6340993b",
+            "41533f91dbf0b812",
+            "6835b83e7b5f7799",
+            "1ea614b8bc6430cf",
+            "a79b57355bb1c7d2",
+            "d49daa166ee07279",
+            "fa5572764dcb386b",
+            "1de61f75d9d86b24",
+            "293b803f4dee53bb",
+            "c13ebc68e128eaea",
+            "c137074e8544800d",
+            "02672a132a3084c7",
+            "6affb8717a672d35",
+            "5ded899e2946be05",
+            "4d441dd1b4c433b4",
+            "198f9b12a87778f5",
+            "783321119a451ecd",
+            "5017c4129e5947fe",
+            "a247fcb4a41ee0f1",
+            "494e12f6f6cf6891",
+            "4b130f6427616a6c",
+            "0183bf55920a7e27"
+        ],
+        "x": 80,
+        "y": 99,
+        "w": 626,
+        "h": 422
+    },
+    {
+        "id": "6c7b22ba095aabdf",
+        "type": "group",
+        "z": "53c2c3056065f13f",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "498c383f5ddd36ff",
+            "56dc33e19bb94510",
+            "76e957d1b9d7e7dc",
+            "7c962370836f4e73",
+            "8484e4121bba8602",
+            "a6abb6f45451a62d"
+        ],
+        "x": 74,
+        "y": 539,
+        "w": 622,
+        "h": 122
+    },
+    {
+        "id": "0183bf55920a7e27",
+        "type": "junction",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "x": 440,
+        "y": 240,
+        "wires": [
+            [
+                "6affb8717a672d35",
+                "1de61f75d9d86b24",
+                "293b803f4dee53bb",
+                "c13ebc68e128eaea"
+            ]
+        ]
+    },
+    {
+        "id": "a91ab4fd6340993b",
+        "type": "inject",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "Test command",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "siteId",
+                "v": "Living room",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "What date is it",
+        "payloadType": "str",
+        "x": 465,
+        "y": 360,
+        "wires": [
+            [
+                "41533f91dbf0b812"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "41533f91dbf0b812",
+        "type": "function",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "Prepare",
+        "func": "var module = global.get(\"module\");\nlet payload = msg.payload;\nmsg.payload = {};\nmsg.payload.input = payload.text;\nif(msg.siteId !== undefined){\n    msg.payload.siteId = msg.siteId;\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 575,
+        "y": 360,
+        "wires": [
+            [
+                "6835b83e7b5f7799",
+                "1ea614b8bc6430cf"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "6835b83e7b5f7799",
+        "type": "mqtt out",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "",
+        "topic": "hermes/nlu/query",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f96ab142.d8bab8",
+        "x": 645,
+        "y": 360,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "1ea614b8bc6430cf",
+        "type": "debug",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "To NLU 2nd time",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 645,
+        "y": 400,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "a79b57355bb1c7d2",
+        "type": "debug",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "STT transcipt result",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 195,
+        "y": 200,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "d49daa166ee07279",
+        "type": "function",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "ROUTING",
+        "func": "/* \nBefore this code is executed, Kaldi ASR & NLU failed to understand the user command.\nThe audio was then transcribed by Whisper.\nNow, the transcribed audio is available, and we need to decide what to do next.\n\nAction logic triggered by keywords: \n1. If custom keyword - Send to custom action handler defined by you\n2. If a NLU device status check - Send to NLU Home Automation ( example \"What is\" conflicts with LLM search keyword)\n3. If To-do keyword  - Send to TO-DO list (VIKUNJA). Example \"Add bread and butter to the shopping list\"\n4. if Search keyword - Send to LLM (MISTRAL). Example \"Convert three ounces to metric\"\n5. otherwise - Send to NLU Home Automation\n\nThe search keywords are split in two subgroups: keywords to keep and to be removed.\nExample\n - User say \"Tell me, how much is 12 times 43\", LLM query \"how much is 12 times 43\" ('Tell me' may confuse the model)\n - User say \"Explain fusion energy\" LLM query is identical \"Explain fusion energy\" (All relevant)\n*/\n\nlet lang = global.get(\"module\").settingsGetValue(\"msgLang\");\n\n// ENGLISH KEYWORDS\n// TODO\nconst substringsTodoEn = [\n    \"shopping list\", \"shoppinglist\",\n    \"todo\", \"to do\", \"to-do\",\n    \"reminder\", \"remember\"\n];\n// SEARCH\nconst substringsSearchKeepEn = [\"explain\",\n    \"search for\", \"convert\", \"calculate\",\n    \"how much is\", \"advice\", \"advise\", \n    \"define\", \"explain\", \"how to\", \n    \"definition\", \"what is \", \"what's \",\n    \"what are \", \"how many \", \"name \", \n    \"tell me a joke\"\n];\nconst substringsSearchRemoveEn = [ \"lookup\", \n    \"look-up\", \"look up\", \"look this up\",\n    \"look up this\", \"tell me\", \"search\"\n];\n\n// GERMAN KEYWORDS\n// TODO\nconst substringsTodoDe = [\n    \"einkaufsliste\", \"ein kaufsliste\",\n    \"einkaufliste\", \"ein kaufliste\",\n    \"zu erledigen\", \"zu tun\", \"erinnere mich\"\n];\n//SEARCH\nconst substringsSearchKeepDe = [\n    \"erkläre\", \"konvertiere\", \"berechne\",\n    \"wandel\",\n    \"wie viel ist \", \"warum \",\n    \"definiere\", \"wie man\", \"nenne\", \n    \"was ist \", \"wer hat \", \"wie viele \",\n    \"was sind \", \"wie weit \"\n];\nconst substringsSearchRemoveDe = [\n    \"suche\", \"sag mir \", \"sagen sie mir \", \"erzähl mir \"\n];\n\n// FRENCH KEYWORDS\n// TODO\nconst substringsTodoFr = [\n    \"liste de courses\",\n    \"liste d'achats\",\n    \"liste d achats\", \"liste dachats\",\n    \"à faire\", \"rappel\", \"se souvenir\"\n];\nconst substringsSearchKeepFr = [\n    \"expliquer\",\"expliquez\",\n    \"convertir\", \"calculer\",\"calculez\",\n    \"combien\", \"conseil\", \"conseiller\",\"conseillez\",\n    \"définir\", \"comment faire\", \"qu'est ce que\",\n    \"quel est\", \"comment\"\n];\nconst substringsSearchRemoveFr = [\n    \"rechercher\", \"rechercher ceci\", \n    \"dis-moi\", \"dis moi\", \"dites-moi\", \"dites moi\"\n];\n\n// SPECIAL LLM KEYWORDS (all languages)\nconst substringsLLMSpecial = [\n    \"a joke\", \"another joke\", \"a story\", \"another story\", \n];\n\n// CUSTOM KEYWORDS (all languages)\nconst substringsCustom = [\n    \"Wallbox\", \"Feuchtigkeit\", \"whatever\"\n];\n\n//===================== START FUNCTIONS ==========================================\n// Determines if the input text is a device status check NLU intent. \n// The purpose: the questionKeywords are in conflict with the LLM search keywords: the isDeviceStatusCheck determines if it is for NLU or LLM\nfunction isDeviceStatusCheck(text, language = 'en') {\n    const keywords = {\n        en: {\n            questionKeywords: [\"what is\", \"what's\"],\n            statusKeywords: ['status', 'state', 'brightness', 'luminosity', 'setting', 'temperature', 'position', 'value']\n        },\n        de: {\n            questionKeywords: ['was ist', 'was sind'],\n            statusKeywords: ['status', 'zustand', 'helligkeit', 'leuchtkraft', 'einstellung', 'temperatur', 'position', 'wert']\n        },\n        fr: {\n            questionKeywords: ['quel est', 'est-ce que', 'comment est', 'comment sont'],\n            statusKeywords: ['état', 'lumière', 'luminosité', 'réglage', 'température', 'position', 'valeur', 'volets', 'volet']\n        }\n    };\n\n    const questionKeywords = keywords[language].questionKeywords;\n    const statusKeywords = keywords[language].statusKeywords;\n\n    return questionKeywords.some(q => text.toLowerCase().includes(q)) &&\n        statusKeywords.some(s => text.toLowerCase().includes(s));\n}\n\nfunction normalizeApostrophes(text) {\n    return text.replace(/['']/g, \"'\");\n}\n\nfunction containsSubstringsBeginning(text, substrings) {\n    const normalizedText = normalizeApostrophes(text.toLowerCase());\n    //node.warn('Normalized input text:'+ normalizedText);\n    // Calculate maxPosition as half of text length, capped at 10\n    const maxPosition = Math.min(Math.floor(normalizedText.length / 2), 10);\n\n    for (const substring of substrings) {\n        const normalizedSubstring = normalizeApostrophes(substring.toLowerCase());\n        const position = normalizedText.indexOf(normalizedSubstring);\n\n        // Allow certain keywords to appear anywhere\n        const isSpecialKeyword = false; //['explain', 'convert', 'calculate'].includes(normalizedSubstring);\n\n        if (position !== -1 && (isSpecialKeyword || position <= maxPosition)) {\n            //node.warn('Normalized input text:'+ normalizedText + ` Match found with: \"${normalizedSubstring}\"`);\n            return true;\n        }\n    }\n    //node.warn('No match');\n    return false;\n}\n\nfunction containsSubstringsAnywhere(text, substrings) {\n    const normalizedText = normalizeApostrophes(text.toLowerCase());\n    //node.warn('Normalized input text:'+ normalizedText);\n    \n    let found = false;\n    for (const substring of substrings) {\n        const normalizedSubstring = normalizeApostrophes(substring.toLowerCase());\n        const isIncluded = normalizedText.includes(normalizedSubstring);\n        //node.warn(`Checking substring: \"${normalizedSubstring}\" - Found: ${isIncluded}`);\n        \n        if (isIncluded) {\n            found = true;\n            //node.warn(`Match found with: \"${normalizedSubstring}\"`);\n            break;\n        }\n    }\n    //node.warn('Final result:'+ found);\n    return found;\n}\n\n// returns the length of the first matching substring found by containsSubstrings, \nfunction getSubstringLength(text, substrings) {\n    if (containsSubstringsAnywhere(text, substrings)) {\n        for (let substring of substrings) {\n            if (text.toLowerCase().includes(substring.toLowerCase())) {\n                return substring.length;\n            }\n        }\n    }\n    return 0;\n}\n\n// Function to check if any of the substrings are present in the text and remove them\nfunction removeSubstrings(text, substrings) {\n    let modifiedText = text.toLowerCase();\n    let found = false;\n    for (const substring of substrings) {\n        if (modifiedText.includes(substring.toLowerCase())) {\n            modifiedText = modifiedText.replace(substring.toLowerCase(), '').trim();\n            found = true;\n            break; // Remove only the first found substring\n        }\n    }\n    return found ? modifiedText : null;\n}\n\n// Fix some transcriptions before continuing\ntry{\n    let lang = global.get(\"module\").settingsGetValue(\"msgLang\");\n\n    // remove all non characters/numbers\n    msg.payload.text = msg.payload.text.replace(/[`¤@#%£€½$^&*()_\\[\\]{};´:\"\\\\|,<>\\/?~]/g, '');\n\n    // fix some transcriptions\n    if(lang==='de'){\n        const replacements = {\n            'bitten': ' ',\n            'bitte': ' ',\n            'aushalten': 'ausschalten',\n            'rolladen': 'rollladen',\n            'rollalen': 'rollladen',\n            'rolläden': 'rollladen',\n            'rollläden': 'rollladen',\n            'schalussi': 'jalousie',\n            'schalusi': 'jalousie',\n            'schalosi': 'jalousie',\n            'schalousie': 'jalousie',\n            'charlosserie': 'jalousie',\n            'schalossier': 'jalousie',\n            'schandosie': 'jalousie',\n            'schalo sie': 'jalousie',\n            'jalousiee': 'jalousie',\n            'jalousieer': 'jalousie',\n            'charlossie': 'jalousie',\n            'chalassie': 'jalousie',\n            'gelosi': 'jalousie',\n            'schalozine': 'jalousie',\n            'runterfahren': 'runter fahren',\n            'hochfahren': 'hoch fahren',\n            'schließe': 'schliesse',\n            'schließ': 'schliess',\n            'fahrre': 'fahre',\n            'parre': 'fahre',\n            'paare': 'fahre',\n            'rotzimmer': 'wohnzimmer',\n            '^damit das licht': 'dimme das licht',\n            '^der höhe': 'erhöhe',\n            'marquise': 'markise',\n            'markkiese': 'markise',\n            'markkise': 'markise',\n            'markeise': 'markise',\n            'verringen': 'verringern',\n            'verringene': 'verringere',\n            'laugstärke': 'lautstärke',\n            'kücheleiser': 'küche leiser'\n        };\n        Object.entries(replacements).forEach(([pattern, replacement]) => {\n            const regex = new RegExp(pattern, 'g');\n            msg.payload.text = msg.payload.text.replace(regex, replacement);\n        });    \n    }else if(lang ==='fr'){\n        msg.payload.llm_max_tokens = 60; // This will cut long answers (LLM tends provide French yada yada)\n        msg.payload.text = msg.payload.text.replace(/-/g, ' ');// dis-moi -> dis moi\n        //msg.payload.text = msg.payload.text.replace(/ a /g, ' à ');\n        const replacements = {\n            'pour cent ': 'pourcents ',\n            'pourcent ': 'pourcents ',\n            'quelle ': 'quel ',\n            'merci de': ' ',\n            \"merci d'\": ' ',\n            \"veuillez \": ' ',\n            'est ce': 'est-ce ',\n            \"s'il te plaît\": ' ',\n            \"si te plaît\": ' ',\n            \"si te plaies\": ' ',\n            \"s'il vous plaît\": ' ',\n            \"si vous plaît\": ' ',\n            'ourvres ': 'ouvre ',\n            'montes ': 'monte ',\n            'monter ': 'montez ',\n            'fermes ': 'ferme ',\n            'fermer ': 'fermez ',\n            'baisses ': 'baisse ',\n            'baisser ': 'baissez ',\n            'tamisez ': 'tamiser ',\n            'tamis ': 'tamise ',\n            'termis ': 'tamise ',\n            'termissez ': 'tamise ',\n            'ta mince': 'tamise ',\n            'tamissi ': 'tamise ',\n            'ta mise ': 'tamise ',\n            \"t'amise \": 'tamise ',\n            \"t'amines \": 'tamise ',\n            'au termicé': 'tamise ',\n            'termicé': 'tamise ',\n            'tamice ': 'tamise ',\n            'ta misé ': 'tamise ',\n            'tamiser ': 'tamisez ',\n            'tamisser ': 'tamisez ',\n            \"t'amisser \": 'tamisez ',\n            'diminuer ': 'diminuez ',\n            'augmenter ': 'augmentez ',\n            'augmentes ': 'augmente ',\n            'régler ': 'réglez ',\n            'couper ': 'coupez ',\n            'coupes ': 'coupe ',\n            'allumer ': 'allumez ',\n            'allumes ': 'allume ',\n            'intensifier ': 'intensifiez ',\n            'intensifies ': 'intensifie ',\n            'diminuer' : 'diminuez',\n            'diminues' : 'diminue',\n            \"reduire\" : \"réduire\",\n            'joues ': 'joue ',\n            'joue ': 'jouez ',\n            'lancer ': 'lancez ',\n            'lances ': 'lance ',\n            'arrêter ': 'arrêtez ',\n            'arrêtes ': 'arrête ',\n            'stopper ': 'stoppez ',\n            'stoppes ': 'stoppe ',\n            'activer ': 'activez ',\n            'actives ': 'active ',\n            'étendre ': 'éteindre ',\n            'etains ': 'éteins ',\n            'éteint ': 'éteins ',\n            'étant ': 'éteins ',\n            'éclairez ': 'éclairer ',\n            'éclairé ': 'éclairer ',\n            'réduissez ': 'réduisez ',\n            'réduisser ': 'réduisez ',\n            'réduissé ': 'réduisez ',\n            'réduisé ': 'réduisez ',\n            'illuminez ': 'illuminer ',\n            'illuminé ': 'illuminer ',\n            'commençons ' : 'comment sont ',\n            'k n x': 'KNX',\n            '\\\\+': ' plus ',\n            ' - ': ' moins ',\n            ' x ': ' fois ',\n            '=': ' egale ',\n        };\n        Object.entries(replacements).forEach(([pattern, replacement]) => {\n            const regex = new RegExp(pattern, 'g');\n            msg.payload.text = msg.payload.text.replace(regex, replacement);\n        }); \n    }else if(lang ==='en'){\n        const replacements = {\n            'expline': 'explain',\n            'k and x': 'KNX',\n            'k-onix': 'KNX', \n            'let me know ': ' ', \n            'thank you ': ' ', \n            'thanks ': ' ', \n            'please ': ' ', \n            '\\\\+': ' plus ',\n            ' - ': ' minus ',\n            '=': ' equal to ',\n            '\\\\boh\\\\b': '',  // Replace \"Oh\" as a whole word\n            '\\\\bum\\\\b': '',  // Replace \"Um\" as a whole word\n            '\\\\buh\\\\b': '',  // Replace \"Uh\" as a whole word\n            '\\\\ber\\\\b': ''   // Replace \"Er\" as a whole word\n        };\n        Object.entries(replacements).forEach(([pattern, replacement]) => {\n            const regex = new RegExp(pattern, 'g');\n            msg.payload.text = msg.payload.text.replace(regex, replacement);\n        });  \n    }\n}\ncatch(e){\n    msg.payload.text = \"Something went wrong: \"+e;\n}\n//=====================END FUNCTIONS==========================================\n\n\n// SPECIAL LLM KEYWORDS?\n// Demonstrates how to customize the LLM query by setting temperature and voice feedback\nif (containsSubstringsAnywhere(msg.payload.text, substringsLLMSpecial)) {\n    // LLM temperature controls randomness in outputs.\n    msg.payload.temperature = 0.7;\n    // Prompt: Instruction for language model task.\n    msg.payload.prompt = \"Please share something unique and original, using no more than 20 words. \";\n    // The minlength defaults to 10 characters (the requests is cancelled if shorter) fix it by setting the minlength here\n    msg.payload.minlength = getSubstringLength(msg.payload.text, substringsLLMSpecial); \n    // The question is repeated before LLM query, askingtext is the prefix of the question\n    msg.payload.askingtext = \"OK, \";\n    // The response from LLM is prefixed with the answertext\n    msg.payload.answertext = \"How about this: \";\n    return [null, msg, null, null]; //Forward to LLM\n}\n\n// CUSTOM KEYWORD ?\nif (containsSubstringsAnywhere(msg.payload.text, substringsCustom)) {\n    return [null, null, null, msg]; // Forward to custom handler\n}\n\n// IS IS A DEVICE STATUS CHECK FOR NLU?? \nif (isDeviceStatusCheck(msg.payload.text, lang)){\n    node.warn(\"This is a device status check for NLU\")\n    return [null, null, msg, null]; // Forward to NLU\n}\n\n// TO-DO or LLM query ?\nif (lang === 'en') {\n    if (containsSubstringsAnywhere(msg.payload.text, substringsTodoEn)) {\n        return [msg, null, null, null]; // Forward to To-do\n    }\n    if (containsSubstringsBeginning(msg.payload.text, substringsSearchKeepEn)) {\n        const modifiedText = removeSubstrings(msg.payload.text, substringsSearchRemoveEn);\n        if (modifiedText !== null) {\n            msg.payload.text = modifiedText;\n        }\n        return [null, msg, null, null]; // Forward to LLM\n    }\n    const modifiedText = removeSubstrings(msg.payload.text, substringsSearchRemoveEn);\n    if (modifiedText !== null) {\n        msg.payload.text = modifiedText;\n        return [null, msg, null, null]; // Forward to LLM\n    }\n} else if (lang === 'de') {\n    if (containsSubstringsAnywhere(msg.payload.text, substringsTodoDe)) {\n        return [msg, null, null, null]; // Forward to To-do\n    }\n    if (containsSubstringsBeginning(msg.payload.text, substringsSearchKeepDe)) {\n        const modifiedText = removeSubstrings(msg.payload.text, substringsSearchRemoveDe);\n        if (modifiedText !== null) {\n            msg.payload.text = modifiedText;\n        }\n        return [null, msg, null, null]; // Forward to LLM\n    }\n    const modifiedText = removeSubstrings(msg.payload.text, substringsSearchRemoveDe);\n    if (modifiedText !== null) {\n        msg.payload.text = modifiedText;\n        return [null, msg, null, null]; // Forward to LLM\n    }\n} else if (lang === 'fr') {\n    if (containsSubstringsAnywhere(msg.payload.text, substringsTodoFr)) {\n        return [msg, null, null, null]; // Forward to To-do\n    }\n    if (containsSubstringsBeginning(msg.payload.text, substringsSearchKeepFr)) {\n        const modifiedText = removeSubstrings(msg.payload.text, substringsSearchRemoveFr);\n        if (modifiedText !== null) {\n            msg.payload.text = modifiedText;\n        }\n        return [null, msg, null, null]; // Forward to LLM\n    }\n    const modifiedText = removeSubstrings(msg.payload.text, substringsSearchRemoveFr);\n    if (modifiedText !== null) {\n        msg.payload.text = modifiedText;\n        return [null, msg, null, null]; // Forward to LLM\n    }\n}\n\n// Default, forward to Home Automation NLU again!\nreturn [null, null, msg, null]; // Forward to NLU\n",
+        "outputs": 4,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 260,
+        "wires": [
+            [
+                "4d441dd1b4c433b4"
+            ],
+            [
+                "0183bf55920a7e27"
+            ],
+            [
+                "41533f91dbf0b812"
+            ],
+            [
+                "5017c4129e5947fe",
+                "4b130f6427616a6c",
+                "498c383f5ddd36ff"
+            ]
+        ],
+        "outputLabels": [
+            "TO-DO LIST (VIKUNJA)",
+            "SEARCH / LLM (MISTRAL)",
+            "NLU HOME AUTOMATION",
+            "CUSTOM"
+        ]
+    },
+    {
+        "id": "fa5572764dcb386b",
+        "type": "comment",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "to NLU",
+        "info": "",
+        "x": 450,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "1de61f75d9d86b24",
+        "type": "link out",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "LLM SEARCH OUT",
+        "mode": "link",
+        "links": [
+            "5f534c56d9b75433"
+        ],
+        "x": 595,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "293b803f4dee53bb",
+        "type": "debug",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "Online STT transcipt",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 595,
+        "y": 160,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "c13ebc68e128eaea",
+        "type": "function",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "Repeat the question",
+        "func": "var module = global.get(\"module\");\nlet language = module.settingsGetValue(\"msgLang\");\nlet siteId = msg.siteId;\nlet askingMsg = module.feedback(language, siteId, \"FEEDBACKS_asking_aragonai\", [\"getTextOnly\"]);\n\nlet repeatQuestion = module.settingsGetValue(\"repeatQuestionAI\") || true;\nif (repeatQuestion) { \n    let askingtext = msg.payload.askingtext || module.feedback(language, siteId, \"FEEDBACKS_header_aragonai\", [\"getTextOnly\"]);\n    askingMsg = askingtext + msg.payload.text;\n}\n\nmsg.payload = {\n    text: askingMsg,\n    siteId: siteId,\n    lang: language\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 595,
+        "y": 280,
+        "wires": [
+            [
+                "c137074e8544800d"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "c137074e8544800d",
+        "type": "link out",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "SPEAKER OUT",
+        "links": [
+            "3bd57099.afbdb8"
+        ],
+        "x": 645,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "02672a132a3084c7",
+        "type": "mqtt out",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "textCaptured to Watch",
+        "topic": "hermes/asr/textCaptured",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f96ab142.d8bab8",
+        "x": 645,
+        "y": 200,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "6affb8717a672d35",
+        "type": "function",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "Prepare",
+        "func": "let payload = msg.payload;\nmsg.payload = {\"text\": \"text\", \"likelihood\": 0, \"seconds\": 0, \"siteId\": \"unkown\", \"sessionId\": \"fake\", \"wakewordId\": null, \"asrTokens\": [[]], \"lang\": null};\nmsg.payload.text = payload.text;\nif(msg.siteId !== undefined){\n    msg.payload.siteId = msg.siteId;\n}\nmsg.payload.likelihood = payload.confidence;\nmsg.payload.seconds = payload.time;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 595,
+        "y": 200,
+        "wires": [
+            [
+                "02672a132a3084c7"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "5ded899e2946be05",
+        "type": "comment",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "to LLM",
+        "info": "",
+        "x": 430,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "4d441dd1b4c433b4",
+        "type": "link out",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "TODO OUT (API)",
+        "mode": "link",
+        "links": [
+            "67bef92e4e1ecf3a"
+        ],
+        "x": 405,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "198f9b12a87778f5",
+        "type": "link in",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "TTS IN (API)",
+        "links": [
+            "c454ca489aea356a"
+        ],
+        "x": 121,
+        "y": 260,
+        "wires": [
+            [
+                "d49daa166ee07279",
+                "a79b57355bb1c7d2"
+            ]
+        ]
+    },
+    {
+        "id": "783321119a451ecd",
+        "type": "comment",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "README",
+        "info": "# This component enables routing speech-to-text output to trigger actions in other applications.\n## Features:\n - Customizable keywords in 'ROUTING'\n - User-defined action handlers\n## Usage:\n - Routing to appropriate handlers based on recognized keywords \n - Configure keywords in 'ROUTING'\n - Implement custom handlers for desired actions (Optional)\n\n ",
+        "x": 166,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "5017c4129e5947fe",
+        "type": "function",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "Custom handler",
+        "func": "node.warn(\"Custom keyword detected, handler invoked\")\n\n// Send to Watch window\nlet payload = msg.payload;\nmsg.payload = {\"text\": \"text\", \"likelihood\": 0, \"seconds\": 0, \"siteId\": \"unkown\", \"sessionId\": \"fake\", \"wakewordId\": null, \"asrTokens\": [[]], \"lang\": null};\nmsg.payload.text = \"Custom keyword detected: [\" + payload.text + \"]\";\nif(msg.siteId !== undefined){\n    msg.payload.siteId = msg.siteId;\n}\nmsg.payload.likelihood = payload.confidence;\nmsg.payload.seconds = payload.time;\nreturn msg;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 440,
+        "wires": [
+            [
+                "a247fcb4a41ee0f1"
+            ]
+        ]
+    },
+    {
+        "id": "a247fcb4a41ee0f1",
+        "type": "mqtt out",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "textCaptured to Watch",
+        "topic": "hermes/asr/textCaptured",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f96ab142.d8bab8",
+        "x": 645,
+        "y": 440,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "494e12f6f6cf6891",
+        "type": "comment",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "to TO-DO",
+        "info": "",
+        "x": 440,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "498c383f5ddd36ff",
+        "type": "function",
+        "z": "53c2c3056065f13f",
+        "g": "6c7b22ba095aabdf",
+        "name": "custum? -> insert command",
+        "func": "const spokenText = msg.payload.text;\nconst customKeyWord = \"wallbox\";\n\nif (spokenText.includes(customKeyWord)) {\n  msg = {\n    txt: \"Ich schalte die Wallbox ein\",\n    cmd: \"Wallbox in der Garage einschalten\",\n    siteId:\"Salon\",\n    lang:\"de-DE\"\n  };\n} else {\n  msg = {}\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 580,
+        "wires": [
+            [
+                "7c962370836f4e73",
+                "a6abb6f45451a62d"
+            ]
+        ]
+    },
+    {
+        "id": "56dc33e19bb94510",
+        "type": "delay",
+        "z": "53c2c3056065f13f",
+        "g": "6c7b22ba095aabdf",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "2",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 585,
+        "y": 580,
+        "wires": [
+            [
+                "76e957d1b9d7e7dc"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "76e957d1b9d7e7dc",
+        "type": "mqtt out",
+        "z": "53c2c3056065f13f",
+        "g": "6c7b22ba095aabdf",
+        "name": "",
+        "topic": "hermes/nlu/query",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "53d0bc2c820f9d77",
+        "x": 655,
+        "y": 580,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "7c962370836f4e73",
+        "type": "function",
+        "z": "53c2c3056065f13f",
+        "g": "6c7b22ba095aabdf",
+        "name": "execute",
+        "func": "msg.payload = {};\nmsg.payload.input = msg.cmd;\nif(msg.siteId !== undefined){\n    //msg.payload.siteId = msg.siteId; ...don't talk\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 580,
+        "wires": [
+            [
+                "56dc33e19bb94510"
+            ]
+        ]
+    },
+    {
+        "id": "8484e4121bba8602",
+        "type": "link out",
+        "z": "53c2c3056065f13f",
+        "g": "6c7b22ba095aabdf",
+        "name": "SPEAK PERSONAL MESSAGES",
+        "links": [
+            "e2a2ab5f.17fac"
+        ],
+        "x": 545,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "a6abb6f45451a62d",
+        "type": "function",
+        "z": "53c2c3056065f13f",
+        "g": "6c7b22ba095aabdf",
+        "name": "speak",
+        "func": "msg.payload = {\n    text: msg.txt,\n    siteId:\"Salon\",\n    lang:\"de-FR\"\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 620,
+        "wires": [
+            [
+                "8484e4121bba8602"
+            ]
+        ]
+    },
+    {
+        "id": "4b130f6427616a6c",
+        "type": "debug",
+        "z": "53c2c3056065f13f",
+        "g": "d6d8a446df2eb491",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 415,
+        "y": 480,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "f96ab142.d8bab8",
+        "type": "mqtt-broker",
+        "z": "95a7ce9a4069e8d8",
+        "name": "-",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "3",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": "",
+        "info": "-"
+    },
+    {
+        "id": "53d0bc2c820f9d77",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
