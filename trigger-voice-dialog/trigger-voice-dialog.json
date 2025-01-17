@@ -1,0 +1,600 @@
+[
+    {
+        "id": "e740524cf6cb34da",
+        "type": "tab",
+        "label": "Question on event",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d0f7f9eb2a22da92",
+        "type": "group",
+        "z": "e740524cf6cb34da",
+        "g": "dc2de23da6544dfd",
+        "name": "RECEIVING EVENT",
+        "style": {
+            "label": true
+        },
+        "nodes": [],
+        "x": 110,
+        "y": 50,
+        "w": 136,
+        "h": 40
+    },
+    {
+        "id": "dc2de23da6544dfd",
+        "type": "group",
+        "z": "e740524cf6cb34da",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "f4cc551e74aeb16c",
+            "469f52b335583b54",
+            "7d42e9a485286d67",
+            "559435729231b31f",
+            "813bcf707f317a7c",
+            "32a5a7082e9f6676",
+            "d0f7f9eb2a22da92"
+        ],
+        "x": 74,
+        "y": 24,
+        "w": 572,
+        "h": 317
+    },
+    {
+        "id": "256c9f59c707aca3",
+        "type": "group",
+        "z": "e740524cf6cb34da",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "6d02890e1ca3cb8a",
+            "1b7dff1a7deea95e",
+            "a5a24b71eb88052f",
+            "7eeca7eb3808bf61",
+            "b84c151d5548fd83",
+            "a43ec05949a6d97b",
+            "164b7c0e57b7adce",
+            "6274b243759f523b",
+            "41e87920fab8bc4d",
+            "1aa841e17e150895"
+        ],
+        "x": 74,
+        "y": 359,
+        "w": 762,
+        "h": 162
+    },
+    {
+        "id": "66cf44f776125f90",
+        "type": "group",
+        "z": "e740524cf6cb34da",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "d3fa4c16e89abcd9",
+            "5d72eb4dee87a5c1",
+            "d969c3b454fadb8f",
+            "fabdc7968e28b1ae"
+        ],
+        "x": 444,
+        "y": 539,
+        "w": 392,
+        "h": 82
+    },
+    {
+        "id": "f8a2daa3896505c1",
+        "type": "group",
+        "z": "e740524cf6cb34da",
+        "name": "CHECKING",
+        "style": {
+            "label": true
+        },
+        "nodes": [],
+        "x": 570,
+        "y": 370,
+        "w": 82,
+        "h": 40
+    },
+    {
+        "id": "f4cc551e74aeb16c",
+        "type": "inject",
+        "z": "e740524cf6cb34da",
+        "g": "dc2de23da6544dfd",
+        "name": "Turn on lights?  defaultAction:",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"siteId\":\"Salon\",\"textQuery\":\"Es hat geklingelt. Soll ich die Tür aufmachen?\",\"textConfirm\":\"Ok, ich öffne die Tür\",\"textCancel\":\"Ich werde die Tür nicht öffnen\",\"defaultAction\":\"cancel\",\"id\":\"Door\"}",
+        "payloadType": "json",
+        "x": 285,
+        "y": 180,
+        "wires": [
+            [
+                "7d42e9a485286d67"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "469f52b335583b54",
+        "type": "inject",
+        "z": "e740524cf6cb34da",
+        "g": "dc2de23da6544dfd",
+        "name": "All Default",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"siteId\":\"Salon\",\"textQuery\":\"Soll ich die Leinwand runterfahren?\",\"textConfirm\":\"Ok, ich fahre die Leinwand runter\",\"textCancel\":\"Ich werde die Leinwand oben belassen\",\"defaultAction\":\"cancel\",\"id\":\"Leinwand\"}",
+        "payloadType": "json",
+        "x": 285,
+        "y": 300,
+        "wires": [
+            [
+                "7d42e9a485286d67"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "7d42e9a485286d67",
+        "type": "link out",
+        "z": "e740524cf6cb34da",
+        "g": "dc2de23da6544dfd",
+        "name": "DIALOG QUERY USER OUT ",
+        "mode": "link",
+        "links": [
+            "88e0a0f67bb18da4"
+        ],
+        "x": 605,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "6d02890e1ca3cb8a",
+        "type": "link in",
+        "z": "e740524cf6cb34da",
+        "g": "256c9f59c707aca3",
+        "name": "DIALOG FINAL IN HANDLER",
+        "links": [
+            "ee92c7917be74525"
+        ],
+        "x": 115,
+        "y": 440,
+        "wires": [
+            [
+                "1b7dff1a7deea95e",
+                "b84c151d5548fd83",
+                "41e87920fab8bc4d"
+            ]
+        ]
+    },
+    {
+        "id": "1b7dff1a7deea95e",
+        "type": "debug",
+        "z": "e740524cf6cb34da",
+        "g": "256c9f59c707aca3",
+        "name": "DIALOG RESULT",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 215,
+        "y": 400,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "559435729231b31f",
+        "type": "comment",
+        "z": "e740524cf6cb34da",
+        "g": "dc2de23da6544dfd",
+        "name": "README",
+        "info": "# Voice Dialog Configurator\nThe 'Voice Dialog Configurator' allows Aragon to initiate a dialog and interact with the end user. The dialog can be initiated on a time event or an external event.\nTo initiate a dialog, send a JSON payload to the link node \"DIALOG QUERY USER IN (API)\". The payload should have the following format:\n`{\n    \"siteId\": \"Living Room\",\n    \"textQuery\": \"Reply yes or no\",\n    \"textConfirm\": \"OK, you replied Yes\",\n    \"textCancel\": \"You replied No\",\n    \"defaultAction\": \"cancel\",\n    \"id\": \"id-string\"\n}`\n\nwhere (all are strings)\n - \"siteId\" is the Aragon Satellite for the dialog (mandatory)\n - \"textQuery\" is the question that the user will be asked (optional)\n -  \"textConfirm\" is the response that the system will speak out if the user replies yes (optional)\n - \"textCancel\" is the response that the system will speak out if the user replies no (optional)\n - \"defaultAction\" is the action that the system will take if the user does not reply, and the options are \"confirm\", \"cancel\", or an empty string (optional)\n - \"id\" is your unique identifier for the dialog (optional)\n\nHere is an example of how the 'Voice Dialog Configurator' can be used:\n\n 1. An event is triggered an a JSON payload to the link node \"DIALOG QUERY USER IN (API)\" with the following information:\n`{\n    \"siteId\": \"Living Room\",\n    \"textQuery\": \"Would you like me to turn off the lights?\",\n    \"textConfirm\": \"OK, turning off the lights!\",\n    \"textCancel\": \"I won't change the lights.\",\n    \"defaultAction\": \"cancel\",\n    \"id\": \"12345\"\n}`\n\n 1. The system speaks out the question \"Would you like me to turn off the lights?\" \nthrough Aragon in the Living Room.\n 1. The end user replies \"yes\".\n 1. The system speaks out the response \"OK, turning off the lights!\" through Aragon.\n 1. The dialog ends.\n",
+        "x": 170,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "a5a24b71eb88052f",
+        "type": "function",
+        "z": "e740524cf6cb34da",
+        "g": "256c9f59c707aca3",
+        "name": "Insert the command here",
+        "func": "msg = {\n    payload: \"\",\n    cmd: \"Öffne die Haustür im Eingang\",\n    siteId:\"Salon\",\n    lang:\"de-DE\"\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 440,
+        "wires": [
+            [
+                "a43ec05949a6d97b"
+            ]
+        ]
+    },
+    {
+        "id": "d3fa4c16e89abcd9",
+        "type": "function",
+        "z": "e740524cf6cb34da",
+        "g": "66cf44f776125f90",
+        "name": "execute",
+        "func": "msg.payload = {};\nmsg.payload.input = msg.cmd;\nif(msg.siteId !== undefined){\n    //msg.payload.siteId = msg.siteId; ...don't talk\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 580,
+        "wires": [
+            [
+                "5d72eb4dee87a5c1"
+            ]
+        ]
+    },
+    {
+        "id": "5d72eb4dee87a5c1",
+        "type": "delay",
+        "z": "e740524cf6cb34da",
+        "g": "66cf44f776125f90",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "2",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 725,
+        "y": 580,
+        "wires": [
+            [
+                "d969c3b454fadb8f"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "d969c3b454fadb8f",
+        "type": "mqtt out",
+        "z": "e740524cf6cb34da",
+        "g": "66cf44f776125f90",
+        "name": "",
+        "topic": "hermes/nlu/query",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "53d0bc2c820f9d77",
+        "x": 795,
+        "y": 580,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "7eeca7eb3808bf61",
+        "type": "switch",
+        "z": "e740524cf6cb34da",
+        "g": "256c9f59c707aca3",
+        "name": "action?",
+        "property": "payload.action",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "confirm",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 420,
+        "y": 440,
+        "wires": [
+            [
+                "a5a24b71eb88052f"
+            ]
+        ]
+    },
+    {
+        "id": "b84c151d5548fd83",
+        "type": "switch",
+        "z": "e740524cf6cb34da",
+        "g": "256c9f59c707aca3",
+        "name": "ID Door?",
+        "property": "payload.id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Door",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 240,
+        "y": 440,
+        "wires": [
+            [
+                "7eeca7eb3808bf61"
+            ]
+        ]
+    },
+    {
+        "id": "a43ec05949a6d97b",
+        "type": "link out",
+        "z": "e740524cf6cb34da",
+        "g": "256c9f59c707aca3",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "fabdc7968e28b1ae"
+        ],
+        "x": 795,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "fabdc7968e28b1ae",
+        "type": "link in",
+        "z": "e740524cf6cb34da",
+        "g": "66cf44f776125f90",
+        "name": "link in 1",
+        "links": [
+            "1aa841e17e150895",
+            "a43ec05949a6d97b"
+        ],
+        "x": 485,
+        "y": 580,
+        "wires": [
+            [
+                "d3fa4c16e89abcd9"
+            ]
+        ]
+    },
+    {
+        "id": "164b7c0e57b7adce",
+        "type": "function",
+        "z": "e740524cf6cb34da",
+        "g": "256c9f59c707aca3",
+        "name": "Insert the command here",
+        "func": "msg = {\n    payload: \"\",\n    cmd: \"Fahre die Leinwand im Salon runter\",\n    siteId:\"Salon\",\n    lang:\"de-DE\"\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 480,
+        "wires": [
+            [
+                "1aa841e17e150895"
+            ]
+        ]
+    },
+    {
+        "id": "6274b243759f523b",
+        "type": "switch",
+        "z": "e740524cf6cb34da",
+        "g": "256c9f59c707aca3",
+        "name": "action?",
+        "property": "payload.action",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "confirm",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 420,
+        "y": 480,
+        "wires": [
+            [
+                "164b7c0e57b7adce"
+            ]
+        ]
+    },
+    {
+        "id": "41e87920fab8bc4d",
+        "type": "switch",
+        "z": "e740524cf6cb34da",
+        "g": "256c9f59c707aca3",
+        "name": "ID Leinwand?",
+        "property": "payload.id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Leinwand",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 260,
+        "y": 480,
+        "wires": [
+            [
+                "6274b243759f523b"
+            ]
+        ]
+    },
+    {
+        "id": "1aa841e17e150895",
+        "type": "link out",
+        "z": "e740524cf6cb34da",
+        "g": "256c9f59c707aca3",
+        "name": "link out 2",
+        "mode": "link",
+        "links": [
+            "fabdc7968e28b1ae"
+        ],
+        "x": 795,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "813bcf707f317a7c",
+        "type": "knxUltimate",
+        "z": "e740524cf6cb34da",
+        "g": "dc2de23da6544dfd",
+        "server": "6b466f8063c7194d",
+        "topic": "",
+        "outputtopic": "",
+        "dpt": "",
+        "initialread": 0,
+        "notifyreadrequest": false,
+        "notifyresponse": false,
+        "notifywrite": true,
+        "notifyreadrequestalsorespondtobus": false,
+        "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
+        "listenallga": false,
+        "name": "Es klingelt",
+        "outputtype": "write",
+        "outputRBE": false,
+        "inputRBE": false,
+        "formatmultiplyvalue": 1,
+        "formatnegativevalue": "leave",
+        "formatdecimalsvalue": 999,
+        "passthrough": "no",
+        "x": 170,
+        "y": 220,
+        "wires": [
+            [
+                "32a5a7082e9f6676"
+            ]
+        ]
+    },
+    {
+        "id": "32a5a7082e9f6676",
+        "type": "function",
+        "z": "e740524cf6cb34da",
+        "g": "dc2de23da6544dfd",
+        "name": "Q/A config",
+        "func": "msg = {\n    siteId: \"Salon\",\n    textQuery: \"Es hat geklingelt. Soll ich die Haustür öffnen?\",\n    textConfirm:\"Ok, ich öffne die Haustür\",\n    textCancel: \"Ich werde die Haustür nicht öffnen\",\n    defaultAction: \"cancel\",\n    id:\"Door\"\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 220,
+        "wires": [
+            [
+                "7d42e9a485286d67"
+            ]
+        ]
+    },
+    {
+        "id": "53d0bc2c820f9d77",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6b466f8063c7194d",
+        "type": "knxUltimate-config",
+        "host": "224.0.23.12",
+        "port": 3671,
+        "physAddr": "15.15.22",
+        "hostProtocol": "Multicast",
+        "suppressACKRequest": false,
+        "csv": "",
+        "KNXEthInterface": "Auto",
+        "KNXEthInterfaceManuallyInput": "",
+        "statusDisplayLastUpdate": true,
+        "statusDisplayDeviceNameWhenALL": true,
+        "statusDisplayDataPoint": false,
+        "stopETSImportIfNoDatapoint": "stop",
+        "loglevel": "error",
+        "name": "KNX Gateway",
+        "localEchoInTunneling": true,
+        "delaybetweentelegrams": 50,
+        "delaybetweentelegramsfurtherdelayREAD": 1,
+        "ignoreTelegramsWithRepeatedFlag": false,
+        "autoReconnect": true
+    }
+]
