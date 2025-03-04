@@ -1,0 +1,2401 @@
+[
+    {
+        "id": "a6d29d13.3c30c",
+        "type": "tab",
+        "label": "ENOCEAN DEVICES",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e201ec162ee2a68b",
+        "type": "group",
+        "z": "a6d29d13.3c30c",
+        "name": "receiving enocean data",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "cc35e6a6.347f58",
+            "f0aa41fc4609326b",
+            "3107ef0c67f14dcd",
+            "b862a2b04fb9c83f"
+        ],
+        "x": 14,
+        "y": 159,
+        "w": 232,
+        "h": 122
+    },
+    {
+        "id": "69976a2f01278857",
+        "type": "group",
+        "z": "a6d29d13.3c30c",
+        "name": "manual send",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "00d3bb90df4e7abd",
+            "09966319a725954a",
+            "d91e6826af9a653b",
+            "625377773190f47b",
+            "54fa715be756d2f4",
+            "69d5bc6a1b2bef8d"
+        ],
+        "x": 2514,
+        "y": 39,
+        "w": 512,
+        "h": 162
+    },
+    {
+        "id": "e2f01704a7c095f7",
+        "type": "group",
+        "z": "a6d29d13.3c30c",
+        "name": "enocean custom devices",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "8fc93d2c3c8aacf5",
+            "6d7bd6e165b56669",
+            "5ad86459cbd8f8b3",
+            "8aeb4a8e241b8242",
+            "42960ad7bff16185",
+            "d1c5d02e64755d60",
+            "d25c44f4f7b7ca84",
+            "1bcfb2869a3e8b1f",
+            "6c6e8b6015b393f2",
+            "2cdcafbee62d4c8b",
+            "113f91b4a169febf",
+            "f92dfcc4d3bcab54",
+            "0a288b39e028efd4",
+            "3c9d0a2cc0494e21",
+            "1ce15fe10bdd74bd",
+            "f37c3fe9deeeb1bf",
+            "3cb3aad30d0a733d",
+            "04c51508ff442c47",
+            "569f8fec8981559f",
+            "237c0b2324d565c3",
+            "dd74359dd9825ac5",
+            "0cdb83c78087cab6",
+            "e0449b56f2c97d16",
+            "2a9937537c09d060",
+            "8b150cdf1a8f60ff",
+            "ea9af51a9b79d110",
+            "b1f832a73c0c484c",
+            "bb3613295775ef52",
+            "d30724841d136978",
+            "f31e3118ad1bc274",
+            "e8aa5223470234c9",
+            "47f14eb81cf17618",
+            "68a34e1fb4326a15",
+            "632232839326d34b",
+            "0eac5cfc6533a2c8",
+            "730ba41578379547",
+            "d94a3a7163f57509",
+            "8457b088f0d27ea3",
+            "0767173b8a13d261",
+            "d90c65999a45b018",
+            "2960f17b4606150e",
+            "a2e15159437ed61b",
+            "6f0efc8ecfe15194"
+        ],
+        "x": 914,
+        "y": 39,
+        "w": 712,
+        "h": 522
+    },
+    {
+        "id": "5b2a8d22374d4cf0",
+        "type": "group",
+        "z": "a6d29d13.3c30c",
+        "name": "learning the sensor",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "1a5783c8393e465c",
+            "105eb4227b319172",
+            "ca7059f858718b34",
+            "1f04762d607971ee",
+            "9cb276cef038920e",
+            "706f5c1cd027638a",
+            "57fc523524c27b39",
+            "2f572da3ec11d6d2",
+            "1fb27af310cb4bf8"
+        ],
+        "x": 314,
+        "y": 39,
+        "w": 532,
+        "h": 242
+    },
+    {
+        "id": "c35c250e1c6e5def",
+        "type": "group",
+        "z": "a6d29d13.3c30c",
+        "name": "automatic cmd ",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "a97526f901c41f9d",
+            "4927eaa8747d5f8d",
+            "502aed4b4eb3aecf",
+            "eae05f3289e9221e",
+            "221f2a01cfcd32b1",
+            "6526a9c4cd7277d9"
+        ],
+        "x": 2514,
+        "y": 239,
+        "w": 512,
+        "h": 142
+    },
+    {
+        "id": "8ecfb866bf62c3f2",
+        "type": "group",
+        "z": "a6d29d13.3c30c",
+        "name": "sending enocean data",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "88ab75e4546acae8",
+            "b7666ad866175c53",
+            "948dc8c5ac036d66",
+            "80902b6feecdf85f",
+            "7d2960ad62a17878",
+            "44c83bde680851cb",
+            "544e621fbffe453c",
+            "4162af41c53dd4f8",
+            "a83de89197fac280",
+            "281f11c4ba293faf",
+            "494376ba421f6dd8",
+            "162237920512b8e5",
+            "4eef297f72a021fc",
+            "91fbf7636044c4db",
+            "6126d343be6b08a3",
+            "661bc5d96d91d4c8",
+            "476ec4b84e148c8e",
+            "c3f0b4252714dee5",
+            "ebb6bd4732329069",
+            "c2818681f1a2273f",
+            "59fc30bbc6a3d167",
+            "0568c3ef39500ce6",
+            "533df91aabc5997b",
+            "9f49b189c20f44d4",
+            "23fabb4c46e04980",
+            "63a79ab10afbe1a0",
+            "fa430acee22c9a95",
+            "349264877af59709",
+            "62325ba302fa3bd7",
+            "ba84200565b011ca",
+            "8106f67af76c6235",
+            "55477e9f7fcbf983",
+            "4576fc43dd8a36b5",
+            "94e228ec8f9e551c",
+            "184caffb9d82f3ca",
+            "2ee94f21bd95a60c",
+            "b735d080d3c0e8b5"
+        ],
+        "x": 1694,
+        "y": 39,
+        "w": 752,
+        "h": 462
+    },
+    {
+        "id": "94e228ec8f9e551c",
+        "type": "junction",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "x": 1780,
+        "y": 140,
+        "wires": [
+            [
+                "9f49b189c20f44d4",
+                "ebb6bd4732329069"
+            ]
+        ]
+    },
+    {
+        "id": "47f14eb81cf17618",
+        "type": "junction",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "x": 1500,
+        "y": 500,
+        "wires": [
+            [
+                "f31e3118ad1bc274",
+                "2a9937537c09d060"
+            ]
+        ]
+    },
+    {
+        "id": "0eac5cfc6533a2c8",
+        "type": "junction",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "x": 1500,
+        "y": 480,
+        "wires": [
+            [
+                "e0449b56f2c97d16",
+                "d30724841d136978"
+            ]
+        ]
+    },
+    {
+        "id": "68a34e1fb4326a15",
+        "type": "junction",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "x": 1500,
+        "y": 440,
+        "wires": [
+            [
+                "0cdb83c78087cab6",
+                "bb3613295775ef52"
+            ]
+        ]
+    },
+    {
+        "id": "632232839326d34b",
+        "type": "junction",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "x": 1500,
+        "y": 420,
+        "wires": [
+            [
+                "dd74359dd9825ac5",
+                "b1f832a73c0c484c"
+            ]
+        ]
+    },
+    {
+        "id": "184caffb9d82f3ca",
+        "type": "junction",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "x": 1780,
+        "y": 240,
+        "wires": [
+            [
+                "4eef297f72a021fc",
+                "fa430acee22c9a95"
+            ]
+        ]
+    },
+    {
+        "id": "2ee94f21bd95a60c",
+        "type": "junction",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "x": 1780,
+        "y": 340,
+        "wires": [
+            [
+                "91fbf7636044c4db",
+                "ba84200565b011ca"
+            ]
+        ]
+    },
+    {
+        "id": "b735d080d3c0e8b5",
+        "type": "junction",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "x": 1780,
+        "y": 440,
+        "wires": [
+            [
+                "4576fc43dd8a36b5",
+                "6126d343be6b08a3"
+            ]
+        ]
+    },
+    {
+        "id": "cc35e6a6.347f58",
+        "type": "enocean-in",
+        "z": "a6d29d13.3c30c",
+        "g": "e201ec162ee2a68b",
+        "serialport": "cfcf4fbc.4250e",
+        "name": "",
+        "x": 90,
+        "y": 240,
+        "wires": [
+            [
+                "f0aa41fc4609326b",
+                "3107ef0c67f14dcd"
+            ]
+        ],
+        "info": "Light and Blind Control - Application Style 1"
+    },
+    {
+        "id": "f0aa41fc4609326b",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "e201ec162ee2a68b",
+        "name": "raw data",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 185,
+        "y": 200,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "3107ef0c67f14dcd",
+        "type": "link out",
+        "z": "a6d29d13.3c30c",
+        "g": "e201ec162ee2a68b",
+        "name": "out input enocean",
+        "mode": "link",
+        "links": [
+            "ce7a95a6b864fe0d",
+            "ea22e2d05465fa34",
+            "7619ab2b44456a29",
+            "841a3fba7a6bf274",
+            "4faeedb9354240e9",
+            "90a1c48adfe8b7b2",
+            "1973c5e9fe844467",
+            "e2fdde53e716ec59",
+            "2e8becb43719dd61",
+            "a4a71d6e133dbb35",
+            "508ba8016e664599",
+            "4a0593c58bc3c887",
+            "706f5c1cd027638a",
+            "93adeb08f4e1bff5"
+        ],
+        "x": 185,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "88ab75e4546acae8",
+        "type": "enocean-out",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "serialport": "cfcf4fbc.4250e",
+        "name": "",
+        "logOutput": true,
+        "x": 2310,
+        "y": 300,
+        "wires": [
+            [
+                "476ec4b84e148c8e"
+            ]
+        ]
+    },
+    {
+        "id": "b7666ad866175c53",
+        "type": "comment",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "README",
+        "info": "This group receives data from custom devices and sends enocean frame when you simulate a switch, we are able to simulate 4 differents profiles defined by their EEP.\nEEP is the EnOcean Equipment Profiles and are the fundament of interoperability between EnOcean devices of all different manufacturers.\n\nThe data is processed in such a way that one event for the click on the top line of each profile and an other one for the release on the bottom line. \n\n\n\nThe following EEP description comes directly from Enoceean :\n\nf6-02-01 :\n    This EEP definition is based on the assumption that a RPS switch module (e.g. PTM200) is installed in a 0-STATE up position! Application Style 1 is widely used in EU but may be found in other markets as well.\n\nf6-02-02 :\n    This EEP definition is based on the assumption that a RPS switch module (e.g. PTM200) is installed in an I-STATE up position! Application Style 2 is typically used in US and CAN but may be found in other markets as well.\n\nf6-03-01 :\n    This EEP definition is based on the assumption that a RPS switch module is installed in a 0-STATE up position! Application Style 1 is widely used in EU but may be found in other markets as well.\n    \nf6-03-02 :\n    This EEP definition is based on the assumption that a RPS switch module is installed in a I-STATE up position! Application Style 2 is typically used in US and CAN but may be found in other markets as well.",
+        "x": 1780,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "948dc8c5ac036d66",
+        "type": "enocean-btn",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "f6-02-02",
+        "encoding": "f6-02-02",
+        "delay": "",
+        "x": 2020,
+        "y": 240,
+        "wires": [
+            [
+                "661bc5d96d91d4c8"
+            ]
+        ]
+    },
+    {
+        "id": "80902b6feecdf85f",
+        "type": "enocean-btn",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "f6-03-01",
+        "encoding": "f6-03-01",
+        "delay": "",
+        "x": 2020,
+        "y": 340,
+        "wires": [
+            [
+                "661bc5d96d91d4c8"
+            ]
+        ]
+    },
+    {
+        "id": "7d2960ad62a17878",
+        "type": "enocean-btn",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "f6-03-02",
+        "encoding": "f6-03-02",
+        "delay": "",
+        "x": 2020,
+        "y": 440,
+        "wires": [
+            [
+                "661bc5d96d91d4c8"
+            ]
+        ]
+    },
+    {
+        "id": "44c83bde680851cb",
+        "type": "link in",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "f6-02-01 in",
+        "links": [
+            "dd74359dd9825ac5"
+        ],
+        "x": 1735,
+        "y": 140,
+        "wires": [
+            [
+                "94e228ec8f9e551c"
+            ]
+        ]
+    },
+    {
+        "id": "544e621fbffe453c",
+        "type": "link in",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "f6-02-0 in",
+        "links": [
+            "0cdb83c78087cab6"
+        ],
+        "x": 1735,
+        "y": 240,
+        "wires": [
+            [
+                "184caffb9d82f3ca"
+            ]
+        ]
+    },
+    {
+        "id": "4162af41c53dd4f8",
+        "type": "link in",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "f6-03-01 in",
+        "links": [
+            "e0449b56f2c97d16"
+        ],
+        "x": 1735,
+        "y": 340,
+        "wires": [
+            [
+                "2ee94f21bd95a60c"
+            ]
+        ]
+    },
+    {
+        "id": "a83de89197fac280",
+        "type": "link in",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "f6-03-02 in",
+        "links": [
+            "2a9937537c09d060"
+        ],
+        "x": 1735,
+        "y": 440,
+        "wires": [
+            [
+                "b735d080d3c0e8b5"
+            ]
+        ]
+    },
+    {
+        "id": "281f11c4ba293faf",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "enocean f6-02-02",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1895,
+        "y": 220,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "494376ba421f6dd8",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "enocean f6-03-01",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1895,
+        "y": 320,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "162237920512b8e5",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "enocean f6-03-02",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1895,
+        "y": 420,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "4eef297f72a021fc",
+        "type": "function",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "remove useless properties",
+        "func": "var button = msg.payload.button;\nvar channel = msg.payload.channel;\nvar event = msg.payload.event;\n\nvar sortedPayload = {\n    button: button,\n    channel: channel,\n    event: event\n};\n\nmsg.payload = sortedPayload;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1855,
+        "y": 220,
+        "wires": [
+            [
+                "948dc8c5ac036d66",
+                "281f11c4ba293faf"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "91fbf7636044c4db",
+        "type": "function",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "remove useless properties",
+        "func": "var button = msg.payload.button;\nvar channel = msg.payload.channel;\nvar event = msg.payload.event;\n\nvar sortedPayload = {\n    button: button,\n    channel: channel,\n    event: event\n};\n\nmsg.payload = sortedPayload;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1855,
+        "y": 320,
+        "wires": [
+            [
+                "80902b6feecdf85f",
+                "494376ba421f6dd8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "6126d343be6b08a3",
+        "type": "function",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "remove useless properties",
+        "func": "var button = msg.payload.button;\nvar channel = msg.payload.channel;\nvar event = msg.payload.event;\n\nvar sortedPayload = {\n    button: button,\n    channel: channel,\n    event: event\n};\n\nmsg.payload = sortedPayload;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1855,
+        "y": 420,
+        "wires": [
+            [
+                "7d2960ad62a17878",
+                "162237920512b8e5"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "661bc5d96d91d4c8",
+        "type": "delay",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "10",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 2165,
+        "y": 300,
+        "wires": [
+            [
+                "c3f0b4252714dee5",
+                "88ab75e4546acae8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "b862a2b04fb9c83f",
+        "type": "comment",
+        "z": "a6d29d13.3c30c",
+        "g": "e201ec162ee2a68b",
+        "name": "README",
+        "info": "This group accepts all the enocean frames it finds from the usb gateway, you need to set the correct serial port for this to work.\nPlease note that if the device is the first and only connected to the master, the serial port should be /dev/ttyUSB0",
+        "x": 100,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "00d3bb90df4e7abd",
+        "type": "enocean-out",
+        "z": "a6d29d13.3c30c",
+        "g": "69976a2f01278857",
+        "serialport": "cfcf4fbc.4250e",
+        "name": "",
+        "logOutput": false,
+        "x": 2950,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "09966319a725954a",
+        "type": "enocean-btn",
+        "z": "a6d29d13.3c30c",
+        "g": "69976a2f01278857",
+        "name": "",
+        "encoding": "f6-02-01",
+        "delay": "",
+        "x": 2780,
+        "y": 140,
+        "wires": [
+            [
+                "69d5bc6a1b2bef8d"
+            ]
+        ]
+    },
+    {
+        "id": "d91e6826af9a653b",
+        "type": "inject",
+        "z": "a6d29d13.3c30c",
+        "g": "69976a2f01278857",
+        "name": "ON",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"button\":0,\"channel\":1,\"event\":\"click\"}",
+        "payloadType": "json",
+        "x": 2610,
+        "y": 120,
+        "wires": [
+            [
+                "09966319a725954a"
+            ]
+        ]
+    },
+    {
+        "id": "625377773190f47b",
+        "type": "inject",
+        "z": "a6d29d13.3c30c",
+        "g": "69976a2f01278857",
+        "name": "OFF",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"button\":1,\"channel\":1,\"event\":\"click\"}",
+        "payloadType": "json",
+        "x": 2610,
+        "y": 160,
+        "wires": [
+            [
+                "09966319a725954a"
+            ]
+        ]
+    },
+    {
+        "id": "54fa715be756d2f4",
+        "type": "comment",
+        "z": "a6d29d13.3c30c",
+        "g": "69976a2f01278857",
+        "name": "README",
+        "info": "This group simulates a 2 Rocker Switch (8 Buttons: 0, 1, 2, 3, 4, 5, 6, 7) that can be \"click\"ed or \"down\"ed.\n     \"click\" means the button is immediately released after beeing pressed. When \"down\"ed you have to release the button yourself.\n     When a receiver is in LRN mode, send either `button: 0` or `button: 1` to teach in Rocker 1, send `button: 2` or `button: 3` to teach in Rocker 2 etc..\n     With one USB you can send on up to 128 (0-127) channels. so you can simulate 256 Rocker switches.\n     \n     \n     Button set-up :\n        can be 0, 1, 2, 3, 4, 5, 6, 7 . The button to click on the simulated rocker.\n        \n     Channel set-up :\n        can be 0-127. The channel to send on. It's an offset off the baseId of your USB 300.\n        \n     Event set-up :\n        can be one of \"click\",\"down\",\"release\". Defines the event to send.\n        (we do not need event for custom devices)\n\nthe text you send must have the same shape as this example:\n{\n    \"button\": 0,\n    \"channel\": 4,\n    \"event\": \"click\"\n}\n\n/!\\ do not forget to modify the values !\nin the actual state, the group simulate one rocker (because we have 1 ON and 1 OFF)\nwe highly recommand you to save one as a template and copy paste this group to have one per device you want to control.\nbe carefull to not duplicate any buttons !",
+        "x": 2600,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "69d5bc6a1b2bef8d",
+        "type": "delay",
+        "z": "a6d29d13.3c30c",
+        "g": "69976a2f01278857",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "8",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 2875,
+        "y": 140,
+        "wires": [
+            [
+                "00d3bb90df4e7abd"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8fc93d2c3c8aacf5",
+        "type": "mqtt in",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "",
+        "topic": "proknx/roomlist/updated",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "b7d2dbd0.c8ee4",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 1040,
+        "y": 180,
+        "wires": [
+            [
+                "6d7bd6e165b56669"
+            ]
+        ]
+    },
+    {
+        "id": "6d7bd6e165b56669",
+        "type": "function",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "Merge in the custom rooms with the main gateway rooms",
+        "func": "var module = global.get(\"module\");\n\nvar rooms = module.settingsGetValue(\"allRooms\");\nvar customRooms = global.get(\"customRooms\");\nif(rooms !== undefined && customRooms !== undefined){\n    rooms = [...rooms, ...customRooms];\n    rooms = rooms.filter((item,index)=>{\n        return (rooms.indexOf(item) == index)\n    })\n    module.settingsSetValue(\"allRooms\",rooms);\n    msg.payload = rooms;\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1205,
+        "y": 180,
+        "wires": [
+            [
+                "5ad86459cbd8f8b3"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "5ad86459cbd8f8b3",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1265,
+        "y": 180,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "8aeb4a8e241b8242",
+        "type": "mqtt in",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "",
+        "topic": "proknx/devicelist/updated",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "b7d2dbd0.c8ee4",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 1050,
+        "y": 240,
+        "wires": [
+            [
+                "d25c44f4f7b7ca84",
+                "d94a3a7163f57509"
+            ]
+        ]
+    },
+    {
+        "id": "42960ad7bff16185",
+        "type": "comment",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "↓ Custom devices - define your EnOcean devices here↓",
+        "info": "",
+        "x": 1140,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d1c5d02e64755d60",
+        "type": "inject",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "Define custom devices",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "3",
+        "topic": "",
+        "payload": "[{\"custom\":true,\"name\":\"plafond toilette\",\"zone\":\"toilettes\",\"object\":\"plafond\",\"type\":\"lights\",\"setOn\":{\"name\":\"On\",\"button\":0,\"channel\":1,\"event\":\"click\",\"eep\":\"f6-02-01\",\"value\":100},\"setOff\":{\"name\":\"Off\",\"button\":1,\"channel\":1,\"event\":\"click\",\"eep\":\"f6-02-01\",\"value\":0}}]",
+        "payloadType": "json",
+        "x": 1060,
+        "y": 380,
+        "wires": [
+            [
+                "569f8fec8981559f"
+            ]
+        ]
+    },
+    {
+        "id": "d25c44f4f7b7ca84",
+        "type": "function",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "Merge in the custom devices with the main gateway devices",
+        "func": "var module = global.get(\"module\");\nvar devices = module.settingsGetValue(\"msgDeviceList\");\nvar customDevices = global.get(\"customDeviceList\");\nif(devices !== undefined && customDevices !== undefined){\n    devices = devices.concat(customDevices);\n    module.settingsSetValue(\"msgDeviceList\", devices);\n    msg.payload = devices;\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1205,
+        "y": 240,
+        "wires": [
+            [
+                "1bcfb2869a3e8b1f"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "1bcfb2869a3e8b1f",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1265,
+        "y": 240,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "6c6e8b6015b393f2",
+        "type": "mqtt in",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "",
+        "topic": "proknx/custom/cmd",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "b7d2dbd0.c8ee4",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 1030,
+        "y": 500,
+        "wires": [
+            [
+                "2cdcafbee62d4c8b",
+                "e8aa5223470234c9"
+            ]
+        ]
+    },
+    {
+        "id": "2cdcafbee62d4c8b",
+        "type": "json",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1005,
+        "y": 440,
+        "wires": [
+            [
+                "1ce15fe10bdd74bd"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "113f91b4a169febf",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1375,
+        "y": 500,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "f92dfcc4d3bcab54",
+        "type": "function",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "Prepare request",
+        "func": "msg.device=[];\nif (msg.cmd.type === \"lights\") {\n    if (msg.cmd.value !== undefined) {\n        for (var i = 0; i < msg.items.length; i++) {\n            if (msg.items[i].type === \"dimmers\" && msg.cmd.cmd !== \"off\") {\n               var val = msg.cmd.value/100 * msg.items[i].setBrightness.valueMax;\n               msg.device[i] = msg.items[i].setBrightness;\n               msg.device[i].value = val;\n            }else if (msg.cmd.value > 0) {\n                msg.device[i] = msg.items[i].setOn;\n            }else {\n                msg.device[i] = msg.items[i].setOff;\n            }\n        }\n    }else if (msg.cmd.cmd === \"on\") {\n        for (var i = 0; i < msg.items.length; i++) {\n            msg.device[i] = msg.items[i].setOn;\n        }\n    }else if (msg.cmd.cmd === \"off\") {\n        for (var i = 0; i < msg.items.length; i++) {\n            msg.device[i] = msg.items[i].setOff;\n        }\n    }\n}else if (msg.cmd.type === \"aux\" || msg.cmd.type === \"scenes\") {\n    if (msg.cmd.cmd === \"on\" || msg.cmd.cmd === \"set\") {\n        if (msg.cmd.value !== undefined) {\n          for (var i = 0; i < msg.items.length; i++) {\n            if (msg.items[i].setBrightness !== undefined) {\n                var val = msg.cmd.value;\n                val = precisionRound(val, 1);\n                msg.device[i] = msg.items[i].setBrightness;\n                msg.device[i].value = val;\n            } \n            else if (msg.cmd.value > 0) {\n               msg.device[i] = msg.items[i].setOn;\n            }\n            else {\n               msg.device[i] = msg.items[i].setOff;\n            }\n        }\n        }else {\n            for (var i = 0; i < msg.items.length; i++) {\n                msg.device[i] = msg.items[i].setOn;\n                msg.device[i] = Object.assign({}, msg.device[i], { eep: msg.items[i].eep });\n            }\n        }\n    }else if (msg.cmd.cmd === \"off\") {\n        for (var i = 0; i < msg.items.length; i++) {\n            if (msg.items[i].setOff !== undefined) {\n                msg.device[i] = msg.items[i].setOff;\n            }\n        }\n    }\n}  \n \nflow.set(\"msgDevice\",msg.device) ; //contain command info of the device\nflow.set(\"msgItems\",msg.items); // contain list of devices concerned\nflow.set(\"msgCmd\", msg.cmd);\n\nmsg.payload = msg.device;\n\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1235,
+        "y": 440,
+        "wires": [
+            [
+                "3c9d0a2cc0494e21",
+                "8b150cdf1a8f60ff"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "0a288b39e028efd4",
+        "type": "switch",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "Cmd ?",
+        "property": "cmd.cmd",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "set",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 1130,
+        "y": 440,
+        "wires": [
+            [
+                "f92dfcc4d3bcab54"
+            ],
+            [
+                "f92dfcc4d3bcab54"
+            ],
+            [
+                "f92dfcc4d3bcab54"
+            ]
+        ]
+    },
+    {
+        "id": "3c9d0a2cc0494e21",
+        "type": "split",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 1295,
+        "y": 460,
+        "wires": [
+            [
+                "113f91b4a169febf",
+                "ea9af51a9b79d110"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "1ce15fe10bdd74bd",
+        "type": "change",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "move data from payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "cmd",
+                "pt": "msg",
+                "to": "payload.cmd",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "items",
+                "pt": "msg",
+                "to": "payload.items",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1055,
+        "y": 440,
+        "wires": [
+            [
+                "0a288b39e028efd4"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "f37c3fe9deeeb1bf",
+        "type": "comment",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "INFO / README",
+        "info": "- This group, CUSTOM DEVICES, enables voice control of custom devices, i.e. apart from the devices of the main Gateway you can add-on here.\n- \n- Any device that can be controlled via Enocean can be integrataded here.\n-\n- Put your custom devices in the inject node following the sample in it.\n- Do not forget to have a unique button for each device, you will find more information in the manual send group (on the right)\n- When you a have finished, click Deploy.\n-\n- If you want to learn Aragon to your custom device's actuator, set it in learn mode, then ask Aragon to turn on/off, activate or whatever you want to do with your device so the actuator will learn it.\n- \n-\n-/!\\ If you have Enocean and non Enocean custom devices, write them all in the same inject node, otherwise they will be overwrited",
+        "x": 1020,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3cb3aad30d0a733d",
+        "type": "comment",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "↓ This is called when Gateway devices has been updated ↓",
+        "info": "",
+        "x": 1150,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "04c51508ff442c47",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1305,
+        "y": 380,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "569f8fec8981559f",
+        "type": "function",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "Save custom Devices and Rooms",
+        "func": "global.set(\"customDeviceList\", msg.payload);\nvar customRooms = [];\nfor(var i = 0; i < msg.payload.length ; i++){\n    customRooms[i] = msg.payload[i].zone;\n}\nglobal.set(\"customRooms\", customRooms);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1215,
+        "y": 380,
+        "wires": [
+            [
+                "04c51508ff442c47",
+                "730ba41578379547"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "237c0b2324d565c3",
+        "type": "switch",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "eep?",
+        "property": "payload.eep",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "f6-02-01",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "f6-02-02",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "f6-03-01",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "f6-03-02",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 1430,
+        "y": 460,
+        "wires": [
+            [
+                "632232839326d34b"
+            ],
+            [
+                "68a34e1fb4326a15"
+            ],
+            [
+                "0eac5cfc6533a2c8"
+            ],
+            [
+                "47f14eb81cf17618"
+            ]
+        ]
+    },
+    {
+        "id": "dd74359dd9825ac5",
+        "type": "link out",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "f6-02-01 out",
+        "mode": "link",
+        "links": [
+            "44c83bde680851cb"
+        ],
+        "x": 1545,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "0cdb83c78087cab6",
+        "type": "link out",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "f6-02-02 out",
+        "mode": "link",
+        "links": [
+            "544e621fbffe453c"
+        ],
+        "x": 1545,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "e0449b56f2c97d16",
+        "type": "link out",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "f6-03-01 out",
+        "mode": "link",
+        "links": [
+            "4162af41c53dd4f8"
+        ],
+        "x": 1545,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "2a9937537c09d060",
+        "type": "link out",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "f6-03-02 out",
+        "mode": "link",
+        "links": [
+            "a83de89197fac280"
+        ],
+        "x": 1545,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "8b150cdf1a8f60ff",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": " ",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1295,
+        "y": 420,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "ea9af51a9b79d110",
+        "type": "delay",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "10",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1345,
+        "y": 460,
+        "wires": [
+            [
+                "237c0b2324d565c3"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "b1f832a73c0c484c",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": " f6-02-01 out",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1565,
+        "y": 420,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "bb3613295775ef52",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": " f6-02-02 out",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1565,
+        "y": 440,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "d30724841d136978",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": " f6-03-01 out",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1565,
+        "y": 480,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "f31e3118ad1bc274",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": " f6-03-02 out",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1565,
+        "y": 500,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "e8aa5223470234c9",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "proknx/custom/cmd",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1175,
+        "y": 520,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "1a5783c8393e465c",
+        "type": "inject",
+        "z": "a6d29d13.3c30c",
+        "g": "5b2a8d22374d4cf0",
+        "name": "LRN",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"LRN\",\"duration\":3}",
+        "payloadType": "json",
+        "x": 410,
+        "y": 240,
+        "wires": [
+            [
+                "9cb276cef038920e"
+            ]
+        ]
+    },
+    {
+        "id": "105eb4227b319172",
+        "type": "inject",
+        "z": "a6d29d13.3c30c",
+        "g": "5b2a8d22374d4cf0",
+        "name": "DEL",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"DEL\",\"duration\":3}",
+        "payloadType": "json",
+        "x": 410,
+        "y": 200,
+        "wires": [
+            [
+                "9cb276cef038920e"
+            ]
+        ]
+    },
+    {
+        "id": "ca7059f858718b34",
+        "type": "inject",
+        "z": "a6d29d13.3c30c",
+        "g": "5b2a8d22374d4cf0",
+        "name": "manual teach in",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"LRN\",\"senderId\":\"001f0984\",\"eep\":\"f6-02-01\",\"name\":\"switch light\"}",
+        "payloadType": "json",
+        "x": 440,
+        "y": 160,
+        "wires": [
+            [
+                "9cb276cef038920e"
+            ]
+        ]
+    },
+    {
+        "id": "1f04762d607971ee",
+        "type": "inject",
+        "z": "a6d29d13.3c30c",
+        "g": "5b2a8d22374d4cf0",
+        "name": "manual delete",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"DEL\",\"senderId\":\"001f0984\",\"eep\":\"f6-02-01\"}",
+        "payloadType": "json",
+        "x": 430,
+        "y": 120,
+        "wires": [
+            [
+                "9cb276cef038920e"
+            ]
+        ]
+    },
+    {
+        "id": "9cb276cef038920e",
+        "type": "enocean-actor",
+        "z": "a6d29d13.3c30c",
+        "g": "5b2a8d22374d4cf0",
+        "name": "",
+        "channel": "",
+        "adt": false,
+        "x": 650,
+        "y": 160,
+        "wires": [
+            [
+                "2f572da3ec11d6d2"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "706f5c1cd027638a",
+        "type": "link in",
+        "z": "a6d29d13.3c30c",
+        "g": "5b2a8d22374d4cf0",
+        "name": "in input encean",
+        "links": [
+            "3107ef0c67f14dcd"
+        ],
+        "x": 575,
+        "y": 120,
+        "wires": [
+            [
+                "9cb276cef038920e"
+            ]
+        ]
+    },
+    {
+        "id": "57fc523524c27b39",
+        "type": "comment",
+        "z": "a6d29d13.3c30c",
+        "g": "5b2a8d22374d4cf0",
+        "name": "README",
+        "info": "This group learns Enocean devices as a real actuator would do.\n\n\n***LEARNING/TEACH-IN***\n    \n    you have 2 methods to learn a device, you can either click on LRN, that will start a teach in for 3 sec or, if you know the senderId and the EEP of your device you can edit the \"manual teach in\" node with the following structure :\n    \n    {\n        \"type\": \"LRN\",\n        \"senderId\": \"device_senderId\",\n        \"eep\": \"device_EEP\",\n        \"name\": \"device_name\"\n    }\n    \n    /!\\ DO NOT touch the double quotes !\n    \n    To edit the node, double click on it then click on the three dot on the right of the text \n    Deploy your work then inject \n    \n    please note that in the manual teach in, we add a name for the sensor and we don't when using the LRN node; this is not mandatory and only usefull in debug mode.\n    \n************\n    \n***DELETE***\n    \n    As you have 2 methods to teach in devices, there are 2 methods to delete a device. Clicking on the DEL node will start a delete for 3 sec, during this time you have to send a RF frame from the device you want to delete.\n    \n    if you want to manually delete a device from the actuator, edit the \"manual delete\" with the following structure :\n    \n    {\n        \"type\": \"DEL\",\n        \"senderId\": \"device_senderId\",\n        \"eep\": \"device_EEP\"\n    }\n    \n    /!\\ DO NOT touch the double quotes !\n    \n    To edit the node, double click on it then click on the three dot on the right of the text \n    Deploy your work then inject \n    \n    /!\\ unfortunatly ther is no reset option for the actuator, a possibility might be to delete it from the flow and then to put an other, you will find it in the left column of your screen. in that case do not forget to re-link the node together as it was. \n************\n\n***WHAT TO DO AFTER***\n    \n    Once you have learned your actuator you might want to use it. Depending of the incomming data, you have several possiblities. you can find example in the ENOCEAN SENSORS EXAMPLES flow\n    \n************\n\n/!\\ we highly recommand you to save at least one group as a template in case something bad happen\n",
+        "x": 400,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "2f572da3ec11d6d2",
+        "type": "rbe",
+        "z": "a6d29d13.3c30c",
+        "g": "5b2a8d22374d4cf0",
+        "name": "filter",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "payload",
+        "topi": "payload",
+        "x": 745,
+        "y": 160,
+        "wires": [
+            [
+                "1fb27af310cb4bf8"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "1fb27af310cb4bf8",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "5b2a8d22374d4cf0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 785,
+        "y": 120,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "a97526f901c41f9d",
+        "type": "function",
+        "z": "a6d29d13.3c30c",
+        "g": "c35c250e1c6e5def",
+        "name": "Prepare",
+        "func": "let module = global.get(\"module\");\nlet payload = msg.payload;\nmsg.payload = {};\nmsg.payload.input = payload;\nif(msg.siteId !== undefined){\n    msg.payload.siteId = msg.siteId;\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2660,
+        "y": 340,
+        "wires": [
+            [
+                "4927eaa8747d5f8d"
+            ]
+        ]
+    },
+    {
+        "id": "4927eaa8747d5f8d",
+        "type": "delay",
+        "z": "a6d29d13.3c30c",
+        "g": "c35c250e1c6e5def",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "2",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 2765,
+        "y": 340,
+        "wires": [
+            [
+                "502aed4b4eb3aecf",
+                "6526a9c4cd7277d9"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "502aed4b4eb3aecf",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "c35c250e1c6e5def",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2815,
+        "y": 300,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "eae05f3289e9221e",
+        "type": "link in",
+        "z": "a6d29d13.3c30c",
+        "g": "c35c250e1c6e5def",
+        "name": "enocean cmd in",
+        "links": [
+            "3799786b12ce5f1c",
+            "04917c1f0fb05463",
+            "3e1bae81f5c1082b",
+            "e67014b4b91a8978"
+        ],
+        "x": 2555,
+        "y": 340,
+        "wires": [
+            [
+                "a97526f901c41f9d"
+            ]
+        ]
+    },
+    {
+        "id": "221f2a01cfcd32b1",
+        "type": "comment",
+        "z": "a6d29d13.3c30c",
+        "g": "c35c250e1c6e5def",
+        "name": "README",
+        "info": "This flow receive the commands from a sensor of an actuator group and send them to the Speech To Text\n",
+        "x": 2600,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "6526a9c4cd7277d9",
+        "type": "mqtt out",
+        "z": "a6d29d13.3c30c",
+        "g": "c35c250e1c6e5def",
+        "name": "",
+        "topic": "hermes/nlu/query",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "b7d2dbd0.c8ee4",
+        "x": 2910,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "476ec4b84e148c8e",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "enocean output",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2385,
+        "y": 300,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "c3f0b4252714dee5",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "enocean f6-02-01 after plus rate",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2205,
+        "y": 300,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "ebb6bd4732329069",
+        "type": "function",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "down",
+        "func": "var button = msg.payload.button;\nvar channel = msg.payload.channel;\nvar event = \"down\"\n\nvar sortedPayload = {\n    button: button,\n    channel: channel,\n    event: event\n};\nmsg = {};\nmsg.payload = sortedPayload;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1855,
+        "y": 120,
+        "wires": [
+            [
+                "c2818681f1a2273f",
+                "59fc30bbc6a3d167"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "c2818681f1a2273f",
+        "type": "enocean-btn",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "f6-02-01",
+        "encoding": "f6-02-01",
+        "delay": "",
+        "x": 2020,
+        "y": 140,
+        "wires": [
+            [
+                "661bc5d96d91d4c8"
+            ]
+        ]
+    },
+    {
+        "id": "59fc30bbc6a3d167",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "enocean f6-02-01 before down",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1895,
+        "y": 120,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "0568c3ef39500ce6",
+        "type": "function",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "release",
+        "func": "var button = msg.payload.button;\nvar channel = msg.payload.channel;\nvar event = \"release\"\n\nvar sortedPayload = {\n    button: button,\n    channel: channel,\n    event: event\n};\nmsg = {};\nmsg.payload = sortedPayload;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1855,
+        "y": 160,
+        "wires": [
+            [
+                "533df91aabc5997b",
+                "c2818681f1a2273f"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "533df91aabc5997b",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "enocean f6-02-01 before release",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1895,
+        "y": 160,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "9f49b189c20f44d4",
+        "type": "delay",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1815,
+        "y": 160,
+        "wires": [
+            [
+                "0568c3ef39500ce6"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "23fabb4c46e04980",
+        "type": "function",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "release",
+        "func": "var button = msg.payload.button;\nvar channel = msg.payload.channel;\nvar event = \"release\"\n\nvar sortedPayload = {\n    button: button,\n    channel: channel,\n    event: event\n};\nmsg = {};\nmsg.payload = sortedPayload;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1855,
+        "y": 260,
+        "wires": [
+            [
+                "63a79ab10afbe1a0",
+                "948dc8c5ac036d66"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "63a79ab10afbe1a0",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "enocean f6-02-01 before release",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1895,
+        "y": 260,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "fa430acee22c9a95",
+        "type": "delay",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1815,
+        "y": 260,
+        "wires": [
+            [
+                "23fabb4c46e04980"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "349264877af59709",
+        "type": "function",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "release",
+        "func": "var button = msg.payload.button;\nvar channel = msg.payload.channel;\nvar event = \"release\"\n\nvar sortedPayload = {\n    button: button,\n    channel: channel,\n    event: event\n};\nmsg = {};\nmsg.payload = sortedPayload;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1855,
+        "y": 360,
+        "wires": [
+            [
+                "62325ba302fa3bd7",
+                "80902b6feecdf85f"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "62325ba302fa3bd7",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "enocean f6-02-01 before release",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1895,
+        "y": 360,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "ba84200565b011ca",
+        "type": "delay",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1815,
+        "y": 360,
+        "wires": [
+            [
+                "349264877af59709"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8106f67af76c6235",
+        "type": "function",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "release",
+        "func": "var button = msg.payload.button;\nvar channel = msg.payload.channel;\nvar event = \"release\"\n\nvar sortedPayload = {\n    button: button,\n    channel: channel,\n    event: event\n};\nmsg = {};\nmsg.payload = sortedPayload;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1855,
+        "y": 460,
+        "wires": [
+            [
+                "55477e9f7fcbf983",
+                "7d2960ad62a17878"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "55477e9f7fcbf983",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "enocean f6-02-01 before release",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1895,
+        "y": 460,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "4576fc43dd8a36b5",
+        "type": "delay",
+        "z": "a6d29d13.3c30c",
+        "g": "8ecfb866bf62c3f2",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1815,
+        "y": 460,
+        "wires": [
+            [
+                "8106f67af76c6235"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "40a19ab5be8c4478",
+        "type": "comment",
+        "z": "a6d29d13.3c30c",
+        "name": "OVERVIEW",
+        "info": "This flow enables control over EnOcean devices, \nallows for the reception of EnOcean RF frames from trained sensors, \nand simulates switches to activate devices like lights.",
+        "x": 90,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "730ba41578379547",
+        "type": "trigger",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "Pending overwrite of msgDeviceList; Wait max 30sec for main Gateway devices before merge in",
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "pay",
+        "duration": "30",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1375,
+        "y": 320,
+        "wires": [
+            [
+                "8457b088f0d27ea3"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "d94a3a7163f57509",
+        "type": "change",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "Main gateway devices are used, skip pending overwrite from custom devices",
+        "rules": [
+            {
+                "t": "set",
+                "p": "reset",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1205,
+        "y": 280,
+        "wires": [
+            [
+                "730ba41578379547"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "8457b088f0d27ea3",
+        "type": "function",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "Merge in the custom devices with the main gateway devices",
+        "func": "var module = global.get(\"module\");\nvar devices = module.settingsGetValue(\"msgDeviceList\");\n\n// remove old custom devices\ndevices = devices.filter(function(device) {\n    return device.custom !== true;\n});\n\nvar customDevices = global.get(\"customDeviceList\");\nif(devices !== undefined && customDevices !== undefined){\n    devices = devices.concat(customDevices);\n    module.settingsSetValue(\"msgDeviceList\", devices);\n    msg.payload = devices;\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1435,
+        "y": 320,
+        "wires": [
+            [
+                "0767173b8a13d261"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "0767173b8a13d261",
+        "type": "debug",
+        "z": "a6d29d13.3c30c",
+        "g": "e2f01704a7c095f7",
+        "name": "msgDevicesList after merge",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1495,
+        "y": 320,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "d90c65999a45b018",
+        "type": "inject",
+        "z": "a6d29d13.3c30c",
+        "d": true,
+        "g": "e2f01704a7c095f7",
+        "name": "Simulate main gateway device read",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "3",
+        "topic": "",
+        "payload": "[{\"name\":\"Bedroom   Ceiling\",\"object\":\"Ceiling\",\"zone\":\"Bedroom\",\"type\":\"lights\",\"setOn\":{\"name\":\"On\",\"deviceId\":151,\"value\":true,\"type\":\"lights\"},\"setOff\":{\"name\":\"Off\",\"deviceId\":151,\"value\":false,\"type\":\"lights\"},\"currentState\":{\"name\":\"CurrentState\",\"deviceId\":151,\"valueMin\":false,\"valueMax\":true,\"type\":\"lights\"}},{\"name\":\"Bedroom   Shutter\",\"object\":\"Shutter\",\"zone\":\"Bedroom\",\"type\":\"blinds\",\"setOn\":{\"name\":\"On\",\"deviceId\":163,\"value\":0,\"type\":\"blinds\"},\"setOff\":{\"name\":\"Off\",\"deviceId\":163,\"value\":255,\"type\":\"blinds\"},\"setPosition\":{\"name\":\"Position\",\"deviceId\":163,\"valueMin\":0,\"valueMax\":255,\"type\":\"blinds\"},\"currentState\":{\"name\":\"CurrentPosition\",\"deviceId\":163,\"valueMin\":0,\"valueMax\":255,\"type\":\"blinds\"}},{\"name\":\"Bedroom   Wall lamp\",\"object\":\"Wall lamp\",\"zone\":\"Bedroom\",\"type\":\"dimmers\",\"setOn\":{\"name\":\"On\",\"deviceId\":153,\"value\":true,\"type\":\"dimmers\"},\"setOff\":{\"name\":\"Off\",\"deviceId\":153,\"value\":false,\"type\":\"dimmers\"},\"setBrightness\":{\"name\":\"Brightness\",\"deviceId\":155,\"valueMin\":0,\"valueMax\":255,\"type\":\"dimmers\"},\"currentState\":{\"name\":\"CurrentBrightness\",\"deviceId\":157,\"valueMin\":0,\"valueMax\":255,\"type\":\"dimmers\"}}]",
+        "payloadType": "json",
+        "x": 1435,
+        "y": 80,
+        "wires": [
+            [
+                "2960f17b4606150e"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "2960f17b4606150e",
+        "type": "function",
+        "z": "a6d29d13.3c30c",
+        "d": true,
+        "g": "e2f01704a7c095f7",
+        "name": "",
+        "func": "var module = global.get(\"module\");\nmodule.settingsSetValue(\"msgDeviceList\",msg.payload);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1495,
+        "y": 80,
+        "wires": [
+            [
+                "a2e15159437ed61b"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "a2e15159437ed61b",
+        "type": "mqtt out",
+        "z": "a6d29d13.3c30c",
+        "d": true,
+        "g": "e2f01704a7c095f7",
+        "name": "",
+        "topic": "proknx/devicelist/updated",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f96ab142.d8bab8",
+        "x": 1555,
+        "y": 80,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "6f0efc8ecfe15194",
+        "type": "comment",
+        "z": "a6d29d13.3c30c",
+        "d": true,
+        "g": "e2f01704a7c095f7",
+        "name": "TEST CODE",
+        "info": "",
+        "x": 1490,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "346b8d9384ce7733",
+        "type": "comment",
+        "z": "a6d29d13.3c30c",
+        "name": "HISTORY",
+        "info": "2023-12-14: Fixed: If no active main gateway, the custom devices were not merged in to the main variable msgDeviceList.",
+        "x": 80,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "cfcf4fbc.4250e",
+        "type": "enocean-config-node",
+        "serialport": "/dev/ttyUSB0"
+    },
+    {
+        "id": "b7d2dbd0.c8ee4",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f96ab142.d8bab8",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "3",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
